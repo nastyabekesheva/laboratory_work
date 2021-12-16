@@ -1,0 +1,4 @@
+Початковий рядок:
+hfhhd dshds dshkfd
+Результат:
+h f h h d   d s h d s   d s h k f d

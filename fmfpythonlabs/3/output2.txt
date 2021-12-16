@@ -1,0 +1,7 @@
+Початковий рядок:
+kaa sk akka akakss djf kd k a akalk
+
+Рядок:
+ sk   djf kd k a 
+Кількість ітерацій з 'ka': 4
+Кількість ітерацій з 'ak': 0
