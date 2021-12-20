@@ -2,7 +2,7 @@
 //  main.cpp
 //  linked_list
 //
-//  Created by Nastya Bekesheva on 09.12.2021.
+//  Created by Nastya Bekesheva on 20.12.2021.
 //
 
 #include <iostream>
@@ -13,13 +13,15 @@ int main(){
     int choice;
     Link *head = new Link;
     head->next = NULL;
+    
+    cout << "1. get list from input" << endl
+        << "2. print list" << endl
+        << "3. print second pointer" << endl
+        << "4. print last pointer" << endl
+        << "5. stop" << endl;
 
     while (!stop){
-        cout << "1. get list from input" << endl
-            << "2. print list" << endl
-            << "3. print second pointer" << endl
-            << "4. print last pointer" << endl
-            << "5. stop" << endl;
+        cout << "Your choice: " << endl;
         cin >> choice;
         switch(choice){
         case 1: get_list(head);
@@ -33,7 +35,7 @@ int main(){
         case 5: stop = true;
             break;
         default:
-            cout << "That is not a valid input, quitting program";
+            cout << "The input is invalid";
             stop = true;
         }
     }
