@@ -1,6 +1,0 @@
-Початковий рядок:
-kaaa ak ggg kddakka kaaaknsn jnfdj
-Рядок:
-  ggg   jnfdj
-Кількість ітерацій з 'ka': 3
-Кількість ітерацій з 'ak': 1

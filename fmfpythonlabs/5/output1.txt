@@ -1,4 +1,0 @@
-Початковий рядок:
-hi my name is python
-Рядок:
-ih eman si

@@ -1,6 +1,0 @@
-Початковий рядок:
- Hi, how  are  you? hello ?
-k;dvf vdfk vfdkl
-
-Кількість слів: 7
-Hi,  how  are  you?  hello  ?  k;dvf  vdfk  vfdkl
