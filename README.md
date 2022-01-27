@@ -1,1 +1,1 @@
-Laboratory works from university
+Labs from first term
