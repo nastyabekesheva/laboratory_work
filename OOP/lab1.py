@@ -9,14 +9,7 @@ class Dog:
     def set_weight(self, weight):
         self.weight = weight
 
-def main():
-    name = input("Name: ")
-    my_dog = Dog(name)
-    my_dog.info
-    age = input("Age: ")
-    my_dog.set_age(age)
-    weight = input("Weight: ")
-    my_dog.set_weight(weight)
-    print(f"Your dog's name is {my_dog.name}, it's age: {my_dog.age}, weight: {my_dog.weight}")
+    def get_info(self):
+        print(f"Your dog's name is {self.name}, age {self.age}, weight {self.weight}")
 
-main()
+print(Dog.__doc__)
