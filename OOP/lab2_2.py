@@ -39,13 +39,12 @@ class AnyMatrix:
             print(*i)
 
 class Matrix(AnyMatrix):
-    def __init__(self, matrixs, rows, cols):
-        super().__init__(rows, cols)
-        if matrixs.check() == False:
+    def __init__(self, matrix):
+        if matrix.check() == False:
             print("Negative integers detected. Plese refiil the matrix")
-            self.matrixs = self.refill_matrix(rows, cols)
+            self.matrix = self.refill_matrix(matrix.rows, matrix.cols)
         else:
-            self.matrixs = matrixs
+            self.matrix = matrix
             print("No negative integers detected")
 
     def refill_matrix(self, rows, cols):
