@@ -38,6 +38,9 @@ class AnyMatrix:
         for i in self.matrix:
             print(*i)
 
+    def get_item(self, item1, item2):
+        return self.matrix[item1][item2]
+
 class Matrix(AnyMatrix):
     def __init__(self, matrix):
         if matrix.check() == False:
