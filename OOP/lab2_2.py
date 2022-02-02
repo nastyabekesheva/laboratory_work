@@ -41,6 +41,9 @@ class AnyMatrix:
     def get_item(self, item1, item2):
         return self.matrix[item1][item2]
 
+    def __del__(self):
+        print("Class object (matrix) deleted")
+
 class Matrix(AnyMatrix):
     def __init__(self, matrix):
         if matrix.check() == False:
