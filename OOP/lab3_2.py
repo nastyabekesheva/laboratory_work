@@ -24,6 +24,8 @@ class Overload(AnyMatrix):
     def __add__(self, other):
         if self.rows == other.rows and self.cols == other.cols:
             add = [[self.matrix.get_item(i, j) + other.matrix.get_item(i, j) for i in range(self.cols)] for j in range(self.rows)]
+            for i in add:
+                print(*i)
             return add
         else:
             print("Can not add")
@@ -31,6 +33,8 @@ class Overload(AnyMatrix):
     def __sub__(self, other):
         if self.rows == other.rows and self.cols == other.cols:
             sub = [[self.matrix.get_item(i, j) - other.matrix.get_item(i, j) for i in range(self.cols)] for j in range(self.rows)]
+            for i in sub:
+                print(*i)
             return sub
         else:
             print("Can not substract")
@@ -42,7 +46,11 @@ class Overload(AnyMatrix):
                 for j in range(other.cols):
                     for k in range(other.rows):
                         mul[i][j] += self.matrix.get_item(i, k)*other.matrix.get_item(k, j)
+            for i in mul:
+                print(*i)
             return mul
         else:
             print("Can not multiply")
+
+
 
