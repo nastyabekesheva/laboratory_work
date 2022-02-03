@@ -88,9 +88,48 @@ $F'(0)$ - не существует $\Rightarrow$ противоречие $\Rig
 		\item[-]свойство 1-2 отражают связь операций дифференцирования и интегрирования  
 	\end{enumerate}		
 \end{remark}
-\subsection{Таблица основных неопределенных интегралов }
-
-
+\subsection{Таблица основных неопределенных интегралов}
+\begin{enumerate}
+	\item $$\int x^\alpha dx=\frac{x^{\alpha+1}}{\alpha+1}+c;\>\>\alpha\in\mathbb{R}\backslash\{-1\}$$
+	\item $$\int\frac{dx}{x}=\ln|x|+c$$
+	\item $$\int a^xdx=\frac{a^x}{\ln a}+c,\>\>a>0$$
+	\item $$\int e^xdx=e^x+c$$
+	\item $$\int\sin x\>dx	=-\cos x+c$$
+	\item $$\int\cos x\>dx=\sin x+c$$
+	\item $$\int\frac{dx}{\cos^2dx}=\tan x+c$$
+	\item $$\int\frac{dx}{\sin^x}=-\cot x+c$$
+	\item $$\int\textrm{sh}x\>dx=\textrm{ch}\>x+c$$
+	\item $$\int\textrm{ch}x\>dx=\textrm{sh}\>x+c$$
+	\item $$\int\frac{dx}{\textrm{ch}^2x}=\textrm{th}\>x+c$$
+	\item $$\int\frac{dx}{\textrm{sh}^2x}=-\textrm{cth}\>x+c$$
+	\item $$\int\frac{dx}{\sqrt{1-x^2}}=\arcsin x+c$$
+		$$\int\frac{dx}{\sqrt{a-x^2}}=\arcsin \frac{x}{a}+c$$
+	\item $$\int\frac{dx}{1+x^2}=\arctan x+c$$
+		$$\int\frac{dx}{a^2+x^2}=\frac{1}{a}\arctan\frac{x}{a}+c$$
+		Дополнительные формулы: 
+	\item $$\int\frac{dx}{x^2-a^2}=\frac{1}{2a}\ln|\frac{x-a}{x+a}|+c\textrm{ - высокий логарифм}$$ 
+	\item $$\int\frac{dx}{\sqrt{x^2+A}}=\ln|x+\sqrt{x^2+A}|+c\textrm{ - длинный логарифм }$$
+	\item $$\int\sqrt{x^2+A}\>dx=\frac{x}{2}\sqrt{x^2+A}+\frac{A}{2}\ln|x+\sqrt{x^2+A}|+c$$
+	\item $$\int\sqrt{a^2-x^2}\>dx=\frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\arcsin\frac{x}{a}+c$$
+\end{enumerate}
+В этих формулах вместо $x$ может быть записана произвольная дифференцируемая функция от $x$.
+\subsection{Основные примеры интегрирования}
+\subsubsection{Непосредственное интегрирование}
+Непосредственное интегрирование заключается в использовании тождественных преобразований подинтегральнной функции, свойства линейности интеграла и таблицы интегралов.\\
+\underline{Пример:} 
+\begin{enumerate}
+	\item $\int(\frac{\sqrt{x}+1}{\sqrt[3]{x}})^2dx=\int\frac{x+2x^{\frac{1}{2}}+1}{\sqrt[3]{x^2}}dx=\int(x^{\frac{1}{3}}+2x^{\frac{-1}{6}}+x^{\frac{-2}{3}})dx=\frac{3}{4}x^{\frac{4}{3}}+2\cdot\frac{x^{\frac{5}{6}}}{5}\cdot 6+x^{\frac{1}{3}}\cdot 3+c$
+	\item $\int\frac{dx}{\sin^2x\cos^2x}=|\cos^2x+\sin^2x=1|=\int\frac{\cos^2x+\sin^2x}{\sin^2x\cos^2x}dx=\int\frac{1}{\sin^2x}dx+\int\frac{1}{\cos^2x}dx=\tan x-\cot x+c$
+\end{enumerate}
+\subsubsection{Замена переменной}
+\begin{theorem}
+Пусть на $\forall x\in(a;\>b)\>\>\int f(x)dx=F(x)+c$, (на всем интервале $(a;\>b)$ известна первообразная функции): $F'(x)=f(x)\>\>x=\varphi(t)$ - функция дифференцируемая; причем $\varphi(t):\>t\in(\alpha;\>\beta)$ и $\varphi:(\alpha;\>\beta)\rightarrow(a;\>b)$.
+Тогда справедлива формула:
+$$\int f(\varphi(t))\cdot \varphi_t'(t)dt=F(\varphi(t))+c$$	
+\end{theorem}
+\begin{proof}
+	$(f(\varphi(t)))_t'=F_\varphi'(\varphi(t))\cdot\varphi_t'(t)=|\varphi(t)=x|=F_x'(x)\varphi_t'(t)=|F_x'(x)=f(x)|=f(x)\cdot\varphi(t)=|x=\varphi(t)|=f(\varphi(t))\cdot\varphi_t'(t)\Rightarrow F(\varphi(t))\textrm{ первообразная для } \\f(\varphi(t))\cdot\varphi_t'(t)\Rightarrow\int f(\varphi(t))\cdot\varphi_t'(t)dt=F(\varphi(t))+c$
+\end{proof}
 
 
 
