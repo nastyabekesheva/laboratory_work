@@ -1,0 +1,102 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[russian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\begin{document}
+\title{Математический анализ 2}
+\maketitle
+\date{}
+\catcode`@=11
+\def\caseswithdelim#1#2{\left#1\,\vcenter{\normalbaselines\m@th
+  \ialign{\strut$##\hfil$&\quad##\hfil\crcr#2\crcr}}\right.}% you might like it without the \strut
+\catcode`@=12
+%
+\def\bcases#1{\caseswithdelim[{#1}}
+\def\vcases#1{\caseswithdelim|{#1}}
+%
+\newpage
+\tableofcontents
+\newpage
+\section{Неопределенный интеграл}
+\subsection{Понятие первообразной и неопределеного интеграла}
+Функция $F(x)$ называется \textbf{первообразной} функции $f(x)$ на множестве $X\subset \mathbb{R}$, или $\forall x\in X\>\>F'(x)=f(x)$.
+\begin{theorem}
+Если $F(x)$ - некоторая первообразная для $f(x)$ на множестве $X$, то любая другая первообразная имеет вид: $F(x)+c$, где $c=const$ - произвольная.
+	
+\end{theorem}
+\begin{proof}
+Пусть $F(x)$ - первообразная функции  $f(x)$, т.е.  $F'(x)=f(x)$; Тогда: $(F(x)+c)'=F'(x)+0=f(x)\Rightarrow F(x)+c$ - первообразная для $f(x)(c=const)$.\\ 
+Пусть $F_1(x)$ - тоже первообразная для $f(x)$, т.е. $F_1'(x)=f(x)$.\\
+Рассмотрим разность: $F_1(x)-F(x);$\\
+$(F_1(x)-F(x))'=F_1'(x)-F'(x)=f(x)-f(x)=0\Rightarrow F_1(x)-F(x)=c=const$, т.е. :$F_1(x)=F(x)+c$
+\end{proof}
+Таким образом множество всех первообразных функции $f(x)$ имеет вид $F(x)+c$.\\
+Множество всех первообразных функции $f(x)$ называется \textbf{неопределенным интегралом} этой функции и обозначается $\int f(x)dx$.\\
+$f(x)$ - подинтегральная функция, $f(x)dx$ - подинтегральное выражение, $x$ - переменная инегрирования, $\int$ - неопределенный интеграл.\\ \underline{Пример:}\\
+$${
+f(x) = sign(x) = \bcases{1,\>\> x>0\cr0,\>\> x=0\cr -1,\>\> x<0},\>\>x\in(-1;\>1).
+}$$
+Предположим, что существует такая первообразная $\exists F(x):\> \forall x\in(-1;\>1):\>\>F'(x)=sign(x)$, т.е.
+$${
+F'(x)=  \bcases{1,\>\> x\in(0;\>1)\cr0,\>\> x=0\cr -1,\>\> x<\in(-1;\>0)}\Rightarrow \begin{cases}
+F'(x)=0\cr F_-'(x)=-1\cr F_+'(x)=1
+\end{cases}\Rightarrow
+}$$ 
+$F'(0)$ - не существует $\Rightarrow$ противоречие $\Rightarrow F(x)$ не существует.
+\begin{remark}
+Достаточным условием существования первообразной у функции  на данном множестве является ее непрерывность на этом множестве.
+\end{remark}
+\newpage
+\subsection{Свойства неопределенного интеграла}
+Пусть $\int f(x)dx=F(x)+c\>(F'(x)=f(x))$.
+\begin{enumerate}
+	\item Производная от неопределенного интеграла равна подинтегральной функции, дифференциал неопределенного интеграла равен подинтегральному выражению. \\
+	$$(\int f(x)dx)'_x=f(x);\>\> d(\int f(x)dx)=f(x)dx.$$
+	\begin{proof}
+		$(\int f(x)dx)'_x=(F(x)+c)'_x=F'(x)+c'=f(x);$	\\$d(\int f(x)dx)=(\int f(x)dx)'_xdx=f(x)dx$.
+	\end{proof}
+	\item Неопределенный интеграл от дифференциала некоторой функции равен сумме этой функции и произвольной постоянной.
+	$$\int d(F(x))=F(x)+c.$$
+	\begin{proof}
+		$\int d(F(x))=\int F'(x)dx=\int f(x)dx=F(x)+c$
+	\end{proof}
+	\item Постоянный множитель можно выносить за знак интеграла.
+	$$\int af(x)dx=a\int f(x)dx,\>\> a=const.$$
+	\begin{proof}
+		$\int af(x)dx=\int a F'(x)dx=\int(aFx)'dx=\int d(aF(x))=(aF(x)++c_1)=a(F(x)+\frac{c_1}{a}=\Big|c=\frac{c_1}{a}\Big|=a(f(x)+c)=a\int f(x)dx$
+	\end{proof}
+	\item Интеграл суммы двух функций равен сумме интегралов этих функций.
+	$$\int(f(x)+g(x))dx=\int f(X)dx+\int g(x)dx.$$
+	\begin{proof}
+		Пусть $\int g(x)dx=G(x)+c$; тогда $\int(f(x)+g(x))dx=\int(F'(x)++G'(x))dx=\int(F(x)+G(x))'dx=\int d(F(x)+G(x))=F(x)+G(x)++c=\Big|c=c_1+c_2\Big|=(F(x)+c_1)+(G(x)c_2)=\int f(x)dx+\int g(x)dx$
+	\end{proof}
+\end{enumerate}
+\begin{remark}\
+	\begin{enumerate}
+		\item[-]свойство 4 справедливо для любого конечного числа слогаемых 
+		\item[-]свойство 3-4 называются свойством линейности неопределенного интеграла 
+		\item[-]свойство 1-2 отражают связь операций дифференцирования и интегрирования  
+	\end{enumerate}		
+\end{remark}
+\subsection{Таблица основных неопределенных интегралов }
+
+
+
+
+
+
+
+
+
+
+\end{document}
