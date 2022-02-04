@@ -12,4 +12,4 @@ class Dog:
     def get_info(self):
         print(f"Your dog's name is {self.name}, age {self.age}, weight {self.weight}")
 
-print(Dog.__doc__)
+print(Dog.info)
