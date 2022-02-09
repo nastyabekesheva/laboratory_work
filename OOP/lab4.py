@@ -1,10 +1,6 @@
 from lab2_2 import AnyMatrix
 
-class OverloadData(AnyMatrix):
-    def __init__(self, rows, cols):
-        self.matrix = self.__get__(rows, cols)
-        self.rows = rows
-        self.cols = cols
+class OverloadData:
 
     def __get__(self, rows, cols):
         temp = True
@@ -19,7 +15,19 @@ class OverloadData(AnyMatrix):
                 return matrix
                 temp = False
 
-    def __print__(self):
-        for i in self.matrix:
-            print(*i)
+
+    def __rshift__(self, item):
+        item.item = input()
+        return item
+
+    def __lshift__(self, other):
+        print(other.item)
+    
+
+cout = OverloadData()
+cin = OverloadData()
+
+a = OverloadData()
+cin >> a
+cout << a
 
