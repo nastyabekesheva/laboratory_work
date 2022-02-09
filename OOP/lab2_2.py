@@ -39,8 +39,8 @@ class AnyMatrix:
         for i in self.matrix:
             print(*i)
 
-    def __getitem__(self, item1, item2):
-        return self.matrix[item1][item2]
+    def __getitem__(self, item1):
+        return self.matrix[item1]
 
     def __del__(self):
         print("Class object (matrix) deleted")
