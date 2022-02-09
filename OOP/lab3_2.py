@@ -11,18 +11,19 @@ class Overload(AnyMatrix):
         if self.rows == other.rows and self.cols == other.cols:
             for i in range(self.rows):
                 for j in range(self.cols):
-                    if self.matrix.__getitem__(i, j) != other.matrix.__getitem__(i, j):
+                    if self.matrix[i][j] != other.matrix[i][j]:
                         val = False
             if val == True:
                 print("Equal")
             else:
                 print("Not equal")
+            return val
         else:
             print("Can not compare")
 
     def __add__(self, other):
         if self.rows == other.rows and self.cols == other.cols:
-            add = [[self.matrix.__getitem__(i, j) + other.matrix.__getitem__(i, j) for i in range(self.cols)] for j in range(self.rows)]
+            add = [[self.matrix[i][j] + other.matrix[i][j] for i in range(self.cols)] for j in range(self.rows)]
             for i in add:
                 print(*i)
             return add
@@ -31,7 +32,7 @@ class Overload(AnyMatrix):
 
     def __sub__(self, other):
         if self.rows == other.rows and self.cols == other.cols:
-            sub = [[self.matrix.__getitem__(i, j) - other.matrix.__getitem__(i, j) for i in range(self.cols)] for j in range(self.rows)]
+            sub = [[self.matrix[i][j] - other.matrix[i][j] for i in range(self.cols)] for j in range(self.rows)]
             for i in sub:
                 print(*i)
             return sub
@@ -44,7 +45,7 @@ class Overload(AnyMatrix):
             for i in range(self.rows):
                 for j in range(other.cols):
                     for k in range(other.rows):
-                        mul[i][j] += self.matrix.__getitem__(i, k)*other.matrix.__getitem__(k, j)
+                        mul[i][j] += self.matrix[i][k]*other.matrix[k][j]
             for i in mul:
                 print(*i)
             return mul
@@ -63,11 +64,11 @@ if __name__ == '__main__':
     uo = Overload(u)
     wo = Overload(w)
     print("\nOverloading addition: ")
-    uo.__add__(wo)
+    uo + wo
     print("\nOverloading substraction: ")
-    uo.__sub__(wo)
+    uo - wo
     print("\nOverloading multiplication: ")
-    uo.__mul__(wo)
+    uo * wo
     print("\nOverloading comparison: ")
-    uo.__eq__(wo)
+    uo == wo
 
