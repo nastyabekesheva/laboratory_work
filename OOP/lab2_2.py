@@ -1,11 +1,12 @@
 class AnyMatrix:
     def __init__(self, rows, cols):
-        self.matrix = self.get_matrix(rows, cols)
+        self.matrix = self.__getmatrix__(rows, cols)
         self.rows = rows
         self.cols = cols
 
     def __getmatrix__(self, rows, cols):
         matrix = [[0 for j in range(cols)] for i in range(rows)]
+        print("Enter values: ")
         for i in range(rows):
             for j in range(cols):
                 matrix[i][j] = int(input())
@@ -49,7 +50,7 @@ class Matrix(AnyMatrix):
     def __init__(self, matrix):
         if matrix.__check__() == False:
             print("Negative integers detected. Plese refiil the matrix")
-            self.matrix = self.refill_matrix(matrix.rows, matrix.cols)
+            self.matrix = self.__refill__(matrix.rows, matrix.cols)
         else:
             self.matrix = matrix
             print("No negative integers detected")
@@ -69,18 +70,17 @@ if __name__ == '__main__':
     n = int(input("Enter amount of rows: "))
     m = int(input("Enter amount of columns: "))
     matrix = AnyMatrix(n, m)
-    print("Creating class object...\n")
-    print("Enter values: \n")
+    print("\nCreating class object...\n")
     matrix.__getsize__()
-    print("Your matrix: \n")
+    print("\nYour matrix: ")
     matrix.__print__()
-    val = int(input("Enter value to get"))
+    val = int(input("\nEnter value to get: "))
     matrix.__getelement__(val)
-    print("Checking for negative values")
+    print("\nChecking for negative values...")
     pmatrix = Matrix(matrix)
-    print("Your matrix: \n")
+    print("\nYour matrix: ")
     pmatrix.__print__()
-    print("Clearing the matrix")
+    print("\nClearing the matrix..")
     pmatrix.__clear__()
     pmatrix.__print__()
 
