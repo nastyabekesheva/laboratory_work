@@ -1,10 +1,10 @@
 class TemplateMatrix:
     def __init__(self, rows, cols):
         self.matrix = self.__get__(rows, cols)
-
-    def __get__(self, rows, cols):
         self.rows = rows
         self.cols = cols
+
+    def __get__(self, rows, cols):
         matrix = []
         for i in range(rows):
             temp = input().split()
@@ -14,8 +14,8 @@ class TemplateMatrix:
                 print(f"Incorect input at row {i}. Plese try again")
         return matrix
     
-    def __copy__(self, matrix):
-        return self.matrix
+    def __copy__(self, other):
+        self.matrix = other.matrix
 
     def __getitem__(self, i, j):
         return self.matrix[i][j]
@@ -25,7 +25,7 @@ class TemplateMatrix:
 
     def __add__(self, other):
         if self.rows == other.rows and self.cols == other.cols:
-            add = [[self.matrix.get_item(i, j) + other.matrix.get_item(i, j) for i in range(self.cols)] for j in range(self.rows)]
+            add = [[self.matrix.__getitem__(i, j) + other.matrix.__getitem__(i, j) for i in range(self.cols)] for j in range(self.rows)]
             for i in add:
                 print(*i)
             return add
@@ -34,7 +34,7 @@ class TemplateMatrix:
 
     def __sub__(self, other):
         if self.rows == other.rows and self.cols == other.cols:
-            sub = [[self.matrix.get_item(i, j) - other.matrix.get_item(i, j) for i in range(self.cols)] for j in range(self.rows)]
+            sub = [[self.matrix.__getitem__(i, j) - other.matrix.__getitem__(i, j) for i in range(self.cols)] for j in range(self.rows)]
             for i in sub:
                 print(*i)
             return sub
@@ -47,7 +47,7 @@ class TemplateMatrix:
             for i in range(self.rows):
                 for j in range(other.cols):
                     for k in range(other.rows):
-                        mul[i][j] += self.matrix.get_item(i, k)*other.matrix.get_item(k, j)
+                        mul[i][j] += self.matrix.__getitem__(i, k)*other.matrix.__getitem__(k, j)
             for i in mul:
                 print(*i)
             return mul
@@ -59,7 +59,7 @@ class TemplateMatrix:
         if self.rows == other.rows and self.cols == other.cols:
             for i in range(self.rows):
                 for j in range(self.cols):
-                    if self.matrix.get_item(i, j) != other.matrix.get_item(i, j):
+                    if self.matrix.__getitem__(i, j) != other.matrix.__getitem__(i, j):
                         val = False
             if val == True:
                 print("Equal")
@@ -86,3 +86,6 @@ class TemplateMatrix:
     def __print__(self):
         for i in self.matrix:
             print(*i)
+
+    def shitprint(self):
+        print(self.matrix)

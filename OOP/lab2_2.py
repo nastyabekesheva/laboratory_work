@@ -45,6 +45,12 @@ class AnyMatrix:
     def __del__(self):
         print("Class object (matrix) deleted")
 
+    def __copy__(self, other):
+        if self.rows == other.rows and self.cols == other.cols:
+            for i in range(self.rows):
+                for j in range(self.cols):
+                    other.matrix[i][j] = self.matrix[i][j]
+
 
 class Matrix(AnyMatrix):
     def __init__(self, matrix):
@@ -83,6 +89,8 @@ if __name__ == '__main__':
     print("\nClearing the matrix..")
     pmatrix.__clear__()
     pmatrix.__print__()
+    m = AnyMatrix(n, m)
+    matrix.__copy__(m)
 
 
 

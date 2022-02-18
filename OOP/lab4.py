@@ -16,9 +16,8 @@ class OverloadData:
                 temp = False
 
 
-    def __rshift__(self, item):
-        item.item = input()
-        return item
+    def __rshift__(self, other):
+        other.item = input()
 
     def __lshift__(self, other):
         print(other.item)

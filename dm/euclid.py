@@ -27,7 +27,7 @@ class Number:
 
 
 if __name__ == '__main__':
-    a = Number(456)
-    b = Number(123)
+    a = Number(633)
+    b = Number(497)
     g = a.__gcd__(b)
     print(f"\n gcd = {g}")

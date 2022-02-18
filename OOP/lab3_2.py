@@ -64,11 +64,12 @@ if __name__ == '__main__':
     uo = Overload(u)
     wo = Overload(w)
     print("\nOverloading addition: ")
-    uo + wo
+    uo = uo + wo
     print("\nOverloading substraction: ")
-    uo - wo
+    uo = uo - wo
     print("\nOverloading multiplication: ")
-    uo * wo
+    uo = uo * wo
     print("\nOverloading comparison: ")
     uo == wo
+    
 
