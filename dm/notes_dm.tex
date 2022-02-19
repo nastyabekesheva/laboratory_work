@@ -1,0 +1,429 @@
+\documentclass[a4paper,12pt]{bookest}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mdframed} 
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{tikz} 
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs,caption}          \usepackage[flushleft]{threeparttable}
+\definecolor{black}{cmyk}{.30,0,0,.67} 
+\title{Дискретна математика 2}
+\date{\today}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{property}{Property}
+\newtheorem*{property*}{Property}
+\newtheorem{cons}{Consequence}
+\newtheorem*{cons*}{Consequence}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\blank}{ }
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newmdenv[   linecolor=black,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{leftrule}
+
+\NewDocumentEnvironment{example}{O{\textbf{Example:}}} {\begin{leftrule}\noindent\textcolor{black}{#1}\par}
+{\end{leftrule}}
+\catcode`@=11
+\def\caseswithdelim#1#2{\left#1\,\vcenter{\normalbaselines\m@th
+  \ialign{\strut$##\hfil$&\quad##\hfil\crcr#2\crcr}}\right.}\catcode`@=12
+
+\def\bcases#1{\caseswithdelim[{#1}}
+\def\vcases#1{\caseswithdelim|{#1}}
+
+
+\begin{document}
+\maketitle
+\vspace*{\fill}
+\begin{flushright}
+\emph{*Лекция начинается*}\\
+\emph{-Сегодня у нас клуб уопоротых любителей математики.}
+\end{flushright}
+\tableofcontents
+\chapter{Лекція 1}
+\section{Подільність чисел}
+	\begin{enumerate}
+		\item[-]властивості натуральних чисел\\
+		$\mathbb{N}=\{1,\>2,\>3,\dots\}\\
+		\mathbb{N}_0=\{0,\>1,\>2,\>3,\dots\}\\
+		\mathbb{Z}=\{-1,\>0,\>1,-2,\>2,\dots\}$
+	\end{enumerate}
+	\begin{definition}
+		$a$ поділяється на $b\>\>-\>\>a\>\vdots\>b$ або  $b$ ділить $a$($b$ є дільником$a$)$\>\>b\>|\>a.\\
+		a\>\vdots\>b\Leftrightarrow\exists k\in\mathbb{Z}:\>\>a=kb$
+	\end{definition}
+	\begin{property*}$\\$
+	\begin{enumerate}
+		\item $a\neq 0,\>\>a\>\vdots\>0$
+		\item $a\neq 0,\>\>0\>\vdots\>a$
+		\item $a\>\vdots\>b,\>b\>\vdots\>c\Rightarrow a\>\vdots\>c$
+		\item $a\>\vdots\>1$
+		\item $a\>\vdots\>c,\>b\>\vdots\>c\Rightarrow (\alpha a\pm\beta b)\>\vdots\>c$
+		\item $a\>\vdots\>b\Leftrightarrow ac\>\vdots\>bc,\>c>0$
+	\end{enumerate}		
+	\end{property*}
+	\begin{theorem}[про ділення з остачею] 
+	$$\forall a,\>b\in\mathbb{Z}\>\>\exists!q,\>r\>:\>q\in\mathbb{Z},\>r\in\mathbb{N}\>\>0\leq r\leq |b|\>\>a=bq+r$$
+	\newpage
+	\begin{proof}$\\$
+		\begin{enumerate}
+			\item Існування\\
+			$bq,\>q\in\mathbb{Z}$ - росте необмежено. $\exists q\>;\>bq\leq a\leq b(q+1),\>r=a-bq.$
+			\item Єдиність\\
+			Нехай $a=bq+r,\>\>a=bq'+r'\\
+			0=b(q-q')+(r-r')\Rightarrow(r-r')\>\vdots\>b,\>-|b|<r-r'<|b|\Rightarrow\\\Rightarrow r-r'=0,\>q=q'.$
+		\end{enumerate}
+	\end{proof}
+	\end{theorem}
+	$q=\lfloor\frac{a}{b}\rfloor$ - частка.\\
+	$r=a+b\cdot\lfloor\frac{a}{b}\rfloor$ - остача $=a\mod b$.
+\section{Найбільший спільний дільник	}
+Найбільший спільний дільник: НСД$(a,\>b)$(українська нотація), $\gcd(a,\>b)$(англійська нотація), $(a,\>b)$(спеціальзована література з теорії чисел). 
+	\begin{definition}
+		$\gcd(a,\>b)=d:$
+		\begin{enumerate}
+			\item $a\>\vdots\>d,\>b\>\vdots\>d$
+			\item $d\>-\>\max$ додатнє число, яке задовільняє 1.
+		\end{enumerate}
+	\end{definition}
+	\begin{property*}$\\$
+		\begin{enumerate}
+			\item $\gcd(a,\>b)=b\Leftrightarrow a\>\vdots\>b$
+			\item $a\neq 0:\>\gcd(a, 0)=a$
+			\item $\gcd(a,\>b)$ поділяеться на довільний спільний дільник a та b
+			\item $c>0:\>gcd(ac,\>bc)=c\gcd(a,\>b)$ 
+			\item $d=\gcd(a,\>b)\Rightarrow \gcd(\frac{a}{d},\>\frac{b}{d})$
+		\end{enumerate}
+	\end{property*}
+	\newpage
+	\begin{lemma}
+		$$\gcd(a,\>b)=\gcd(b,\>a-b)$$
+	\begin{proof}
+		$\\ d=\gcd(a,\>b),\>d'=\gcd(b,\>a-b)\\\textrm{Нехай } d>d'\\a\>\vdots\>d,\>b\>\vdots\>d\Rightarrow(a-b)\>\vdots\>d\Rightarrow d\textrm{ - спільний дільник b та a-b}\Rightarrow d'\>\vdots\>d$ - Упс!\\
+		$\textrm{Нехай }d<d'\\ b\>\vdots\>d',\>a-b\Rightarrow b+(a-b)=a\>\vdots\>d'$ - Упс!
+	\end{proof}
+	\begin{cons*}
+		$a\geq b:\>\>\gcd(a,\>b)=(b,\>a\mod b)$
+		\begin{proof}
+			$a=bq+r\\
+			\gcd(a,\>b)\underbrace{=\dots=}_{q\textrm{ разів}}\gcd(r,\>b)$
+		\end{proof}
+	\end{cons*}
+	\end{lemma}
+\section{Алгоритм Евкліда}
+Вхід: $a,\>b\in\mathbb{N}$\\
+Вихід: $d=\gcd(a,\>b)$\\\\
+$\tab r_0:=a,\>r_1:=b$\\
+$\tab r_0=r_1q_1+r_2$\\
+$\tab r_1=r_2q_2+r_3$\\
+$\tab r_2=r_3q_3+r_4$\\
+$\tab\quad\vdots$\\
+$\tab r_{n-1}=r_nq_n,\>\>r_n=d$
+\begin{proof}
+	$r_{i+1}=r_{i}\mod r_{i-1}\\ r_0\geq r_1>r_2>\dots>r_{n}>r_{n+1}=0\\\gcd(a,\>b)-\gcd(r_0,\>r_1)=\gcd(r_1,\>r_2)=\gcd(r_2,\>r_3)=\dots=\\\ =gcd(r_{n-1},\>r_n)=\gcd(r_n,\>0)=0$
+\end{proof}
+\begin{lemma}
+	$$\forall i,\>r_{i+2}<\frac{r_i}{2}$$
+	\begin{proof}
+		$r_i=r_{i+1}q_{i+1}+r_{i+2}\geq r_{i+1}+r_{i+2}>r_{i+2}+r_{i+2}=2r_{i+2}$
+	\end{proof}
+\end{lemma}
+$\Rightarrow$ АЕ зробить $\leq2\lceil\log_2a\rceil$ кроків.
+\begin{example}
+	$\gcd(123,\>456).$\\
+	$123=456\cdot 0+123$\\
+	$456=3\cdot 123+87$\\
+	$123=87\cdot 1+36$\\
+	$87=36\cdot 2+15$\\
+	$36=15\cdot 2+6$\\
+	$15=6\cdot 2+3$\\
+	$6=3\cdot2\Rightarrow \gcd = 3$
+\end{example}
+\begin{example}
+	Для яких $n:\>\>\frac{3n+1}{5n+1}$ - скоротний?\\
+	$5n+2=(3n+1)\cdot 1+(2n+1)$\\
+	$3n+1=(2n+1)\cdot 1+n$\\
+	$2n+1=n\cdot 2+1$\\
+	$n=1\cdot n\Rightarrow\gcd(3n+1,\>5n+2)=1$
+\end{example}
+\chapter{Лекція 2}
+\section{Найменше спільне кратне}
+$a,\>b\in\mathbb{N}$\\
+M = НСK(a, b), lcm(a, b), [a, b]
+\begin{enumerate}
+	\item $M\>\vdots\>a,\>\>M\>\vdots\>b$
+	\item $M\>-\>\min$ таке число
+\end{enumerate}
+\begin{property*}$\\$
+	\begin{enumerate}
+		\item $\lcm(a,\>0)$ - 'на доске был нарисован грустный смайлик'
+		\item $\lcm(a,\>b) = a\Leftrightarrow a\>\vdots\>b$
+		\item a, b -взаємнопрості $\Rightarrow\lcm(a,\>b)=a\cdot b$
+		\item Довільне спільне кратне a та b $\vdots\>\lcm(a,\>b)$
+		\item $\forall c>0,\>\lcm(ac,\>bc)=c\lcm(a,\>b)$
+		\item $\frac{\lcm(a,\>b)}{a}$ та $\frac{\lcm(a,\>b)}{b}$ - взаємнопрості
+	\end{enumerate}
+\end{property*}
+\begin{theorem}
+	$$\forall a,\>b\in\mathbb{N}:\>\>\gcd(a,\>b)\cdot\lcm(a,\>b)=a\cdot b$$
+	\begin{proof}
+		Нехай $d=\gcd(a,\>b),\>a=a_1\cdot d,\>b=b_1\cdot d.\\\gcd(a_1,\>b_1)=1,\>\lcm(a_1,\>b_1)=a,_1\cdot b_1,\>\lcm(a,\>b)=d\cdot a_1\cdot b_1\\ d\cdot\lcm(a,\>b)=(a_1\cdot d)\cdot(b_1\cdot d)=a\cdot b$
+	\end{proof}
+\end{theorem}
+\begin{theorem}
+	$$\forall a,\>b\in\mathbb{N}:\>\>\gcd(a,\>b,\>c)=\gcd(\gcd(a,\>b),\>c)=\gcd(a,\>\gcd(b,\>c))$$
+\end{theorem}$\\$
+	\begin{proof}
+		$d=\gcd(a,\>b,\>c)\\d'=\gcd(a,\>b)\Rightarrow d'\>\vdots\>d,\>c\>\vdots\>d\Rightarrow d=\gcd(c,\>d')$
+	\end{proof}
+$$\lcm(a,\>b,\>c)=\lcm(\lcm(a,\>b),\>c)=\lcm(a,\>\lcm(b,\>c)$$
+\begin{theorem}
+$$\forall a,\>b,\>c\in\mathbb{N}:\>\>\lcm(a,\>b,\>c)=\frac{a\cdot b\cdot c\cdot \gcd(a,\>b,\>c)}{\gcd(a,\>b)\cdot\gcd(b,\>c)\cdot\gcd(c,\>a)}$$	
+\end{theorem}$\\$
+Решітка(\emph{lattice}) - $<A,\>\leq,\>\sup,\>\inf>$
+\begin{example}
+	\begin{enumerate}
+		\item множини, $\subseteq,\>\cap,\>\cup$\\
+		$|A|+|B|=|A\cup B|+|A\cap B|$
+		\item $\mathbb{R},\>\leq,\>\max,\>\min$\\
+		$a+b=\max\{a,\>b\}+\min\{a,\>b\}$
+		\item $\mathbb{N},\>\>\vdots\>,\>\lcm,\>\gcd$\\
+		$a\cdot b=\lcm(a,\b)\cdot\gcd(a,\>b)$
+	\end{enumerate}
+	$\max \{a_1,\dots,a_n\}=a_1+\dots+a_n-\min\{a_1,\>a_2\}-\dots-\min\{a_{n-1},\>a_n\}+\min\{a_1,\>a_2,\>a_3\}-\min\{a_1,\>a_2,\>a_3,\>a_4\}$	
+\end{example}	
+\section{Eвклідові послідовності}
+Послідовність $a_0,\>a_1,\dots,\>a_i\in\mathbb{R}$ - евклідова, якщо $\forall n,\>m\in\mathbb{N}_0\
+\>\>n>m:\>\>\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n-m})\Rightarrow\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n\mod m})$
+\begin{theorem}
+	$$(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n,\>m:\>\>\gcd(a_n,\>a_m)=a_{\gcd(n,\>m)}$$
+	\begin{proof}$\\$
+		$n=m$ - очевидна.\\\\
+		$n>m:\\\tab d=\gcd(n,\>m,)$ АЕ породжуе послідовність $r_0,\>r_1,\>\dots,r_t$, де $r_0=n,\\\tab r_1=m,\>r_t=d,\>r_{t+1}=0,\>r_{i+1}=r_{i-1}\mod r_i$ $\\\tab \gcd(a_n,\>a_m)=\gcd(a_{r_0},\>a_{r_1}=\gcd(a_n,\>a_m)=\gcd(a_{r_1},\>a_{r_2}=\dots=\gcd(a_{t_0},\>a_{t_{i+1}})=a_{r_t}=a_0$
+	\end{proof}
+	\begin{cons*}$\\$
+		Якщо додатково $a_1=1$, то $\gcd(n,\>m)=1\Rightarrow\gcd(a_n,\>a_m)$
+	\end{cons*}
+\end{theorem}
+\begin{example}
+	$a_k=k$	
+\end{example}
+\begin{example}
+	$a_k=2_k-1\\\gcd(a_n,\>a_m)=^{?}\gcd(a_m,\>a_{n-m})\\a_n=2^n-1=2^n-2^m-1=2^m(2^{n-m}-1)+(2^m-1)=2^m\cdot a_{n-m}+a_m=a_n\\\gcd(2^n-1,\>2^m-1)=2^{\gcd(n,\>m)}-1$	
+\end{example}
+\begin{example}
+	$a_k=\alpha^k-1,\>\alpha\in\mathbb{N},\>\alpha\geq 2\\a_0=0,\>a_1=\alpha-1\neq 1$	
+\end{example}
+\begin{example}
+	$a_k=\alpha^k-\beta^k,\>\alpha,\>\beta\in\mathbb{N},\>\alpha>\beta\geq 2$	
+\end{example}
+$(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\gcd(a_n,\>a_m)=1$
+\chapter{Лекція 3}
+\section{Розширений алгоритм Евкліда}
+\begin{theorem}[лема Безу]
+	$$\forall a,\> b\in\mathbb{N},\>d=\gcd(a,\>b)\>\>\>\>\exists u,\> v\in\mathbb{Z},\>d=au+bv$$
+	\begin{proof}
+		$\\r_0=r_1q_1+r_2\\
+		r_1=r_2q_2+r_3\\
+		r_2=r_4q_4+r_5\\
+		\tab\vdots\\
+		r_{n-3}=r_{n-2}q_{n-2}+r_{n-1}\\
+		r_{n-2}=r_{n-1}q_{n-1}+r_{n}\\
+		r_{n-1}=r_nq_n\\$
+		Тоді $d=r_n=r_{n-2}-r_{n-1}q_{n-1}=r_{n-2}-q_{n-1}(r_{n-3}-r_{n-2}q_{n-2})=\dots=\\=u\cdot r_0+v\cdot r_1$
+	\end{proof}
+	\begin{cons*}
+	\begin{enumerate}$\\$
+		\item $d=au+bv\Rightarrow$ одне з чисел $u,\> v$ - недодатнє, а інше - невід'ємне.
+		\item $d=\gcd(x1,\>x_2,\>\dots,\>x_k)\Rightarrow a_1,\>a_2,\>\dots,\>a_k\in\mathbb{Z}:\>\>d=a_1x_1+a_2+x_2+\dots+a_kx_k$
+		\item $\forall i:\>\>u_i,\>v_i\in\mathbb{Z}\>\>r_i=au_i+bv_i\Rightarrow u_0=1,\>v_0=0,\>u_1=0,\>v_1=1\\ u_{i+1}=u_{i-1}-u_iq_i,\>v_{i+1}=v_{i-1}-v_iq_i,\>r_{i+1}=r_{i-1}-q_ir_i=(au_{i-1}+bv_{i-1})-\\-q_i(au_i+bv_i)=a\underbrace{(u_{i-1}-q_iu_i)}_{u_{i+1}}+b\underbrace{(v_{i-1}-q_iv_i)}_{v{i+1}}$
+	\end{enumerate}	
+	\end{cons*}
+\end{theorem}
+\begin{example}
+	$\gcd(123,\>456).$\\
+	$123=456\cdot 0+123$\\
+	$456=3\cdot 123+87\tab q_1=3$\\
+	$123=87\cdot 1+36\tab q_2=1$\\
+	$87=36\cdot 2+15\tab q_3=2$\\
+	$36=15\cdot 2+6\tab q_4=2$\\
+	$15=6\cdot 2+3\tab q_5=2$\\
+	$6=3\cdot2\tab q_6=2\Rightarrow \gcd = 3\\$
+	\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+ 		\hline
+ 		$\blank$ & $\blank$ & $q_1$ & $q_2$ & $q_3$ & $q_4$ & $q_5$ & $\blank$\\ \hline
+ 		$\blank$ & $\blank$ & 3 & 1 & 2 & 2 & 2 & $\blank$\\ \hline
+ 		$u_i$ & 1 & 0 & 1 & -1 & 3 & -7 & 17\\ \hline
+ 		$v_i$ & 0 & 1 & -3 & 4 & -11 & 26 & -63\\ 
+ 		\hline
+	\end{tabular}
+	\end{center}
+\end{example}
+\begin{theorem}
+	$$\gcd(a,\>b)\>-\>\min\textrm{ додатнє число , яке має форму } au+bv,\>\>u,\>v\in\mathbb{Z}$$
+	\begin{proof}$\\$
+		\begin{enumerate}
+  \item $C=\{au+bv\>|\>u,\>v\in\mathbb{Z}\}\\ d'=\min\{d'>0\},\>d\in C$ тоді $\forall d\in C:\>c\>\vdots\>d'\\$ Нехай $c'=au'+bv',\>c'\>\vdots\>d',$ тоді $c=q'd'+r',\>0<r'<d'\\r'=c'-q'd'=(au'+bv')-q'(au'_\alpha+bv'_\alpha)=\\=a(u'=-q'u'_\alpha)+b(v'-q'v'_\alpha)$ - Упс!
+  \item $d=au+bv=\gcd(a,\>b)\Rightarrow d\>\vdots\>d'\\a=a\cdot1+b\cdot0\Rightarrow a\>\vdots\>d',\>\>b=a\cdot0+b\cdot1\Rightarrow b\>\cdots\>d'\\\Rightarrow d'$ - спільний дільник $a$ та  $b\Rightarrow d'=au_\alpha'+bv_\alpha'\>\vdots\>d\Rightarrow d=d'$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\section{Лінійні діафантові рівняння}
+$f(x_1,\>x_2\>,\dots,\>x_n)=0,\>x_i\in\mathbb{Z}\\ a_1x_1+a_2x_2+\dots+a_nx_n=c,\>a_i\in\mathbb{Z},\>c\in\mathbb{Z}\\ ax+by=c,\>\>a,\>b,\>c\in\mathbb{Z}$ - коефіціенти, $x,\>y\in\mathbb{Z}$ - невідомі.\\\\
+\begin{theorem}
+	$$\textrm{Нехай} ax+by=c\>\> d=\gcd(a,\>b)$$
+	\begin{enumerate}
+  		\item рівняння має розв'язки $\Leftrightarrow c\>\vdots\>d$
+  		\item $a=a_0\cdot d,\>b=b_0\cdot d,\>c=c_0\cdot d,\> (x_0,\>y_0)$ - якийсь розв'язок рівняння. \\ Тоді довільний розв'язок $(x,\>y):\\\begin{cases}
+  			x=x_0+b_0\cdot t\\ y=y_0-a_0\cdot t
+  		\end{cases} t\in\mathbb{Z}$
+
+  	\end{enumerate}
+	\begin{proof}$\\$
+		\begin{enumerate}
+  		\item Якщо $c\>\bar{\vdots}\>d$, але $ax+by\>\vdots\>d$ то Упс!\\
+			  Якщо $c\>\vdots\>d$, то $a_0x+b_0y=c_0$ - еквівалентне рівняння\\
+			  $1=a_ou+b_0v\Rightarrow x_0=u\cdot c_0,\> y_0v\cdot c_0$ - розв'язки.
+		\item $ax+by=a(x_0+b_0t)+b(y_0-a_0t)=\underbrace{(ax_0+by_0)}_{=c}+\underbrace{(ab_0t-ba_0t)}_{a_0b_0dt-a_ob_0dt}=c$
+		\end{enumerate}
+		\begin{center}
+			\line(1,0){390}
+		\end{center}
+		Нехай $(x,\>y)$ - розв'язoк рівняння\\
+		$ax+by=0,\>ax_0+by_0=c\Rightarrow a(x-x_0)+b(y-y_0)=0\Rightarrow\\\Rightarrow a_0(x-x_0)+b_0(y-y_0)=0$
+		$\gcd(a_0,\>b_0)=1\Rightarrow1=a_0u+b_0v\Rightarrow\\\Rightarrow0=\underbrace{a_0u}_{=(1-b_0v)}(x-x_0)+b_0v(y-y_0)=(x-x_0)+b_0(u(y-y_0)-v(x-x_0))\Rightarrow\\\Rightarrow x-x_0\>\vdots\>b_0,\>x-x_0=b_0\cdot t,\>t\in\mathbb{Z}\Rightarrow a_0\cdot b_0t+b_0(y-y_0)=0\Rightarrow\\\Rightarrow y-y_0=a_0t$
+	\end{proof}
+\end{theorem}
+\begin{example}
+$15x+9y=27\\ 15=9\cdot 1\\9=6\cdot 1+3\\6=3\cdot 2\Rightarrow3=15\cdot(-1)+9\cdot 2\\27\>\vdots\>3\Rightarrow$ розв'язки існують \\
+$5x+3y=9\\1=5\cdot(-1)+3\cdot2\\x_0=9,\>y_0=18\\\begin{cases}
+	x=-9+3\cdot t\\y=18-5\cdot t
+\end{cases}$\\$t=10:\tab x=-9+30=21,\>y=18-50=-32\\5\cdot21-3\cdot32=105-96=9\\?t:\tab x>0,\>y>0\\\begin{cases}
+	-9+3t>0\\18-5t>0
+	\end{cases}\Rightarrow\begin{cases}
+		t>3\\t<3,6
+	\end{cases}$
+\end{example}
+\chapter{Лекція 4}
+\section{Прості числа}
+$n\in\mathbb{N}$ - просте $\Leftrightarrow$ має рівно два дільники 1 та $n$\\
+$n\in\mathbb{N}$ - cкладене $\Leftrightarrow\exists a:\>\>1<a<n\>\>\>\>n\>\vdots\>a$\\
+1 - не просте, не складене
+\begin{lemma}
+	$$n\in\mathbb{N}:\>\>\gcd(n,\>n+1)=1$$
+\end{lemma}
+\begin{theorem}[Евклід]
+	$$\textrm{Якщо }A=\{p_1,\>p_2,\>\dots,p_n\}\textrm{ - скінченна сукупність простих чисел, то існує просте } \underline{P}\notin A$$
+	\begin{proof}
+		$\\Q=p_1p_2p_3\dots p_n+1\Rightarrow Q\>\overline{\vdots }\>p_i,\>n=\overline{1,n}\\ Q$ - або просте, або має простий дільник
+	\end{proof}
+	\begin{cons*}
+		$\\$Простих чисел нескінченно багато
+	\end{cons*}
+\end{theorem}
+\begin{lemma}
+	$$n\in\mathbb{N} \textrm{ - складене } d>1\> -\>\min\textrm{ дільник } n\Rightarrow d\textrm{ - просте	}$$
+	\begin{proof}
+		$\\$Нехай $d$ - складене, $d=a\cdot b,\>\>a,\>b\neq 1,\>d\>\vdots\>a,\>n\>\vdots\>d\Rightarrow n\>\vdots\>a$ - Упсв! 
+	\end{proof}
+\end{lemma}
+\section{Розподіл простих чисел}
+Сито Ератросфена(пошук простих чисел?) \\
+2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20\\
+$\slash\slash$ Беремо перше число яке тут є. Це число 2 - воно просте. Після чого беремо і викреслюємо кожне друге число. \\
+\circled{2} 3 \xcancel{4} 5 \xcancel{6} 7 \xcancel{8} 9 \xcancel{10} 11 \xcancel{12} 13 \xcancel{14} 15 \xcancel{16} 17 \xcancel{18} 19 \xcancel{20}\\
+$\slash\slash$  Беремо перше незакреслене число. Це число 3 - воно просте. Викреслюємо кожне трете число в цьому ряду.\\
+\circled{2} \circled{3} \xcancel{4} 5 \xcancel{\xcancel{6}} 7 \xcancel{8} \xcancel{9} \xcancel{10} 11 \xcancel{\xcancel{12}} 13 \xcancel{14} \xcancel{15} \xcancel{16} 17 \xcancel{\xcancel{18}} 19 \xcancel{20}\\
+$\slash\slash$ Беремо настпуне. Це 5 - просте. Викреслюємо кожне п'яте число. Ну вони вже викреслині. Тому далі уже нічого не викреслюєтся. \\
+\circled{2} \circled{3} \xcancel{4} \circled{5} \xcancel{\xcancel{6}} 7 \xcancel{8} \xcancel{9} \xcancel{\xcancel{10}} 11 \xcancel{\xcancel{12}} 13 \xcancel{14} \xcancel{\xcancel{15}} \xcancel{16} 17 \xcancel{\xcancel{18}} 19 \xcancel{\xcancel{20}} 
+\begin{lemma}
+	$$n=a\cdot b,\>\>1<a,\>b<n\Rightarrow\min\{a,\>b\}\leq\sqrt{n}\leq\max\{a,\>b\}$$
+	\begin{proof}
+		Від супротивного
+	\end{proof}
+	\begin{cons*}$\\$
+		У ситі Ератросфена для $2\dots N$ після викреслень чисел $\leq\sqrt{n}$ залишаются прості.	
+	\end{cons*}
+\end{lemma}
+\begin{example}
+$\forall m\in\mathbb{N}:$ існують $m$ послідовних натуральних складених чисел.\\
+$(m+1)!\>\vdots\>2,\>(m+1)!\>\vdots\>3,\>(m+1)!\>\vdots\>5,\>\dots,\>(m+1)!\>\vdots\>(m+1).$	
+\end{example}
+\begin{example}
+	Прості числа-близнюки $p,\>q:$ прості, $p-q=2$\\
+	Наразі найбільша відома пара чисел близнюків: $2996863034895\cdot 2^{1290000}\pm 1$
+\end{example}
+\begin{example}
+Прості числа Мерсена: $M_p=2^p-1$ - просте, $M_n=2^n-1$ - складене
+\end{example}
+\begin{lemma}
+	$$M_p \textrm{ - просте }\Rightarrow p \textrm{ - просте }.\>\>p=a\cdot b\Rightarrow M_p=2^{ab}-1\>\vdots\>2^a-1$$
+\end{lemma}
+\begin{center}
+	\line(1,0){390}
+\end{center}
+\textbf{Постулат Бертрана}\\
+$\forall n\in\mathbb{N},\>\geq 4.$ інтервал $n\dots 2n-2$ містить просте число.
+\\\\
+\textbf{Функція розподіла простих чисел} $\Pi(x)$\\
+$\Pi(x)=$ кількість простих чисел $<x.$\\
+$\frac12\cdot \frac{x}{\log_2x}\leq \Pi(x)\leq 5\cdot\frac{x}{log_2x}\rightarrow \alpha\cdot\frac{x}{\ln x}\leq\Pi(x)\leq\beta\cdot\frac{x}{\ln x},\>\>\alpha=0.92129,\>\beta=1,10555$
+\begin{theorem}[Адамер, Вале]
+	$$\Pi(x)\sim \frac{x}{\ln x}(\Pi(x)\sim\int\limits_{2}^{x}\frac{dt}{\ln t})\Rightarrow p_n\sim n\cdot \ln n$$
+\end{theorem}
+\begin{theorem}[Діріхле]
+	$$\textrm{Якщо } \gcd(a,\>b)=1, \textrm{ то існує }\infty\textrm{простих чисел виду }a\cdot m+b$$
+\end{theorem}
+\section{Основна теорема арифметики}
+\begin{lemma}[Euclid]
+	$$p\textrm{ - просте, }ab\>\vdots\>p\Rightarrow\bcases{a\>\vdots\>p \cr b\>\vdots\>p }$$
+	\begin{proof}
+		$\\$Нехай $ab\>\vdots\>p$, але $a\>\overline{\vdots}\>p\Rightarrow \gcd(a,\>p)=1\Rightarrow\\\Rightarrow\exists u,\>v,\>\>\>\>au+pv=1\Rightarrow \underbrace{ab}_{\vdots\>p}\cdot u+\underbrace{p}_{\vdots\>p}\cdot bv=\underbrace{b}_{\vdots\>p}$
+	\end{proof}
+\end{lemma}
+\begin{theorem}[основна теорема арифметики]
+	$$\forall n\in\mathbb{N}:\>\>n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}\textrm{, де }p_1<p_2<\dots<p_t-\textrm{ - прості, }\alpha_i\geq1 \textrm{ - натуральні.}$$
+	\begin{proof}$\\$
+		\begin{enumerate}
+			\item Існування\\
+			Нехай все вірне , $n_0\>-\>\min$ чысло, яке не розкладаэться$\Rightarrow n_0$ - складене $\Rightarrow\exists a:\>\>1<a<n_0:\>\>n=a\cdot b$
+			\item Єдність \\
+			Нехай $n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}=q_1^{\beta_1}q_2^{\beta_2}\dots q_t^{\beta_t},\>\>n\>\vdots\>p_1\Rightarrow q_1^{\beta_1}\dots q_t^{\beta_t}\>\vdots\>p_1\exists i:\>\>q_i^{p_i}\>\vdots\>p_1\Rightarrow\\\Rightarrow q_i=p_i$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}$\\$
+\begin{example}
+\textbf{Приклад Гільберта}\\
+Розглянемо числа виду $4k+1\\$
+5, 9, 13, 17, 21, 25\\
+$((4k_1+1)(4k_2+1)=4(\dots)+1$
+\end{example}
+\begin{example}
+\begin{enumerate}
+	\item $d\>|\>n\Rightarrow d=q_1^{\beta_1}q_2^{\beta_2}\dots q_t^{\beta_t},\>\>0\leq\beta_i\leq\alpha_i$	
+	\item $a=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\>\>\alpha_i\geq0,\tab
+	b = p_1^{\beta_1}p_2^{\beta_2}\dots p_t^{\beta_t} ,\>\>\beta_i\geq0\\\gcd(a,\>b)=\prod\limits_{i=1}^tp_i^{\min\{\alpha_i,\>\beta_i\}},\tab \lcm(a,\>b)\prod\limits_{i=1}^tp_i^{\min\{\alpha_i,\>\beta_i\}}$
+	\item $a\>\vdots\>b,\>a\>\vdots\>c,\>\gcd(b,\>c)=1\Rightarrow a\>\vdots(b\cdot c)$
+\end{enumerate}
+\end{example}
+\chapter{Лекція 5}
+\section{Мультиплікативні функції}
+
+
+
+\end{document}
