@@ -1,1 +1,1 @@
-Labs from university
+Notes from university
