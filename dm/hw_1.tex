@@ -10,18 +10,49 @@
 \usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
 \begin{document}
 \begin{center}
-{\LARGE Домашня робота 2}	
+{\LARGE Домашня робота 1}	
 \end{center}
 1.2(b) Довести, що $(n^2+(n+1)^2)\mod 4 = 1:\\$
 \tab $n^2+(n+1)^2 = 2n^2+2n+1=2\cdot n(n+1)+1;\>\>2n(n+1)\>\vdots\>2\Rightarrow n(n+1)\>\vdots\>2?\\\tab n(n+1)\>\vdots\>2$ як два послідовні натуральні числа $\Rightarrow 2n(n+1)\>\vdots\>4+1\\\tab\Rightarrow (n^2+(n+1)^2)\mod 4 = 1\\$
 1.3(b) Довести, що $p^2\mod 24 = 1,\>\>p\geq 5:$
 \tab 
-\\
+\\Перевіримо \\
 1.4(b) Довести, що числа виду $2^{4^n}-5,\>n\geq 1$ закінчуються на 1:\\
 \begin{enumerate}
 	\item $n=1:\>2^{4^1}-5=16-5=11$ - ok
 	\item Нехай умова виконуєтся для $n\Rightarrow 2^{4^n}$ - закінчується на 6.$\\(x\cdot 10+1 - 5=(x-1)10+10+1-5=(x-1)10+6)$ 
-	\item Доведемо для $n+1:\\ 2^{4^{n+1}}-5=2^{4^n\cdot 4}=\left(\underbrace{2^{4^n}}_{\textrm{зак. на 6}}\right)^4-5;$
+	\item Доведемо для $n+1:\\ 2^{4^{n+1}}-5=2^{4^n\cdot 4}=(\underbrace{2^{4^n}}_{\textrm{зак. на 6}})^4-5;\\ 2^{4^n}=10\cdot q+6,\>q\in\mathbb{N}\\\left(2^{4^n}\right)^4=10000q^4+24000q^3+21600^2+8640q + 1290 + 6=\\=10\underbrace{(1000q^4+2400q^3+2160^2+864q + 129)}_{t\in\mathbb{N}}+6\\\Rightarrow\left(2^{4^n}\right)+5$ - закінчується на 1.
 \end{enumerate}
-
+1.5 Знайти всi натуральнi $n$ такi, що $(1 + 2 +\dots + n) \mod 5 = 1.$
+\\\tab Ариф. прог.: $a_n=1+(n-1)\cdot 1\\\tab(1+2+\dots+n)=S_n=\frac{n(2a_1+(n-1)d}{2}=\frac{2n+n(n-1)}{2}\mod 5= 1\\\tab \frac{2n+n^2-n-2}{2}\mod 5= 0,\>\>n^2+n-2\mod 5= 0,\>n=\overline{0,4}\\\tab n=1:\tab 1+1-2\mod 5=0\mod 5=0\\\tab n=2:\tab 4+2-2\mod 5=4\mod 5\neq 0\\\tab n=3:\tab 9+3-2\mod 5=10\mod 5 = 0\\\tab n=4:\tab 16+4-2\mod 5=18\mod 5\neq 0\\$ \tab Отже підходить $n=1,\>n=33\\$ 
+1.6 Довести, що для всiх натуральних $n$ виконуються такi спiввiдношення:
+\begin{itemize}
+    \item [b)] $10^n+18n-1\>\vdots\>27 $\begin{enumerate}
+    	\item $n=1:\tab 10+18-1=27\>\vdots\>27$
+    	\item Нехай $\forall n\in\mathbb{N},\>\>x_n=10^n+18n-1\>\vdots\>27$
+    	\item Для $n+1:\\x_{n+1}-x_n=10^{n+1}+18(n+1)-1-(10^n+18n-1)=9\cdot 10^n+18=\\=9\cdot(10^n+2)\>\vdots\>9,\tab (10^n+2)\>\vdots\>3?\tab 10^n+2=100\dots002\Rightarrow \\\Rightarrow 1+0+0+\dots +0+0+2=3\>\vdots\>3\Rightarrow x_{n+1}\>\vdots\>27$
+    \end{enumerate}
+    \item [c)] $3^{2n+3}+40n-27\>\vdots\>64$
+    \begin{enumerate}
+    	\item $n=1:\tab 3^{2+3}+40-27=64\cdot4\>\vdots\>64$
+    	\item Нехай $\forall n\in\mathbb{N},\>\>3^{2n+3}+40n-27\>\vdots\>64$
+    	\item Для $n+1:\tab 3^{2(n+1)+3}+40(n+1)-27=9\cdot (\underbrace{3^{2n+3}}_{64k}+40n-27)-320n+256=\\=9\cdot 64k-320n+256=576k-320n+256=64\cdot(9k-5n+4)\>\vdots\>64$
+    \end{enumerate}
+    \item [d)] $n(n^2+5)\>\vdots\>6$
+    \begin{enumerate}
+    	\item $n=1:\tab 1(1+5)=6\>\vdots\>6$
+    	\item Нехай $\forall n\in\mathbb{N},\>\>n(n^2+5)\>\vdots\>6$
+    	\item Для $n+1:\\(n+1)((n+1)^2+5)=\underbrace{n(n^2+5)}_{6k}+3n^2+3n+6=6(k+\frac{n(n+1))}{2}+1)\\\frac{n(n+1)}{2}$ - ціле, бо $n(n+1)\>\vdots\>2\Rightarrow6(k+\frac{n(n+1))}{2}+1)\>\vdots\>6$
+    \end{enumerate}
+\end{itemize}
+1.7(b) Довести $n=n_0+10n_1+\dots+10^kn_k,\>S(n)=n_0+n_1+\dots+n_k\\ $if $ S(a)=S(b)\Rightarrow a-b\>\vdots \>9\\\tab a-S(a)\>\vdots\>9,\>b-S(b)\>\vdots\>9\Rightarrow a-S(a)-(b-S(b))\>\vdots\>9=a-b\>\vdots\>9\\$
+1.8 Довести $a,\>b$ - непарні натуральні $\Rightarrow \frac {a^2-b^2}{a^2+b^2}\>\vdots\>2,\>\frac {a^2-b^2}{a^2+b^2}\>\bar{\vdots}\>4\\$\tab Нехай $a=2n+1,\>b=2k+1\Rightarrow \frac {a^2-b^2}{a^2+b^2}=\frac{(2k+1)^2-(2n+1)^2}{(2k+1)^2+(2n+1)^2}=\frac{2(n^2+n-k^2-k)}{2(n^2+n-k^2-k)+1}\>\vdots\>2\\\tab\frac{n^2+n-k^2-k}{2(n^2+n-k^2-k)+1}\>\bar{\vdots}\>2(2(n^2+n-k^2-k)+1$ - не парне)$\Rightarrow \frac {a^2-b^2}{a^2+b^2}\>\vdots\>2,\>\frac {a^2-b^2}{a^2+b^2}\>\bar{\vdots}\>4\\$
+1.9  Довести $n=k+10k+\dots+10^{3^k}k\>\vdots\>3^k$
+\begin{enumerate}
+	\item $k=1:\tab n=1+10+100+1000=1111\>\vdots\>1$
+	\item Нехай $n_k=\sum\limits_{i=1}^{3^k}10^{i-1},\>n\>\vdots 3^k$
+	\item Для $k+1:\\n_1+n_210^{3^k}+\dots+n_k10^{2\cdot3^k}=\underbrace{1+10+\dots+10^{3^k-1}}_{n}+10^{3^k}(1+10+\dots+10^{3^k-1})\>\vdots\>10^{3^k}+\\+10^{2\cdot3^k}(1+10+\dots+10^{3^k-1})\>\vdots\>10^{3^k}$
+\end{enumerate}
+1.10 Довести, що сума $2n+1$ послідовних натуральних чисел поділяються на $2n+1\\$\tab Почнемо з якогось $a\Rightarrow a,\>a+1,\>\dots,\>a+2n\Rightarrow S(a_n)=(2n+1)a+\frac{2n(2n+1)}{2}=\\\tab=(2n+1)(a+n)\>\vdots\>(2n+1)\\$
+1.12(b) $a,\>b\in\mathbb{Z}.$ Довети $2a-b\>\vdots\>11\Rightarrow51a-8b\>\vdots\>11\\$  Контрприклад: $a=20,\>b=7\Rightarrow2\cdot 20-7=33\>\vdots\>11,\>51\cdot 20-8\cdot 7=964\>\bar{\vdots}\>11$
 \end{document}
