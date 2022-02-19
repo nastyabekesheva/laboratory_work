@@ -1,0 +1,41 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 1}	
+\end{center}
+\begin{enumerate}
+	\item \begin{enumerate} 
+	\item $(L_1L_2)^*L_1=L_1(L_2L_1)^*$\\
+	$\Leftarrow L_1L_2=\{xy|\>x\in L_1,\>y\in L_2\};\\ 
+	(L_1L_2)^*=\{xy,\> xyxy,\> xyxyxy,...|\>x\in L_1,\> y\in L_2\};\\ 
+	(L_1L_2)^*L_1=\{xyx,\> xyxyx,\> xyxyxyx,...|\>x\in L_1,\> y\in L_2\}.\\
+	\Rightarrow L_2L_1=\{yx|\> x\in L_1,\> y\in L_2\};\\
+	(L_2L_1)^*=\{yx,\> yxyx,\> yxyxyx,...|\> x\in L_1,\> y\in L_2\};\\
+	L_1(L_2L_1)^*=\{xyx,\> xyxyx,\> xyxyxyx,...|\> x\in L_1, \> y\in L_2\}.\\
+	\textrm{Легко бачити, що } (L_1L_2)^*L_1=L_1(L_2L_1)^*$
+	\item $(L_1^R\cap L_2^R)^*=(L_1^*\cap L_2^*)^R$\\ $\Leftarrow L_1^R\cap L_2^R=\{x^R|\>x\in L_1\>\land\>x\in L_2 \};\\
+	(L_1^R\cap L_2^R)^*=\{x^R, x^Rx^R, x^Rx^Rx^R,...|\>x\in L_1\>\land\>x\in L_2\}.\\
+	\Rightarrow L_1^*\cap L_2^*=\{x,\>xx,\>xxx,...|\>x\in L_1\>\land\>x\in L_2\};\\
+	(L_1^*\cap L_2^*)^R=\{(x)^R,\>(xx)^R,\>(xxx)^R,...|\>x\in L_1\land\>x\in L_2\}=\\=\{x^R,\>x^Rx^R, x^Rx^Rx^R,...|\>x\in L_1\>\land\>x\in L_2\}.\\
+	\textrm{Легко бачити, що } (L_1^R\cap L_2^R)^*=(L_1^*\cap L_2^*)^R$
+	\end{enumerate}
+	\item $L_{pref}^R(x)=L_{suf}(x^R).\\$
+	$\textrm{Нехай }x=\alpha_1\alpha_2\alpha_3...\>\>\textrm{Тоді: } x^R=...\alpha_3\alpha_2\alpha_1;\>\>L_{pref}(x)=\{\alpha_1,\>\alpha_1\alpha_2,\>\alpha_1\alpha_2\alpha_3,...\};\\L_{pref}^R=\{...,\>\alpha_3\alpha_2\alpha_1,\>\alpha_2\alpha_1,\>\alpha_1\};\>\>L_{suf}(x^R)=\{...,\>\alpha_3\alpha_2\alpha_1,\>\alpha_2\alpha_1,\>\alpha_1\}\Rightarrow L_{pref}^R(x)=L_{suf}(x^R).$
+	\item $L_1^{**}=L_1^*.\\$
+	$\textrm{Доведемо, що }L_1^*\subseteq L_1^{**}:\\ L_1^{**}=\{\varepsilon\}\cup L_1^*\cup (L_1^*)^2\cup...\Rightarrow L_1^*\subseteq L_1^{**}.\\$
+	$\textrm{Доведемо, що }L_1^{**}\subseteq L_1^*:\\\textrm{Нехай існує таке }a\in L_1^{**}, \textrm{ що }a\in L_1^{*}\\ L_1^{**}=\bigcup\limits_{m=0}^{\infty}(L_1^*)^m=\bigcup\limits_{m=0}^{\infty}(\bigcup\limits_{n=0}^{\infty}L_1^n)^m\Rightarrow a\in L_1^{m_1}||L_1^{m_2}||...||L_1^{m_n},\\ \textrm{ за властивостями кратної канкатенації: }x\in L_1^{m_1+m_1+...+m_n},\\L_1^{m_1+m_1+...+m_n}\subseteq L_1^*.\\ L_1^*\subseteq L_1^{**}\>\>\&\>\>L_1^{**}\subseteq L_1^*\Rightarrow L_1^{**}=L_1^*.$	
+	\item $\Sigma^1=\{0,\>1\},\>\>\Sigma^2=\{00,\>01\>,10,\>11\},\\\Sigma^3=\{000,\>001,\>010,\>011,\>100,\>101,\>110,\>111\}\\\Sigma^4=\{0000,\>0001,\>0010,\>0011,\>0100,\>0101,\>0110,\>0111,\>1000,\>1001,\\1010,\>1011,\>1100,\>1101,\>1111\}\\\Sigma^5=\{00000,\>00001,\>00010,\>00011,\>00100,\>00101,\>00110,\>00111\>01000,\\01001,\>01010,\>01011,\>01100,\>01101,\>01111,\>10000,\>10001,\>10010,\>10011,\>10100,\\10110,\>11000,\>11001,\>11010,\>11011,\>11100,\>11101,\>11111\>\}.\\\\\Sigma^2\>-\>2\textrm{ безквадратних слова, }\Sigma^3\>-\>2\textrm{ безквадратних слова, }\Sigma^5\>-\>0\textrm{ безквадратних слова. Після } \Sigma^4\textrm{ усюди буде 0 без квадратних слів.}\\\textrm{Отже, загалом: } 2+2+2=6+\varepsilon\textrm{(порожне слово)}=7.$
+	\item \begin{enumerate}
+	\item $(x^R)^R=x.$ Доведемо від супротивного:\\
+	$(x^R)^R\neq x.$ Нехай $x=ab,\>\>x^R=ba,\\(x^R)^R=ab=x\Rightarrow$ протиріччя. 
+	\item $(xy)^R=y^Rx^R.$ Доведемо від супротивного:\\ $(xy)^R\neq y^Rx^R.$ Нехай $x=ab,\>\>y=cd,\>\>(xy)^R=(abcd)^R=dcba.\\y^Rx^R=dcba=(xy)^R\Rightarrow$ протиріччя.
+	\end{enumerate}
+	\item $1.\>\>n=2.\>\>L\subseteq\{01,\>10,\>0101,\>0110,\>1010, 1001\}.\\x=01,\>\>0010\notin L_1,\>\>1011\notin L_1.\>\>x=10,\>\>1101\notin L_1,\>\>0100\notin L_1.\\ 2.\>\>L_1\subseteq \{01,\>10\}^n,\>\>n\geq2\Rightarrow\>\>0x0\notin L_1,\>\>1x1\notin L_1.\\ 3.\>\>\{01,\>10\}^{n+1}=\{01,\>10\}^n\{01,\>10\}.\\L_1\subseteq\{01,\>10\}^n\Rightarrow L_1\subseteq\{01,\>10\}^n\{01,\>10\}.\Rightarrow 0x0\notin L_1,\>\> 1x1\notin L_1.$
+\end{enumerate}
+\end{document}
