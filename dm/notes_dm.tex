@@ -21,6 +21,7 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{property}{Property}
 \newtheorem*{property*}{Property}
+\newtheorem*{prop*}{Proposition}
 \newtheorem{cons}{Consequence}
 \newtheorem*{cons*}{Consequence}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
@@ -162,12 +163,15 @@ $\Rightarrow$ АЕ зробить $\leq2\lceil\log_2a\rceil$ кроків.
 \end{example}
 \chapter{Лекція 2}
 \section{Найменше спільне кратне}
+\begin{definition}
+
 $a,\>b\in\mathbb{N}$\\
 M = НСK(a, b), lcm(a, b), [a, b]
 \begin{enumerate}
 	\item $M\>\vdots\>a,\>\>M\>\vdots\>b$
 	\item $M\>-\>\min$ таке число
 \end{enumerate}
+\end{definition}
 \begin{property*}$\\$
 	\begin{enumerate}
 		\item $\lcm(a,\>0)$ - 'на доске был нарисован грустный смайлик'
@@ -207,8 +211,10 @@ $$\forall a,\>b,\>c\in\mathbb{N}:\>\>\lcm(a,\>b,\>c)=\frac{a\cdot b\cdot c\cdot 
 	$\max \{a_1,\dots,a_n\}=a_1+\dots+a_n-\min\{a_1,\>a_2\}-\dots-\min\{a_{n-1},\>a_n\}+\min\{a_1,\>a_2,\>a_3\}-\min\{a_1,\>a_2,\>a_3,\>a_4\}$	
 \end{example}	
 \section{Eвклідові послідовності}
+\begin{definition}
 Послідовність $a_0,\>a_1,\dots,\>a_i\in\mathbb{R}$ - евклідова, якщо $\forall n,\>m\in\mathbb{N}_0\
-\>\>n>m:\>\>\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n-m})\Rightarrow\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n\mod m})$
+\>\>n>m:\>\>\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n-m})\Rightarrow\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n\mod m})$	
+\end{definition}
 \begin{theorem}
 	$$(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n,\>m:\>\>\gcd(a_n,\>a_m)=a_{\gcd(n,\>m)}$$
 	\begin{proof}$\\$
@@ -284,7 +290,10 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 	\end{proof}
 \end{theorem}
 \section{Лінійні діафантові рівняння}
-$f(x_1,\>x_2\>,\dots,\>x_n)=0,\>x_i\in\mathbb{Z}\\ a_1x_1+a_2x_2+\dots+a_nx_n=c,\>a_i\in\mathbb{Z},\>c\in\mathbb{Z}\\ ax+by=c,\>\>a,\>b,\>c\in\mathbb{Z}$ - коефіціенти, $x,\>y\in\mathbb{Z}$ - невідомі.\\\\
+\begin{definition}
+	$f(x_1,\>x_2\>,\dots,\>x_n)=0,\>x_i\in\mathbb{Z}\\ a_1x_1+a_2x_2+\dots+a_nx_n=c,\>a_i\in\mathbb{Z},\>c\in\mathbb{Z}\\ ax+by=c,\>\>a,\>b,\>c\in\mathbb{Z}$ - коефіціенти, $x,\>y\in\mathbb{Z}$ - невідомі.
+\end{definition}
+
 \begin{theorem}
 	$$\textrm{Нехай} ax+by=c\>\> d=\gcd(a,\>b)$$
 	\begin{enumerate}
@@ -321,9 +330,13 @@ $5x+3y=9\\1=5\cdot(-1)+3\cdot2\\x_0=9,\>y_0=18\\\begin{cases}
 \end{example}
 \chapter{Лекція 4}
 \section{Прості числа}
+\begin{definition}
+	
 $n\in\mathbb{N}$ - просте $\Leftrightarrow$ має рівно два дільники 1 та $n$\\
 $n\in\mathbb{N}$ - cкладене $\Leftrightarrow\exists a:\>\>1<a<n\>\>\>\>n\>\vdots\>a$\\
+\end{definition}
 1 - не просте, не складене
+
 \begin{lemma}
 	$$n\in\mathbb{N}:\>\>\gcd(n,\>n+1)=1$$
 \end{lemma}
@@ -423,7 +436,105 @@ $((4k_1+1)(4k_2+1)=4(\dots)+1$
 \end{example}
 \chapter{Лекція 5}
 \section{Мультиплікативні функції}
-
+$f(n)$ - мультіплікативна:\begin{enumerate}
+	\item $f(n)\not\equiv$
+	\item $\forall a,\>b\in\mathbb{N}:\tab \gcd(a,\>b)=1\Rightarrow f(ab)=f(a)f(b)$
+\end{enumerate}
+\begin{example}
+$\\f(n)=1\\f(n)=n\\f(n)=n^S$	
+\end{example}
+\begin{property*}$\\$
+	\begin{enumerate}
+		\item $f(1)=1;\>f(n)=f(n\cdot 1)=f(n)f(1)$
+		\item Якщо $x_1,\>x_2,\>\dots,\>x_t$ - попарно взаємнопрості, то $f(x_1 x_2 \dots x_t)=f(x_1)\dots f(x_t)$ 
+		\item Якщо $f(n),\>g(n)$ - мультиплікативні, то $h(n)=f(n)\cdot g(n)$ -  мультиплікативнa
+		\item $n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\>\>f(n)=f(p_1^{\alpha_1})\cdot f(p_2^{\alpha_2})\dots f(p_t^{\alpha_t})$
+	\end{enumerate}
+\end{property*}
+\begin{definition}
+	$f(n)$ - мультиплікативнa. Числовий інтеграл $g(n)=\sum\limits_{d\>|\>n}f(d)$
+\end{definition}
+\begin{theorem}[S]
+\label{S}
+	$$f(n)\textrm{ - мультиплікативнa}\Rightarrow g(n) \textrm{ - також.}$$
+	\begin{proof}
+		$\\n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\>\> d\>|\>n\Rightarrow d=p_1^{\beta_1}p_2^{\beta_2}\dots p_t^{\beta_t},\>\>0\leq \beta_i\leq\alpha_i\\g(n)= \sum\limits_{d\>|\>n}f(d)=\sum\limits_{\beta_1=0}^{\alpha_1}\sum\limits_{\beta_2=0}^{\alpha_2}\dots\sum\limits_{\beta_t=0}^{\alpha_t}f(p_1^{\beta_1}\dots p_t^{\beta_t})=\\=\sum\limits_{\beta_1}\dots\sum\limits_{\beta_t}\prod\limits{i=1}^{t}f(p_i^{\beta_t})=\prod\limits_{i=1}^{t}\sum\limits_{\beta_i=0}^{\alpha_i}f(p_i^{\beta_i})$
+	\end{proof}
+\end{theorem}
+$$g(n)=\prod\limits_{i=1}^{t}\sum\limits_{\beta_i=0}^{\alpha_i}f(p_i^{\beta_i})$$
+\section{Кількість та сума дільників}
+Кількість дільників $\tau(n)=\sum\limits_{d\>|\>n}1$\\
+Сума дільників $\sigma(n)=\sum\limits_{d\>|\>n}d$
+\begin{prop*}
+\[n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\tab p_t^{\alpha_t}:\>\>\tau(n)=(1+\alpha_1)(1+\alpha_2)\dots(1+\alpha_t)\\ \]\[ \sigma =\prod\limits_{i=0}^{t}\frac{p_i^{\alpha+1}}{p_i-1}\]
+\end{prop*}
+\begin{proof}
+	$\\p$ - просте.\tab$\tau(p)=2\tab \tau(p^\alpha)=1+\alpha\\\tau(n)=\tau(p_1^{\alpha_1})\dots\tau(p_t^{\alpha_t})=(1+\alpha_1)(1+\alpha_2)\dots(1+\alpha_t)\\\sigma(p)=1+p\tab\sigma=1+p+p^2=\dots+p^{\alpha}=\frac{p^{\alpha+1}-1}{p-1}\\\sigma(n)=\sigma(p_1^{\alpha_1})\sigma(p_2^{\alpha_2})\dots\sigma(p_t^{\alpha_t})$
+\end{proof}
+\begin{example}
+$n=1000=2^35^3\\\tau(1000)=(1+3)(1+3)=16\\\sigma(1000)=\frac{2^4-1}{2-1}\cdot\frac{5^4-1}{5-1}=2340$	
+\end{example}
+\begin{example}
+$n=1001=7\cdot11\cdot13\\\tau(1001)=(1+1)(1+1)(1+1)=8\\\sigma(1001)=(1+7)(1+11)(1+13)=1344$	
+\end{example}
+\begin{property*}$\\$
+	\begin{enumerate}
+		\item $\tau(n)\leq2\sqrt n\\n\>\vdots\>d\Rightarrow n=d\cdot d'\\\sigma(n)\geq n+1$
+		\item $\tau(n)$ - непарне $\Leftrightarrow n=m^2$
+		\item $\sigma$  - непарне $\Leftrightarrow\bcases{m^2\cr 2m^2}$
+	\end{enumerate}
+\end{property*}
+\section{Досконалі числа}
+\begin{definition}
+	Досконале число $n$:\\$n$ = сумі усіх дільників окрім власне $n$ або $\sigma(n)=2n$
+\end{definition}
+\begin{example}
+	$n=6:\tab 1+2+3=6$
+\end{example}
+\begin{example}
+	$n=28:\tab 1+2+4+7+14=28$
+\end{example}
+\begin{theorem}[Евклід-Ойлер]
+$$\textrm{Парне }n \textrm{ - досконале }\Leftrightarrow n=2^{p-1}\cdot M_p, \textrm{ де }M_p=2^p-1\textrm{ - просте число Марсена}$$
+\begin{proof}$\\$
+	\begin{enumerate}
+		\item $n=2^{p-1}\cdot M_p,\tab p>2\\\sigma(n)=\sigma(2^{p-1}\cdot M_p)=\sigma(2^{p-1})\sigma(M_p)=(2^p-1)(M_p+1)=2^p(2^p-1)=n$
+		\item Нехай $n$ - парне досконале, $n=2^k\cdot b,\>b$ - непарне\\$\sigma(n)=\sigma(2^k\cdot b)=(2^k-1)\cdot\sigma( b)=2^k\cdot b=2n\Rightarrow\\\Rightarrow b\>\vdots\>(2^k-1),\>b=(2^k-1)\cdot c\tab (2^k-1)\sigma(b)=2^k(2^k-1)\cdot c\\\sigma(b)=2^k\cdot c=(2^k-1+1)\cdot c=b+c\\b\>\vdots c,\>c\neq1,\>c\neq b\Rightarrow\sigma(b)>1+b+c\Rightarrow c=1.\\b=2^k-1,\>\sigma(b)=b+1\Rightarrow b$ - просте. $n=2^{k-1}\underbrace{(2^k-1)}_{\textrm{просте}}$
+	\end{enumerate}
+\end{proof}
+\end{theorem}
+\section{Функція Мебіуса}
+\begin{definition}
+	$\mu(n):$ $$\mu(p^\alpha)=\begin{cases}
+		-1,\tab \alpha=1\\\>\>\>\>0,\tab\alpha>1
+	\end{cases}\Rightarrow M(n)=\begin{cases}
+		(-1)^k,\tab n=p_1p_2\dots p_t\\\>\>\>\>\>\>\>\>\>0,\tab n\>\vdots\>a^2
+	\end{cases}$$
+\end{definition}
+\begin{lemma}[характерізаційна властивість $\mu$]
+	$$\sum\limits_{d\>|\>n}M(d)=\begin{cases}
+		1,\tab n=1\\0,\tab n\neq 1
+	\end{cases}$$
+	\begin{proof}
+		$p^\alpha:\tab \mu(1)+\mu(p)	+\mu(p^2)+\dots+\mu(p^\alpha)=1+(-1)+0+0+\dots+0=0\\$ За теоремою \ref{S} $\sum\limits_{d\>|\>n}\mu(d)=\prod\limits_{i}\sum\limits_{\beta}\mu(p_i^\beta)$
+	\end{proof}
+\end{lemma}
+\begin{prop*}
+$f(n)\textrm{ - мультіплікативна, }n=p_1^{\alpha_1}\dots p_t^{\alpha_t}$
+$$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
+\begin{proof}
+	За теоремою \ref{S} $\sum\limits_{\beta}\mu(p_1^{\beta})f(p_i{^\beta})=\mu(1)f(1)+\mu(p_i)f(p_i)+\\+\mu(p_i^2)f(p_i^2)+\dots=1+(-1)f(p_i)=1-f(p_i)$
+\end{proof}
+\end{prop*}
+\begin{theorem}[закон обертання Мебіуса]
+	$$f(n) \textrm{ - мультіплікативна},\>\>g(n)	=\sum\limits_{d\>|\>n}f(d)\Rightarrow f(n)=\sum\limits_{d\>|\>n}M(d)\cdot g(\frac nd)$$
+	\begin{proof}
+		$\sum\limits_{d\>|\>n}M(d)\cdot\sum\limits_{\delta\>|\>\frac nd}f(\delta)=\sum\limits_{(d,\>\delta),\>d\delta\>|\>n}\mu(	d\cdot f(\delta)=\sum\limits_{\delta\>|\>n}\sum\limits_{d\>|\>\frac nd}\mu(d)f(\delta)=\\=\sum\limits_{\delta\>|\>n}f(\delta)\cdot\sum\limits_{d\>|\>\frac nd_{=1\Rightarrow\delta=n}}\mu(d)=f(n)$
+	\end{proof}
+\end{theorem}
+\begin{example}
+	$a_0,\>a_1,\>\dots,\>a_n\\ A(s)=\sum\limits_{n=1}^{\infty}\frac{a_n}{n^s}$ - ряд Діріхле.\tab $B(s)=\sum\limits_{n=1}^{\infty}\frac{b_n}{n^s}\\C(s)=A(s)\cdot B(s)=\sum\limits_{n=1}^{\infty}\frac{c_n}{n^s}\Rightarrow C_n=\sum\limits_{d\>|\>n}a_d\cdot b_{\frac nd}\tab\xi(s)=\sum\limits_{n=1}^{\infty}\frac1{n^S}\\ \frac1{\xi(s)}=\sum\limits_{n=1}^{\infty}\frac{\mu(n)}{n^S}\tab C(s)=A(s)\cdot\xi(s)\tab C_n=\sum\limits_{d\>|\>n	}a_d\\ A(s)=C(s)\cdot(\xi(s))'\Rightarrow a_n=\sum\limits_{d\>|\>n}\mu(d)c_{\frac nd}$
+\end{example}
 
 
 \end{document}
