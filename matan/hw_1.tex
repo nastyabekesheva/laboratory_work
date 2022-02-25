@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 1}	
+\end{center}
+\begin{itemize}
+	\item [1.7]\begin{itemize}
+	\item [a)] $\int \left( \frac{1-x}{x} \right)^2dx=\int \frac{1-2x-x^2}{x^2}dx=\int( 1 -\frac{2}{x}+\frac{1}{x^2})dx=x-2\ln|x|-\frac{1}{x}+c$ 
+	\item [b)] $\int \frac{\sqrt{x}-2\sqrt[3]{x^2}+1}{\sqrt[4]x} dx=\int (\sqrt[4]x-2x^{\frac54}+\frac1{\sqrt[4]x})dx=-\frac{8x^{\frac94}}{9}+\frac{4x^{\frac54}}{5}+\frac{4x^{\frac34}}{3}+c$
+	\item [c)] $\int\frac{x^2+3}{x^2-1}dx=\int (-\frac2{x+1}+\frac2{x-1}+1)dx=-2\ln|x+1|+2\ln|x-1|+x+c$
+	\end{itemize}
+	\item [1.8] \begin{itemize}
+	\item  [a)] $\int \cot^2xdx=\int \frac{\cos^x}{\sin^2x}dx=\int \frac{1-\sin^2x}{\sin^2x}dx=\int (\frac1{\sin^2x}-1)dx=-\cot x-x+c$
+	\item [b)] $\int \sqrt[3]{1-3x}dx=\int (1-3x)^{\frac13}\cdot(-\frac13)d(1-3x)=-\cdot \frac14(1-3x)^{\frac43}+c$
+	\item [c)] $\int\frac{dx}{2-3x^2}=\frac12\int\frac{dx}{1-\frac32x^2}=\Big| d(\sqrt{\frac32}x)=\sqrt{\frac32}dx\Big|=\frac{1}{\sqrt{6}}\int\frac{d(\sqrt{\frac{3}{2}}x)}{1-\frac32x^2}=\frac12\ln\Big|\frac{1+\sqrt{\frac32}x}{1-\sqrt{\frac32}x}\Big|+c$
+	\end{itemize}
+	\item [1.9] \begin{itemize} 
+	\item [a)] $\int\frac{dx}{1+\sin x}=\big|t=\tan \frac x2\Rightarrow \sin x=\frac{2t}{1+t^2}\big|=\int \frac{2 dt}{(t^2+1)\left(\frac{2t}{1+t^2}\right)}=\int\frac{2dt}{t^2+2t+1}=2\int \frac{d(t+1)^2}{(t+1)^2}=\\=-\frac2{t+1}+c=-\frac2{\tan\frac x2+1}+c$
+	\item [b)] $\int \frac {\sin\frac1x dx}{x^2}=\big|d(\frac1x)=-\frac1x^2 dx\big|-\int \sin (\frac1x)d(\frac1x)=\cos(\frac1x)+c$
+	\end{itemize}
+	\item[1.10]\begin{itemize} 
+	\item [a)] $\int x^2\sqrt[3]{1+x^3}dx=\big|d(1+x^3)=3x^2dx\big|=\frac13\int\sqrt[3]{1+x^3}d(1+x^3)=\frac{\sqrt[3]{(1+x^3)^4}}{4}+c$
+	\item [b)] $\int\frac{xdx}{4+x^4}=\big|d(x^2)=2xdx\big|=\frac18\int \frac{d(x^2)}{\frac{x^4}{4}+1}=\frac14\int\frac{d(\frac{x^2}{2})}{\frac{x^4}{4}+1}=\frac14 \arctan \frac{x^2}{2}+c$
+	\item [c)] $\int\frac{dx}{e^x-e^{-x}}=\int\frac{e^xdx}{e^{2x}-1}=\int\frac{d(e^x)}{e^{2x}-1}=\frac12\ln\big|\frac{e^x-1}{e^x+1}\big|+c$
+	\end{itemize}
+	\item [1.11] \begin{itemize}
+	\item [a)] $\int\frac{\sin x dx}{\sqrt{\cos^3 x}}=-\int\frac{d(\cos x)}{\sqrt{\cos^3x}}=\frac{2}{\sqrt{\cos x}}+c$
+	\item [b)] $\int\frac{\sin x+\cos x}{\sqrt[3]{\sin x-\cos x}}dx=\int\frac{d(\sin x-\cos x)}{\sqrt[3]{\sin x - \cos x}}=\frac32 \sqrt[3]{(\sin x-\cos x)^2}+c$
+\end{itemize}
+\item[1.12] \begin{itemize} 
+\item [a)] $\int\frac{dx}{\textrm{ch}x}=\int\frac{\textrm{ch}x\>dx}{\textrm{ch}^2x}=\int\frac{d(\textrm{sh}x)}{\textrm{sh}^2x+1}=\arctan(\textrm{sh}x)+c$
+\item [b)] $\int\frac{(1+e^x)^2dx}{e^{2x}+1}=$
+\end{itemize}	
+\end{itemize}
+
+
+
+
+\end{document}
