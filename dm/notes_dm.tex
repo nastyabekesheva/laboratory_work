@@ -54,6 +54,7 @@
 \emph{*Лекция начинается*}\\
 \emph{-Сегодня у нас клуб уопоротых любителей математики.}
 \end{flushright}
+\let\cleardoublepage\clearpage
 \tableofcontents
 \chapter{Лекція 1}
 \section{Подільність чисел}
@@ -238,6 +239,7 @@ $$\forall a,\>b,\>c\in\mathbb{N}:\>\>\lcm(a,\>b,\>c)=\frac{a\cdot b\cdot c\cdot 
 	$a_k=\alpha^k-\beta^k,\>\alpha,\>\beta\in\mathbb{N},\>\alpha>\beta\geq 2$	
 \end{example}
 $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\gcd(a_n,\>a_m)=1$
+\let\cleardoublepage\clearpage
 \chapter{Лекція 3}
 \section{Розширений алгоритм Евкліда}
 \begin{theorem}[лема Безу]
@@ -516,25 +518,129 @@ $$\textrm{Парне }n \textrm{ - досконале }\Leftrightarrow n=2^{p-1}
 		1,\tab n=1\\0,\tab n\neq 1
 	\end{cases}$$
 	\begin{proof}
-		$p^\alpha:\tab \mu(1)+\mu(p)	+\mu(p^2)+\dots+\mu(p^\alpha)=1+(-1)+0+0+\dots+0=0\\$ За теоремою \ref{S} $\sum\limits_{d\>|\>n}\mu(d)=\prod\limits_{i}\sum\limits_{\beta}\mu(p_i^\beta)$
+		$\\p^\alpha:\tab \mu(1)+\mu(p)	+\mu(p^2)+\dots+\mu(p^\alpha)=1+(-1)+0+0+\dots+0=0\\$ За теоремою \ref{S} $\sum\limits_{d\>|\>n}\mu(d)=\prod\limits_{i}\sum\limits_{\beta}\mu(p_i^\beta)$
 	\end{proof}
 \end{lemma}
 \begin{prop*}
 $f(n)\textrm{ - мультіплікативна, }n=p_1^{\alpha_1}\dots p_t^{\alpha_t}$
 $$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
-\begin{proof}
+\begin{proof}$\\$
 	За теоремою \ref{S} $\sum\limits_{\beta}\mu(p_1^{\beta})f(p_i{^\beta})=\mu(1)f(1)+\mu(p_i)f(p_i)+\\+\mu(p_i^2)f(p_i^2)+\dots=1+(-1)f(p_i)=1-f(p_i)$
 \end{proof}
 \end{prop*}
 \begin{theorem}[закон обертання Мебіуса]
 	$$f(n) \textrm{ - мультіплікативна},\>\>g(n)	=\sum\limits_{d\>|\>n}f(d)\Rightarrow f(n)=\sum\limits_{d\>|\>n}M(d)\cdot g(\frac nd)$$
 	\begin{proof}
-		$\sum\limits_{d\>|\>n}M(d)\cdot\sum\limits_{\delta\>|\>\frac nd}f(\delta)=\sum\limits_{(d,\>\delta),\>d\delta\>|\>n}\mu(	d\cdot f(\delta)=\sum\limits_{\delta\>|\>n}\sum\limits_{d\>|\>\frac nd}\mu(d)f(\delta)=\\=\sum\limits_{\delta\>|\>n}f(\delta)\cdot\sum\limits_{d\>|\>\frac nd_{=1\Rightarrow\delta=n}}\mu(d)=f(n)$
+		$\\\sum\limits_{d\>|\>n}M(d)\cdot\sum\limits_{\delta\>|\>\frac nd}f(\delta)=\sum\limits_{(d,\>\delta),\>d\delta\>|\>n}\mu(	d\cdot f(\delta)=\sum\limits_{\delta\>|\>n}\sum\limits_{d\>|\>\frac nd}\mu(d)f(\delta)=\\=\sum\limits_{\delta\>|\>n}f(\delta)\cdot\sum\limits_{d\>|\>\frac nd_{=1\Rightarrow\delta=n}}\mu(d)=f(n)$
 	\end{proof}
-\end{theorem}
+\end{theorem}\newpage
 \begin{example}
 	$a_0,\>a_1,\>\dots,\>a_n\\ A(s)=\sum\limits_{n=1}^{\infty}\frac{a_n}{n^s}$ - ряд Діріхле.\tab $B(s)=\sum\limits_{n=1}^{\infty}\frac{b_n}{n^s}\\C(s)=A(s)\cdot B(s)=\sum\limits_{n=1}^{\infty}\frac{c_n}{n^s}\Rightarrow C_n=\sum\limits_{d\>|\>n}a_d\cdot b_{\frac nd}\tab\xi(s)=\sum\limits_{n=1}^{\infty}\frac1{n^S}\\ \frac1{\xi(s)}=\sum\limits_{n=1}^{\infty}\frac{\mu(n)}{n^S}\tab C(s)=A(s)\cdot\xi(s)\tab C_n=\sum\limits_{d\>|\>n	}a_d\\ A(s)=C(s)\cdot(\xi(s))'\Rightarrow a_n=\sum\limits_{d\>|\>n}\mu(d)c_{\frac nd}$
 \end{example}
-
-
+\let\cleardoublepage\clearpage
+\chapter{Лекція 6}
+\section{Порівняння за модулем}
+\begin{definition}
+	$\tab a,\>b\in\mathbb{N},\tab a$ та $b$ порівнювані за $\mod n:
+	$
+	$$a\equiv b(\mod n),\>a\equiv_nb\textrm{, коли: } \begin{array}{l}
+		(1)\>\exists t\in\mathbb{Z}:\>a=b+nt \\
+		(2)\>a\mod n=b\mod n\\
+		(3)\>(a-b)\>\vdots\>n
+	\end{array}$$
+\end{definition}
+\begin{property*}$\\$
+	\begin{enumerate}
+		\item $a\equiv a(\mod n),\>a\equiv b(\mod n)\Rightarrow b\equiv a(\mod n),\\a\equiv b(\mod n),\> b\equiv c(\mod n)\Rightarrow a\equiv c(\mod n)$
+		\item $a\equiv b(\mod n),\>c\equiv d(\mod n)\Rightarrow \\\Rightarrow a\pm c \equiv b\pm d(\mod n),\>ac\equiv bd\mod n)$\begin{proof}
+			$a=b+nt_1,\> c=d+nt_2,\tab ac=bd +\underbrace{nt_1d+nt_2b+n^2t_1t_2}_{n\cdot T,\>T\in\mathbb{Z}}$
+		\end{proof}
+		$p(x_1,x_2,\dots,\>x_t)$ - поліном з цілими коєфіціентами,\\$(a_i),\>(b_i):\>a_i\equiv b_i(\mod n)\Rightarrow p(a_1,\>a_2,\dots,\>a_t)=p(b_1,\>b_2,\dots,\>b_t)(\mod n)$
+		\item Якщо $ca\equiv cb(\mod n),\gcd (c,\>n)=1,$ то $a\equiv b(\mod n)$\\ Але $6\equiv 2(\mod 4),\>3\not\equiv (\mod 4)$\begin{proof}
+			$ca-cb\>\vdots\>n,\>c(a-b)\>\vdots\>n\Rightarrow (a-b)\>\vdots\>n$
+		\end{proof} 
+		\item \begin{enumerate} 
+		\item $a\equiv b(\mod n),\>k\ne 0\Rightarrow ak\equiv bk (\mod nk)$
+		\item $d=\gcd (a,\>b,\>n)\\a=a_1d_1,\>b=b_1d_1,\>n=n_1d_1,\>a\equiv b(\mod n)\Rightarrow a_1\equiv b_1(\mod n)$\end{enumerate} \begin{proof}
+			$a=b+nt,\tab a_1\cancel{d}=b_1\cancel{d}+n_1\cancel{d}t$
+		\end{proof}
+		\item $a\equiv b(\mod n),\>n\>\vdots\>d\Rightarrow a\equiv b(\mod d)$
+		\item $a\equiv b(\mod n_1),\\ a\equiv b(\mod n_2),\\\tab\vdots\\a\equiv b(\mod n_t),\\a\equiv b(\mod \lcm(n_1,\dots,\>n_t))$
+		\item $a\equiv b(\mod n)\Rightarrow\gcd(a,\>n)=\gcd(b,\>n)$
+	\end{enumerate}
+	\begin{definition}
+		Лишок за модулем $n:\tab k,\>[k],\>\underbar{k}$ $$\{k+nt\>|\>k\in\mathbb{Z}	\}$$
+	\end{definition}
+	\begin{definition}
+		Повна система лишків(кільце):$$ \mathbb{Z}_n=\{0,\>1,\>2,\dots,\>n-1\}$$
+	\end{definition}
+\end{property*}
+\section{Степені за модулем}
+\begin{lemma}[A]
+$$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
+Якщо $x$ пробігає усі елементи $\mathbb{Z}_n$ i $\gcd(a,\>n)=1,$ то $\forall b\in\mathbb{Z}\>y=(ax+b)\mod n$ - також пробігає усі лишкі з $\mathbb{Z}_n$ 
+\begin{proof}
+	$\\$Нехай $ax_1+b\equiv ax_2+b(\mod n),\>ax_1\equiv ax_2(\mod n),\>x_1=x_2(\mod n)$
+\end{proof}
+\end{lemma}
+\begin{example}
+	$x^6=\overset{3\cdot 5\cdot 7}{105y}+5\\\mod 3$
+	\\
+		\begin{tabular}{c|c|c|c|}
+			$x$ & 0 & 1 & -1\\\hline
+			$x^2$ & 0 & 1 & 1\\\hline
+			$x^3$ & 0 & 1 & -1
+		\end{tabular} 
+	$\Rightarrow x^2\mod 3\ne 2,\>x^6=(x^3)^2\equiv 2(\mod 3)$
+\end{example}\newpage 
+\begin{example}
+	$x^6=\overset{3\cdot 5\cdot 7}{105y}+4\\\mod 5$
+	\\
+		\begin{tabular}{c|c|c|c|c|c|}
+			$x$ & 0 & 1 & -1 & 2 & -2\\\hline
+			$x^2$ & 0 & 1 & 1 & -1 & -1\\\hline
+			$x^3$ & 0 & 1 & -1 & -2 & 2
+		\end{tabular}  
+	$\Rightarrow $$\begin{array}{l}		
+ x^2\mod 5\in\{0,\>\pm\},\>x^6=(x^3)^2\equiv -1(\mod 5)\\\>x^2=5k+4=5k-1\Rightarrow x=5t\pm 2\end{array}$
+ $\mod 7$
+ \\
+		\begin{tabular}{c|c|c|c|c|c|c|c|}
+			$x$ & 0 & 1 & -1 & 2 & -2 & 3 & -3\\\hline
+			$x^2$ & 0 & 1 & 1 & -3 & -3 & 2 & 2\\\hline
+			$x^3$ & 0 & 1 & -1 & 1 & -1 & -1 & 1 
+		\end{tabular} $\Rightarrow\begin{array}{l}
+			x^2\mod 7 \in\{0,\>1,\>2,\>4\} \\ \underline{x^3\mod 7\in\{0,\>\pm1\}}
+		\end{array}\\$
+ $\mod 6$
+ \\
+		\begin{tabular}{c|c|c|c|c|c|c|}
+			$x$ & 0 & 1 & -1 & 2 & -2 & 3\\\hline
+			$x^2$ & 0 & 1 & 1 & -2 & -2 & 3\\\hline
+			$x^3$ & 0 & 1 & -1 & 2 & -2 & 3
+		\end{tabular} $\Rightarrow\begin{array}{l}
+			x^2\mod 7 \in\{0,\>1,\>2,\>4\} \\ \underline{x^3\mod 7\in\{0,\>\pm1\}}
+		\end{array}$
+\end{example}
+\section{Обернені елементи за модулем}
+\begin{definition}
+	$\forall a\in\mathbb{Z},\>n\in\mathbb{N}$ Обернене до $a$ за$\mod n$ $a^{-1}\mod n:$
+	$$a\cdot a^{-1}\equiv a^{-1}\cdot a\equiv 1(\mod n)$$
+\end{definition}
+\begin{theorem}
+	$$\exists a^{-1}\mod n\Leftrightarrow\gcd(a,\>n)=1$$
+	\begin{proof}$\\$
+		\begin{enumerate}
+			\item Нехай $\gcd(a,\>n)=1\\$ Тоді $\exists u,\>v\tab a\cdot u+n\cdot v=1\Rightarrow a\cdot u\equiv 1(\mod n)\Rightarrow u=a^{-1}\mod n$  
+			\item Нехай $\forall a^{-1}\mod n, \gcd (a,\>n)=d>1\\ a\cdot a^{-1}=1+nt,\>1=a\cdot a^{-1}-nt \>\vdots\>$ - Упс! 
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\begin{definition}
+	Зведена с-ма лишків(мультиплікативна группа кільця $\mathbb{Z}_n$) 
+	$$\mathbb{Z}_n^*=\{a\>|\>\gcd(a,\>n)=1\}$$
+\end{definition}
+\begin{definition}
+	Функція Ойлера $$\varphi(n)=|\mathbb{Z}_n^*|$$
+\end{definition}
 \end{document}
