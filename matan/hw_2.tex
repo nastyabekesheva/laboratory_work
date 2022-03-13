@@ -1,0 +1,33 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\newcommand\dx{\textbf{ d}x}
+\newcommand\dy{\textbf{ d}}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 2}	
+\end{center}
+\begin{itemize}
+	\item [2.6] \begin{itemize} 
+	\item [a)] $\int x^2\sin x\dx=|u=x^2;\>v=-\cos x|=-x^2\cos x+2\int x\cos x \dx=\\=|u=x;\>v=\sin x|=-x^2\cos x+2x\sin x-2\int\sin x\dx=\\=-x^2\cos x+2x\sin x+2\cos x+c$
+	\item [b)] $\int x\sh x\dx=|u=x;\>v=\ch x|=x\ch x-\int\ch x\dx=x\ch x-\sh x+c$
+	\item [c)] $\int x^2e^{-2x}\dx =|u=x^2;\>v=-\frac12e^{-2x}|=-\frac12x^2e^{-2x}+\int e^{-2x}x \dx=\\=-\frac12x^2e^{-2x}- \frac12xe^{-2x} -\frac14e^{-2x}+c$
+	\end{itemize}
+	\item [2.7] \begin{itemize} 
+	\item [a)] $\int \arcsin x\dx=|u=\arcsin x;\>v=x|=x\arcsin x-\int\frac x{\sqrt{1-x^2}}\dx=\\=x\arcsin x+\frac12\int\frac1{\sqrt{1-x^2}}\dy (1-x^2)=x\arcsin x+\sqrt{1-x^2}$
+	\item [b)] $\int x\arctan x\dx=|u=\arctan;\>v=\frac{x^2}{2}|=\frac12x^2\arctan x-\frac12\int\frac{x^2}{x^2+1}\dx=\\=\frac12x^2\arctan x-\frac12\int\left(1-\frac{1}{x^2+1}\right)\dx=\frac12x^2\arctan x+\frac12\arctan x-\frac x2+c$
+	\item [c)] $\int(\frac{\ln x}{x})^2\dx=|u=\ln^2x;\>v=-\frac1x|=-\frac{\ln^2}{x}+2\int\frac{\ln x}{x^2}\dx=|u=\ln x;\>v=-\frac1x|=\\=-\frac{\ln^2x}{x}-\frac{2\ln x}{x}+2\frac1{x^2}\dx=-\frac{\ln^2x}{x}-\frac{2\ln x}{x}-\frac2x$
+	\end{itemize}
+	\item [2.8] \begin{itemize} 
+	\item [a)] $\int\sin(\ln x)\dx=\int e^{\ln x}\sin(\ln x)\dy (\ln x)=\frac12x(\sin(\ln x) -\cos(\ln x))+c$
+	\item [b)] $\int e^{2x}\sin^2 x=\frac14\int e^{2x}(1-\cos 2x)\dy (2x)=-\frac14\int e^{2x}\cos 2x\dy (2x)+\frac14\int e^{2x}\dy(2x)=\\=\frac{e^{2x}}{4}-\frac{e^{2x}}{8}(\sin2x+\cos2x)+c$
+	\end{itemize}
+\end{itemize}
+\end{document}
