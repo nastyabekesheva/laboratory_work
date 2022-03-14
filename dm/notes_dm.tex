@@ -578,7 +578,7 @@ $$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
 \section{Степені за модулем}
 \begin{lemma}[A]
 $$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
-Якщо $x$ пробігає усі елементи $\mathbb{Z}_n$ i $\gcd(a,\>n)=1,$ то $\forall b\in\mathbb{Z}\>y=(ax+b)\mod n$ - також пробігає усі лишкі з $\mathbb{Z}_n$ 
+Якщо $x$ пробігає усі елементи $\mathbb{Z}_n$ i $\gcd(a,\>n)=1,$ то $\forall b\in\mathbb{Z}\>y=(ax+b)\mod n$ - також пробігає усі лишки з $\mathbb{Z}_n$ 
 \begin{proof}
 	$\\$Нехай $ax_1+b\equiv ax_2+b(\mod n),\>ax_1\equiv ax_2(\mod n),\>x_1=x_2(\mod n)$
 \end{proof}
@@ -643,4 +643,178 @@ $$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
 \begin{definition}
 	Функція Ойлера $$\varphi(n)=|\mathbb{Z}_n^*|$$
 \end{definition}
+\chapter{Лекція 7}
+\section{Китайська теорема про остачі}
+\begin{theorem}[КТО]
+	$$\begin{cases}
+		x\equiv b_1(\mod n_1)\\
+		x\equiv b_2(\mod n_2)\\
+		\tab\vdots\\
+		x\equiv b_t(\mod n_t)
+	\end{cases}\begin{array}{l}
+		\textrm{усі } n_i \textrm{ попарно взаємнопрості}\\ \textrm{Тоді існує рівно один класс лишків}\\ \mod n_1n_2\dots n_i,\\ \textrm{який є розв'язком системи.}\end{array}$$
+		\begin{proof}$\\$\begin{enumerate}
+			\item  Нехай $x_1$ та $x_2$ - різні розв'язки. \\ $x_1\equiv x_2\equiv b_i(\mod n_i)\Rightarrow(x_1-x_2)\>\vdots\>n_i,\>i=\overline{1,t}\Rightarrow\\\Rightarrow(x_1-x_2)\>\vdots\>n_1n_2\dots n_t$
+			\item $\begin{cases}
+				x\equiv b_1(\mod n_1)\\x\equiv b_2(\mod n_2)
+			\end{cases}\Rightarrow \begin{array}{l}x=b_1+n_1k,\>k\in\mathbb{Z}\\ \underset{=b_2}{n_1k+b_1}(\mod n_2), \>k=\overline{1,n_2-1}\end{array}\\$
+			З леми А: $\exists!k\>\>n_1k+b_1\equiv b_2(\mod n_2)\\$ Повторюємо для $n_1n_2$ та $n_3$, $n_1n_2n_3$ та $n_4\dots $
+			\item $N=n_1n_2\dots n_t,\>N	_i=\frac{N}{n_i},\>M_i=N_i^{-1}\mod n_i\\ x_0=(b_iN_1M_1+b_2N_2M_2+\dots+B_iN_iM_i)\mod N$ - розв'язок\\
+			$x_0\mod n_1\equiv b_1N_1M_1\mod n_1\equiv b_1N_1N_1^{-1}\mod n_1=b_1\mod n_1$
+		\end{enumerate}
+		\end{proof}
+\end{theorem}
+\newpage
+\begin{example}
+$\begin{cases}
+	x\equiv 1(\mod2)\\
+	x\equiv 2(\mod3)\\
+	x\equiv 3(\mod7)	 
+\end{cases}
+	\begin{array}{lll}
+		n_1 = 2 & N_1 = 21 & M_1 = 1\\
+		n_2 = 3 & N_2 = 14 & M_2 = 14^{-1}\mod 3=2\\
+		n_3 = 7 & N_3 = 6 & M_3 = 6^{-1}\mod7=6\mod7\\
+	\end{array}\\ N=42,\tab x_0=1\cdot 4\cdot1+2\cdot 14\cdot2+3\cdot 6\cdot6\equiv 17\mod 42$	
+\end{example}
+\section{Функція Ойлера}
+\begin{definition}
+	$$\varphi(n)=|\mathbb{Z}^*_n|= \textrm{к-ть чисел в інтервалі } 1\dots n,\textrm{ які взаємнопрості з } n$$
+\end{definition}
+\begin{prop*}
+	$$\varphi(n) \textrm{- мультиплікативна.}$$
+	\begin{proof}
+		$\\ n=ab,\>\gcd(a,\>b)=1\\\forall x:\tab \gcd(x,\>n)=1\Leftrightarrow\begin{cases}
+			\gcd(x,\>a)=1\\\gcd(x,\>b)=1
+		\end{cases}$ (Випливає з ОТА)
+		$\varphi(n)=\varphi(a\cdot b)\\	x\equiv x_0(\mod n)\Leftrightarrow\begin{cases}
+	x\equiv x_0(\mod a)\\ x\equiv x_0(\mod b)
+\end{cases}\begin{array}{ll}
+	x_0=x_0\mod a & \varphi(a)\\
+	x_0=x_0\mod b & \varphi(b)
+\end{array} \\(x_a,\>x_n):\>\>	\varphi(a)\cdot \varphi(b)$
+	\end{proof}
+\end{prop*}
+$\\$
+$n=p:\tab 	\varphi(p)=p-1$ (всі окрім $p$)\\
+$n=p^\alpha:\tab 	\varphi(p)=p^\alpha-p^{\alpha-1}$ (всі окрім $p,\>2p,\>3p,\>4p,\dots,\>(p^{\alpha-1}-1,\>p^\alpha$)\\
+$n=p^{\alpha_1}_1p^{\alpha_2}_2\dots p^{\alpha_t}_t:\tab \varphi(n)=\prod\limits_{i=1}^{t}(p^{\alpha_i}_i-p^{\alpha_i-1}_i)=n\cdot\prod\limits_{i=1}^{t}(1-\frac{1}{p_i})$
+\begin{example}
+$\varphi(31)=30\\\varphi(32)=\varphi(2^5)=16\\\varphi(33)=\varphi(3\cdot 11)=30$	
+\end{example}
+\begin{prop*}
+$$\sum\limits_{d\>|\>n}\varphi(d)=n$$
+\begin{proof}
+	$\\\varphi(n)=\# x:\tab\gcd(x,\>n)=1,\\ N_d=\# x:\tab\gcd(x,\>n)=d,\>x=x_1\cdot d,\>n=n_1\cdot d,\>\gcd(x_1,\>n_1)=1\Rightarrow\\\Rightarrow N_\alpha=\varphi(n_1)=\varphi(\frac nd)\Rightarrow n=\sum\limits_{d\>|\>n}N_d=\sum\limits_{d\>|\>n}\varphi(\frac nd)=\sum\limits_{d\>|\>n}\varphi(d)$
+\end{proof}	
+\end{prop*}
+$\\\sum\limits_{d\>|\>n}\varphi(d)=n\Rightarrow\varphi(n)=\sum\limits_{d\>|\>n}\mu(d)\cdot\frac nd=n-\frac n{p_1}-\frac n{p_2}-\dots-\frac n{p_t}+\frac n{p_2p_3}+\dots+\frac n{p_{t-1}p_t}-\\-\frac n{p_1p_2p_2}-\dots+(-1)^t\frac n{p_1p_2\dots p_t}$
+\section{Теорема Ойлера та мала теорема Ферма}
+\begin{theorem}[Ойлер]
+$$\forall n\in\mathbb{N},\>\forall a\in\mathbb{Z}_n^*:\>\>a^{\varphi(n)}\equiv 1(\mod n)$$
+\begin{proof}
+	$\\\forall a\in\mathbb{Z}_n^*:\>\>a\mathbb{Z}_n^*=\mathbb{Z}_n^*$ якщо $x$ пробігає усі значення $\mathbb{Z}_n^*$, то $ax$ також пробігає $\mathbb{Z}_n^*$\\$ax\equiv ay(\mod n)\Rightarrow x\equiv y(\mod n)\\\mathbb{Z}_n^*=\{b_1,\>b_2,\dots,\>b_{\varphi(n)}\}=\{ab_1,\>ab_2,\dots,\>ab_{\varphi(n)}\}\Rightarrow\\\Rightarrow  \cancel{b_1}\cancel{b_2}\dots \cancel{b_{\varphi(n)}}\equiv a\cancel{b_1}\cdot a\cancel{b_2} \dots a\cancel{b_{\varphi(n)}}1\equiv a^{\varphi(n)}(\mod n)$
+\end{proof}
+\begin{cons*}$n=p$
+$$a\>\bar{\vdots}\>p\Rightarrow a^{p-1}\equiv 1(\mod n)$$
+	
+\end{cons*}
+\end{theorem}
+\begin{theorem}[Мала теорема Ферма]
+$$p\textrm{ - просте: }\forall a\tab a^p\equiv p(\mod a)$$
+	\begin{proof}
+		$\\a\>\vdots\>p\tab a^p\equiv a\equiv 0(\mod p)\\a\>\bar{\vdots}\>p\tab a^{p-1}\equiv 1(\mod p)$
+	\end{proof}
+\end{theorem}
+\begin{example}
+	$5555^{2222}+2222^{5555}\>\vdots\>7\\2222\equiv 3(\mod 7)\tab 5555\equiv 4(\mod 7)\\3^{5555}+4^{2222}(\mod 7)\tab 3^6\equiv1(\mod 7)\\2222\equiv 2(\mod 6)\tab 5555\equiv 5(\mod 6)\\3^5+4^2\equiv 9\cdot 9\cdot 9\cdot 3+16\equiv 2\cdot2\cdot3+2\equiv 14\equiv 0(\mod7)$
+\end{example}
+\chapter{Лекція 8}
+\section{Функція Кармайкла}
+$\mathbb{Z}_8^*=\{1,\>3,\>5,\>7\},\>\>\varphi(8)=4\\1^2\equiv1(\mod 8),\>3^2\equiv 1(\mod 8),\>5^2\equiv 1(\mod 8),\>7^2\equiv 1(\mod 8)$
+\begin{prop*}$n>3,\> a$ - непране
+	$$a^{2^{n-2}}\equiv 1(\mod 2^n)$$
+	\begin{proof}
+		Доведемо за ММІ.
+		\\База: $n=3\\a=2k+1\tab a^2=(2k+1)^2=4k(k+1)+1\equiv 1
+		(\mod 8)$
+		\\Крок: $n\\a^{2^{n-2}}\equiv 1(\mod 2^n)\tab a^{2^{n-2}}=1+2^n\cdot t\\ a^{2^{n-1}}=(1+2^n\cdot t)^2=1+2\cdot 2^n\cdot t+2^{2n}\cdot t^2=1+2^{n+2}\cdot t_1\equiv 1(\mod 2^{m+1})$
+	\end{proof}
+\end{prop*}
+\begin{definition}[Функція Кармайкла: $\lambda(n)(\psi(n))$]
+$$\lambda(n)=\min \{u\>:\>\forall a\in\mathbb{Z}_{n}^*:\>\> a^u\equiv 1(\mod n)\}$$
+	
+\end{definition}
+\begin{lemma}
+	$$\forall a\in\mathbb{Z}_{n}^*:\>a^\omega\equiv 1(\mod n)\Rightarrow \omega\>\vdots\>\lambda(n)$$
+	\begin{proof}
+		$\\$Нехай $\omega\>\bar{\vdots}\>\lambda(n)\Rightarrow \omega =q\cdot \lambda(n)+r,\>0\leq r\leq \lambda(n)\\ 1\equiv a^\omega\equiv a^{q\cdot\lambda(n)+r}\equiv (a^{q\cdot\lambda(n)})(a^r)\equiv a^r(\mod n)$ - Упс!
+	\end{proof}
+\end{lemma}
+\begin{lemma}
+	$$n=p^\alpha ,\>p\geq 3\Rightarrow\exists a\in\mathbb{Z}_{n}^k:\>1,\>a,\>a^2,\dots,\>a^{\varphi(n)-1}\textrm{ - попарно різні лишки}$$
+	\begin{proof}$\\$
+		Доведення буде пізніше
+	\end{proof}
+\end{lemma}
+\begin{cons*}
+	$$\lambda(p^\alpha)=\varphi(p^\alpha)$$
+\end{cons*}
+\begin{theorem}[Кармайкл]$\\$
+	\begin{enumerate}
+		\item $n=p$ $$\lambda(n)=\begin{cases}
+			\varphi(n),\>n=2,\>4,\>p^\alpha,\>p\geq 3\\ \frac12 \varphi(n),\>n=2,\>\alpha>3
+		\end{cases}\tab (\lambda(p^\alpha)=\varphi(p^\alpha),\>\lambda(2^\alpha)=2^{\alpha-1},\>\alpha=3$$
+		\item $n=p^{\alpha_1}_1p^{\alpha_2}_2\dots p^{\alpha_t}_t$ $$\lambda(n)=\lcm (\lambda(p^{\alpha_1}_1)),\>(\lambda(p^{\alpha_2}_2)),\dots,\>(\lambda(p^{\alpha_t}_t))$$
+	\end{enumerate}
+	\begin{proof}$\\$
+		\begin{itemize}
+			\item [2)] Нехай $a^\omega\equiv 1(\mod n),\>\forall a\in\mathbb{Z}_{n}^*\Rightarrow a^\omega\equiv 1(\mod p^{\alpha_i}_i\Rightarrow \omega\>\vdots\>\lambda(p^{\alpha_i}_i)\Rightarrow\\\Rightarrow\min\omega=\lcm(\lambda(p^{\alpha_1}_1)),\>(\lambda(p^{\alpha_2}_2)),\dots,\>(\lambda(p^{\alpha_t}_t))=\lambda(n)$
+		\end{itemize}
+	\end{proof}
+\end{theorem}
+\begin{example}
+	$n=35=5\cdot 7\\\varphi(35)=4\cdot 5=24\tab\lambda(35)=\lcm(4,\>6)=12$
+\end{example}
+\begin{example}
+	$n=1000=2^3\cdot 5^3\\\varphi(1000)=\varphi(2^3)\varphi(5^3)=4\cdot 100=400\tab\lambda(1000)\lcm(\lambda(2^3),\>\lambda(5^3))=\lcm(2,\>100)=100$
+\end{example}
+\chapter{Лекція 9}
+\section{Системи числення}
+
+- представлення чисел у вигляді послідовності символів обмеженого алфавіту.\\
+(Позиційна) система числення за основою $B$:
+$\\ n=\overline{(a_{k-1}a_{k-2}\dots a_1a_0)_B}=a_{k-1}B^{k-1}+a_{k-2}B^{k-2}+\dots +a_1B+a_0,\\\forall i:\>0\leq a_i<B,\>a_{k-1}\neq0$
+$\\n=n_1\cdot B+a_0=n_2\cdot B^2+a_1\cdot B+a_0,\>n_1=n_2\cdot B+a_0\\$
+
+Популярні системи числення: 
+$B=2,\tab B=10,\tab B=16\\$
+
+Непозиційні системи:\begin{enumerate}
+	\item римська 
+	\item фібоначчієва
+	\item факторіальна
+\end{enumerate}
+
+\begin{example}
+	$\overline{11010}_2=2+8+16=26\\ 2^n=\underbrace{100\dots0_2}_{n}$
+\end{example}
+\begin{example}
+	$70$ у $B=3\\70=23\cdot 3+1\\23=7\cdot 3+2\\7=2\cdot 3+1\\2=0\cdot3+2\\70=\overline{2121}_3$
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
