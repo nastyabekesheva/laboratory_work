@@ -9,6 +9,7 @@
 \usepackage{mdframed} 
 \usepackage{xcolor}
 \usepackage{xparse}
+\usepackage{amssymb}
 \usepackage{tikz} 
 \usepackage[makeroom]{cancel}
 \usepackage{booktabs,caption}          \usepackage[flushleft]{threeparttable}
@@ -24,6 +25,7 @@
 \newtheorem*{prop*}{Proposition}
 \newtheorem{cons}{Consequence}
 \newtheorem*{cons*}{Consequence}
+\newtheorem*{remark*}{\emph{Remark}}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 \DeclareMathOperator{\lcm}{lcm}
@@ -68,7 +70,7 @@
 		$a$ поділяється на $b\>\>-\>\>a\>\vdots\>b$ або  $b$ ділить $a$($b$ є дільником$a$)$\>\>b\>|\>a.\\
 		a\>\vdots\>b\Leftrightarrow\exists k\in\mathbb{Z}:\>\>a=kb$
 	\end{definition}
-	\begin{property*}$\\$
+	\begin{property*}$ $
 	\begin{enumerate}
 		\item $a\neq 0,\>\>a\>\vdots\>0$
 		\item $a\neq 0,\>\>0\>\vdots\>a$
@@ -81,7 +83,7 @@
 	\begin{theorem}[про ділення з остачею] 
 	$$\forall a,\>b\in\mathbb{Z}\>\>\exists!q,\>r\>:\>q\in\mathbb{Z},\>r\in\mathbb{N}\>\>0\leq r\leq |b|\>\>a=bq+r$$
 	\newpage
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		\begin{enumerate}
 			\item Існування\\
 			$bq,\>q\in\mathbb{Z}$ - росте необмежено. $\exists q\>;\>bq\leq a\leq b(q+1),\>r=a-bq.$
@@ -102,7 +104,7 @@
 			\item $d\>-\>\max$ додатнє число, яке задовільняє 1.
 		\end{enumerate}
 	\end{definition}
-	\begin{property*}$\\$
+	\begin{property*}$ $
 		\begin{enumerate}
 			\item $\gcd(a,\>b)=b\Leftrightarrow a\>\vdots\>b$
 			\item $a\neq 0:\>\gcd(a, 0)=a$
@@ -173,7 +175,7 @@ M = НСK(a, b), lcm(a, b), [a, b]
 	\item $M\>-\>\min$ таке число
 \end{enumerate}
 \end{definition}
-\begin{property*}$\\$
+\begin{property*}$ $
 	\begin{enumerate}
 		\item $\lcm(a,\>0)$ - 'на доске был нарисован грустный смайлик'
 		\item $\lcm(a,\>b) = a\Leftrightarrow a\>\vdots\>b$
@@ -191,14 +193,14 @@ M = НСK(a, b), lcm(a, b), [a, b]
 \end{theorem}
 \begin{theorem}
 	$$\forall a,\>b\in\mathbb{N}:\>\>\gcd(a,\>b,\>c)=\gcd(\gcd(a,\>b),\>c)=\gcd(a,\>\gcd(b,\>c))$$
-\end{theorem}$\\$
+\end{theorem}$ $
 	\begin{proof}
 		$d=\gcd(a,\>b,\>c)\\d'=\gcd(a,\>b)\Rightarrow d'\>\vdots\>d,\>c\>\vdots\>d\Rightarrow d=\gcd(c,\>d')$
 	\end{proof}
 $$\lcm(a,\>b,\>c)=\lcm(\lcm(a,\>b),\>c)=\lcm(a,\>\lcm(b,\>c)$$
 \begin{theorem}
 $$\forall a,\>b,\>c\in\mathbb{N}:\>\>\lcm(a,\>b,\>c)=\frac{a\cdot b\cdot c\cdot \gcd(a,\>b,\>c)}{\gcd(a,\>b)\cdot\gcd(b,\>c)\cdot\gcd(c,\>a)}$$	
-\end{theorem}$\\$
+\end{theorem}$ $
 Решітка(\emph{lattice}) - $<A,\>\leq,\>\sup,\>\inf>$
 \begin{example}
 	\begin{enumerate}
@@ -218,11 +220,11 @@ $$\forall a,\>b,\>c\in\mathbb{N}:\>\>\lcm(a,\>b,\>c)=\frac{a\cdot b\cdot c\cdot 
 \end{definition}
 \begin{theorem}
 	$$(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n,\>m:\>\>\gcd(a_n,\>a_m)=a_{\gcd(n,\>m)}$$
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		$n=m$ - очевидна.\\\\
 		$n>m:\\\tab d=\gcd(n,\>m,)$ АЕ породжуе послідовність $r_0,\>r_1,\>\dots,r_t$, де $r_0=n,\\\tab r_1=m,\>r_t=d,\>r_{t+1}=0,\>r_{i+1}=r_{i-1}\mod r_i$ $\\\tab \gcd(a_n,\>a_m)=\gcd(a_{r_0},\>a_{r_1}=\gcd(a_n,\>a_m)=\gcd(a_{r_1},\>a_{r_2}=\dots=\gcd(a_{t_0},\>a_{t_{i+1}})=a_{r_t}=a_0$
 	\end{proof}
-	\begin{cons*}$\\$
+	\begin{cons*}$ $
 		Якщо додатково $a_1=1$, то $\gcd(n,\>m)=1\Rightarrow\gcd(a_n,\>a_m)$
 	\end{cons*}
 \end{theorem}
@@ -255,7 +257,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 		Тоді $d=r_n=r_{n-2}-r_{n-1}q_{n-1}=r_{n-2}-q_{n-1}(r_{n-3}-r_{n-2}q_{n-2})=\dots=\\=u\cdot r_0+v\cdot r_1$
 	\end{proof}
 	\begin{cons*}
-	\begin{enumerate}$\\$
+	\begin{enumerate}$ $
 		\item $d=au+bv\Rightarrow$ одне з чисел $u,\> v$ - недодатнє, а інше - невід'ємне.
 		\item $d=\gcd(x1,\>x_2,\>\dots,\>x_k)\Rightarrow a_1,\>a_2,\>\dots,\>a_k\in\mathbb{Z}:\>\>d=a_1x_1+a_2+x_2+\dots+a_kx_k$
 		\item $\forall i:\>\>u_i,\>v_i\in\mathbb{Z}\>\>r_i=au_i+bv_i\Rightarrow u_0=1,\>v_0=0,\>u_1=0,\>v_1=1\\ u_{i+1}=u_{i-1}-u_iq_i,\>v_{i+1}=v_{i-1}-v_iq_i,\>r_{i+1}=r_{i-1}-q_ir_i=(au_{i-1}+bv_{i-1})-\\-q_i(au_i+bv_i)=a\underbrace{(u_{i-1}-q_iu_i)}_{u_{i+1}}+b\underbrace{(v_{i-1}-q_iv_i)}_{v{i+1}}$
@@ -284,7 +286,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 \end{example}
 \begin{theorem}
 	$$\gcd(a,\>b)\>-\>\min\textrm{ додатнє число , яке має форму } au+bv,\>\>u,\>v\in\mathbb{Z}$$
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		\begin{enumerate}
   \item $C=\{au+bv\>|\>u,\>v\in\mathbb{Z}\}\\ d'=\min\{d'>0\},\>d\in C$ тоді $\forall d\in C:\>c\>\vdots\>d'\\$ Нехай $c'=au'+bv',\>c'\>\vdots\>d',$ тоді $c=q'd'+r',\>0<r'<d'\\r'=c'-q'd'=(au'+bv')-q'(au'_\alpha+bv'_\alpha)=\\=a(u'=-q'u'_\alpha)+b(v'-q'v'_\alpha)$ - Упс!
   \item $d=au+bv=\gcd(a,\>b)\Rightarrow d\>\vdots\>d'\\a=a\cdot1+b\cdot0\Rightarrow a\>\vdots\>d',\>\>b=a\cdot0+b\cdot1\Rightarrow b\>\cdots\>d'\\\Rightarrow d'$ - спільний дільник $a$ та  $b\Rightarrow d'=au_\alpha'+bv_\alpha'\>\vdots\>d\Rightarrow d=d'$
@@ -305,7 +307,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
   		\end{cases} t\in\mathbb{Z}$
 
   	\end{enumerate}
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		\begin{enumerate}
   		\item Якщо $c\>\bar{\vdots}\>d$, але $ax+by\>\vdots\>d$ то Упс!\\
 			  Якщо $c\>\vdots\>d$, то $a_0x+b_0y=c_0$ - еквівалентне рівняння\\
@@ -324,7 +326,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 $15x+9y=27\\ 15=9\cdot 1\\9=6\cdot 1+3\\6=3\cdot 2\Rightarrow3=15\cdot(-1)+9\cdot 2\\27\>\vdots\>3\Rightarrow$ розв'язки існують \\
 $5x+3y=9\\1=5\cdot(-1)+3\cdot2\\x_0=9,\>y_0=18\\\begin{cases}
 	x=-9+3\cdot t\\y=18-5\cdot t
-\end{cases}$\\$t=10:\tab x=-9+30=21,\>y=18-50=-32\\5\cdot21-3\cdot32=105-96=9\\?t:\tab x>0,\>y>0\\\begin{cases}
+\end{cases}$ $t=10:\tab x=-9+30=21,\>y=18-50=-32\\5\cdot21-3\cdot32=105-96=9\\?t:\tab x>0,\>y>0\\\begin{cases}
 	-9+3t>0\\18-5t>0
 	\end{cases}\Rightarrow\begin{cases}
 		t>3\\t<3,6
@@ -348,13 +350,13 @@ $n\in\mathbb{N}$ - cкладене $\Leftrightarrow\exists a:\>\>1<a<n\>\>\>\>n\
 		$\\Q=p_1p_2p_3\dots p_n+1\Rightarrow Q\>\overline{\vdots }\>p_i,\>n=\overline{1,n}\\ Q$ - або просте, або має простий дільник
 	\end{proof}
 	\begin{cons*}
-		$\\$Простих чисел нескінченно багато
+		$ $Простих чисел нескінченно багато
 	\end{cons*}
 \end{theorem}
 \begin{lemma}
 	$$n\in\mathbb{N} \textrm{ - складене } d>1\> -\>\min\textrm{ дільник } n\Rightarrow d\textrm{ - просте	}$$
 	\begin{proof}
-		$\\$Нехай $d$ - складене, $d=a\cdot b,\>\>a,\>b\neq 1,\>d\>\vdots\>a,\>n\>\vdots\>d\Rightarrow n\>\vdots\>a$ - Упсв! 
+		$ $Нехай $d$ - складене, $d=a\cdot b,\>\>a,\>b\neq 1,\>d\>\vdots\>a,\>n\>\vdots\>d\Rightarrow n\>\vdots\>a$ - Упсв! 
 	\end{proof}
 \end{lemma}
 \section{Розподіл простих чисел}
@@ -371,7 +373,7 @@ $\slash\slash$ Беремо настпуне. Це 5 - просте. Викре�
 	\begin{proof}
 		Від супротивного
 	\end{proof}
-	\begin{cons*}$\\$
+	\begin{cons*}$ $
 		У ситі Ератросфена для $2\dots N$ після викреслень чисел $\leq\sqrt{n}$ залишаются прості.	
 	\end{cons*}
 \end{lemma}
@@ -408,12 +410,12 @@ $\frac12\cdot \frac{x}{\log_2x}\leq \Pi(x)\leq 5\cdot\frac{x}{log_2x}\rightarrow
 \begin{lemma}[Euclid]
 	$$p\textrm{ - просте, }ab\>\vdots\>p\Rightarrow\bcases{a\>\vdots\>p \cr b\>\vdots\>p }$$
 	\begin{proof}
-		$\\$Нехай $ab\>\vdots\>p$, але $a\>\overline{\vdots}\>p\Rightarrow \gcd(a,\>p)=1\Rightarrow\\\Rightarrow\exists u,\>v,\>\>\>\>au+pv=1\Rightarrow \underbrace{ab}_{\vdots\>p}\cdot u+\underbrace{p}_{\vdots\>p}\cdot bv=\underbrace{b}_{\vdots\>p}$
+		$ $Нехай $ab\>\vdots\>p$, але $a\>\overline{\vdots}\>p\Rightarrow \gcd(a,\>p)=1\Rightarrow\\\Rightarrow\exists u,\>v,\>\>\>\>au+pv=1\Rightarrow \underbrace{ab}_{\vdots\>p}\cdot u+\underbrace{p}_{\vdots\>p}\cdot bv=\underbrace{b}_{\vdots\>p}$
 	\end{proof}
 \end{lemma}
 \begin{theorem}[основна теорема арифметики]
 	$$\forall n\in\mathbb{N}:\>\>n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}\textrm{, де }p_1<p_2<\dots<p_t-\textrm{ - прості, }\alpha_i\geq1 \textrm{ - натуральні.}$$
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		\begin{enumerate}
 			\item Існування\\
 			Нехай все вірне , $n_0\>-\>\min$ чысло, яке не розкладаэться$\Rightarrow n_0$ - складене $\Rightarrow\exists a:\>\>1<a<n_0:\>\>n=a\cdot b$
@@ -421,7 +423,7 @@ $\frac12\cdot \frac{x}{\log_2x}\leq \Pi(x)\leq 5\cdot\frac{x}{log_2x}\rightarrow
 			Нехай $n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}=q_1^{\beta_1}q_2^{\beta_2}\dots q_t^{\beta_t},\>\>n\>\vdots\>p_1\Rightarrow q_1^{\beta_1}\dots q_t^{\beta_t}\>\vdots\>p_1\exists i:\>\>q_i^{p_i}\>\vdots\>p_1\Rightarrow\\\Rightarrow q_i=p_i$
 		\end{enumerate}
 	\end{proof}
-\end{theorem}$\\$
+\end{theorem}$ $
 \begin{example}
 \textbf{Приклад Гільберта}\\
 Розглянемо числа виду $4k+1\\$
@@ -445,7 +447,7 @@ $f(n)$ - мультіплікативна:\begin{enumerate}
 \begin{example}
 $\\f(n)=1\\f(n)=n\\f(n)=n^S$	
 \end{example}
-\begin{property*}$\\$
+\begin{property*}$ $
 	\begin{enumerate}
 		\item $f(1)=1;\>f(n)=f(n\cdot 1)=f(n)f(1)$
 		\item Якщо $x_1,\>x_2,\>\dots,\>x_t$ - попарно взаємнопрості, то $f(x_1 x_2 \dots x_t)=f(x_1)\dots f(x_t)$ 
@@ -479,7 +481,7 @@ $n=1000=2^35^3\\\tau(1000)=(1+3)(1+3)=16\\\sigma(1000)=\frac{2^4-1}{2-1}\cdot\fr
 \begin{example}
 $n=1001=7\cdot11\cdot13\\\tau(1001)=(1+1)(1+1)(1+1)=8\\\sigma(1001)=(1+7)(1+11)(1+13)=1344$	
 \end{example}
-\begin{property*}$\\$
+\begin{property*}$ $
 	\begin{enumerate}
 		\item $\tau(n)\leq2\sqrt n\\n\>\vdots\>d\Rightarrow n=d\cdot d'\\\sigma(n)\geq n+1$
 		\item $\tau(n)$ - непарне $\Leftrightarrow n=m^2$
@@ -498,7 +500,7 @@ $n=1001=7\cdot11\cdot13\\\tau(1001)=(1+1)(1+1)(1+1)=8\\\sigma(1001)=(1+7)(1+11)(
 \end{example}
 \begin{theorem}[Евклід-Ойлер]
 $$\textrm{Парне }n \textrm{ - досконале }\Leftrightarrow n=2^{p-1}\cdot M_p, \textrm{ де }M_p=2^p-1\textrm{ - просте число Марсена}$$
-\begin{proof}$\\$
+\begin{proof}$ $
 	\begin{enumerate}
 		\item $n=2^{p-1}\cdot M_p,\tab p>2\\\sigma(n)=\sigma(2^{p-1}\cdot M_p)=\sigma(2^{p-1})\sigma(M_p)=(2^p-1)(M_p+1)=2^p(2^p-1)=n$
 		\item Нехай $n$ - парне досконале, $n=2^k\cdot b,\>b$ - непарне\\$\sigma(n)=\sigma(2^k\cdot b)=(2^k-1)\cdot\sigma( b)=2^k\cdot b=2n\Rightarrow\\\Rightarrow b\>\vdots\>(2^k-1),\>b=(2^k-1)\cdot c\tab (2^k-1)\sigma(b)=2^k(2^k-1)\cdot c\\\sigma(b)=2^k\cdot c=(2^k-1+1)\cdot c=b+c\\b\>\vdots c,\>c\neq1,\>c\neq b\Rightarrow\sigma(b)>1+b+c\Rightarrow c=1.\\b=2^k-1,\>\sigma(b)=b+1\Rightarrow b$ - просте. $n=2^{k-1}\underbrace{(2^k-1)}_{\textrm{просте}}$
@@ -524,7 +526,7 @@ $$\textrm{Парне }n \textrm{ - досконале }\Leftrightarrow n=2^{p-1}
 \begin{prop*}
 $f(n)\textrm{ - мультіплікативна, }n=p_1^{\alpha_1}\dots p_t^{\alpha_t}$
 $$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
-\begin{proof}$\\$
+\begin{proof}$ $
 	За теоремою \ref{S} $\sum\limits_{\beta}\mu(p_1^{\beta})f(p_i{^\beta})=\mu(1)f(1)+\mu(p_i)f(p_i)+\\+\mu(p_i^2)f(p_i^2)+\dots=1+(-1)f(p_i)=1-f(p_i)$
 \end{proof}
 \end{prop*}
@@ -549,7 +551,7 @@ $$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
 		(3)\>(a-b)\>\vdots\>n
 	\end{array}$$
 \end{definition}
-\begin{property*}$\\$
+\begin{property*}$ $
 	\begin{enumerate}
 		\item $a\equiv a(\mod n),\>a\equiv b(\mod n)\Rightarrow b\equiv a(\mod n),\\a\equiv b(\mod n),\> b\equiv c(\mod n)\Rightarrow a\equiv c(\mod n)$
 		\item $a\equiv b(\mod n),\>c\equiv d(\mod n)\Rightarrow \\\Rightarrow a\pm c \equiv b\pm d(\mod n),\>ac\equiv bd\mod n)$\begin{proof}
@@ -580,7 +582,7 @@ $$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
 $$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
 Якщо $x$ пробігає усі елементи $\mathbb{Z}_n$ i $\gcd(a,\>n)=1,$ то $\forall b\in\mathbb{Z}\>y=(ax+b)\mod n$ - також пробігає усі лишки з $\mathbb{Z}_n$ 
 \begin{proof}
-	$\\$Нехай $ax_1+b\equiv ax_2+b(\mod n),\>ax_1\equiv ax_2(\mod n),\>x_1=x_2(\mod n)$
+	$ $Нехай $ax_1+b\equiv ax_2+b(\mod n),\>ax_1\equiv ax_2(\mod n),\>x_1=x_2(\mod n)$
 \end{proof}
 \end{lemma}
 \begin{example}
@@ -629,7 +631,7 @@ $$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
 \end{definition}
 \begin{theorem}
 	$$\exists a^{-1}\mod n\Leftrightarrow\gcd(a,\>n)=1$$
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		\begin{enumerate}
 			\item Нехай $\gcd(a,\>n)=1\\$ Тоді $\exists u,\>v\tab a\cdot u+n\cdot v=1\Rightarrow a\cdot u\equiv 1(\mod n)\Rightarrow u=a^{-1}\mod n$  
 			\item Нехай $\forall a^{-1}\mod n, \gcd (a,\>n)=d>1\\ a\cdot a^{-1}=1+nt,\>1=a\cdot a^{-1}-nt \>\vdots\>$ - Упс! 
@@ -653,7 +655,7 @@ $$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
 		x\equiv b_t(\mod n_t)
 	\end{cases}\begin{array}{l}
 		\textrm{усі } n_i \textrm{ попарно взаємнопрості}\\ \textrm{Тоді існує рівно один класс лишків}\\ \mod n_1n_2\dots n_i,\\ \textrm{який є розв'язком системи.}\end{array}$$
-		\begin{proof}$\\$\begin{enumerate}
+		\begin{proof}$ $\begin{enumerate}
 			\item  Нехай $x_1$ та $x_2$ - різні розв'язки. \\ $x_1\equiv x_2\equiv b_i(\mod n_i)\Rightarrow(x_1-x_2)\>\vdots\>n_i,\>i=\overline{1,t}\Rightarrow\\\Rightarrow(x_1-x_2)\>\vdots\>n_1n_2\dots n_t$
 			\item $\begin{cases}
 				x\equiv b_1(\mod n_1)\\x\equiv b_2(\mod n_2)
@@ -753,7 +755,7 @@ $$\lambda(n)=\min \{u\>:\>\forall a\in\mathbb{Z}_{n}^*:\>\> a^u\equiv 1(\mod n)\
 \end{lemma}
 \begin{lemma}
 	$$n=p^\alpha ,\>p\geq 3\Rightarrow\exists a\in\mathbb{Z}_{n}^k:\>1,\>a,\>a^2,\dots,\>a^{\varphi(n)-1}\textrm{ - попарно різні лишки}$$
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		Доведення буде пізніше
 	\end{proof}
 \end{lemma}
@@ -767,7 +769,7 @@ $$\lambda(n)=\min \{u\>:\>\forall a\in\mathbb{Z}_{n}^*:\>\> a^u\equiv 1(\mod n)\
 		\end{cases}\tab (\lambda(p^\alpha)=\varphi(p^\alpha),\>\lambda(2^\alpha)=2^{\alpha-1},\>\alpha=3$$
 		\item $n=p^{\alpha_1}_1p^{\alpha_2}_2\dots p^{\alpha_t}_t$ $$\lambda(n)=\lcm (\lambda(p^{\alpha_1}_1)),\>(\lambda(p^{\alpha_2}_2)),\dots,\>(\lambda(p^{\alpha_t}_t))$$
 	\end{enumerate}
-	\begin{proof}$\\$
+	\begin{proof}$ $
 		\begin{itemize}
 			\item [2)] Нехай $a^\omega\equiv 1(\mod n),\>\forall a\in\mathbb{Z}_{n}^*\Rightarrow a^\omega\equiv 1(\mod p^{\alpha_i}_i\Rightarrow \omega\>\vdots\>\lambda(p^{\alpha_i}_i)\Rightarrow\\\Rightarrow\min\omega=\lcm(\lambda(p^{\alpha_1}_1)),\>(\lambda(p^{\alpha_2}_2)),\dots,\>(\lambda(p^{\alpha_t}_t))=\lambda(n)$
 		\end{itemize}
@@ -801,6 +803,86 @@ $B=2,\tab B=10,\tab B=16\\$
 \end{example}
 \begin{example}
 	$70$ у $B=3\\70=23\cdot 3+1\\23=7\cdot 3+2\\7=2\cdot 3+1\\2=0\cdot3+2\\70=\overline{2121}_3$
+\end{example}
+\section{Ознака подільності числа}
+\begin{theorem}[Ознака подільності Паскаля]
+	$$\textrm{Нехай }n=a_{k-1}a_{k-2}\dots a_1a_0,\>m\in\mathbb{N},\tab r_0:=1,\>r_{i+1}r_1B\mod m$$
+	$$\textrm{Тоді }n\equiv\sum\limits_{i=0}^{k-1}a_ir_i(\mod m),\tab n\>\vdots\>m\Leftrightarrow\sum\limits_{i=0}^{k-1}a_ir_i\>\vdots\>m$$
+	\begin{proof}
+		$\\r_i\equiv B^i\mod m,\>n=a_{k+1}B^{k+1}+\dots+a_1B+a_0=\sum\limits_{i=0}^{k-1}a_iB^i=\sum\limits_{i=0}^{k-1}a_ir_i(\mod m)$
+	\end{proof}
+	\begin{remark*}$ $
+		\begin{enumerate}
+			\item $n\leq B^k,\>\>\sum a_ir_i\leq k\cdot m\cdot B$
+			\item Якщо $\gcd(B,\>m)=1$, то послідовність $(r_i)$ є періодичною. \\Період $\leq\lambda(m)$. Якщо $\gcd(B,\>m)\ne 1$ 
+		\end{enumerate}
+	\end{remark*}
+\end{theorem}
+\begin{example}
+	$(B=10),\>m=3\\r_0=1\tab r_1=10\cdot1\mod 3=1\Rightarrow n\equiv\sum a_i(\mod 3)$
+\end{example}
+\begin{example}
+	$(B=10),\>m=4\\r_0=1\tab r_1=10\cdot1\mod 4=2\tab r_2=10\cdot2\mod 4=0\Rightarrow \\\Rightarrow n\equiv2a_i+a_0(\mod 4)$
+\end{example}
+\begin{example}
+	$(B=10),\>m=7\\r_0=1\tab r_1=10\cdot1\mod 7=3\tab r_2=10\cdot 3\mod 7 =-1\\ r_4=-3\tab r_5=-2\tab r_6=1	\\12345678\equiv 8\cdot1+7\cdot3+6\cdot 2-5\cdot 1-4\cdot 3-3\cdot 2+2\cdot 1+1\cdot 3\equiv 2(\mod 7)$
+\end{example}
+\begin{example}
+	$(B=10),\>m=7,11,13\\1001=7\cdot11\cdot13\equiv-1\left(\mod \begin{array}{c}
+		7\\11\\13
+	\end{array}\right)\Rightarrow\\\Rightarrow n\equiv\overline{a_2a_1a_0}-\overline{a_5a_4a_3}+\overline{a_8a_7a_6}-\overline{a_{11}a_{10}a_9}+\dots+\left(\mod \begin{array}{c}
+		7\\11\\13
+	\end{array}\right)\\m=11\>:\tab 10\equiv -1(\mod 11)\\n\equiv a_0-a_1+a_2-a_3+\dots=\sum\limits_{i=0}^{k-1}(-1)^ia_i(\mod 11)$
+\end{example}
+\begin{lemma}$ $
+	\begin{enumerate}
+		\item Якщо $m\>|\>(B-1)$, то $n\equiv\sum\limits_{i=0}^{k-1}a_i(\mod m)$
+		\item Якщо $m\>|\>(B+1)$, то $n\equiv\sum\limits_{i=0}^{k-1}(-1)^ia_i(\mod m)$
+	\end{enumerate}
+\end{lemma}
+\section{Подільність біноміальних коєфіціентів}
+$C_n^k=\frac{n!}{k!(n-k)!}$
+\begin{prop*}
+	$\\p$ - просте: $$C_p^k\mod p=\begin{cases}
+		1, k=0,\>p\\0, 0<k<p
+	\end{cases}$$
+	\begin{proof}
+		$\\C_p^0=C_p^p=1\tab C^k_p=\frac{p!}{k!(p-k!)}\>\vdots\>p$
+	\end{proof}
+\end{prop*}
+\begin{prop*}["біном для дурників"]
+	$$\forall a,\>b\in\mathbb{Z},\> p\textrm{ - просте }(a+b)^p\equiv a^p+b^p(\mod p)$$
+\end{prop*}
+\begin{theorem}[Люка]
+	$$ p\textrm{ - просте },\>n=\overline{n_{k-1}n_{k-2}\dots n_1n_0},\>\>m=\overline{m_{k-1}m_{k-2}\dots m_1m_0}$$
+	$$C_m^n\equiv C^{m_0}_{n_0}C^{m_1}_{n_1}\dots C^{m_{k-1}}_{n_{k-1}}(\mod p)$$
+	\begin{proof}
+		$\\n=\widetilde{n}p+n_0,\>m=\widetilde{m}p+m_0,\>C^{m}_{n},\>\equiv C^{\widetilde{m}}_{\widetilde{n}}C^{m_0}_{n_0}(\mod p)\\$ Розглянемо біном \tab coef$[x^m]=C^m_n\\(1+x)^n=(1+x)^{\widetilde{n}p}(1+x)^{n_0}\equiv (1+x^p)^{\widetilde{n}}(1+x)^{n_0}\tab m=\widetilde{m}p+m_0\\x^m$ одержуємо $x^{\widetilde{m}p}$ з $(1+x^p)^{\widetilde{n}}\Rightarrow x^{\widetilde{m}}$ з $(1+x)^{\widetilde{n}}\Rightarrow$coef$[x^m]=C^{\widetilde{m}}_{\widetilde{n}}C_m^n$ 
+	\end{proof}
+\end{theorem}\newpage
+\begin{cons*}$ $
+	\begin{enumerate}
+		\item Якщо $\exists i:\>m_i>n_i$, то $C_n^m\equiv 0(\mod p)$
+		\item $n=p^k=(\underbrace{100\dots0}_{k})_p\\\forall m:\>0<m<p^k\tab \forall i:\>m_i\ne 0,\>0\leq i\leq k\Rightarrow C_{p^k}^{m}\>\vdots\>p$
+	\end{enumerate}
+\end{cons*}
+\chapter{Лекція 10}
+\section{Лінійні порівняння за модулем}
+$ax\equiv(\mod n)$
+\begin{enumerate}
+	\item Якщо $\gcd(a,\>n)=1$, то $x\equiv a^{-1}\cdot b(\mod n)$
+	\item Якщо $ax=b+nt,\>b=ax-nt\\$ Якщо $b\>\bar{\vdots}\>d$ - розв'язків немає\\ Якщо $b\>\vdots\>d$, то  $a=a_1d,\>b=b_1d,\>n=n_1d\tab \gcd(a_1,\>n_1)=1\\b_1=a_1x-n_1t\Rightarrow a_1x\equiv b_1(\mod n_1)\\x_0,\>x_0+n_1,\>x_0+2n_1,\>x_0+(d-1)n_1$ - $d$ розв'язків
+\end{enumerate}
+\begin{example}
+	$12x\equiv 5(\mod 25)\\x\equiv 12^{-1}\cdot 5(\mod 25)\equiv 15(\mod 25)$
+\end{example}
+\begin{example}
+	$12x\equiv5(\mod 27)\\\gcd(12,\>27)=3,\>5\>\bar{\vdots}\>3\Rightarrow \varnothing$
+\end{example}
+\begin{example}
+	$12x\equiv 9(\mod 27)\\\gcd(9,\>27)=3,\>9\>\vdots\>9\\4x\equiv3(\mod 9)\tab x_0\equiv3\cdot4^{-1}\mod 9\equiv3(-2)\equiv=6\equiv 3\mod 9\\\left\{\begin{array}{l}
+		x_0\equiv 3\\x_0\equiv3+9\equiv 12\\x_2\equiv12+9\equiv 21
+	\end{array}\right\}\mod 27$
 \end{example}
 
 
