@@ -884,8 +884,212 @@ $ax\equiv(\mod n)$
 		x_0\equiv 3\\x_0\equiv3+9\equiv 12\\x_2\equiv12+9\equiv 21
 	\end{array}\right\}\mod 27$
 \end{example}
+\section{Eлементи загальної теорії розв'язування порівнянь}
+$f(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0$ - поліном з цілими коєфіціентами.
+$f(x)\equiv 0(\mod m)$
+\begin{enumerate}
+	\item Якщо $m=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}$, то $$f(x)\equiv 0(\mod m)\Leftrightarrow\begin{cases}
+		f(x)\equiv(\mod p_1^{\alpha_1})\\
+		f(x)\equiv(\mod p_2^{\alpha_2})\\
+		\tab\vdots\\
+		f(x)\equiv(\mod p_t^{\alpha_t})
+	\end{cases}$$
+	\item $f(x)\equiv0(\mod p)\\f(x)\equiv0(\mod p) \textrm{ та }g(x)\equiv 0(\mod p)\\\textrm{ - еквівалентні, якщо множини розв'язків спіспадають}$
+\end{enumerate}
+\begin{lemma}
+	$\forall h(x),\>f(x):$ 
+	$$f(x)\equiv0(\mod p),\>f(x)-(x^p-x)\cdot h(x)\equiv0(\mod p)\textrm{ - еквівалентні}$$
+	$$\Rightarrow f(x)\equiv0(\mod p),\>f(x)\mod (x^p-x)\equiv 0(\mod p)$$
+	$$\textrm{можна розглядати }f:\tab \deg f<p$$
+\end{lemma}
+\begin{theorem}[основна теорема алгебри для $\mathbb{Z}_p$]
+	$\\f(x)\in\mathbb{Z}_p[x],\>\deg f=n<p$
+	$$\textrm{Якщо }a_n\>\bar{\vdots}\>p,\textrm{ то } f(x)\equiv0(\mod p)\textrm{ має }\leq n\textrm{ розв'язків}$$
+	\begin{proof}ММІ за $n$
+		\begin{enumerate}
+			\item $n=1\\a_1x+a_0\equiv0(\mod p),\>\gcd(a_1,\>p)=1\Rightarrow$ рівно один розв'язок
+			\item Для усіх поліномів $\deg\>\leq n-1$ - вірне \\ $f(x)\equiv0(\mod p)$
+			\begin{enumerate} 
+				\item Якщо розв'язків немає - ок
+				\item Якщо $x_0$ - розв'язок, то $\\f(x)=(x-x_0)\cdot g(x)+f(x_0)\equiv(x-x_0)\cdot g(x)(\mod p)\\g(x)$ - поліном з цілими коєфіціентами, $\deg g=n-1\\ coef[x^{n-1}]g=a_n\>\bar{\vdots}\>p\Rightarrow g(x)\equiv0(\mod p)$ має $\leq n-1$ розв'язків
+			\end{enumerate}
+		\end{enumerate}
+	\end{proof}
+	\begin{cons*}$\\$
+		Якщо $f(x)=0(\mod p)$ має $>n$ розв'язків, то $\forall i:\>a_i\>\vdots\>p$
+		\begin{proof}$\\
+			a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0\equiv0(\mod p)\\
+			a_{n-1}x^{n-1}+\dots+a_1x+a_0\equiv0(\mod p)\\
+			\tab\vdots\\a_0\equiv 0(\mod p)$
+		\end{proof}
+	\end{cons*}
+\end{theorem}
+\begin{theorem}[Вільсон]
+$$n \textrm{ - просте}\Leftrightarrow((n+1)!+1)\>\vdots\>n$$
+	\begin{proof}$ $
+		\begin{enumerate}
+			\item $p$ - просте, $p>3\tab (p-1)!\equiv-1(\mod p)?\\f(x)=(x-1)(x-2)(x-3)\dots(x-(p-1))-(x^{p-1}-1)\\deg f=p-2,\tab 1,\>2,\>3,\dots,\>p-1$ - корені $\mod p\\p=2$ - очевидна
+			\item Нехай $n=a\cdot b,\>!<a<n\Rightarrow(n-1)!\>\vdots\>a\\\Rightarrow(n-1)!+1\>\bar{\vdots}\>n$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\section{Розклад Тейлора для поліномів}
+$f(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0=\sum\limits_{t=0}^na_tx^t\\f'(x)=f^{(1)}(x)=\sum\limits_{t=1}^na_ttx^{t-1}\\f'(x)$ - поліном з цілими коєфіцієнтами $\deg f=n-1$
+К-тий похідний поліном:
+$f^{(k)}(x)=\sum\limits_{t=k}^na_tt(t-1)\dots(t-k+1)x^{t-k}$ 
+\begin{lemma}
+	$$\frac{f^{(k)}(x)}{k!}=\sum\limits_{t=k}^nC_t^ka_tx^{t-k}$$
+	\begin{proof}
+		$\\\frac{t(t-1)\dots(t-k+1)}{k!}\cdots\frac{(t-k)!}{(t-k)!}=\frac{t!}{k!(t-k)!}$
+	\end{proof}
+	\begin{remark*}
+		$f^{(0)}(x)\equiv f(x)$
+	\end{remark*}
+\end{lemma}
+\begin{theorem}[Розклад Тейлора для поліномів]$\forall f(x):\>\forall x_0,\>\alpha$
+	$$f(x+\alpha)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_
+	0)}{k!}\alpha^k$$
+	\begin{proof}
+		$\\f(x_0+\alpha)=\sum\limits_{t=0}^{n}a_t(x_0+\alpha)^t=\sum\limits_{t=0}^{n}\sum\limits_{k=0}^{t}a_yC_t^kx_0^{t-k}\alpha^k\\\begin{array}{ccccccc}
+		t & 0 & 1 & 2 & 3 & \dots & n\\
+		k: & 0 & 0 & 0 & 0 & \dots & 0\\
+		 &  & 1 & 1 & 1 & \dots & 1\\
+		  &  &  & 2 & 2 & \dots & 2\\
+		   &  &  &  & 3 & \dots & 3\\
+		   &  &  &  &  & \ddots & \vdots\\
+		      &  &  &  &  & & n
+			
+		\end{array}\\=\sum\limits_{k=0}^{n}(\sum\limits_{t=k}^{n}C_t^ka_tx_0^{t-k})\alpha^k=\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}\alpha^k$
+	\end{proof}
+\end{theorem}
+\section{Поліноміальні порівняння за модулем степеня простого числа (1)}
+\begin{theorem}
+	$f(x)$ - поліном з цілими коєфіцієнтами $x_0.\\\>f(x_0)\equiv0(\mod p^k),\>f'(x_0)\>\bar{\vdots}\>p$
+	$$\textrm{Тоді існує єдиний лишок }x_k:\>f(x_k)\equiv0(\mod p^k,\>x_k\equiv x_0(\mod p),\forall k$$
+	\begin{proof}
+		ММІ за $k$
+		\begin{enumerate}
+			\item $k=1$
+			\item $k=2\\$ нНехай $x_k$ - задовільняє умовам\\$f(x_k)\equiv0(\mod p^k),\>f'(x_k)\>\bar{\vdots\>}\>p,\>x_k\equiv x_0(\mod p)\\\Rightarrow f'(x_k)\equiv f'(x_0)(\mod p)\Rightarrow f'(x_k)\>\bar{\vdots}\>p\\$ Шукаємо $x_{k+1}=x_k+p^k\cdot t,\>0\leq t\leq p-1\\f(x_{k+1})\equiv0(\mod p^{k+1})\\f(x_k+p^kt)=f(x_k)+f'(x_k)\cdot p^kt+\frac{f''(x_k)}{2!}(p^kt)^2+\dots\equiv\\\equiv f(x_k)+f'(x_k)\cdot p^kt(\mod p^k)\Rightarrow0\equiv f(x_k)+f'(x_k)\cdot p^kt\mod p^k)\\f'(x_k)\cdot t\equiv-\frac{f(x_0)}{p^k}(\mod p)\Rightarrow$ існує єдине $t\Rightarrow$ існує єдине значення
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\chapter{Лекція 11}
+\section{Поліноміальні порівняння за модулем степеня простого числа (2)}
+\begin{theorem}
+	$f(x)$ - опліном з цілими коєфіцієнтами 
+	\begin{center}
+		$x_0:\tab f(x_0)\equiv0(\mod p),\tab f'(x_0)\>\vdots\>p$\\$x_k:\tab f(x_k)\equiv0(\mod p^k),\tab x_k\equiv x_0(\mod p)$\\
+		\flushleft{\textbf{Тоді:}}
+		\begin{enumerate}
+			\item Якщо $f(x)\>\bar{\vdots}\>p^{k+1},$ то $$f(x)\equiv0(\mod p^{k+1}\textrm{ - не має розв'язків}$$
+			\item Якщо $f(x_k)p^{k+1},$ то 
+			$$\textrm{розв'язками } \mod p^{k+1}\textrm{ є усі числа}x_k+p^kt,\>t=\overline{0,p-1}$$
+		\end{enumerate}
+	\end{center}
+	\begin{proof}
+		$\\x_{k+1}=x_t+p^kt,\>t=\overline{0,p-1}\\f(x_{k+1})=f(x_k+p^kt)=f(x_k)+f'(x_k)\cdot p^kt+\dots\equiv f(x_k)(\mod p^{k+1})\\f(x_{k+1})\equiv 0(\mod p^{k+1})\Rightarrow f(x_k)\equiv0(\mod p^{+1})$
+	\end{proof}
+\end{theorem}
+\begin{example}
+	$x^4+7x+4\equiv0(\mod 27)\\f(x)=x^4+7x+4\tab f'(x)=4x^3+7$\begin{enumerate}
+		\item $f(x)\equiv0(\mod 3)\\x_0\equiv 1(\mod 3)\\f'(1)=4+7=11\equiv-1(\mod 3)$
+		\item $f(x)\equiv0(\mod 9)\\x_1=x_0+3\cdot t_0\\f'(1)\cdot t_0\equiv-\frac{f(1)}{3}(\mod 3)\\2t_0\equiv-4\equiv 2(\mod 3)\\t_0=1\tab x_1=1+3=4(\mod 9)$
+		\item $f(x)\equiv0(\mod 27)\\x_2=x_1+9t_1\\f'(4)\cdot t_1\equiv -\frac{f(4)}{9}(\mod 3)\\263t_1\equiv-32(\mod 3)\\2t_1\equiv 1(mod 3)\\t_1=(\mod 3)\tab x_2=4+9\cdot2\equiv 22(\mod 27)$
+	\end{enumerate}
+\end{example}
+\section{Квадратичні лишки, критерій квадратичності Ойлера}
 
-
+$ax^2+bx+c\equiv 0(\mod p)$ - квадратичне порівняння. $\Rightarrow x^2\equiv \alpha(\mod p)$
+\begin{definition}
+	$\alpha\in\mathbb{Z}_p^*$ - квадратичний лишок за $\mod p$, якщо $$\exists x:\tab x^2\equiv\alpha(\mod p)$$
+	$\mathbb{Z}_p^*=\{1,\>2,\>3,\dots,\>p-1\},\>\mathbb{Z}_p^{\circledast}=\{-\frac {p-1}{2},\dots,\>-2,\>-1,\>1,\>2,\dots,\>\frac {p-1}{2}\}_{(p>3)},\\Y_p=\{1,\>2,\dots,\>\frac {p-1}{2}\}$
+\end{definition}
+$f(x)=x^2-\alpha\\x_0$ - корінь, то $(-x_0)$ також корінь
+\begin{lemma}
+	$$\mathbb{Z}_p^*\textrm{ має рівно }\frac {p-1}{2}\textrm{ квадратичних лишків та }\frac {p-1}{2}\textrm{ квадратичних не лішків}$$
+	\begin{proof}
+		$\\$Квадратичні лишки: $(1)^2,\>2^2,\>3^2,\dots,\>\left(\frac {p-1}{2}\right)^2\Rightarrow \frac {p-1}{2}$ штук\\ Але $0<u<v\leq \frac {p-1}{2}:\>u^2\equiv v^2(\mod p)$ то $x^2\equiv u^2 (\mod p)\\$ має 4 розв'язки $\pm u,\>\pm v\Rightarrow$ квадратичних лишків $\frac {p-1}{2}$ штук  
+	\end{proof}
+\end{lemma}
+\begin{theorem}[Критерій Ойлера]
+	$$a^{\frac {p-1}{2}}\mod p\equiv \left\{\begin{array}{ll}
+	1, & a\textrm{ - квадратичний лишок}\\
+	-1, & a\textrm{ - квадратичний нелишок}	
+	\end{array}\right.$$
+	\begin{proof}
+		$\\a\equiv 0(\mod p)$ - очевидно\\
+		$a\not\equiv0(mod p)\Rightarrow a^{p-1}\equiv1(\mod p)a^{p-1}-1=(a^{\frac {p-1}{2}}-1)(a^{\frac {p-1}{2}}+1)\equiv0(\mod p)\\$
+		Нехай $a=b^2\Rightarrow a^{\frac {p-1}{2}}=b^{p-1}\equiv1(\mod p)\\f(x)x^{\frac {p-1}{2}}-1$ - має $\leq\frac {p-1}{2}$ коренів, усі квадратичні лишки - корені 
+	\end{proof}
+\end{theorem}
+\section{Критерій квадратичності Гаусса}
+\begin{theorem}[критерій Гаусса]
+	$a\in\mathbb{Z}_p^*,\>a\cdot Y_p=\{a,\>2a,\>3a,\dots,\>\frac {p-1}{2}a\},\>l$ - кількість від'ємних лишків у $a\cdot Y_p$
+	$$(-1)^l=\left\{\begin{array}{ll}
+		1, & a\textrm{ - квадратичний лишок}\\
+		-1, & a\textrm{ - квадратичний нелишок}	 
+	\end{array}\right.$$
+	\begin{proof}
+		$\\\forall u\in Y_p:\>lu\in\{0,\>1\},\>r_u\in Y_p,\>a\cdot u\equiv(-1)^{lu}\cdot r_u(\mod p)\\u\not\equiv v\Rightarrow r_u\not\equiv r_v(\mod p)\\\begin{cases}
+			u\not\equiv v\\r_u\equiv r_v
+		\end{cases}\Rightarrow\begin{cases}
+			au\not\equiv av\\r_u\equiv r_v
+		\end{cases}\Rightarrow au\equiv av(\mod p)\\a(u+v)\>\vdots\>p$, але $0<\begin{array}{c}
+			u\\v 
+		\end{array}\leq \frac {p-1}{2}\Rightarrow0<u+v\leq p-1<p\Rightarrow u+v\>\bar{\vdots}\>p$ - Упс!
+		$\\\Rightarrow\{r_1,\>r_2,\dots,\>r_{\frac {p-1}{2}}\}=Y_p\\(a\cdot1)(a\cdot2)(a\cdot3)\dots(a\frac {p-1}{2})\equiv(-1)^{l_1+l_2+\dots+l_{\frac {p-1}{2}}}r_1r_2\dots r_{\frac {p-1}{2}}(\mod p)\\a^{\frac {p-1}{2}}\equiv(-1)^{l_1+l_2+\dots+l_{\frac {p-1}{2}}}(\mod p)\equiv(-1)^l(\mod p)$
+	\end{proof}
+\end{theorem}
+\chapter{Лекція 12                                                                                                                                                                   }
+\section{Cимвол Лежандра та його властивості}
+$x^2\equiv a(\mod p),\>p\geq 3$ - просте
+\begin{definition}Cимвол Лежандра -
+	$$\left(\frac ap\right)=\left\{\begin{array}{ll}
+	1, & a\textrm{ - квадратичний лишок}\\
+	-1, & a\textrm{ - квадратичний нелишок}	\\
+	0, & a\>\vdots\>p
+	\end{array}\right.$$
+	Ойлер: $\left(\frac ap\right)\equiv a^{\frac{p-1}{2}}(\mod p)\\$
+	Гaусc: $\left(\frac ap\right)\equiv (-1)^l$
+\end{definition}
+\begin{property*}$ $
+	\begin{enumerate}
+		\item $\left(\frac ap\right)=1,\>\left(\frac {-1}p\right)=(-1)^{\frac{p-1}{2}},\\ p=4k+3:\>\left(\frac {-1}p\right)=-1,\tab p=4k+1:\>\left(\frac {-1}p\right)=-1$
+		\item $\left(\frac {ab}p\right)=\left(\frac ap\right)\left(\frac bp\right)\\\left(\frac {a^2}p\right)=1,\tab \left(\frac {ab^2}p\right)=\left(\frac ap\right)$
+		\item $\left(\frac 2p\right)=(-1)^{\frac{p-1}{8}}\\p=8k\pm 1=\left(\frac 2p\right)=1,\tab p=8k\pm3\left(\frac 2p\right)=-1$
+		\item Закон квадратичноЇ взаємодії Гаусса\\
+			$p,\>q$ - непарні прості,\tab $\left(\frac pq\right)=(-1)^{\frac{p-1}{2}}(-1)^{\frac{q-1}{2}}\left(\frac qp\right)$
+	\end{enumerate}
+	\begin{proof}
+		$\\\left(\frac 2p\right)=\left\{\begin{array}{ll}
+			+1, & p = 8k\pm1\\
+			-1, & p = 8k\pm3
+		\end{array}\right.,\tab \left(\frac 2p\right)=(-1)^l,\>l$ - кількість від'ємних лишків у $\mathbb{Z}_p^{\circledast}$ серед чисел $2\cdot1,\>2\cdot2,\>2\cdot3,\dots,\>2\cdots\frac{p-1}{2}=2,\>4,\>,6,\dots,\>(p+1)\\$ Якщо число $>\frac p2$, то воно від'ємне у $\mathbb{Z}_p^{\circledast}\\$ Число, яке $<\frac p2:\>\lfloor\frac p4\rfloor\Rightarrow l=\frac{p-1}{2}-\lfloor\frac p4\rfloor\\\begin{array}{ll}
+			p=8k+1:\tab  & l=4k-2k=2k\\
+			p=8k+3:\tab  & l=4k+1-2k=2k+1\\
+			p=8k+5:\tab  & l=4k+2-(2k+1)=2k+1\\
+			p=8k+7:\tab  & l=4k+3-(2k+1)=2k+2
+		\end{array}$
+	\end{proof}
+\end{property*}
+\section{Cимвол Якобі та його властивості}
+$n$ - непарне, $a$ - довільне
+\begin{definition}Символ Якобі
+	$$\left(\frac an\right)=\left(\frac a{p_1}\right)^\alpha\left(\frac a{p_2}\right)^\alpha\dots\left(\frac a{p_t}\right)^\alpha$$
+	$n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\>\left(\frac an\right)\in\{-1,\>1,\>0\},\>\left(\frac an\right)=0\Leftrightarrow\gcd(a,\>n)\ne 1,\\\left(\frac an\right)=-1\Leftrightarrow a-kb$ квадратний нелишок $\mod n,\>\left(\frac an\right)=1\Leftrightarrow?$
+\end{definition}
+\begin{property*}$ $
+	\begin{enumerate}
+		\item $\left(\frac 1n\right)=1,\>\left(\frac {-1}n\right)=(-1)^{\frac{n-1}{2}}$
+		\item $\left(\frac {a\cdot b}n\right)=\left(\frac an\right)\left(\frac bn\right)$
+		\item $\left(\frac 2n\right)=(-1)^{\frac{n^2-1}{8}}$
+		\item $\left(\frac an\right)=(-1)^{\frac{a-1}{2}\frac{n-1}{2}}\left(\frac an\right),\tab a,\>n$ - непарні
+	\end{enumerate}
+\end{property*}
+\begin{example}
+	$x^2\equiv 59(\mod 97)\\\left(\frac {59}{97}\right)=(-1)^{\frac{59-1}{2}\frac{97-1}{2}}\left(\frac {59}{97}\right)=(-1)^{\frac{a-1}{2}\frac{n-1}{2}}\left(\frac {38}{29}\right)=\left(\frac {2}{29}\right)\left(\frac {19}{29}\right)=(-1) \left(\frac {19}{59}\right)=(-1)(-1)^{\frac{19-1}{2}\frac{59-1}{19}}=\\=(+1)\left(\frac {2}{19}\right)=-1$
+\end{example}
 
 
 
