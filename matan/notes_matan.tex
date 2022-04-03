@@ -14,6 +14,7 @@
 \usepackage{xparse} 
 \usepackage{scalerel}
 \usepackage{stackengine}
+\usepackage{bigints}
 \usepackage{enumerate}	
 \usepackage{multicol}
 \usepackage{longdivision}
@@ -32,6 +33,9 @@
 \newcommand\showdiv[1]{\overline{\smash{\hstretch{.5}{)}\mkern-3.2mu\hstretch{.5}{)}}#1}}
 \let\ph\phantom
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand\dx{\textbf{ d}x}
+\newcommand\dy{\textbf{ d}}
+\newcommand\lcm{\textrm{lcm}}
 \newmdenv[   linecolor=black,
   topline=false,
   bottomline=false,
@@ -88,30 +92,30 @@ $F'(0)$ - не существует $\Rightarrow$ противоречие $\Rig
 \end{remark}
 \newpage
 \section{Свойства неопределенного интеграла}
-Пусть $\int f(x)dx=F(x)+c\>(F'(x)=f(x))$.
+Пусть $\int f(x)\dx=F(x)+c\>(F'(x)=f(x))$.
 \begin{enumerate}
 	\item Производная от неопределенного интеграла равна подинтегральной функции, дифференциал неопределенного интеграла равен подинтегральному выражению. \\
-	$$(\int f(x)dx)'_x=f(x);\>\> d(\int f(x)dx)=f(x)dx.$$
+	$$(\int f(x)\dx)'_x=f(x);\>\> \dy(\int f(x)\dx)=f(x)\dx.$$
 	\begin{proof}
-		$(\int f(x)dx)'_x=(F(x)+c)'_x=F'(x)+c'=f(x);$	\\$d(\int f(x)dx)=(\int f(x)dx)'_xdx=f(x)dx$.
+		$(\int f(x)\dx)'_x=(F(x)+c)'_x=F'(x)+c'=f(x);$	\\$\dy(\int f(x)\dx)=(\int f(x)\dx)'_x\dx=f(x)\dx$.
 	\end{proof}
 	\item Неопределенный интеграл от дифференциала некоторой функции равен сумме этой функции и произвольной постоянной.
-	$$\int d(F(x))=F(x)+c.$$
+	$$\int \dy(F(x))=F(x)+c.$$
 	\begin{proof}
-		$\int d(F(x))=\int F'(x)dx=\int f(x)dx=F(x)+c$
+		$\int \dy(F(x))=\int F'(x)\dx=\int f(x)\dx=F(x)+c$
 	\end{proof}
 	\item Постоянный множитель можно выносить за знак интеграла.
-	$$\int af(x)dx=a\int f(x)dx,\>\> a=const.$$
+	$$\int af(x)\dx=a\int f(x)\dx,\>\> a=const.$$
 	\begin{proof}
-		$\int af(x)dx=\int a F'(x)dx=\int(aFx)'dx=\int d(aF(x))=(aF(x)++c_1)=a(F(x)+\frac{c_1}{a}=\Big|c=\frac{c_1}{a}\Big|=a(f(x)+c)=a\int f(x)dx$
+		$\int af(x)\dx=\int a F'(x)\dx=\int(aFx)'\dx=\int \dy(aF(x))=(aF(x)++c_1)=a(F(x)+\frac{c_1}{a}=\Big|c=\frac{c_1}{a}\Big|=a(f(x)+c)=a\int f(x)\dx$
 	\end{proof}
 	\item Интеграл суммы двух функций равен сумме интегралов этих функций.
 	$$\int(f(x)+g(x))dx=\int f(X)dx+\int g(x)dx.$$
 	\begin{proof}
-		Пусть $\int g(x)dx=G(x)+c$; тогда $\int(f(x)+g(x))dx=\int(F'(x)++G'(x))dx=\int(F(x)+G(x))'dx=\int d(F(x)+G(x))=F(x)+G(x)++c=\Big|c=c_1+c_2\Big|=(F(x)+c_1)+(G(x)c_2)=\int f(x)dx+\int g(x)dx$
+		Пусть $\int g(x)\dx=G(x)+c$; тогда $\int(f(x)+g(x))\dx=\int(F'(x)++G'(x))\dx=\int(F(x)+G(x))'\dx=\int \dy(F(x)+G(x))=F(x)+G(x)++c=\Big|c=c_1+c_2\Big|=(F(x)+c_1)+(G(x)c_2)=\int f(x)\dx+\int g(x)\dx$
 	\end{proof}
 \end{enumerate}
-\begin{remark}\
+\begin{remark}$ $
 	\begin{enumerate}
 		\item[-]свойство 4 справедливо для любого конечного числа слогаемых 
 		\item[-]свойство 3-4 называются свойством линейности неопределенного интеграла 
@@ -120,27 +124,27 @@ $F'(0)$ - не существует $\Rightarrow$ противоречие $\Rig
 \end{remark}
 \section{Таблица основных неопределенных интегралов}
 \begin{enumerate}
-	\item $$\int x^\alpha dx=\frac{x^{\alpha+1}}{\alpha+1}+c;\>\>\alpha\in\mathbb{R}\backslash\{-1\}$$
-	\item $$\int\frac{dx}{x}=\ln|x|+c$$
-	\item $$\int a^xdx=\frac{a^x}{\ln a}+c,\>\>a>0$$
-	\item $$\int e^xdx=e^x+c$$
-	\item $$\int\sin x\>dx	=-\cos x+c$$
-	\item $$\int\cos x\>dx=\sin x+c$$
-	\item $$\int\frac{dx}{\cos^2x}=\tan x+c$$
-	\item $$\int\frac{dx}{\sin^2x}=-\cot x+c$$
-	\item $$\int\textrm{sh}x\>dx=\textrm{ch}\>x+c$$
-	\item $$\int\textrm{ch}x\>dx=\textrm{sh}\>x+c$$
-	\item $$\int\frac{dx}{\textrm{ch}^2x}=\textrm{th}\>x+c$$
-	\item $$\int\frac{dx}{\textrm{sh}^2x}=-\textrm{cth}\>x+c$$
-	\item $$\int\frac{dx}{\sqrt{1-x^2}}=\arcsin x+c$$
-		$$\int\frac{dx}{\sqrt{a-x^2}}=\arcsin \frac{x}{a}+c$$
-	\item $$\int\frac{dx}{1+x^2}=\arctan x+c$$
-		$$\int\frac{dx}{a^2+x^2}=\frac{1}{a}\arctan\frac{x}{a}+c$$
+	\item $$\int x^\alpha \dx=\frac{x^{\alpha+1}}{\alpha+1}+c;\>\>\alpha\in\mathbb{R}\backslash\{-1\}$$
+	\item $$\int\frac{\dx}{x}=\ln|x|+c$$
+	\item $$\int a^x\dx=\frac{a^x}{\ln a}+c,\>\>a>0$$
+	\item $$\int e^x\dx=e^x+c$$
+	\item $$\int\sin x\>\dx	=-\cos x+c$$
+	\item $$\int\cos x\>\dx=\sin x+c$$
+	\item $$\int\frac{\dx}{\cos^2x}=\tan x+c$$
+	\item $$\int\frac{\dx}{\sin^2x}=-\cot x+c$$
+	\item $$\int\textrm{sh}x\>\dx=\textrm{ch}\>x+c$$
+	\item $$\int\textrm{ch}x\>\dx=\textrm{sh}\>x+c$$
+	\item $$\int\frac{\dx}{\textrm{ch}^2x}=\textrm{th}\>x+c$$
+	\item $$\int\frac{\dx}{\textrm{sh}^2x}=-\textrm{cth}\>x+c$$
+	\item $$\int\frac{\dx}{\sqrt{1-x^2}}=\arcsin x+c$$
+		$$\int\frac{\dx}{\sqrt{a-x^2}}=\arcsin \frac{x}{a}+c$$
+	\item $$\int\frac{\dx}{1+x^2}=\arctan x+c$$
+		$$\int\frac{\dx}{a^2+x^2}=\frac{1}{a}\arctan\frac{x}{a}+c$$
 		Дополнительные формулы: 
-	\item $$\int\frac{dx}{x^2-a^2}=\frac{1}{2a}\ln|\frac{x-a}{x+a}|+c\textrm{ - высокий логарифм}$$ 
-	\item $$\int\frac{dx}{\sqrt{x^2+A}}=\ln|x+\sqrt{x^2+A}|+c\textrm{ - длинный логарифм }$$
-	\item $$\int\sqrt{x^2+A}\>dx=\frac{x}{2}\sqrt{x^2+A}+\frac{A}{2}\ln|x+\sqrt{x^2+A}|+c$$
-	\item $$\int\sqrt{a^2-x^2}\>dx=\frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\arcsin\frac{x}{a}+c$$
+	\item $$\int\frac{\dx}{x^2-a^2}=\frac{1}{2a}\ln|\frac{x-a}{x+a}|+c\textrm{ - высокий логарифм}$$ 
+	\item $$\int\frac{\dx}{\sqrt{x^2+A}}=\ln|x+\sqrt{x^2+A}|+c\textrm{ - длинный логарифм }$$
+	\item $$\int\sqrt{x^2+A}\>\dx=\frac{x}{2}\sqrt{x^2+A}+\frac{A}{2}\ln|x+\sqrt{x^2+A}|+c$$
+	\item $$\int\sqrt{a^2-x^2}\>\dx=\frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\arcsin\frac{x}{a}+c$$
 \end{enumerate}
 В этих формулах вместо $x$ может быть записана произвольная дифференцируемая функция от $x$.
 \section{Основные примеры интегрирования}
@@ -148,8 +152,8 @@ $F'(0)$ - не существует $\Rightarrow$ противоречие $\Rig
 Непосредственное интегрирование заключается в использовании тождественных преобразований подинтегральнной функции, свойства линейности интеграла и таблицы интегралов.\\
 \begin{example}
 \begin{enumerate}
-	\item $\int(\frac{\sqrt{x}+1}{\sqrt[3]{x}})^2dx=\int\frac{x+2x^{\frac{1}{2}}+1}{\sqrt[3]{x^2}}dx=\int(x^{\frac{1}{3}}+2x^{\frac{-1}{6}}+x^{\frac{-2}{3}})dx=\frac{3}{4}x^{\frac{4}{3}}+2\cdot\frac{x^{\frac{5}{6}}}{5}\cdot 6+x^{\frac{1}{3}}\cdot 3+c$
-	\item $\int\frac{dx}{\sin^2x\cos^2x}=|\cos^2x+\sin^2x=1|=\int\frac{\cos^2x+\sin^2x}{\sin^2x\cos^2x}dx=\int\frac{1}{\sin^2x}dx+\int\frac{1}{\cos^2x}dx=\tan x-\cot x+c$
+	\item $\int(\frac{\sqrt{x}+1}{\sqrt[3]{x}})^2\dx=\int\frac{x+2x^{\frac{1}{2}}+1}{\sqrt[3]{x^2}}\dx=\int(x^{\frac{1}{3}}+2x^{\frac{-1}{6}}+x^{\frac{-2}{3}})\dx=\\=\frac{3}{4}x^{\frac{4}{3}}+2\cdot\frac{x^{\frac{5}{6}}}{5}\cdot 6+x^{\frac{1}{3}}\cdot 3+c$
+	\item $\int\frac{\dx}{\sin^2x\cos^2x}=|\cos^2x+\sin^2x=1|=\int\frac{\cos^2x+\sin^2x}{\sin^2x\cos^2x}\dx=\int\frac{1}{\sin^2x}\dx+\int\frac{1}{\cos^2x}\dx=\tan x-\cot x+c$
 \end{enumerate}
 \end{example}
 \subsection{Замена переменной}
@@ -162,54 +166,54 @@ $$\int f(\varphi(t))\cdot \varphi_t'(t)dt=F(\varphi(t))+c$$
 	$(f(\varphi(t)))_t'=F_\varphi'(\varphi(t))\cdot\varphi_t'(t)=|\varphi(t)=x|=F_x'(x)\varphi_t'(t)=|F_x'(x)=f(x)|=f(x)\cdot\varphi(t)=|x=\varphi(t)|=f(\varphi(t))\cdot\varphi_t'(t)\Rightarrow F(\varphi(t))\textrm{ первообразная для } \\f(\varphi(t))\cdot\varphi_t'(t)\Rightarrow\int f(\varphi(t))\cdot\varphi_t'(t)dt=F(\varphi(t))+c$
 \end{proof}
 \begin{remark}
-$$\varphi_t'(t)dt=d(\varphi(t))\Rightarrow\int f(\varphi(t))\cdot d\varphi = F(\varphi)+c$$	
+$$\varphi_t'(t)\dy t=\dy(\varphi(t))\Rightarrow\int f(\varphi(t))\cdot \dy\varphi = F(\varphi)+c$$	
 \end{remark}
 \begin{enumerate}
-	\item \textbf{Внесения выражения под знак дифференциала}$$\int f(x)dx=\int g(\varphi(x))\cdot\varphi_x'(x)dx=\int g(\varphi)d\varphi=|G(x)-\textrm{известно}\>G'(x)=g(x)|=$$$$=G(\varphi)+c=G(\varphi(x))+c.$$
-	Часто используются преобразование дифференциала $dx=d(x++a)=\frac{1}{k}d(kx)=\frac{1}{k}d(kx+b)\\ x^{n-1}dx=\frac{1}{n}d(x^n)$\\
+	\item \textbf{Внесения выражения под знак дифференциала}$$\int f(x)\dx=\int g(\varphi(x))\cdot\varphi_x'(x)\dx=\int g(\varphi)\dy\varphi=|G(x)-\textrm{известно}\>G'(x)=g(x)|=$$$$=G(\varphi)+c=G(\varphi(x))+c.$$
+	Часто используются преобразование дифференциала $\dx=\dy(x++a)=\frac{1}{k}\dy(kx)=\frac{1}{k}\dy(kx+b)\\ x^{n-1}\dx=\frac{1}{n}\dy(x^n)$\\
 	\textbf{Преобразования дифференциалов}\\
-	$\sin x\>dx=-d(\cos x)$\\
-	$\cos x\>dx=d(\sin x)$\\
-	$\frac{dx}{\cos^2x}=d(\tan x)$\\
-	$\frac{dx}{x}=d(\ln x)$\\
-	$\frac{dx}{1+x^2}=d(\arctan x)$\\
-	$\frac{dx}{\sqrt{1-x^2}}=d(\arcsin x)$\\
+	$\sin x\>\dx=-\dy(\cos x)$\\
+	$\cos x\>\dx=\dy(\sin x)$\\
+	$\frac{\dx}{\cos^2x}=\dy(\tan x)$\\
+	$\frac{\dx}{x}=\dy(\ln x)$\\
+	$\frac{\dx}{1+x^2}=\dy(\arctan x)$\\
+	$\frac{\dx}{\sqrt{1-x^2}}=\dy(\arcsin x)$\\
 	\begin{example}
-	$\int \sin^3x\>dx=\int\sin x\sin^2x\>dx\int(1-\cos^2x)\cdot(-d(\cos x))=\int(\cos^2-1)d(\cos x)=\\=\frac{\cos^3x}{3}-\cos x+c.$\end{example}
+	$\int \sin^3x\>\dx=\int\sin x\sin^2x\>\dx\int(1-\cos^2x)\cdot(-\dy(\cos x))=\int(\cos^2-1)\dy(\cos x)=\\=\frac{\cos^3x}{3}-\cos x+c.$\end{example}
 	\item \textbf{Вынесения выражения из-под знак дифференциала}\\
-	$\int f(x)\>dx = |x=\varphi(t)\Rightarrow dx=\varphi'(t)dt|=\int f(\varphi(t))\cdot\varphi'(t)dt=|g(t)=\\=G'(t)|=G(t)+c=|x=\varphi(t)\>\>t=\varphi^{-1}(x)|=G(\varphi^{-1}(x))+c$\\\\
+	$\int f(x)\>\dx = |x=\varphi(t)\Rightarrow \dx=\varphi'(t)\dy t|=\int f(\varphi(t))\cdot\varphi'(t)\dy t=|g(t)=\\=G'(t)|=G(t)+c=|x=\varphi(t)\>\>t=\varphi^{-1}(x)|=G(\varphi^{-1}(x))+c$\\\\
 	\begin{example}
-	$\int\sqrt{a^2-x^2}dx=|x=a\sin t\>\>dx=a\cos t\>dt|=\int\sqrt{a^2-a^2\sin^2t}a\cos t\>dt=\\=a^2\int\sqrt{1-\sin^2t}\cdot\cos t\>dt=a^2\int\cos^@ t\>dt=\frac{a^2}{2}\int(1+\cos^2t)dt=\frac{a^2}{2}(t+\frac{\sin2t}{2})+c=\frac{a^2}{2}(t+\sin t\cos t)+c=|\cos t=\sqrt{1-\sin t}\>\>\frac{x}{a}\>\>\\t=\arcsin\frac{x}{a}|=\frac{a^2}{2}(\arcsin\frac{x}{a}+\sqrt{1-\frac{x^2}{a^2}}\cdot\frac{x}{a})=\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+c$\end{example}
+	$\int\sqrt{a^2-x^2}\dx=|x=a\sin t\>\>\dx=a\cos t\>\dy t|=\int\sqrt{a^2-a^2\sin^2t}a\cos t\>\dy t=\\=a^2\int\sqrt{1-\sin^2t}\cdot\cos t\>\dy t=a^2\int\cos^2 t\>\dy t=\frac{a^2}{2}\int(1+\cos^2t)\dy t=\frac{a^2}{2}(t+\frac{\sin2t}{2})+c=\frac{a^2}{2}(t+\sin t\cos t)+c=|\cos t=\sqrt{1-\sin t}\>\>\frac{x}{a}\>\>\\t=\arcsin\frac{x}{a}|=\frac{a^2}{2}(\arcsin\frac{x}{a}+\sqrt{1-\frac{x^2}{a^2}}\cdot\frac{x}{a})=\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+c$\end{example}
 \end{enumerate}
 \subsection{Интегрирование по частям}
 Пусть $u=u(x),\>v=v(x)$ - две диффренцируемые функции. \\
-по свойству дифференциала:\\$d(uv)=udv+vdu\Rightarrow\int d(uv)=\int udv+\int vdu$ - формула интегрирования по частям.\\
-В исходном интеграле $\int f(x)dx$ подинтегральное выражение представляется в виде двух сомножителей. Как правило, это можно сделать неоднозначно.\\
-После того как $u$ и $dv$ выбраны, находим $du,\>v,\>...$\\
-$\int f(x)dx = |f(x)=u,\>dx=dv|\Rightarrow du=u'dx=...\Rightarrow v=\int dv$ \\
+по свойству дифференциала:\\$\dy(uv)=u\dy v+v\dy u\Rightarrow\int \dy (uv)=\int u\dy v+\int v\dy u$ - формула интегрирования по частям.\\
+В исходном интеграле $\int f(x)\dx$ подинтегральное выражение представляется в виде двух сомножителей. Как правило, это можно сделать неоднозначно.\\
+После того как $u$ и $\dy v$ выбраны, находим $\dy u ,\>v,\>...$\\
+$\int f(x)\dx = |f(x)=u,\>\dx=\dy v|\Rightarrow \dy u=u'\dx=...\Rightarrow v=\int \dy v$ \\
 в результате применения формулы полученный интеграл оказывается более простым, чем исходный.\\
 При необходимости формула интегрирования по частям применяется несколько раз.
 \begin{enumerate}[I.]
 	\item $\int P_n(x)$
 		$\left\{\begin{array}{lr}
         \sin(kx+b)\\ \cos(kx+b)\\a^{kx}\\e^{kx}\\\textrm{sh}kx,\>\textrm{ch}(kx)
-        \end{array}\right\}dx\tab U=Pn(x);\>\>dv=\big\{\dots\big\}$
+        \end{array}\right\}\dx\tab U=Pn(x);\>\>\dy v=\big\{\dots\big\}$
         \item $\int P_n(x)$
 		$\left\{\begin{array}{lr}
         \arcsin x\\ \arccos x\\\arctan x\\\ln x\\
-        \end{array}\right\}dx\tab U=\big\{\dots\big\};\>\>dv=Pn(x)dx$
+        \end{array}\right\}\dx\tab U=\big\{\dots\big\};\>\>\dy v=Pn(x)\dx$
         \item $\int e^{kx}$
 		$\left\{\begin{array}{lr}
-        \sin (ax+b)\\ \cos (ax+b)\end{array}\right\}dx\tab U=e^{kx};\>\>dv=\big\{\dots\big\}dx$
+        \sin (ax+b)\\ \cos (ax+b)\end{array}\right\}\dx\tab U=e^{kx};\>\>\dy v=\big\{\dots\big\}\dx$
 \end{enumerate}
 
 \begin{example}
-$\int_{I} e^x\sin2xdx\underset{III}{=}\bigg|u=e^x\Rightarrow du=e^xdx;\>\sin2xdx=dv;\>v=\int\sin2xdx=\\=-\frac{\cos2z}{2}\bigg|=-\frac{e^x\cos2x}{2}+\int\frac{\cos2x}{2}\cdot e^xdx=\bigg|u=e^x;\>du=e^x;\>dv=\cos2xdx;\>v=\\=\frac{\sin2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\frac{1}{2}(\frac{e^x\sin2x}{2}-\int\frac{\sin2x}{2}\cdot e^xdx)=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\\-\frac{1}{4}\int \underset{I}{e^x\sin2x}dx\\I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\frac{1}{4}I;\>\>I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x.\\I=\frac{4}{5}(\frac{1}{4}e^x\sin2x-\frac{1}{2}e^x\cos2x)+c$
+$\int_{I} e^x\sin2x\dx\underset{III}{=}\bigg|u=e^x\Rightarrow \dy u=e^x\dx;\>\sin2x\dx=\dy v;\>v=\int\sin2x\dx=\\=-\frac{\cos2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\int\frac{\cos2x}{2}\cdot e^xdx=\bigg|u=e^x;\>\dy u=e^x;\>\dy v=\cos2x\dx;\>v=\\=\frac{\sin2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\frac{1}{2}(\frac{e^x\sin2x}{2}-\int\frac{\sin2x}{2}\cdot e^x\dx)=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\\-\frac{1}{4}\int \underset{I}{e^x\sin2x}\dx\\I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\frac{1}{4}I;\>\>I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x.\\I=\frac{4}{5}(\frac{1}{4}e^x\sin2x-\frac{1}{2}e^x\cos2x)+c$
 \end{example}
 \section{Интегрирование рациональных функций}
 \subsection{Основные сведения о рациональных функциях}
 \begin{enumerate}
-	\item \textbf{Многочлен(целая рациональная функция)\\ Многочленом} $P_n(x)$ называется функция вида $P_n(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x^1+a_0;$ где $n\in\mathbb{n},\>\>a_i\in\mathbb{r},\>\>i=\overline{0,n}$\\
+	\item \textbf{Многочлен(целая рациональная функция)\\ Многочленом} $P_n(x)$ называется функция вида $P_n(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x^1+a_0;$ где $n\in\mathbb{N},\>\>a_i\in\mathbb{R},\>\>i=\overline{0,n}$\\
 	\textbf{Корнем} многочлена называется значение $x_0$(вообще говоря, комплексное) аргумента $x$, при котором многочлен обращается в ноль.\\$x_0$ - корень $P_n(x)$ или $P_n(x_0)=0$ 
 	\begin{theorem}
 		$$\textrm{Если }x_0 - \textrm{корень многочлена } P_n(x), \textrm{ то многочлен делится нацело на} (x-x_0), $$$$\textrm{т.е. } P_n(x)\textrm{ представлется в виде: } P_n(x)=(x-x_0)\cdot Q_{n-1}(x),$$$$ \textrm{где } Q - \textrm{многочлен степени} n-1$$
@@ -277,9 +281,9 @@ $\int_{I} e^x\sin2xdx\underset{III}{=}\bigg|u=e^x\Rightarrow du=e^xdx;\>\sin2xdx
 \end{enumerate}
 \subsection{Интегрирование простейших дробей}
 \begin{enumerate}[I.]
-	\item $\int \frac{A}{x-a}dx=A\int\frac{d(x-a)}{x-a}=A\ln |x-a|+c$
-	\item $\int\frac{A}{(x-a)^k}dx=A\int(x-a)^{-k}d(x-a)=A\frac{(x-a)^{-k+1}}{-k+1}+c$
-	\item $\int\frac{Mx+N}{x^2+px+q}=\int\frac{Mx+N}{x^2+2x\cdot{p\over 2}+{p^2\over 4}-{p^2\over4}+q}=M\int \frac{x+\frac p2-\frac p2}{(x+\frac p2)^2+q-{p^2\over 4}}d(x+\frac p2)+\\+N\int\frac{d(x+\frac p2)}{(x+\frac p2)^2+q-{p^2\over 4}}=M\int \frac{(x+\frac p2-\frac p2)d(x+\frac p2)}{(x+\frac p2)^2+q-{p^2\over 4}}+(N-\frac{Mp}2)\int\frac{d(x+\frac p2)}{(x+\frac p2)^2+q-{p^2\over 4}}=\vcases{(x+\frac p2)=t \cr q-\frac{p^2}4=a^2}\bigg|=M\int \frac{tdt}{t^2+a^2}+(N-\frac{Mp}2)\int\frac{dt}{t^2+a^2}=\frac M2(\int\frac{d(t^2+a^2)}{(t^2+a^2)^k})+(N-\frac{Mp}2)\cdot I_k=\frac M2\frac{(t^2+a^2)^{-k+1}}{-k+1}+\\+(N-\frac{Mp}2)\cdot I_k\\\\$ Найдем $I_k=\int \frac{dt}{(t^2+a^2)^k}=\vcases{U=\frac{1}{(t^2+a^2)^k}\Rightarrow dU=-k(t^2+a^2)^{-k-1}\cr dV=dt;\>V=t;\>2tdt=-2k\frac{tdt}{(t^2+a^2)^{k+1}}}\Bigg|=\\=\frac{t}{(t^2+a^2)^k}+\int t\cdot 2k\frac{tdt}{(t^2+a^2)^k}=\frac{t}{(t^2+a^2)^k}+2k\int\frac{(t^2+a^2-a^2)dt}{(t^2+a^2)^{k+1}}=\frac{t}{(t^2+a^2)^k}+\\+2k\int\left( \frac{1}{(t^2+a^2)^k}-\frac{a^2}{(t^2+a^2)^{k+1}} \right)dt=\frac{t}{t^2+a^2}+2k\left(I_k-a^2I_{k+1}\right)=\\=\frac{t}{t^2+a^2}+2kI_k-2ka^2I_{k+1}\Rightarrow2ka^2I_{k+1}=\frac{t}{(t^2+a^2)^k}+I_k(2k-1);\\\\$ Пусть $k+1=n\Rightarrow k=n-1\\$ Получим: $I_n=\frac{1}{a^2(2n-2)}\cdot\frac{t}{(t^2+a^2)^{n-1}}+\frac{2n-3}{2n-2}\cdot\frac 1{a^2}\cdot I_{n-1};\>n>2$
+	\item $\int \frac{A}{x-a}\dx=A\int\frac{\dy (x-a)}{x-a}=A\ln |x-a|+c$
+	\item $\int\frac{A}{(x-a)^k}\dx=A\int(x-a)^{-k}\dy (x-a)=A\frac{(x-a)^{-k+1}}{-k+1}+c$
+	\item $\int\frac{Mx+N}{x^2+px+q}\dx=\int\frac{Mx+N}{x^2+2x\cdot{p\over 2}+{p^2\over 4}-{p^2\over4}+q}\dx=M\int \frac{x+\frac p2-\frac p2}{(x+\frac p2)^2+q-{p^2\over 4}}\dy(x+\frac p2)+\\+N\int\frac{\dy (x+\frac p2)}{(x+\frac p2)^2+q-{p^2\over 4}}=M\int \frac{(x+\frac p2-\frac p2)\dy (x+\frac p2)}{(x+\frac p2)^2+q-{p^2\over 4}}+(N-\frac{Mp}2)\int\frac{\dy (x+\frac p2)}{(x+\frac p2)^2+q-{p^2\over 4}}=\vcases{(x+\frac p2)=t \cr q-\frac{p^2}4=a^2}\bigg|=M\int \frac{t\dy t}{t^2+a^2}+(N-\frac{Mp}2)\int\frac{\dy t}{t^2+a^2}=\frac M2(\int\frac{\dy(t^2+a^2)}{(t^2+a^2)^k})+(N-\frac{Mp}2)\cdot I_k=\frac M2\frac{(t^2+a^2)^{-k+1}}{-k+1}+\\+(N-\frac{Mp}2)\cdot I_k\\\\$ Найдем $I_k=\int \frac{\dy t}{(t^2+a^2)^k}=\vcases{U=\frac{1}{(t^2+a^2)^k}\Rightarrow \dy U=-k(t^2+a^2)^{-k-1}\cr \dy V=\dy t;\>V=t;\>2t\dy t=-2k\frac{t\dy t}{(t^2+a^2)^{k+1}}}\Bigg|=\\=\frac{t}{(t^2+a^2)^k}+\int t\cdot 2k\frac{t\dy t}{(t^2+a^2)^k}=\frac{t}{(t^2+a^2)^k}+2k\int\frac{(t^2+a^2-a^2)\dy t}{(t^2+a^2)^{k+1}}=\frac{t}{(t^2+a^2)^k}+\\+2k\int\left( \frac{1}{(t^2+a^2)^k}-\frac{a^2}{(t^2+a^2)^{k+1}} \right)\dy t=\frac{t}{t^2+a^2}+2k\left(I_k-a^2I_{k+1}\right)=\\=\frac{t}{t^2+a^2}+2kI_k-2ka^2I_{k+1}\Rightarrow2ka^2I_{k+1}=\frac{t}{(t^2+a^2)^k}+I_k(2k-1);\\\\$ Пусть $k+1=n\Rightarrow k=n-1\\$ Получим: $I_n=\frac{1}{a^2(2n-2)}\cdot\frac{t}{(t^2+a^2)^{n-1}}+\frac{2n-3}{2n-2}\cdot\frac 1{a^2}\cdot I_{n-1};\>n>2$
 \end{enumerate}
 \subsection{Общая схема интегрирования рациональных дробей}
 \begin{enumerate}
@@ -289,14 +293,14 @@ $\int_{I} e^x\sin2xdx\underset{III}{=}\bigg|u=e^x\Rightarrow du=e^xdx;\>\sin2xdx
 	\item Интегрируем полученный многочлен и сумму полученных дробей.	  
 \end{enumerate}
 \begin{remark}
-интеграл от рациональной функции всегда выражается через элементарные функции.	
+Интеграл от рациональной функции всегда выражается через элементарные функции.	
 \end{remark}
 \begin{example}
-	$$\int \frac{x^5+2x^3+4x+4}{x^4+2x^3+2x^2}dx=$$
+	$$\int \frac{x^5+2x^3+4x+4}{x^4+2x^3+2x^2}\dx=$$
 		\[
     		\polylongdiv{x^5+0x^4+2x^3+0x^2+4x+4}{x^4+2x^3+2x^2}
   		\]
-	$$=\int \left((x-2)+\frac{4x^3+4x^2+4x+4}{x^4+2x^3+2x^2}\right)dx=$$
+	$$=\int \left((x-2)+\frac{4x^3+4x^2+4x+4}{x^4+2x^3+2x^2}\right)\dx=$$
 	\begin{equation}\label{*}
 		\frac{4x^3+4x^2+4x+4}{x^4+2x^3+2x^2}=\frac{4x^3+4x^2+4x+4}{x^2(x^2+2x+2)}=\frac Ax+\frac B{x^2}+\frac{Cx+D}{x^2+2x+2}
 	\end{equation}
@@ -305,8 +309,8 @@ $\int_{I} e^x\sin2xdx\underset{III}{=}\bigg|u=e^x\Rightarrow du=e^xdx;\>\sin2xdx
 	$\\ при $x=1:(\ref{*})\\ \frac {16}{5}=A+2+\frac{C+D}{2}\big|\cdot 5;\tab  16=5A+10+C+D; \tab 5a+C+D=6\\\\$
 	при $x=-1:\\ 0= -A+2+D-C;\tab A+C-D=2;\tab A+C-D=2\\\\$
 	при $x=-2:\\ \frac{-32+16-8+4}{16-16+8}=-\frac A2+\frac24+\frac{D-2C}{2}\big|\cdot2;\tab -5=-A+1+D-2C;\Rightarrow\\\\\Rightarrow A=0;\>B=2;\>C=4;\>D=2$
-	$$\int \left(x-2 +\frac2{x^2}+\frac{4x+2}{x^2+2x+2} \right)dx=\frac2{x^2}-2x+2\int \frac{2x+2-1}{(x^2+2x+2)}dx=$$
-	$$=\frac2{x^2}-2x-\frac2x+2\left(\underset{\ln(x^2+2x+2)}{\int \frac{d(x^2+2x+2)}{x^2+2x+2}}-\underset{\arctan (x+1)}{\int\frac{d(x+1)}{(x+2)^2+1}}\right)=$$
+	$$\int \left(x-2 +\frac2{x^2}+\frac{4x+2}{x^2+2x+2} \right)\dx=\frac2{x^2}-2x+2\int \frac{2x+2-1}{(x^2+2x+2)}\dx=$$
+	$$=\frac2{x^2}-2x-\frac2x+2\left(\underset{\ln(x^2+2x+2)}{\int \frac{\dy (x^2+2x+2)}{x^2+2x+2}}-\underset{\arctan (x+1)}{\int\frac{\dy (x+1)}{(x+2)^2+1}}\right)=$$
 	$$\frac2{x^2}-2x-\frac2x+2\ln(x^2+2x+2)-2\arctan (x+1)$$
 \end{example}
 \section{Интегрирование тригонометрических функций}
@@ -316,11 +320,11 @@ $\int_{I} e^x\sin2xdx\underset{III}{=}\bigg|u=e^x\Rightarrow du=e^xdx;\>\sin2xdx
 \textbf{Тогда:}
 $$\sin x=2\sin \frac x2 \cos\frac x2=2\tan \frac x2\cos\frac{x^2}{2}=\frac{2\tan\frac x2}{1+\tan^2\frac x2}=\frac{2t}{1+t^2}$$
 $$\cos x=2\cos^2\frac x2 -1=\frac{2}{1+\tan^2\frac x2}-1=\frac{2}{1+t^2}-1=\frac{1-t^2}{1+t^2}$$
-$x=2\arctan t;\tab dx= \frac{2}{1+t^2}dt\\$
+$x=2\arctan t;\tab \dx= \frac{2}{1+t^2}\dy t\\$
 \textbf{Получаем:}
-$$\int R(\sin x, \cos x)dx=\int R\left(\frac{2}{1+t^2},\frac{1-t^2}{1+t^2}\right)\cdot\frac{2}{1+t^2}dt=\int R_1(t)dt$$
+$$\int R(\sin x, \cos x)\dx=\int R\left(\frac{2}{1+t^2},\frac{1-t^2}{1+t^2}\right)\cdot\frac{2}{1+t^2}\dy t=\int R_1(t)\dy t$$
 \begin{remark}
-	этот способ позволяет найти первообразную, но полученная функция $f(t)$ может оказаться слишком громаздкой.
+	Этот способ позволяет найти первообразную, но полученная функция $f(t)$ может оказаться слишком громаздкой.
 \end{remark}
 \subsection{Другие виды подстановок }
 \begin{enumerate}
@@ -329,29 +333,169 @@ $$\int R(\sin x, \cos x)dx=\int R\left(\frac{2}{1+t^2},\frac{1-t^2}{1+t^2}\right
 	\item Если подинтегральная функция является одновременно четной относительно $\sin x,\cos x$ то выполняется замена $t=\tan x$(внесение $\frac1{\cos^2x}$ под знак дифференциала).
 \end{enumerate}
 \begin{remark}
-	$\\$Для $\int R(\tan x)dx$ замена $\tan x=t \Rightarrow x=\arctan t ;\> dx=\frac{dt}{1+t^2};\\$ и $\int R(\tan x)dx=\int R(t)\cdot \frac{dt}{1+t^2}=\int R_1(t)dt$
+	$\\$Для $\int R(\tan x)\dx$ замена $\tan x=t \Rightarrow x=\arctan t ;\> \dx=\frac{\dy t}{1+t^2};\\$ и $\int R(\tan x)\dx=\int R(t)\cdot \frac{\dy t}{1+t^2}=\int R_1(t)\dy t$
 \end{remark}
 \subsection{Использования формул тригонометрии}
 \begin{enumerate}
-	\item $$\int\cos^2xdx, \int\sin^2xdx\Rightarrow \cos^2x=\frac{1+\cos2x}{2}, \sin^2x=\frac{1-\cos2x}{2}$$
-	\item $$\int \cos\alpha x\cos\beta xdx\Rightarrow\cos\alpha x\sin\beta x=\frac12 (\cos(\alpha-\beta)x+\cos(\alpha+\beta)x)$$
-	$$\int \sin\alpha x\sin\beta xdx\Rightarrow\sin\alpha x\sin\beta x=\frac12 (\cos(\alpha-\beta)x-\cos(\alpha+\beta)x)$$
-	$$\int \sin\alpha x\cos\beta xdx\Rightarrow\sin\alpha x\cos\beta x=\frac12 (\sin(\alpha-\beta)x+\sin(\alpha+\beta)x)$$
+	\item $$\int\cos^2x\dx, \int\sin^2x\dx\Rightarrow \cos^2x=\frac{1+\cos2x}{2}, \sin^2x=\frac{1-\cos2x}{2}$$
+	\item $$\int \cos\alpha x\cos\beta x\dx\Rightarrow\cos\alpha x\sin\beta x=\frac12 (\cos(\alpha-\beta)x+\cos(\alpha+\beta)x)$$
+	$$\int \sin\alpha x\sin\beta x\dx\Rightarrow\sin\alpha x\sin\beta x=\frac12 (\cos(\alpha-\beta)x-\cos(\alpha+\beta)x)$$
+	$$\int \sin\alpha x\cos\beta x\dx\Rightarrow\sin\alpha x\cos\beta x=\frac12 (\sin(\alpha-\beta)x+\sin(\alpha+\beta)x)$$
 \end{enumerate}
 \begin{example}
-	$\int \frac{dx}{3+\sin x+\cos x}=\left|\begin{array}{ccc}
+	$\int \frac{\dx}{3+\sin x+\cos x}=\left|\begin{array}{ccc}
 		t=\tan \frac x2\\\sin x=\frac{2t}{1+t^2}\\\cos x=\frac{1-t^2}{1+t^2} \
-	\end{array}\right|=\int \frac{2dt}{(1+t^2)(3+\frac{2t}{1+t^2}+\frac{1-t^2}{1+t^2})}=2\int \frac{dt}{3+3t^2+2t+1-t^2}=\\=2\int\frac{dt}{2t^2+2t+4}=2\int\frac{dt}{t^2+t+2}=\int\frac{dt}{(t+\frac12)^2+\frac74}=\int\frac{d(t+\frac12)}{(t+\frac12)^2+(\frac{\sqrt7}{2})^2}=\frac{2}{\sqrt7}\arctan(2\frac{t+\frac12}{\sqrt7})+c=\\=\frac{2}{\sqrt7}\arctan(2\frac{\tan x+\frac12}{\sqrt7})+c$
+	\end{array}\right|=\int \frac{2\dy t}{(1+t^2)(3+\frac{2t}{1+t^2}+\frac{1-t^2}{1+t^2})}=2\int \frac{\dy t}{3+3t^2+2t+1-t^2}=\\=2\int\frac{\dy t}{2t^2+2t+4}=2\int\frac{\dy t}{t^2+t+2}=\int\frac{\dy t}{(t+\frac12)^2+\frac74}=\int\frac{\dy(t+\frac12)}{(t+\frac12)^2+(\frac{\sqrt7}{2})^2}=\frac{2}{\sqrt7}\arctan(2\frac{t+\frac12}{\sqrt7})+c=\\=\frac{2}{\sqrt7}\arctan(2\frac{\tan x+\frac12}{\sqrt7})+c$
 \end{example}
 \begin{example}
-	$\int \frac{dx}{1+\sin^2x}=\frac{1}{\frac{1}{\cos^2x}+\tan^2x}\cdot\frac{dx}{\cos^2x}=\left| \cos^2x=\frac{1}{1+\tan^2x}\right|=\int\frac{1}{1+2\tan^2x}d(\tan x)=|\tan x=t|=\int\frac{dt}{1+2t^2}=\frac1{\sqrt2}\int\frac{d(\sqrt2t)}{1+(\sqrt2t)^2}=\frac1{\sqrt2}\arctan(\sqrt2 t)+c=\\=\frac1{\sqrt2}\arctan(\sqrt2 \tan x)+c$
+	$\int \frac{\dx}{1+\sin^2x}=\frac{1}{\frac{1}{\cos^2x}+\tan^2x}\cdot\frac{\dx}{\cos^2x}=\left| \cos^2x=\frac{1}{1+\tan^2x}\right|=\int\frac{1}{1+2\tan^2x}\dy(\tan x)=|\tan x=t|=\int\frac{\dy t}{1+2t^2}=\frac1{\sqrt2}\int\frac{\dy (\sqrt2t)}{1+(\sqrt2t)^2}=\frac1{\sqrt2}\arctan(\sqrt2 t)+c=\\=\frac1{\sqrt2}\arctan(\sqrt2 \tan x)+c$
 \end{example}
 \begin{example}
-	$\int\cos^2x\sin^4xdx= \int\frac{1+\cos2x}{2}\left(\frac{1-\cos2x}{2} \right)^2dx=\frac18\int(1-\cos ^22x)(1-\cos2x)dx=\\=\frac18\int(1-\cos2x-\cos^2x+\cos^32x)dx=\frac18(x-\frac{\sin2x}{2}-\int \cos^22xdx+\int\cos^32xdx)=\\=\frac18 x-\frac{\sin2x}{16}-\frac{x}{16}-\frac{\sin4x}{64}-\frac{1}{16}\int(1-\sin^2x)d(\sin2x)=\frac{x}{16}-\frac{\sin2x}{16}-\frac{\sin4x}{16}+\frac{\sin2x}{16}-\\-\frac{1}{16}\frac{\sin^32x}{3}+c=\frac{x}{16}-\frac{\sin4x}{16}-\frac{1}{16}\frac{\sin^32x}{3}+c$
+	$\int\cos^2x\sin^4x\dx= \int\frac{1+\cos2x}{2}\left(\frac{1-\cos2x}{2} \right)^2\dx=\frac18\int(1-\cos ^22x)(1-\cos2x)\dx=\\=\frac18\int(1-\cos2x-\cos^2x+\cos^32x)\dx=\frac18(x-\frac{\sin2x}{2}-\int \cos^22x\dx+\int\cos^32x\dx)=\\=\frac18 x-\frac{\sin2x}{16}-\frac{x}{16}-\frac{\sin4x}{64}-\frac{1}{16}\int(1-\sin^2x)\dy(\sin2x)=\frac{x}{16}-\frac{\sin2x}{16}-\frac{\sin4x}{16}+\frac{\sin2x}{16}-\\-\frac{1}{16}\frac{\sin^32x}{3}+c=\frac{x}{16}-\frac{\sin4x}{16}-\frac{1}{16}\frac{\sin^32x}{3}+c$
 \end{example}
 \begin{example}
-$\int\sin^4x\cos^5x=|\sin x=t|=\int\sin^4x\cos^4x\underbrace{\cos xdx}_{d(\sin x)}=\int\sin^4x(\cos^2x)^2d(\sin x)=\\=\int\sin^4x(1-\sin^2x)^2d(\sin x)=\int t^4(1-2t^2-t^4)dt=\int(t^4-2t^6+t^8)dt=\\=\frac{t^5}{5}-\frac{2t^7}{7}+\frac{t^9}{9}+c=\frac{\sin^5x}{5}-\frac{2\sin^7x}{7}+\frac{\sin^9x}{9}+c$	
+$\int\sin^4x\cos^5x\dx=|\sin x=t|=\int\sin^4x\cos^4x\underbrace{\cos x\dx}_{\dy(\sin x)}=\int\sin^4x(\cos^2x)^2\dy(\sin x)=\\=\int\sin^4x(1-\sin^2x)^2\dy(\sin x)=\int t^4(1-2t^2-t^4)\dy t=\int(t^4-2t^6+t^8)\dy t=\\=\frac{t^5}{5}-\frac{2t^7}{7}+\frac{t^9}{9}+c=\frac{\sin^5x}{5}-\frac{2\sin^7x}{7}+\frac{\sin^9x}{9}+c$	
 \end{example}
+\section{Интегрирование некоторых иррациональных и транцедентных функций}
+\subsection{Дробно-линейная подстановка для интегралов}
+$\int R(x;\left(\frac{ax+b}{cx+d}\right)^{\frac{m_1}{n_1}},\>\left(\frac{ax+b}{cx+d}\right)^{\frac{m_2}{n_2}},\dots,\>\left(\frac{ax+b}{cx+d}\right)^{\frac{m_k}{n_k}}\dx,\\ a,\>b,\>c,\>d\in\mathbb{R};\tab m_1,\>n_1,\dots,\>m_k,\>n_k\in\mathbb{N}$
+\begin{remark}$ $
+	\begin{enumerate}
+		\item $\left(\frac{ax+b}{cx+d}\right)^{\frac{m}{n}}=\sqrt[n]{\left(\frac{ax+b}{cx+d}\right)^{{m}}}$
+		\item Частичными случаи таких дробей являются
+			$\\ax+b(c=0,\>d=1),\tab x=(c=0,\>d=1,\>b=0,\>a=1)\\$
+			\textbf{Замена:}
+			$\\\frac{ax+b}{cx+d}=t^l,$ где $l=\lcm(n_2,\>n_2,\dots,\>n_k)\Rightarrow\left(\frac{ax+b}{cx+d}\right)^{\frac{m_i}{n_i}}=t^{\frac{m_i}{n_i}l}=t^{p_i},\>p_i\in\mathbb{Z}\\ax+b=t^lcx+dt^l;\>x=(t^lc-a)=b-d\cdot t^l\Rightarrow x=\frac{b-dt^l}{ct^l-a}\\\dx=\left(\frac{b-dt^l}{ct^l-a}\right)_t'\dy t=\frac{-d l\cdot t^{l-1}(ct^l-a)-(b-d t^l)\cdot c\cdot l\cdot t^{l-1}}{(ct^l-a)^2}=\frac{-lt^{l-1}(cd t^l-ad +bc-cdt^l}{(ct^l-a)^2}=\frac{-lt^{l-1}(bc-ad)}{(ct^l-a)^2}$
+			Таким образом, подинтегральная функция будет являтся рациональной функцией от $t$.
+	\end{enumerate}
+\end{remark}
+\begin{example}
+	$\int\frac{\dx}{\sqrt[3]{(2x+1)^2}-\sqrt{2x+1}}=\left|\begin{array}{lcr}
+		n_1=3; & \textrm{Замена:} & 2x+1=t^6\\
+		n_2=2 && x=\frac{t^6-1}{2}\\
+		\lcm = 6 && \dx=3t^5\dy t
+	\end{array}\right|=\int \frac{3t^5\dy t}{(t^6)^{\frac 23}+(t^6)^{\frac 12}}=3\int \frac{t^5\dy t}{t^4 -t^3}=\\=3\int \frac{t^2}{t-1}\dy t\underset{\textrm{выделяем целую часть}}{\Longrightarrow}\polylongdiv{t^2}{t-1}=\\=3\int (t+1+\frac1{t-1})\dy t=3\left(\frac {t^2}{2}+t+\ln|t-1|\right)+c=|t=\sqrt[6]{2x+1}|=\\=\frac {3}{2}\sqrt[3]{2x+1}+3\sqrt[6]{2x+1}+3\ln|\sqrt[6]{2x+1}-1|+c$
+\end{example}
+\begin{example}
+	$\int\frac{1}{(x-1)^2\sqrt[3]{\frac{x+1}{x-1}}}\dx=\left|\begin{array}{lr}
+		\frac{x+1}{x-1}=t^3\Rightarrow & \dx =\left(\frac{t^3+1}{t^3-1}\right)\dy t\\
+		x+1=xt^3-t^3 \\
+		x=\frac{t^3+1}{t^3-1} & =\frac{-6t^2\dy t}{(t^3-1)^2}
+	\end{array}\right|=\\=\int\frac{1}{\left(\frac{t^3+1}{t^3-1}-1\right)^2}\cdot t\cdot \frac{-6t^2\dy t}{(t^3-1)^2}=-6\int \frac{1\cdot t^3\dy t}{\frac{2^2}{(t^3-1)}}\cdot(t^3-1)^2=-\frac 64\cdot\frac{t^4}4=-\frac 38\cdot\left(\frac{x+1}{x-1}\right)^{\frac 43}+c$
+\end{example}
+\subsection{Квадратичные иррациональности}
+\begin{enumerate}
+	\item Частные случаи \begin{enumerate} 
+	\item Интегралы вида $\int R(x,\>\sqrt{x^2\pm a^2})\dx,\>\int R(x,\>\sqrt{a^2-x^2})\dx\\ R()$ - знак рациональной функции. \\
+		Для преобразования таких интегралов к интегралам рациональной функции испльзуется замена.\begin{itemize}
+			\item [-] для $R(x,\>\sqrt{a^2-x^2})\>\>:\>\>x=a\sin t$ 
+			\item [-] для $R(x,\>\sqrt{x^2+ a^2})\>\>:\>\>x=at\tan t;\>(1+\tan^2t=\frac{1}{\cos^2t})$
+			\item [-] для $R(x,\>\sqrt{x^2- a^2})\>\>:\>\>x=\frac{a}{\sin t}$
+
+		\end{itemize} 
+	\item Интегралы видa $\int\frac{\dx}{\sqrt{ax^2+bx+c}};\>\>\int \sqrt{ax^2+bx+c}\dx;\>\int\frac{(mx+n)\dx}{\sqrt{ax^2+bx+c}}$ можно свести к табличному или к пункту (а) выделением полного квадрата. \\ $ax^2+bx+c=a\left(x^2+\frac ba x+\frac ca\right)=a\left(x^2+2\cdot x\cdot\frac b{2a}+\frac{b^2}{4a^2}- \frac{b^2}{4a^2}+\frac ca \right)=\\=a\left(x^2+\frac ba \right)^2+c-\frac{b^2}{4a};$ замена: $\left(x+\frac b{2a}\right)=t$
+	\item Интегралы видa $\int \frac{P_n(x)\dx}{\sqrt{ax^2+bx+c}},\>P_n(x)$ - многочлен $n$-ой степени, можно вычислить поп формуле: $\\\int \frac{P_n(x)\dx}{\sqrt{ax^2+bx+c}}=Q_{n-1}(x)\cdot\sqrt{ax^2+bx+c}+\lambda\int\frac{\dx}{\sqrt{ax^2+bx+c}},$ где $Q_{n-1}(x)$ - многочлен с непоределенными коэффициентами. $\lambda$ - неопределенный коэффициент. Неопределенный коэффициенты находим, дифференцируя обе части этой формулы и умножая полученный результат на знаменатель. $\frac{P_n(x)}{\sqrt{ax^2+bx+c}}=Q_{n-1}'(x)\cdot\sqrt{ax^2+bx+c}+Q_{n-1}(x)frac{2ax+b}{\sqrt{ax^2+bx+c}}+\lambda\cdot\frac1{\sqrt{ax^2+bx+c}}=$ умножаем на $\sqrt{ax^2+bx+c},$ из полученного находим неопределенные коэффициенты.
+	\newpage
+	\begin{example}
+		$\int\frac{\dx}{\sqrt{x^2-a^2}}=\left|\begin{array}{l}
+			\>\>x=\frac{a}{\sin t}\\
+			\dx = -\frac{a\cos t}{\sin t}\dy t
+		\end{array}\right|=\int\frac{-a\cos t\dy t}{\sqrt{\frac{a^2}{\sin^2t}-a^2}\cdot\sin t}=-\int \frac{\cos t\dy t}{\sqrt{\frac{1-\sin^2t}{\sin^2t}}\cdot\sin^2t}=\\=-\int\frac{\dy t}{\sin t}\cdot \frac{\sin t}{\sin t}=\int\frac{\dy(\cos t)}{1-\sin^2t}=\frac12\ln\left|\frac{1-\cos t}{1+\cos t}\right|+c=\\=\left|\left(\begin{array}{l}
+			\sin t=\frac{a}{x};\\t=\arcsin \frac ax
+		\end{array}\right)\begin{array}{l}
+			\cos t=\sqrt{1-\sin^2t}\\\sqrt{1-\frac{a^2}{x^2}}=\sqrt{\frac{x^2-a^2}{x^2}}
+		\end{array} \right|=\frac12\ln\left|\frac{1-\frac{\sqrt{x^2-a^2}}{x}}{1+\frac{\sqrt{x^2-a^2}}{x}} \right|+c=\\=\frac12\ln\left|\frac{x-\sqrt{x^2-a^2}}{x+\sqrt{x^2-a^2}} \right|+c$
+	\end{example}
+	\begin{example}
+		$\int\frac{x+4}{\sqrt{6-2x-x^2}}\dx=\left|\begin{array}{l}
+			6-2x-x^2=-((x^2+2x+1)-7)=-(x+1)^2+7=\\=7-(x+1)^2=(\sqrt7)^2-(x+1)^2
+		\end{array}\right|=\\=|x+1=t|=\int\frac{t+3}{\sqrt{(\sqrt7)^2+(t^2)}}\dy t=\int\frac{t\dy t}{\sqrt{7-t^2}}+3\int\frac{\dy t}{\sqrt{7-t^2}}=-\frac12\int\frac{\dy(7-t^2)}{\sqrt{7-t^2}}+\\+3\arcsin\frac t{\sqrt{7}}=-\sqrt{7-t^2}+3\arcsin\frac t{\sqrt7}+c=-\sqrt{6-2x-x^2}+\\+3\arcsin\frac{x+1}{\sqrt7}+c$
+	\end{example}
+	\begin{example}
+		$\int\frac{x^2\dx}{\sqrt{1-2x-x^2}}=(Ax+B)\sqrt{1-2x-x^2}+\lambda\left.\int\frac{\dx}{\sqrt{1-2x-x^2}}\right|'=\frac{x^2}{\sqrt{1-2x-x^2}}=\\=A\sqrt{1-2x-x^2}+(Ax+B)\cdot\frac{-2-2}{2\sqrt{1-2x-x^2}}+\left.\frac{\lambda}{\sqrt{1-2x-x^2}}\right|\cdot\sqrt{1-2x-x^2}\\x^2=A-2Ax-Ax^2-Ax^2-Ax-Bx-B+\lambda\\\begin{cases}
+			-2A=1\\-3A+B=0\\A-B+\lambda=0
+		\end{cases}\begin{cases}
+			A=-\frac12\\B=\frac32\lambda=2
+		\end{cases}\\\underbrace{\left(-\frac12x+\frac32\right)\sqrt{1-2x-x^2}}_{F(x)}+2\int\frac{\dx}{\sqrt{2-(x+1)^2}}=F(x)+2\arcsin\frac{x+1}{\sqrt2}+c$
+	\end{example}
+	\end{enumerate}
+	\item Интегралы общего вида \\ $\int R(x,\>\sqrt{ax^2+bx+c})\dx$
+		\begin{itemize}
+			\item [Способ 1] Выделим под знаком радикала полный квадрат и выполняем замену: $x+\frac b{2a}=t;$ интеграл сводится к к одному из интегралов \\$\int R(t,\>\sqrt{t^2\pm a^2})\dy t,\int R(t,\>\sqrt{a^2-t^2})\dy t,$ которые находятся при помощи тригонометрической подстановки.\newpage
+			\item [Способ 2] Использование подстановки Эйлера 
+				\begin{itemize}
+					\item [-] eсли $a>0$, то $\sqrt{ax^2+bx+c}=\pm\sqrt a x+t:\>(t\pm\sqrt a x)$ 
+					\item [-] eсли $c>0$, то $\sqrt{ax^2+bx+c}=tx\pm \sqrt c$
+					\item [-] eсли $D>0$, то $\sqrt{ax^2+bx+c}=(x-\alpha)\cdot t,$\\ где $\alpha$ - корень $ax^2+bx+c|_{x=\alpha}=0.$
+				\end{itemize}
+			\end{itemize}
+			\begin{remark}
+			По крайней мере одно из условий будет выполнено всегда; т.к. ситуация $\begin{cases}
+				a<0\\c<0\\D<0
+			\end{cases}\Rightarrow ax^2+bx+c<0$ запрещена по ОДЗ.	
+			\end{remark}
+			\begin{example}
+				$\int\frac{\dx}{(1+x)\sqrt{1-x-x^2}}=\left|\begin{array}{l}
+					a<\\D>0,\\ \textrm{корни иррац.}\\c>o
+				\end{array} \right|\textcircled{=}\\$ Замена: $\sqrt{1-x-x^2}=tx+1;\\1-x-x^2=tx^2+2tx+1|:x,\tab -1-x=t^2x+2t\\x(t^2+1)=-2t-1,\tab x=-\frac{2t+1}{t^2+1},\tab t=\frac{\sqrt{1-x-x^2}-1}{x}\\\dx =\left(-\frac{2t+1}{t^2+1} \right)'\dy t=-\frac{2(t^2+1)-(2t+1)\cdot 2t}{(t^2+1)^2}\dy t=\frac{2t^2+2t-2}{(t^2+1)^2}\dy t\\\textcircled{=}\int \frac{2(t^2+t-1)\dy t}{(t^2+1)^2\left(\frac{1-2t+1}{t^2+1}\right)\left(t\cdot \frac{-(2t+1)}{t^2+1}+1\right)}=\int\frac{2(t^2+t-1)\dy t}{t(t-2)(-t^2-t+1)}=-2\int\frac{\dy t}{t(t-2)}=\\=-2\int \left(-\frac 12\cdot\frac1t +\frac12\cdot\frac1{t-2}\right)\dy t=\int \left(\frac1t+\frac1{t-2}\right)\dy t=\ln|t|-\ln|t-2|+c=\\=\ln\left|\frac{\sqrt{1-x-x^2}-1}{x}\right|-\ln\left|\frac{\sqrt{1-x-x^2}-1}{x}-2\right|+c=\ln\left|\frac{\frac{\sqrt{1-x-x^2}-1}{x}}{\frac{\sqrt{1-x-x^2}-1}{x}-2}\right|+c$
+			\end{example}
+\end{enumerate}
+\subsection{Инегрирование дифферециального бинома}
+Интеграл $\int x^m(a+bx^n)^p\dx,\>\>m,\>n,\>p\in\mathbb{Q};\>\>a,\>b\in\mathbb{R}\\$ этот интеграл сводится к к интегралу от рациональной функции и первообразная выражается в элементарных функциях только в следующих случаях: \begin{enumerate}
+	\item $p\in\mathbb{Z}$
+	\item $\frac{m+1}{n}\in\mathbb{Z}$
+	\item $\left(\frac{m+1}{n}+p\right)\in\mathbb{Z}$ 
+\end{enumerate}   
+При этом для сведения заданого интеграла к интегралу от рациональной функции используются подстановки: \begin{enumerate}
+	\item $p\in\mathbb{Z}\tab $ Замена: $x=t^k,$ где $k=\lcm(m,\>n)$
+	\item $\frac{m+1}{n}\in\mathbb{Z}\tab $ Замена: $a+bx^n=t^s,$ где $s$ - знам. $p$
+	\item $\left(\frac{m+1}{n}+p\right)\in\mathbb{Z}\tab $ Замена: $a+bx^n=t^sx^n,$ где $s$ - знам. $p$
+\end{enumerate}
+В остальных случиях первообразная в элементарных функциях не выражается. Этот результат носит название теоремы Чебышева. 
+\begin{example}
+	$\int\frac{\sqrt[3]{\sqrt[4]{x}+1}}{\sqrt x}\dx=\int x^{-\frac12}(1+x^{\frac14})^{\frac14 }\dx=\left|\begin{array}{l}
+		m=-\frac12\\n=\frac14\\p=\frac13
+	\end{array}\right|\textcircled{=}$\begin{enumerate}
+		\item $p\not\in\mathbb{Z}$
+		\item $\frac{m+1}{n}=\frac{1\cdot 4}{2\cdot 1}=2\in\mathbb{Z}$ - второй случай. \\ Замена: $1+x^{\frac14}=t^3,\>x=(t^3-1)^4;\>\dx=4(t^3-1)^3\cdot3t^2\dy t$
+	\end{enumerate}
+	$\textcircled{=}\int\left((t^3-1)^4\right)^{-\frac12}(t^3)^{\frac13}\cdot 12t^2(t^3-1)^3\dy t=12\int(t^3-1)t^3\dy t=12\left(\frac{t^7}4-\frac{t^4}4\right)+c=\\=\frac{12}7\left(1+x^{\frac14}\right)^{\frac73}-3\left(1+x^{\frac14}\right)^{\frac43}+c$
+\end{example}
+\subsection{Интегралы вида $\int R(e^x)\dx,\int R(\sqrt{e^x+e})\dx$}
+\begin{enumerate}
+	\item Замена: $e^x=t\Rightarrow x=\ln t,\dx=\frac{\dy t}t\\\int R(e^x)\dx=\int R(t)\frac{\dy t}{t}=\int R_1(t)\dy t$
+	\item Замена: $\sqrt{e^x+e}=t\Rightarrow e^x=t^2-a,\>x=\ln (t^2-a),\dx=\frac{2t\dy t}{t^2-a}\\\int R(\sqrt{e^x+e})\dx=\int R(t)\cdot \frac{2t\dy t}{t^2-a}=\int R_1(t)\dy t$
+\end{enumerate}
+\section{Интегралы, не выражающиеся в элементарных функциях}
+В интегральном исчислении строго доказывается, что первообразные от некоторых элементарных функций хотя и существуют, но не могут быть выражены элементарной функцией (т.е. как конечное число арифметических операций и композиций над основными элементарными функциями(даже если известно, что первообразная существует)).\\
+К таким интегралам относятся:
+$$\int e^{-x^2}\dx\textrm{ интеграл Пуассона(теория вероятностей)}$$
+$$\int \frac{\dx}{\ln x}\textrm{ интегральный логарифм(теория чисел)}$$
+$$\int\frac{\sin x}{x}\dx,\int\frac{\cos x}{x}\dx,\int\frac{e^x}{x}\dx\textrm{ интегральный синус, косинус, показательная функция}$$
+$$\int \sqrt{1-k^2\sin^2x}\dx,\int \frac{\dx}{\sqrt{1-k^2\sin^2x}},|k|<1\textrm{ элиптические интегралы}$$
+$$\int \cos(x^2)\dx,\int \sin(x^2)\dx\textrm{ интегралы Фринеля(физика, оптика)}$$
+$$\int x^\alpha\sin x\dx,\int x^\alpha\cos x\dx,\>\alpha\not=0,1,2\dots\tab\textrm{и другие}$$
+Такие функции называются специальными. Для них существуют специальные таблицы для определения значений функции.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
