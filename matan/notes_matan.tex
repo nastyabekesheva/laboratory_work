@@ -20,6 +20,7 @@
 \usepackage{longdivision}
 \usepackage{polynom}
 
+
 \polyset{%
   style=C,
   delims={\big(}{\big)},
@@ -476,24 +477,133 @@ $$\int \sqrt{1-k^2\sin^2x}\dx,\int \frac{\dx}{\sqrt{1-k^2\sin^2x}},|k|<1\textrm{
 $$\int \cos(x^2)\dx,\int \sin(x^2)\dx\textrm{ интегралы Фринеля(физика, оптика)}$$
 $$\int x^\alpha\sin x\dx,\int x^\alpha\cos x\dx,\>\alpha\not=0,1,2\dots\tab\textrm{и другие}$$
 Такие функции называются специальными. Для них существуют специальные таблицы для определения значений функции.  
+\chapter{Определенный интеграл}
+\section{Определение определенного интеграла(Римана)}
+Пyсть функция: $f(x);\> f(x)\>:\>[a,\>b]\rightarrow\mathbb{R}\>(a<b)\\$
+произвольными точками разобьем отрезок $[a,\>b]$ на $n$ частичных отрезков: $[x_0,\>x_1],\>[x_1,\>x_2],\dots,\>[x_{n-1},\>x_n]\\$ 
+\textbf{Разбиение} будем обозначать $T,\>T$ - разбиение $[a,\>b];\>x_0,\>x_1,\dots,x_n$ - точки разбиения $T$.\\
+\textbf{Величина} $\Delta x_n=x_k-x_{k-1},\>k=\overline{1,n}$ называется \textbf{длинной} $k$-го частичного отрезка $[x_{k-1},\>x_k]$.\\
+\textbf{Диаметр} разбиение $T:\>d(T)=\underset{1\leq k\leq n}{\max}\Delta x_k$ - длина наибольшего частичного отрезка $T$.\\
+\begin{remark}
+	$\tab d(T)\rightarrow0\Rightarrow n\rightarrow\infty$
+\end{remark}
+Разбиение $T'$ называется \textbf{дроблением} разбиения $T(T'\succ T)$, если его точками разбиения являются все точки разбиения $T$ и, по крайней мере, одна дополнительная.\\
+Пусть есть некоторое разбиение $T$ отрезка $[a,\>b]$. На каждом частичном отрезке выберем произвольную точку $\xi_k\>:\>\forall k\>\> \xi_k \in [x_{k-1},\>x_k],\>k=\overline{1,n}.$
+Эти точки назовем \textbf{отмеченными}. Пара $(T,\>\xi)$ oзначает разбиение $T$ с отмеченными точками.\\
+\textbf{Интегральной суммой} для функции $f(x)$ на отрезке $[a,\>b]$ для выбранного разбиения $T$ c отмеченными точка $(T,\>\xi)$ называется 
+$$\sum\limits_{k=1}^n f(\xi_k)\cdot\Delta x_k=\sigma(f\>|\>T,\xi)$$
+\textbf{Число} $I(f)$ называется \textbf{пределом} интегральных сумм $\sigma(f\>|\>T,\>\xi)$ при $\alpha(T)\to0$ если для любого $\varepsilon>0$ можно указать такое положительное $\delta$, зависящее от $\varepsilon$ что для любых разбиений, для которых $\alpha(T)<\delta(\varepsilon)$ значение интегральных сумм независимо от выбранных точек удовлетворяют неравенству : $|\sigma(f\>|\>T,\>\xi)-I(f)|<\varepsilon$
+$$\lim_{\alpha(T)\to0}\sigma(f\>|t\>,\>\xi)=I(f)\Leftrightarrow\forall\varepsilon>0\exists\delta=\delta(\varepsilon)>0\forall(T,\>\xi)\alpha(T)<\delta(\varepsilon)\Rightarrow\sigma(f\>|\>T,\>\xi)-I(f)<\varepsilon$$
+Если такое число $I(F)$ существует (т.е существует и является конечным указанный предел интегральных сумм), то это число и называют определенным интегралом функции $f(x)$ на отрезке $[a,\>b]$.
+$$\int\limits_a^b f(x)\dx\equiv I(f)=\lim_{\alpha(T)\to0}\sigma(f\>|t\>,\>\xi)=\lim_{\alpha(T)\to0}\sum\limits_{k=1}^n f(\xi_k);\Delta x_k(n\to\infty)$$
+При этом функция $f(x)$ интегрируема по Риману на отрезке $[a,\>b]:$
+\begin{theorem}[необходимое условие интегрируемости функции на отрезке]
+	$$\textrm{Если функция }f(x)\textrm{ интегрируема на отрезке }[a,\>b]\textrm{, то }f(x)\textrm{ - ограничена на }[a,\>b].$$
+	$$\textrm{ Если}f(x)\in R([a,\>b])\textrm{, то }f(x)\textrm{ - ограничена на отрезке }[a,\>b]$$
+	\begin{proof}
+		Пусть $f(x)\in R([a,\>b])\Leftrightarrow\forall\varepsilon>0\>\>\exists\delta(\varepsilon)>0\>>\forall (T,\>\xi)\>\alpha (T)<\delta(\varepsilon)\Rightarrow|\sigma(f\>|\>T,\>\xi)-I(f)|<\varepsilon\Rightarrow I(f)-\varepsilon <\sigma(f\>|\>T,\xi)<I(f)+\varepsilon \\$ т.е. $\sigma(f\>|\>T,\>\xi)$ - ограничена. далее от противного: \\ Предположим, что функция $f(x)$ не ограничена на $[a,\>b]$, т.е. $\exists x_0\in[a,\>b]\\\forall M>0\>\>\exists\Theta(x_0)\>\>\forall x\in\Theta(x_0)\>|f(x)|>M$. при любом разбиение $T$ отрезка $[a,\>b]$ точка $x_0$ попадает в некоторый частичный отрезок $[x_{k-1},\>x_k]$. В этот же отрезок попадает либо вся окрестность точки $x_0\>\Theta(x_0)$, в которой функция не ограничена, либо часть этой окрестности. Тогда выбирая на этом отрезке точку $\xi_k\in\Theta(x_0)$  из такой окрестности получим: $f(\xi_k)$ может быть как угодно велико(по модулю) следовательно, $f(\xi_k)$ - неограничено $\Rightarrow f(\xi_k)\cdot\Delta x_k$ - неограничено, т.е. $\sigma(f\>|\>T,\>\xi)$ - неограничена - противоречие, следовательно, $f(x)$ - ограничена на $[a,\>b].$
+	\end{proof}
+	Это условие необходимое, но не является достаточным.
+\end{theorem}
+\begin{remark}
+	Если предел $I(f)$ не существует или являются бесконечным, \\то $f(x)\not\in R([a,\>b])$
+\end{remark}
+\begin{example}
+	$\underset{\textrm{ф-я Дирихле}}{D(x)}=\left\{\begin{array}{rl}
+		1, & \textrm{если } x\in\mathbb{Q}\\
+		0, & \textrm{если } x\not\in\mathbb{Q}
+	\end{array}\right.$\newpage $\forall [a,\>b]\>\>\forall T:$\begin{enumerate}
+		\item если $\xi_k=q_k\in\mathbb{Q},k=\overline{1,n},$ то $\sigma(D\>|\>T,\>q)=\sum\limits_{k=1}^n\Delta x_k=b-a$
+		\item если $\xi_k=r_k\not\in\mathbb{Q},\>r_k\in\mathbb{r},\>k=\overline{1,\>n},$ то $\sigma(D\>|\>T,\>r)=0$
+	\end{enumerate}
+	$I(D)$ - не существует. $D(x)\not\in R([a,\>b])\>\>\forall [a,\>b]$
+\end{example}
+
+\section{Суммы Дарбу и их свойства}
+Пусть функция $f(x)$ - ограничена на $[a,\>b]],\>T$ - выбранное разбиения отрезка $[a,\>b].$. На каждом частичном отрезке разбиения функция имеет точную верхнюю и нижнюю грань. Обозначим $m_k$ и $M_k$:
+$$m_k=\inf_{x\in[x_{k-1},\>x_k]}f(x)\tab m_k=\sup_{x\in[x_{k-1},\>x_k]}f(x)$$ 
+\textbf{Нижней} и \textbf{верхней}
+ сумами Дарбу Функции $f(x)$ на отрезке $[a,\>b]$ при данном разбиении $T$ называются:
+ $$\sigma_{*}(f\>|\>T)=\sum\limits_{k=1}^{n} m_k\Delta x_k \tab\sigma^{*}(f\>|\>T)=\sum\limits_{k=1}^nM_k\cdot\Delta x_k$$
+$$\forall(T,\>\xi)\>\>\sigma_*(f\>|\>T)\leq\sigma^*(f\>|\>T)$$
+\begin{theorem}[Свойство суммы Дарбу]$ $
+	\begin{enumerate}
+		\item Eсли $T'\succ T(T'$ - дробление разбиения $T),$ то $\sigma_*(f\>|\>T')\geq \sigma_*(f\>|\>T).$
+		\item Eсли $T'\succ T,$ то $\sigma^*(f\>|\>T')\leq\sigma^*(f\>|\>T)$ 
+		\item $\forall T_1,\>T_2\tab \sigma_*(f\>|\>T_1)\leq\sigma^*(f\>|\>T_2)$
+	\end{enumerate}
+	\begin{proof}$ $
+	\begin{enumerate}
+		\item Посколько разбиение $T'$ можно получить из разбиения $T$, последовательно добавляя к нему по одной новой точке, то утверждение достаточно доказать для случая, когда $T'$ содержит только одну дополнительную точку по сравнению с $T$. Тогда: $\\\sigma_*(f\>|\>T)=\sum\limits_{k=1}^n m_k\cdot\Delta x_k\\$ Пусть дополнит точка разбиение $x':\>x'\in[x_{k-1},\>x_k].$ \\Тогда $\sigma_*(f\>|\>T)=\sum\limits_{\underset{k\neq r}{k=1}}^n m_k\cdot\Delta x_k+m_r\cdot\Delta x_r,\>\sigma_*(f\>|\>T')=\sum\limits_{k=1}m_k\cdot\Delta x_k+\\+\inf_{x\in[x_{k-1},\>x_k]}f(x)\cdot(x'-x_{k-1})+\inf_{x\in[x_{k-1},\>x_k]}f(x)(x_r-x'))=\\\left.\begin{array}{r}
+			\inf\limits_{x\in[x_{r-1},\>x']}f(x)\geq \inf\limits_{x\in[x_{r-1},\>x_r]}f(x)=m_r\\
+			\inf\limits_{x\in[x',\>x_r]}f(x)\geq \inf\limits_{x\in[x_{r-1},\>x_r]}f(x)=m_r
+		\end{array}\right\}\geq\sum\limits_{\underset{k\neq2}{k=1}}^nm_k\Delta x_k+m_r(x'-x_{r-1}+x_r-x')=\\=\sum\limits_{\underset{k\neq2}{k=1}}^nm_k\cdot\Delta x_k+m_r\cdot\Delta x_r=\sigma_*(f\>|\>T)$
+		\item аналогично 1
+		\item Возьмем $T=T_1\cup T_2;\\$ Тогда $T\succ T_1,\>T\succ T_2.\sigma_*(f\>|\>T_)\leq \sigma_*(f\>|\>T)\leq\sigma^*\leq\sigma(f\>|\>T_2)$
+	\end{enumerate}
+	\end{proof}
+\end{theorem}
+\begin{cons*}
+	Таким образом, множество всех нижних сумм Дарбу для различных разбиений заданого отрезка является ограниченными сверху(любой верхней суммой Дарбу). Поэтому это множество имеет точную верхнюю грань:
+	$$\exists\sup_T\sigma_*$$ Это значение называется \textbf{нижним интегралом }$I_*(f)$. Аналогично, множество всех верхних сумм Дарбу для различных разбиений отрезка является ограниченным снизу любой нижней суммой Дарби. ПОэтому множество имеет точную нижнюю грань: 
+	$$\exists\inf_T\sigma^*$$ Это значение называется \textbf{верхним интегралом }$I^*(f)$. \\ Обозначим: 
+	$$\sup_T\sigma_*(f\>|\>T)\equiv I_*(f)\equiv\int\limits_a^bf(x)\dx\textrm{(нижний интеграл)}$$ 
+	$$\inf_T\sigma^*(f\>|\>T)\equiv I^*(f)\equiv\int\limits_a^bf(x)\dx\textrm{(верхний интеграл)}$$ 
+	Тогда: $$\forall T:\>\>\sigma_*(f\>|\>T)\leq I_*(f)\leq I^*(f)\leq \sigma^*(f\>|\>T)$$
+	\textbf{Колибанием сумм Дарбу} для данного разбиения называется величина: $$\Omega(f\>|\>T)=\sigma^*(f\>|\>T)-\sigma_*(f\>|\>T)$$
+	Тогда: $$\Omega(f\>|\>T)\geq0;\tab0\leq I^*(f)-I_*(f)\leq\Omega(f\>|\>T)$$
+\end{cons*} 
+\section{Необходимое и достаточное условие интегрируемости функции $f(x)$ на $[a,\>b]$}
+\begin{theorem}[Критерий интегрируемости функции на отрезке]$ $
+	Для того, чтобы функция $f(x)$, заданая на отрезке $[a,\>b]$, была интегрируема по Риману, необходимо и достаточно, чтобы предел колебания суммы Дарбу равнялся нулю, когда диаметр разбиения стремился к нулю:\begin{center}
+	$f(x):\>[a,\>b]\to R,\>f(x)\in R([a,\>b])\Leftrightarrow\lim\limits_{\alpha(T)\to o}\Omega(f\>|\>T)=0$
+\end{center}
+\begin{remark}
+	$\lim\Omega(f\>|\>T)=0\Leftrightarrow\forall\varepsilon>0\>\>\exists\delta=\delta(\varepsilon)>0\>\>\forall T\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow\Omega(f\>|\>T)<\varepsilon$
+\end{remark}
+\begin{proof}$\\$
+	Необходимое:\\ Пусть $f(X)\in R([a,\>b])\Rightarrow\exists I(f)=const:\\\forall\varepsilon>0\>\>\exists\delta=\delta(\varepsilon)>0\>\>\forall(T,\>\xi)\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow|\sigma(f\>|\>T,\>\xi)-I(f)|<\frac\varepsilon4\\$ Из модуля: $I(f)-\frac\varepsilon4<\sigma(f\>|\>T,\>\xi)<I(f)\\$ Так как: $\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi))\leq\sigma^*(f\>|\>T)\>\>\forall T\\$
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  \includegraphics[height=1.5cm]{2_3.png}
+$\begin{array}{l}
+	\Rightarrow I(f)-\frac\varepsilon4\leq\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi)\leq\sigma^*(f\>|\>T)\leq I(f)+\frac\varepsilon4 \\\Rightarrow\Omega(f\>|\>T)-\sigma^*(f\>|\>T)-\sigma_*(f\>|\>T)\leq\frac\varepsilon2<\varepsilon\forall\varepsilon\\\alpha(T)<\delta(\varepsilon)\rightarrow\lim\limits_{\alpha(t)\to0}\Omega(f\>|\>t)=0
+\end{array}\\$ Достаточное \\ Пусть $\lim\limits_{\alpha(t)\to0}\Omega(f\>|\>t)=0\Rightarrow\lim\limits_{\alpha(t)\to0}\sigma_*(f\>|\>T)=\lim\limits_{\alpha(t)\to0}\sigma^*(f\>|\>t)=const\\$ Так как: $\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi)\leq\sigma^*(f\>|\>T)\>\>\forall T\Rightarrow\exists\lim\limits_{\alpha(T)\to0}\sigma(f\>|\>T,\>\xi)=const=\\=I(f),$ т.е. $f(x)\in R([a,\>b])$
+\end{proof}
+\end{theorem}
+\section{Некоторые классы интегрируемых функций}
+\subsection{Интегрируемость непрерывных функций}
+\begin{theorem}
+	Если функция $f(x)$ непрерывна на отрезке $[a,\>b]$, то она интегрируема на этом отрезке.
+	$$f(x)\in C([a,\>b])\Rightarrow f(x)\in R([a,\>b])$$
+	\begin{proof}
+		$f(x)\in C([a,\>b])\underset{\textrm{т. Кантора}}{\Longrightarrow} f(x)$ - равномерно непрерывна на $[a,\>b]$. т.е. $\forall\varepsilon>0\>\>\exists\delta=\delta(\varepsilon)\>\>\forall x_1,\>x_2\in[a,\>b]\>\>|x_1-x_2|<\delta(\varepsilon)\>\>|f(x_1)-f(x_2)|<\varepsilon\cdot\frac1{b-a}\\$ Зафиксируем некоторое $\varepsilon$ и найдем по нему $\delta(\varepsilon).\\$ Выберем разбиение $T$ отрезка $[a,\>b]$, так чтобы $\alpha(T)<\delta(\varepsilon).\\$ Тогда: $\Omega(f\>|\>T)=\sum\limits_{k=1}^n M_k\cdot\Delta x_k-\sum\limits_{k=1}^nm_k\cdot\Delta x_k=\\=\left|\begin{array}{rcl}
+			m_k=\inf\limits_{x\in[x_{k-1},\>x_k]}f(x) && m_k=\min\limits_{x\in[x_{k-1},\>x_k]}f(x)\\
+			&f(x)\in C([a,\>b])\Rightarrow & \\
+			M_k=\sup\limits_{x\in[x_{k-1},\>x_k]}f(x) && M_k=\max\limits_{x\in[x_{k-1},\>x_k]}f(x)
+		\end{array} \right|=\\=\sum\limits_{k=1}^n(M_k-m_k)\cdot\Delta x_k=\left|\begin{array}{c}
+			\Delta x_k<\delta(\varepsilon)\textrm{ - выбрано}\\ \Downarrow\textrm{равномерно непрерывна} \\
+			M_k-m_k<\varepsilon\frac1{b-a}
+		\end{array} \right|<\sum\limits_{k=1}^n\frac{\varepsilon}{b-a}\cdot\Delta x_k=\\=\frac{\varepsilon}{b-a}\sum\limits_{k=1}^n\Delta x_k=\frac{\varepsilon}{b-a}\cdot(b-a)=\varepsilon.\\\alpha(T)<\delta(\varepsilon)\Rightarrow\Omega(f\>|\>T)<\varepsilon\Rightarrow\lim\limits_{\alpha(T)\to0}\Omega(f\>|\>T)=0\Rightarrow f\in R([a,\>b]$
+	\end{proof}
+\end{theorem}
+\subsection{Интегрирование монотонных ограниченных функций}
+Пусть функция $f(x)$ такая, что:
+$$f(x)\>:\>[a,\>b]\to R,\>f(x)\textrm{ - монотонна}$$
+\begin{remark}
+	Т. к. функция $f(x)$ монотонна на отрезке $[a,\>b]$, то все ее значения заключены между $f(a)$ и $f(b)$, таким образом, функция ограничена на отрезке.
+\end{remark}
+\begin{theorem} 
+	Если функция $f(x)$ монотонна на отрезке $[a,\>b]$, то $f(x)$ интегрируема на отрезке $[a,\>b]$
+	$$f(x)\textrm{ - монотонна}\Rightarrow f(x)\in R([a,\>b])$$
+	\begin{proof}
+		для $f\uparrow:\>f\uparrow\Rightarrow f(b)-f(a)>0\\$ Зафиксируем $\varepsilon>0$ и возьмем $T:\alpha(T)<\frac{\varepsilon}{f(b)-f(a)}=\delta(\varepsilon)\\$ Tогда: $\Omega(f\>|\>T)=\sum\limits_{k-1}^n(M_k-m_k)\cdot\Delta x_k<\sum\limits_{k=1}^n(M_k-m_k)\cdot\frac{\varepsilon}{f(b)-f(a)}=\\=\frac{\varepsilon}{f(b)-f(a)}\sum\limits_{k=1}^n(M_k-m_k)=\left|\begin{array}{cr}
+			&M_k=f(x_k)\\
+			f\uparrow&\\
+			&m_k=f(x_{k-1})
+		\end{array} \right|=\frac{\varepsilon}{f(b)-f(a)}(M_1-m_1+M_2-\\-m_2+\dots+M_N-m_n)=\frac{\varepsilon}{f(b)-f(a)}(f(x_1)-f(a)+f(x_2)-f(x_1)+\dots+f(b)-f(x_{n-1})=\\=\frac{\varepsilon}{f(b)-f(a)}(f(b)-f(a))=\varepsilon$ т.е. $\forall\varepsilon\>\>\exists\delta(\varepsilon)=\frac{\varepsilon}{f(b)-f(a)}:\>\>\forall T\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow\Omega(f\>|\>T)<\varepsilon\Rightarrow\\\Rightarrow\lim\limits_{\alpha(T)\to0}\Omega(f\>|\>T)=0\Rightarrow f(x)\in R([a,\>b])$ 
+	\end{proof}
+\end{theorem}
 
 
 
