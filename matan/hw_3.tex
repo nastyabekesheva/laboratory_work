@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch}}
+\newcommand{\arsh}{\textrm{arcsh}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 3}	
+\end{center}
+\begin{itemize}
+	\item [3.13] $\bigintsss\frac{x^2\dx}{\sqrt{x^2-2}}=\left|\begin{array}{ll}
+		x=\sqrt2\ch t& t= \arch\frac{x}{\sqrt2} \\
+		\dx = \sqrt2 \sh t\dt & \dt=\frac{\dx}{\sqrt2\sh t}
+	\end{array} \right|= \bigintsss\frac{2\ch^2t\cdot\sqrt2\sh t\dt}{\sqrt{2\ch^2t-2}}=2\bigintsss\frac{\ch^2t\sh t\dt}{\sqrt{\ch^2t-1}}=2\bigintsss\ch^2t=\\=\frac{\ch t\sh t}{2}+\frac12\bigintssss1\dt=\frac12(\ch t\sh t+t)+c=\frac12(\frac x{\sqrt2}\sh(\arch{\frac{x}{\sqrt2}})+\arch\frac{x}{\sqrt2})+c$
+	\item [3.14] $\bigintsss\frac{x^2}{\sqrt{x^2+a^2}}\dx=\left|\begin{array}{ll}
+		x=a\sh  t& t=\arsh\frac xa\\\dx=a\ch t\dt&\dt=\frac{\dx}{a\ch t}
+	\end{array}\right|=\bigintsss\frac{a^3\sh^2t\ch t\dt}{\sqrt{a^2\sh^t+a^2}}=a^2\bigintsss\sh^t\dt=\frac{a^2}2(\ch t\sh t-\\-\bigintsss1\dt)=\frac{a^2}2(\ch t\sh t+t)+c=\frac{a^2}2(\ch(\arsh\frac xa))\cdot\frac xa+\arsh \frac xa$
+	\item [3.15] $\bigintsss\frac{2x+3}{(x-2)(x+5)}\dx=\left|\frac A{x-2}+\frac B{x+5} \right|=\\ x=A(x+5)+B(x-2)=Ax+5A+Bx-2B\\1\cdot x+0=x(A+B)+(5A-2B)\\\left\{\begin{array}{l}
+		A+B=1\\5A-2B=0
+	\end{array}\right.\Rightarrow\left\{\begin{array}{l}
+		A=\frac27\\B=\frac57
+	\end{array} \right.$
+	\item [3.16] $\bigintsss\frac{x^3+1}{x^3-5x^2+6x}=$
+	\begin{table}[h]
+\begin{tabular}{llllllllll}
+    & $x^3$ & $+$ & $x^2\cdot0$ & $+$ & $x\cdot0$ & $+$ & \multicolumn{1}{l|}{1} & $x^3-5x+6x$ &  \\ \cline{9-9}
+$^-$ & $x^3$ & $+$ & $5x^2$        & $-$ & $6x$      &     &                        & $1+$        &  \\ \cline{1-6}
+    &       &     & $5x^2$        & $-$ & $6x$      & $+$ & 1                      &             &  \\
+
+\end{tabular}
+\end{table}
+ 	$\\=1+\bigintsss\frac{5x^2-6x+1}{x(x-2)(x-3)}=\left|\frac{A}{x}+\frac B{x-2}+\frac C{x-3}\right|=\\\begin{array}{ll}
+ 		A=\left.\frac{5x^2-6x+1}{(x-2)(x-3)}\right|_{x=0}&=\frac{1}{6}\\
+ 		B=\left.\frac{5x^2-6x+1}{x(x-3)}\right|_{x=2}&=-\frac{9}{2}\\
+ 		C=\left.\frac{5x^2-6x+1}{x(x-2)}\right|_{x=3}&=\frac{28}{3}
+ 	\end{array}$
+ 	\item[3.17] $\bigintsss\frac{\dx}{(x+1)(x^2+1)}=\left|\frac A{x+1}+\frac {Bx+c}{x^2+1}\right|=\\1=(x^2+1)A+(x+1)(Bx+C)\\0\cdot x^2+0\cdot x+1=(A+B)x^2+(C+B)x+(A+C)\\\left\{\begin{array}{l}
+ 		0=A+B\\
+ 		0=C+B\\
+ 		1=A+C\\
+ 	\end{array} \right.\Rightarrow\left\{\begin{array}{l}
+ 		A=\frac12\\
+ 		B=-\frac12\\
+ 		C=\frac12\\
+ 	\end{array} \right.
+ 	$
+ 	\item [3.18] $\bigintsss\frac{\dx}{x(x+1)(x^2+x+1)}=\left|\frac{A}{x}+\frac{B}{x+1}+\frac{Cx+D}{x^2+x+1} \right|=\\1=(x+1)(x^2+x+1)A+x(x^2+x+1)B+x(x+1)C\\0\cdot x^3+0\cdot x^2+0\cdot x+1=(A+B+C)x^3+(2A+B+D+C)x^2+
+ 	(2A+B+D)+A\\\left\{\begin{array}{l}
+ 		0=A+B+C\\ 
+ 		0=2A+B+C+D\\
+ 		0=2A+B+D\\
+ 		1=A
+ 	\end{array}\right. \Rightarrow \left\{\begin{array}{l}
+ 		A=1\\ 
+ 		B=-1\\
+ 		C=0\\
+ 		D=-1
+ 	\end{array}\right.$
+ 	\item [3.19] $\bigintsss\frac{\dx}{x^5+x^4-2x^3-2x^2+x+1}=\bigintsss\frac{\dx}{(x+1)(x+1)(x+1)(x-1)(x-1)}=\left|\frac{A}{x+1}+\frac{B}{(x+1)^2}+\frac{C}{(x+1)^3}+\frac{D}{x-1}+\frac{E}{(x-1)^2} \right|=\\1=(x+1)^5(x-1)^3A+(x+1)^4(x-1)^3B+(x+1)^3(x-1)^3C+(x+1)^6(x-1)^2D+(x+1)^6(x-1)E$
+ 	\item [3.00] $\bigintsss x\sqrt{x-1}\dx\left|\begin{array}{l}
+ 		\sqrt x=\ch t\\\dx=\sh 2t\dt
+ 	\end{array} \right|=\bigintsss \ch^2t\sh2t\sqrt{\ch^2t-1}\dt=2\bigintsss\ch t\sh^2t(\sh^2t+1)\dt=\\=4\bigintsss\sh2^t(\sh^2t+1)\dy(\sh t)=4(\bigintsss\sh^4\dy(\sh t)+\bigintsss\sh^2\dy(\sh t))=4(\frac{\sh^5t}{5}+\frac{\sh^3t}3)+c=\\=\frac45\sh^5(\arch\sqrt x)+\frac43\sh^3(\arch\sqrt x)+c$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
