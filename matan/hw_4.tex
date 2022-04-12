@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch}}
+\newcommand{\arsh}{\textrm{arcsh}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 4}	
+\end{center}
+\begin{itemize}
+	\item [3.15] $\bigintsss\frac{2x+3}{(x-2)(x+5)}\dx=\frac27\bigintsss\frac{\dx}{x-2}+\frac57\bigintsss\frac{\dx}{x+5}=\frac27\ln|x-2|+\frac57\ln|x+5|+c$
+	\item [3.16] $\bigintsss\frac{x^3+1}{x^3-5x^2+6x}\dx=\frac16\bigintsss\frac{\dx}{x}-\frac92\bigintsss\frac{\dx}{x-2}+\frac{28}3\bigintsss\frac{\dx}{x-3}=\frac16\ln|x|-\frac92\ln|x-2|+\frac{28}3\ln|x-3|+c$
+	\item [3.17] $\bigintsss\frac{\dx}{(x+1)(x^2+1)}=\frac12\bigintsss\frac{\dx}{x+1}-\frac12\bigintsss\frac{x-1}{x^2+1}\dx=\\=\frac12\left(\ln|x+1|-\bigintsss\frac{x}{x^2+1}\dx\left|u=x^2+1\>\>\dx=\frac1{2x}\dy u \right|+\bigintsss\frac{\dx}{x^2+1} \right)=\\=\frac12\left(\ln|x+1|+\frac12\ln|x^2+1|+\arctan x \right)+c$
+	\item [3.18] $\bigintsss\frac{\dx}{x(x+1)(x^2+x+1)}=\bigintsss\frac{\dx}{x}-\bigintsss\frac{\dx}{x+1}-\bigintsss\frac{\dx}{x^2+x+1}=\ln|x|-\ln|x+1|-\\-\bigintsss\frac{\dx}{(x+0.5)^2+0.75}\left|u=\frac{2x+1}{\sqrt3}\right|=\ln|x|-\ln|x+1|-\frac2{\sqrt3}\ln\left|\frac{2x+1}{\sqrt3}\right|+c$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
