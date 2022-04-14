@@ -16,6 +16,7 @@
 \usepackage{stackengine}
 \usepackage{bigints}
 \usepackage{enumerate}	
+\usepackage{mathtools}
 \usepackage{multicol}
 \usepackage{longdivision}
 \usepackage{polynom}
@@ -604,6 +605,213 @@ $$f(x)\>:\>[a,\>b]\to R,\>f(x)\textrm{ - монотонна}$$
 		\end{array} \right|=\frac{\varepsilon}{f(b)-f(a)}(M_1-m_1+M_2-\\-m_2+\dots+M_N-m_n)=\frac{\varepsilon}{f(b)-f(a)}(f(x_1)-f(a)+f(x_2)-f(x_1)+\dots+f(b)-f(x_{n-1})=\\=\frac{\varepsilon}{f(b)-f(a)}(f(b)-f(a))=\varepsilon$ т.е. $\forall\varepsilon\>\>\exists\delta(\varepsilon)=\frac{\varepsilon}{f(b)-f(a)}:\>\>\forall T\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow\Omega(f\>|\>T)<\varepsilon\Rightarrow\\\Rightarrow\lim\limits_{\alpha(T)\to0}\Omega(f\>|\>T)=0\Rightarrow f(x)\in R([a,\>b])$ 
 	\end{proof}
 \end{theorem}
+\subsection{Критерий Лебега интегрируемости функции $f(x)$ на отрезке $[a,\>b]$}
+Числовое множество множество $A;\>A\subset\mathbb{R}$ называется \textbf{несущетвенным по Лебегу}(или $L$ - несущественным, или множеством меры Лебега ноль), если существует не более чем счетное покрытие этого множества системой интегралов, сумма длин которых может быть как угодно мала. 
+\begin{remark}$ $
+	\begin{enumerate}
+		\item Множество называется счетным, если оно эквивалентно множеству натуральных чисел $\mathbb{N}$ 
+		\item $\forall \varepsilon>0\>\>S_\varepsilon=\{(a_k,\>b_k),\>k\in\mathbb{N}\}$ - счестная система интервалов. Сумма длин $=\sum\limits_{k=1}^\infty(b_k-a_k)=\lim\limits_{n\to\infty}\sum\limits_{k=1}^n(b_k-a_k)<\varepsilon\>\>\forall\varepsilon>0,\>A=\subset\bigcup\limits_{k=1}^{\infty}(a_k,\>b_k)$
+	\end{enumerate}
+\end{remark}
+\begin{example}
+	$A=\{x_1,\>x_2,\dots,\>x_n\},\>x_i\in\mathbb{R}\\S_\varepsilon=\left\{\left(x_1-\frac{\varepsilon}{4N};\>x_1+\frac{\varepsilon}{4N}\right),\dots,\>\left(x_n-\frac{\varepsilon}{4N};\>x_n+\frac{\varepsilon}{4N}\right)\right\}$ - покрытие $A$ интервалами, конечное. Сумма длин $=\sum\limits_{k=1}^N\frac{\varepsilon}{2N}=N\cdot\frac\varepsilon{2N}=\frac\varepsilon2<\varepsilon\>\>\forall\varepsilon>0$
+\end{example}
+\begin{example}
+	$A=\mathbb{Q}\\$ Известно, что $\mathbb{Q}$ - счетное $\Rightarrow\mathbb{Q}=\{r_1,\>r_2,\>r_3,\dots,\>r_n,\dots\}.$ Ввозьмем $k\in\mathbb{N},\>\forall>,$ построим $S_\varepsilon=\left\{\left(r_1-\frac\varepsilon{2^{k+1}};\>r_1+\frac\varepsilon{2^{k+1}}\right),\dots,\>\left(r_n-\frac\varepsilon{2^{k+1}};\>r_n+\frac\varepsilon{2^{k+1}}\right)\right\}$ \\ Сумма длин $=\lim\limits_{n\to\infty}\sum_{i=1}^n2\cdot\frac{\varepsilon}{2^{k+1}}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\frac\varepsilon{2^{k-1}2^i}=\frac\varepsilon{2^{k-1}}\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\frac1{2^i}=\\=\frac\varepsilon{2^{k-1}}\lim\limits_{n\to\infty}\left(\frac{\frac12\left(1-\left(\frac12\right)^2\right)}{\frac12}\right)=\frac\varepsilon{2^{k-1}}<\varepsilon,\>\>\mathbb{Q}\>-\>L$ - несущественное.
+\end{example}
+Свойства $L$-несущественных множеств:
+\begin{enumerate}
+	\item Если $A,\>B\>-\>L$-несущественные, то $A\cup B\>-\>L$-несущественное.
+	\item Если $\{A_n,\>n\in\mathbb{N}\},$ где $A_n\>-\>L$-несущественное, то $\bigcup \limits_{n=1}A_n-\>L$-несущественное.
+	\item Если $A\>-\>L$-несущественное и $B\subset A$, то $B\>-\>L$-несущественное.
+\end{enumerate}
+\begin{theorem}[Критерий Лебега интегрируемости функции на отрезке]
+	Пусть $f(x)$ задана на отрезке $[a,\>b]$, обозначим $\Delta f[a,\>b]$ - множество точек разрыва функции $f(x)$ на $[a,\>b].$ для того что бы функция $f(x)$ была интегрируема на отрезке $[a,\>b]$, необходимо и достаточно, чтобы $f(x)$ была ограничена на $[a,\>b]$ и множество точек разрыва было $L$-несущественное.
+	\begin{center}
+		Пусть $f(x):\>[a,\>b]\to R,$ обозначим $\Delta f[a,\>b]$ - множество точек разрыва функции $f(x)$ на $[a,\>b].$ \\
+		$f(X)\in R([a,\>b])\Leftrightarrow(f$ - ограничена на $[a,\>b])\land(\Delta f[a,\>b]\>-\>L$-несущественное.
+	\end{center}
+\end{theorem}
+\begin{example}
+	Если $f(x)\in C([a,\>b])\Rightarrow f$ ограничена на $[a,\>b]$ и $\Delta f[a,\>b]=\O$ - $L$-несущественное $\Rightarrow f(x)\in R([a,\>b])$
+\end{example}
+\begin{example}
+	Пусть $f(x)$ ограничена на $[a,\>b]$ и имеет на $[a,\>b]$ конечное количество точек разрыва$\Rightarrow\Delta f[a,\>b]$ - $L$-несущественное $=\left|\begin{array}{c}
+		\textrm{пример 1}\\
+		A=\{x_1,\dots,\>x_n\}
+	\end{array}\right|\Rightarrow \\\Rightarrow f(x)\in R([a,\>b])$
+\end{example}
+\begin{example}
+	Пусть $f(x)$ - монотонна и ограничена на $[a,\>b]\Rightarrow\Delta f[a,\>b]$ - $L$-несущественное $\Rightarrow f(x)\in R([a,\>b])$
+\end{example}
+\begin{example}
+	Пусть $D(x)=\left\{\begin{array}{rl}
+		0, & \textrm{если } x\not\in\mathbb{R}\\
+		1, & \textrm{если } x\in\mathbb{R}
+	\end{array}\right.$ разрывна $\forall x\in\mathbb{R}\Rightarrow\Delta f[a,\>b]=[a,\>b]$ - не $L$-несущественная $\Rightarrow D(x)$ - не интегрируема на $[a,\>b]\>\forall a,\>b\in\mathbb{R}$
+\end{example}
+\subsection{Общие свойства интегрируемых функций}
+\begin{theorem}[Cвойства интегрируемых функций]$ $ 
+	\begin{enumerate}
+		\item Если функция $f(x)$ интегрируема на отрезке $[a,\>b]$, то и модуль функции интегрируем на этом отрезке $f(x)\in R([a,\>b])$
+		\item Если функции $f(x)$ и $g(x)$   интегрируемы на отрезке $[a,\>b]$, то их линейная комбинация интегрируема на отрезке $[a,\>b]$.\\ $\begin{array}{ccl}
+			f(x)\in R([a,\>b]) &&1)\>(\alpha f(x)+\beta g(x))\in R([a,\>b]),\>\alpha,\>\beta =const\\
+			&\Rightarrow&2)\>f(x)\cdot g(x)\in R([a,\>b])\\
+			g(x)\in R([a,\>b])&&3)\>\frac{f(x)}{g(x)}\in  R([a,\>b]),\>\forall x\in[a,\>b]\>g(x)\ne0
+		\end{array}$
+		\item Пусть $f(x)$ интегрируема на отрезке $[a,\>b]$; $f(x)$ - тоображение $[a,\>b]$ в некоторое множество $Y$, и функция $g(y)$ - непрерывна на $Y$, то сложная функция $(g\circ f)(x)=g(f(x))$ интегрируема на отрезке $[a,\>b]$.
+	\end{enumerate}
+	\begin{proof}$ $ 
+		\begin{enumerate}
+			\item $f\in R([a,\>b])\Rightarrow\Delta _f[a,\>b]$ - $L$-несущественное. $\Delta_{|f|}[a,\>b]\subset \Delta_ f[a,\>b]\Rightarrow\Delta_{|f|}[a,\>b]$ - $L$-несущественное,$\Rightarrow|f(x)|\in R([a,\>b])$
+			\item $f\in R([a,\>b])\Rightarrow \Delta_f[a,\>b]$ - $L$-несущественное, $g\in R([a,\>b])\Rightarrow\Delta_g[a,\>b]$ - $L$-несущественное $\Rightarrow\Delta_f[a,\>b]\cup\Delta_g[a,\>b]$ - $L$-несущественное 
+				\begin{itemize}
+					\item [1.] $\Delta_{\alpha f+\beta g}[a,\>b]\subset (\Delta_f[a,\>b]\cup\Delta_g[a,\>b])\Rightarrow\Delta_{\alpha f+\beta g}[a,\>b]$ - $L$-несущественное $\Rightarrow\alpha f(x)+\beta g(x)\in R([a,\>b])$
+					\item [2.] $\Delta_{fg}[a,\>b]\subset(\Delta_f[a,\>b]\cup\Delta_g[a,\>b])\Rightarrow\Delta_{fg}[a,\>b]$ - $L$-несущественное\\ $\Rightarrow f(x)\cdot g(x)\in R([a,\>b])$
+					\item [3.] $\Delta_{\frac fg}[a,\>b]\subset(\Delta_f[a,\>b]\cup\Delta_g[a,\>b]\Rightarrow\Delta_{\frac fg}[a,\>b]$ - $L$-несущественное\\ $\Rightarrow\frac{f(x)}{g(x)}\in r([a,\>b])$
+				\end{itemize}
+			\item $f(x)\in R([a,\>b])\Rightarrow\Delta_f[a,\>b]$ - $L$-несущественное, $g(x)\in C(Y)\\\Rightarrow\Delta_g [Y]=\O\Rightarrow \Delta_{g(f)}[a,\>b]\subset \Delta_f[a,\>b]\Rightarrow\Delta_g(f)[a,\>b]$ - $L$-несущественное \\$\Rightarrow g(f(x))\in R([a,\>b])$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\section{Свойства определенного интеграла}
+\begin{enumerate}
+	\item \textbf{Значение} определенного интеграла \textbf{не зависит} от того, какой буквой обозначена переменная интегрирования $$\int\limits_{a}^{b}f(x)\dx=\int\limits_{a}^{b}f(t)\dy t=\int\limits_{a}^{b}f(y)\dy y\tab\textrm{и т.д.}$$ \begin{proof}
+		Вытекает из того, что значения интегральных суммы, а следовательно и предел интегральных сумм не зависит от того, какой буквой обозначен аргумент функции $f$
+	\end{proof}
+	\item $(def)$ $$\int\limits_{a}^{b}f(x)\dx=0\tab(\textrm{для сулчая }a=b)$$
+	\item $(def)$ (для случая $a>b$) $$\int\limits_{a}^{b}f(x)\dx=-\int\limits_{a}^{b}f(x)\dx$$
+		\begin{center}
+		\includegraphics[height=1.5cm]{2_5.png} $\tab\begin{array}{c}
+		\Delta x_k'=x_{k-1}-x_k=-\Delta x_k\\\\\\
+	\end{array}$
+	\end{center}
+	\item \textbf{Линейность}: если $\alpha,\>\beta\in R,$\\
+
+		$$
+		f(x)\in R([a,\>b]);\>g(x)\in R([a,\>b]), \textrm{ то:} $$$$\int\limits_{a}^{b}(\alpha f(x)+\beta g(x) )\dx = \alpha\int\limits_{a}^{b}f(x)\dx+\beta \int\limits_{a}^{b}g(x)\dx
+		$$\begin{proof}
+			$\forall(T,\>\xi):\>\sum\limits_{k=1}^{n}(\alpha f(\xi_k)+\beta g(\xi_k))\cdot\Delta x_k=\alpha\sum\limits_{k=1}^{n} f(\xi_k)\Delta x_k+\beta\sum\limits_{k=1}^{n}g(\xi_k)\Delta x_k,\\\int\limits_{a}^{b}(\alpha f(x)+\beta g(x) )\dx=\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n}(\alpha f(\xi_k)+\beta g(\xi_k))\cdot\Delta x_k=\alpha\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n} f(\xi_k)\Delta x_k+\\+\beta\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n}g(\xi_k)\Delta x_k=\alpha\int\limits_{a}^{b}f(x)\dx+\beta\int\limits_{a}^{b}g(x)\dx$
+		\end{proof}
+	\item \textbf{Аддетивность:} $\forall a,\>b,\>c\in R$ $$\int\limits_{a}^{b}f(x)\dx=\int\limits_{a}^{c}f(x)\dx+\int\limits_{c}^{b}f(x)\dx$$ При условии, что функция интегрируема на наибольшем из полученных отрезков. \begin{proof}$ $
+			\begin{itemize}
+				\item [a)] пусть $a<c<b\\\int\limits_{a}^{b}f(x)\dx$ - существует(по условию), причем независимо от способа разбиения этого отрезка. Выберем разбиение так, чтобы 	точка $c$ принадлежала к числу точек разбиения $T:\>c\in T;\>\>c=x_m;\\$Тогда:\\$\int\limits_{a}^{b}f(x)\dx=\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n} f(\xi_k)\cdot\Delta x_k =\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\left(\sum\limits_{k=1}^{m} f(\xi_k)\cdot\Delta x_k+\sum\limits_{k=m+1}^{n} f(\xi_k)\cdot\Delta x_k \right)=\\=\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{m} f(\xi_k)\cdot\Delta x_k+\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=m+1}^{n} f(\xi_k)\cdot\Delta x_k\>\textrm{\textcircled{=}}\\$ Пределы справа - интегральнные суммы для функции $f$ по отрезкам $[a,\>c]$ и $[c,\>b]$ соответственно. Т. к. предел слева существует по условию, то и пределы справа существуют для любого разбиения с отмеченными точка $(T,\>\xi)\\\textcircled{=}\>\int\limits_{a}^{c}f(x)\dx+\int\limits_{c}^{b}f(x)\dx=\int\limits_{a}^{b}f(x)\dx$ 
+				\item [b)] пусть, например, $a<b<c\\$Тогда:\\$\int\limits_{a}^{c}f(x)\dx=\int\limits_{a}^{b}f(x)\dx+\int\limits_{b}^{c}f(x)\dx;\\\int\limits_{a}^{b}f(x)\dx=\int\limits_{a}^{c}f(x)\dx-\int\limits_{b}^{c}f(x)\dx=\int\limits_{a}^{c}f(x)\dx+\int\limits_{c}^{b}f(x)\dx$
+			\end{itemize}
+		\end{proof} 
+	\item \textbf{Сохранение знака подинтегральной функции:}\\Если $\forall x\in[a,\>b]$ функция $f(x)$ сохраняет знак, то и знак интеграла совпадает со знаком $f(x)\>(a<b).$ $$\textrm{sign}\left(\int\limits_{a}^{b}f(x)\dx\right)=\textrm{sign}\left(f(x)\right)$$ т.е.: $$f(x)\geq0\>\forall x\in[a,\>b]\>\&\> a<b\Rightarrow\int\limits_{a}^{b}f(x)\dx\geq0$$\begin{proof}
+			$\\\int\limits_{a}^{b}f(x)\dx=\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n} f(\xi_k)\cdot\Delta x_k\geq \left|\begin{array}{l}
+				\forall k:\>\Delta x_k=x_k-x_{k-1}>0\\ \forall x\in[a,\>b]\>f(x)>0\Rightarrow\\\Rightarrow\forall k\>f(\xi_k)\geq0
+			\end{array} \right|\\$
+		\end{proof}
+	\item \textbf{Монотонность интеграла:}
+		$$\forall x\in[a,\>b],\>f(x)\leq g(x)\Rightarrow\int\limits_{a}^{b}f(x)\dx\leq\int\limits_{a}^{b}g(x)\dx\>(a<b)$$
+		\begin{proof}
+				$\forall x\in[a,\>b]\>f(x)\leq g(x)\Rightarrow g(x)-f(x)\geq0\Rightarrow\\\Rightarrow\int\limits_{a}^{b}\left(g(x)+f(x)\right)\dx\geq0\Rightarrow\int\limits_{a}^{b}g(x)\dx-\int\limits_{a}^{b}f(x)\dx\geq0;\>\int\limits_{a}^{b}g(x)\dx\geq\int\limits_{a}^{b}f(x)\dx$
+		\end{proof}
+	\item $$\left|\int\limits_{a}^{b}f(x)\dx\right|\leq\int\limits_{a}^{b}\left|f(x)\right|\dx\tab (a<b),\>f(x)\in R([a,\>b])$$\begin{proof}
+		$\left|\int\limits_{a}^{b}f(x)\dx\right|=\left|\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n} f(\xi_k)\cdot\Delta x_k\right|=\\=\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\left|\sum\limits_{k=1}^{n} f(\xi_k)\cdot\Delta x_k\right|\leq\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n} \left|f(\xi_k)\right|\cdot|\Delta x_k|=\\=\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\sum\limits_{k=1}^{n}\left|f(\xi_k)\right|\cdot\Delta x_k=\Big|f\in R([a,\>b])\Rightarrow |f|\in R([a,\>b])\Big|=\int\limits_{a}^{b}|f(x)|\dx$
+	\end{proof}
+	\begin{remark}
+		Если $a>b;$ $$\left|\int\limits_{a}^{b}f(x)\dx\right|\leq\left|\int\limits_{a}^{b}|f(x)|\dx\right|$$
+	\end{remark}
+	\item Если $f(x)$ - ограничена на $[a,\>b]$, т.е.: $$\exists M>0:\>|f(x)|<M\>\forall x\in [a\>,b]\Rightarrow\left|\int\limits_a^bf(x)\dx\right|<M\>(b-a)$$
+	\begin{proof}
+	$\left|\int\limits_a^bf(x)\dx\right|\leq\int\limits_a^b|f(x)|\dx<\int\limits_a^bM\dx=M\int\limits_a^b\dx=M\lim\limits_{\underset{n\to\infty}{\alpha(T)\to0}}\underbrace{\sum\limits_{k=1}^n1\cdot\Delta x_k}_{b-a}=\\=M(b-a)$
+	\end{proof}
+	\item Пусть $m=\inf\limits_{x\in[a,\>b]}f(x),\>M=\sup\limits_{x\in[a,\>b]}f(x).$ Тогда:$$m(b-a)\leq\int\limits_{a}^{b}f(x)\dx\leq M(b-a)$$ \begin{proof}
+		$\forall x\in[a,\>b]\>m\leq f(x)\leq M\Rightarrow\int\limits_{a}^{b}m\dx\leq \int\limits_{a}^{b}f(x)\dx\leq \int\limits_{a}^{b}M\dx\\m\int\limits_{a}^{b}\dx\leq\int\limits_{a}^{b}f(x)\dx\leq M\int\limits_{a}^{b}\dx,\>m(b-a)\leq \int\limits_{a}^{b}f(x)\dx\leq M(b-a)$
+	\end{proof} 
+	Если $f(x)$ непрерывна на $[a,\>b]$, то: $$m=\inf\limits_{x\in[a,\>b]}f(x)=\min\limits_{x\in[a,\>b]}f(x)\tab M=\sup\limits_{x\in[a,\>b]}f(x)=\max\limits_{x\in[a,\>b]}f(x)$$
+	\item Пусть $m=\inf\limits_{x\in[a,\>b]}f(x),\>M=\sup\limits_{x\in[a,\>b]}f(x).$ Тогда: $$\exists\mu\in[m,\>M]\>(m\leq\mu\leq M):\>\int\limits_{a}^{b}f(x)\dx=\mu(b-a)$$ \begin{proof}
+		$(10)\Rightarrow m\leq\frac1{b-a}\int\limits_{a}^{b}f(x)\dx\leq M;\>\mu=\frac1{b-a}\int\limits_{a}^{b}f(x)\dx\Rightarrow\\\Rightarrow\int\limits_{a}^{b}f(x)\dx=\mu(b-a)$
+	\end{proof}
+	Если $a>b$, то те же рассуждения повторяются для интеграла $\\\int\limits_{a}^{b}f(x)\dx=\mu(b-a)$. Меняя пределы интегрирования и умножая обе части на -1, получаем ту же формулу.
+	\newpage
+	\item \textbf{Теорема о среднем} \begin{theorem}
+		Пусть $f(x)\in R([a,\>b])$ и $f(x)\in C([a,\>b])$. Тогда существует такая точка $\xi$ на отрезке $[a,\>b]$ что $\int\limits_{a}^{b}f(x)\dx=f(\xi)(b-a).$ $$\exists\xi\in[a,\>b]:\>\int\limits_{a}^{b}f(x)\dx=f(\xi)(b-a)$$
+		\begin{proof}
+			$f(x)\in C([a,\>b])\Rightarrow m=\inf\limits_{x\in[a,\>b]}f(x)=\min\limits_{x\in[a,\>b]}f(x),$ причем $\\\exists x',\>x''\in[a,\>b]:\>f(x')=m,\>f(x'')=M.\\(10)\Rightarrow m(b-a)\leq\int\limits_{a}^{b}f(x)\dx\leq M(b-a)\tab|\>:(b-a)\\m\leq\frac1{b-a}\int\limits_{a}^{b}f(x)\dx\leq M.\\$ Непрерывная функция принимает все промежуточные на отрезке $[a,\>b]\Rightarrow\\\Rightarrow\exists\xi\in[a,\>b]:\>f(\xi)-\frac1{b-a}\int\limits_{a}^{b}f(x)\dx.$ $$\left(\frac1{b-a}\int\limits_{a}^{b}f(x)\dx\in[m,\>M]\right)\Rightarrow\int\limits_{a}^{b}f(x)\dx=f(\xi)(b-a)$$
+		\end{proof}
+		\begin{remark}$\\$
+			Если $a<b$, то замечание аналогично предыдущему. Величина $\frac1{b-a}\int\limits_{a}^{b}f(x)\dx$ - среднее значение $f(x)$ на $[a,\>b].$
+		\end{remark}
+	\end{theorem}
+	\item \textbf{Если} изменить значение интегрируемой функции в конечном количестве точек, то ее интегрируемость не нарушится, а ее значение не изменятся. \begin{remark}
+		Новые значения функции должны быть конечными 
+	\end{remark} \begin{remark}
+		Если менять значения функции в счетном числе точек, надо следить, чтобы не появились точки разрыва второго рода	\end{remark} \begin{proof}
+			Пусть $f(x)\in R([a,\>b]);\>f_1(x)$ - новая функция, изменены значения в точках $A=\{x_1,\>x_2,\dots,\>x_n,\dots\}:\\$ Пусть $\int\limits_{a}^{b}f(x)\dx=I;$ при этом $\Delta[a,\>b]\>-\>L$-несущественное,\\ Тогда $\Delta_{f_1}[a,\>b]\subset(\Delta_f[a,\>b]\cup A)\>-L\>$-несущественное $\Rightarrow f_1(x)\in R([a,\>b]).\\$ Пусть $\int\limits_{a}^{b}f_1(x)\dx=I_1.$ Установим, что этот интеграл существует независимо от выбранного разбиения, поэтому возьмем точки $\xi_k\not\in A\Rightarrow I_1=I$
+		\end{proof} 			
+\end{enumerate}
+\section{Интеграл с переменным верхним пределом. Формула Ньютона-Лейбница}
+Пусть $f(x)\in R([a,\>b]).$ Тогда $\forall x\in[a,\>b]:\>f(x)\in R[a,\>x]$($x$ - фиксированая точка). Рассмотрим функцию $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t$
+\begin{theorem}[непрерывность интеграла как функции верхнего предела] Пусть функция $f(x)$ интегрируема на отрезке $[a,\>b]$. Тогда функция $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t$ непрерывна на отрезке $[a,\>b]$ $$f(x)\in R([a,\>b])\Rightarrow\Phi(x)=\int\limits_{a}^{x}f(t)\dy t\in C([a,\>b])$$
+	\begin{proof}
+		Пусть $x_0\in[a,\>b]$ и $\Delta x$ такое, чтобы $(x_0+\Delta x)\in[a,\>b]$. Тогда: $\lim\limits_{\Delta x\to0}\Phi(x_0,\Delta x)=\lim\limits_{\Delta x\to0}\left(\Phi(x_0+\Delta x)-\Phi(x_0)\right)=\lim\limits_{\Delta x\to0}\left(\int\limits_{a}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t\right)\underset{\textrm{аддетивность}}{=}\\=\lim\limits_{\Delta x\to0}\left(\int\limits_{x_0+\Delta x}^{x_0}f(t)\dy t+\int\limits_{x_0}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t \right)=\lim\limits_{\Delta x\to0}\int\limits_{x_0}^{x_0+\Delta x}f(t)\dy t=\\=\lim\limits_{\Delta x\to0}\mu(x_0,\>\Delta x)\cdot\Delta x=\left|\begin{array}{lr}
+			 m=\inf f(t) & m\leq\mu(x_0,\>\Delta x)\leq M\\
+			 t\in[x_0,\>x_0+\Delta x] & \mu(x_0,\>\Delta x)\textrm{ - ограничена}\\
+			 M=\sup f(t) & \Delta\to0
+		\end{array}\right|=0\\\Rightarrow\Phi(x)$ непрерывна в точке $x_0\>\forall x_0\in[a,\>b]\Rightarrow\Phi(x)\in C([a,\>b])$
+	\end{proof}
+\end{theorem}
+\begin{theorem}[дифференцируемость интеграла как функции верхнего предела]
+	Пусть $f(x)\in r([a,\>b])$ и $f(x)$ - непрерывна в некоторой точке $x_0$ этого отрезка. Тогда: $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t$ - дифференцируема в точке $x_0$, причем $\Phi'(x)=\left.\left(\frac d{\dx}\int\limits_{a}^{x}f(t)\dy t\right)\right|_{x=x_0}$ - интегральная функция точки $x_0=f(x_0).$ $$\Phi'(x_0)=\left.\left(\frac d{\dx}\int\limits_{a}^{x}f(t)\dy t\right)\right|_{x=x_0}=f(x_0)$$
+	\begin{proof}
+		$\Delta\Phi (x_0,\>\Delta x)=\Phi(x_0+\Delta x)-\Phi(x_0)=\int\limits_{a}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t=\int\limits_{a}^{x_0+\Delta x}f(t)\dy t=\int\limits_{a}^{x_0+\Delta x}f(t)\dy t=\mu(x_0,\>\Delta x)\cdot\Delta x.\\\lim\limits_{\Delta x\to0}\frac{\Delta\Phi(x_0,\>\Delta x)}{\Delta x}=\lim\limits_{\delta x\to0}\mu(x_0,\>\Delta x),\>f(x)$ - непрерывна в точке $x_0\Rightarrow\lim\limits_{x\to x_0}f(x)=\\=f(x_0)\left| \begin{array}{l}
+			x=x_0+\Delta x\\x\to x_0\Rightarrow\Delta\to0
+		\end{array}\right|$ т.е. $\lim\limits_{\Delta x\to0}f(x_0+\Delta x)=f(x_0)$ (по условию) $\Rightarrow\\\Rightarrow\forall\varepsilon>0\>\exists\delta(\varepsilon)>0\>\forall\Delta x\>|\Delta x|<\delta(\varepsilon)\Rightarrow|f(x_0+\Delta x)-f(x_0)|<\frac\varepsilon2.\\f(x_0)-\frac{\varepsilon}{2}<f(x_0+\Delta x)<f(x_0)+\frac\varepsilon2.$ т.е. $|\mu(x_0,\>\Delta x)-f(x_0)|\leq \frac{\varepsilon}{2}<\varepsilon.\>\forall\varepsilon>0\Rightarrow\forall\varepsilon>0\>\exists\delta(\varepsilon)>0\>\forall\Delta x\>|\Delta x|<\delta(\varepsilon)\Rightarrow|\mu(x_0,\>\Delta x)-f(x_0)|<\varepsilon.$\\ т.е. $\lim\limits_{\Delta x\to0}\mu(x_0,\>\Delta x)=f(x_0).$ Таким образом $\lim\limits_{\Delta x\to0}\frac{\Delta\Phi(x_0,\>\Delta x)}{\Delta x}=f(x_0)\Rightarrow\exists\Phi'(x_0)$ и $\Phi'(x_0)=f(x_0)$ 
+ 	\end{proof}
+ 	\begin{cons*}$ $
+ 		\begin{enumerate}
+ 			\item Если $f(x)\in R([a,\>b])$ и $f(x)\in C([a,\>b]);$ то $\exists\Phi'(x)=\frac{d}{\dx}\left(\int\limits_{a}^{x}f(t)\dy t\right)$ и $\Phi'(x)=f(x)$
+ 			\item Если $f(x)\in C([a,\>b]),\>\frac{d}{\dx}\int\limits_{x}^{b}f(t)\dy t=-f(x)\\$ Если $\alpha(x),\>\beta(x)$ - непрерывна на $[a,\>b]$, то $\frac{d}{\dx}\int\limits_{a}^{\beta(x)}f(t)\dy t=f(\beta(x))\cdot\beta'(x).\\\frac{d}{\dx}\int\limits_{\alpha(x)}^{\beta(x)}f(t)\dy t=f(\beta(x))\cdot\beta'(x)-f(\alpha(x))\cdot\alpha'(x)$ 
+ 		\end{enumerate}
+ 	\end{cons*}
+\end{theorem}
+\subsection{Обобщенная первообразная. Формула Ньютона-Лейбница}
+Известно, что если $f(x)\in c([a,\>b]),$ то $f(x)$ имеет первообразную. \\При этом одна из первообразных - $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t\\$Пусть $f(x)$ - кусочно-непрерывная на $[a,\>b]\\$ Известно, что $f(x)\in R([a,\>b]),$ причем $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t$ непрерывна на $[a,\>b]$ и $\Phi'(x)=f(x)\>\forall x\in[a,\>b]$, кроме, возможно, числа точек (там, где подинтегральная функция разрывна).\\ Функция $F(x)$ называется обобщенной первообразной для $f(x)$ на $[a,\>b],$ кроме, возможно, конечного числа точек, если $F'(x)=f(x)$
+\begin{remark}
+	Для непрерывной функций понятие обобщенное первообразной совпадает с понятием обычной первообразной. 
+\end{remark}
+\begin{example}
+	$f(x)=sign\>x=\left\{\begin{array}{rl}
+		1,&x>0\\
+		0,&x=0\\
+		-1,&x<0
+	\end{array}\right.,$ для $x\in[-1,\>2].\\(|x|)'=\left||x|=\left\{\begin{array}{rl}
+		x,&x\geq0\\
+		-x,&x<0
+	\end{array}\right. \right|=\left[\begin{array}{rl}
+		1,&x>0\\
+		-1,&x<0\\
+		\textrm{не }&\exists\textrm{ при }x=0
+	\end{array}\right.\\(|x|)'=sign\>x\forall x\in[-1,\>2]\backslash\{0\}\Rightarrow|x|$ - обобщеная первообразная для $sign\>x$
+\end{example}
+\begin{theorem}[формула Ньютона-Лейбница]
+	Пусть $F(x)$ - обобщенная первообразная для $f(x)$ на отрезке $[a,\>b]$. Тогда справедлива формула: $$\int\limits_{a}^{b}f(x)\dx=F(b)-F(a)=F(x)\bigg|_a^b$$ 
+\end{theorem}
+\begin{proof}
+	Пусть $F(x)$ - первообразная для $f(x).$ Знаем: $\Phi(x)=\int\limits_{a}^{b}f(t)\dy t$ - тоже первообразная для $f(x)\Rightarrow\forall x\in[a,\>b]:\>\Phi(x)=F(x)+c,\>c=const(*)$ \\При $x=a:\>(*)\Rightarrow\Phi(a)=F(a)+c,$ но $\Phi(a)=\int\limits_{a}^{a}f(t)\dy t=0\Rightarrow c=-F(a).$ \\При $x=b:\>(*)\Rightarrow\Phi(b)=F(b)+c,$ но $\Phi(b)=\int\limits_{a}^{b}f(t)\dy t=\int\limits_{a}^{b}f(x)\dx,\>c=-F(a)\Rightarrow\int\limits_{a}^{b}f(x)\dx=F(b)-F(a)$
+\end{proof}
+Формула Ньютона-Лейбница устанавливает связь между понятиями определенного и неопределенного интеграла, и позволяет находить значения определенного интеграла как разность первообразных, избегая громоздких операций суммирования бесконечно малых величин и предельного перехода. Интеграли от кусочно-непрерывной функции можно находить либо используя обобщенную первообразною, либо пользуясь свойством аддитивности, либо свойством 13 определенного интеграла.
+\begin{example}
+	\begin{enumerate}
+		\item $\int\limits_{-1}^{2}sign\>x\dx=\left|(|x|)'=sign\>x\>\forall x\ne0 \right|=|x|\big|_{-1}^2=2-1=1$
+		\item $f(x)=\left\{\begin{array}{rl}
+			e^x,&0<x<1\\
+			2,&1<x<2
+		\end{array}\right.\\\int\limits_0^2f(x)\dx=|$ аддитивность $|=\int\limits_0^1f(x)\dx+\int\limits_1^2f(x)\dx=\int\limits_0^1e^x\dx+\int\limits_1^22\dx=e^x\big|_0^1+2x\big|_1^2=e+1$
+	\end{enumerate}
+\end{example}
+
+
+
+
+
+
+
+
 
 
 
