@@ -1,0 +1,176 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{flafter}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{booktabs}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\usepackage{blindtext}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\large НАЦІОНАЛЬНИЙ ТЕХНІЧНИЙ УНІВЕРСИТЕТ УКРАЇНИ «КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ» ФІЗИКО-ТЕХНІЧНИЙ ІНСТИТУТ	
+\newline\newline\newline\newline\newline\newline\newline\newline\newline
+\LARGE{ЛАБОРАТОРНА РОБОТА З ФІЗИКИ № 2.3\\ ВИВЧЕННЯ ПРЯМОЛІНІЙНОГО РУХУ ТІЛ В ПОЛІ ТЯЖІННЯ ЗА ДОПОМОГОЮ МАШИНИ АТВУДА}
+\newline\newline\newline\newline\newline\newline\newline\newline\newline
+\end{center}
+\flushright 
+Виконала:\\
+студент групи  ФІ-12\\
+Бекешева Анастасія \\
+Прийняв:\\
+Долгошей В.Б.
+
+\end{titlepage}
+\newpage
+
+\section*{Розділ 1\\Теоретична довідка}
+Машина Атвуда – це експериментальна установка, яка дає можливість отримати та дослідити рівномірний та рівноприскорений рух тягарців. При цьому можна як вивчати закони руху, так і розв’язувати деякі прикладні задачі. Одна з них – це визначення прискорення вільного падіння. Цьому заважає, однак, велика величина прискорення вільного падіння. Такий дослід можливий або при дуже великій висоті приладу (набагато більшої, ніж висота кімнати), або за допомогою спеціальних методів, що дозволяють точно вимірювати невеликі проміжки часу (долі секунди). Машина Атвуда дозволяє уникнути цих труднощів і уповільнити рух до зручних швидкостей.
+
+
+$\>\>\>\>$\emph{Мета:}\\Визначення прискорення вільного падіння в полі тяжіння Землі за допомогою машини Атвуда.\\
+\tab\emph{Устаткування:}\\машина Атвуда; набір тягарців та вантажів; терези
+\newpage
+\section*{Розділ 2\\Теоретичні основи експеременту}
+\begin{wrapfigure}{L}{5cm}
+\centering
+\includegraphics[height=5.5cm]{atwood2.png}
+\caption{Машина Атвуда}
+\end{wrapfigure}
+Схематично машина Атвуда зображена на рис.1, де Л – лінійка, Т – секундомір, Ф.Д. – фотодатчики.
+На перекинутій через блок, що має незначну масу, нитці закріплено два тягарці масою m0. Якщо на один з них довісити невелику масу (перевантаження) mл, то зв’язані тягарці починають рівноприскорено рухатися з деяким прискоренням а. Це буде відбуватися до того моменту, доки перевантаження не буде зняте. Це відбувається в точці Ф, де розміщено фотоелемент. На рівні фотоелементу знаходиться кільце, за допомогою якого тягарець знімається. У подальшому тягарці будуть рухатися рівномірно (за інерцією). Таким чином, ми можемо розглядати два види руху: рівноприскорений та рівномірний.\\
+
+\newpage
+\section*{Розділ 3\\Експерементальні дані}
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|}
+\hline
+$g$               & $\frac1m$          & $g$                & $\frac1m$          \\ \hline
+6.03786636562131  & 166.66666666666666 & 13.320181928898814 & 166.66666666666666 \\ \hline
+6.128827372528331 & 71.42857142857143  & 13.520851683257094 & 71.42857142857143  \\ \hline
+6.825978506207039 & 62.5               & 15.058841988145675 & 62.5               \\ \hline
+\end{tabular}
+\end{table}
+\includegraphics{graph3}
+
+\begin{landscape}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$N$                  & $M$                       & $m$                     & $h_1$                   & $h_2$                  & $t$  & $<t>$                   & $t-<t>$ & $a_{(theor)}$               & $a_{(prac)}$                & $\Delta a$                & $\varepsilon(a)$          & $g_{(theor)}$             & $g$                       & $\Delta g$                & $\frac 1m$                 & $\varepsilon(g)$          \\ \hline
+\multirow{20}{*}{10} & \multirow{20}{*}{0.06152} & \multirow{20}{*}{0.006} & \multirow{10}{*}{0.135} & \multirow{10}{*}{0.28} & 0.82 & \multirow{20}{*}{1.017} & -0.1969 & \multirow{20}{*}{0.4561} & \multirow{10}{*}{0.2807} & \multirow{10}{*}{0.1753}  & \multirow{10}{*}{0.6247}  & \multirow{20}{*}{9.81} & \multirow{10}{*}{6.0378}  & \multirow{10}{*}{3.7721}  & \multirow{20}{*}{166.6} & \multirow{10}{*}{0.6247}  \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                         & -0.2069 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                         & -0.2069 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.8  &                         & -0.2169 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.8  &                         & -0.2169 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                         & -0.2069 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                         & -0.2069 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                         & -0.2069 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.82 &                         & -0.1969 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                         & -0.2069 &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{4-6} \cline{8-8} \cline{10-12} \cline{14-15} \cline{17-17} 
+                     &                           &                         & \multirow{10}{*}{0.085} & \multirow{10}{*}{0.33} & 1.21 &                         & 0.193   &                          & \multirow{10}{*}{0.6193} & \multirow{10}{*}{-0.1632} & \multirow{10}{*}{-0.2635} &                        & \multirow{10}{*}{13.3201} & \multirow{10}{*}{-3.5101} &                            & \multirow{10}{*}{-0.2635} \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.23 &                         & 0.213   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.24 &                         & 0.223   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.21 &                         & 0.193   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.22 &                         & 0.203   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.23 &                         & 0.213   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.24 &                         & 0.223   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.2  &                         & 0.183   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.22 &                         & 0.203   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 1.24 &                         & 0.223   &                          &                          &                           &                           &                        &                           &                           &                            &                           \\ \hline
+\end{tabular}
+\end{table}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$N$                  & $M$                       & $m$                     & $h_1$                   & $h_2$                  & $t$  & $<t>$                    & $t-<t>$ & $a_{(theor)}$            & $a_{(prac)}$             & $\Delta a$                & $\varepsilon(a)$          & $g_{(theor)}$          & $g$                       & $\Delta g$                             & $\frac 1m$                & $\varepsilon(g)$          \\ \hline
+\multirow{20}{*}{10} & \multirow{20}{*}{0.06152} & \multirow{20}{*}{0.014} & \multirow{10}{*}{0.135} & \multirow{10}{*}{0.28} & 0.53 & \multirow{20}{*}{0.6809} & -0.1509 & \multirow{20}{*}{1.0021} & \multirow{10}{*}{0.6261} & \multirow{10}{*}{0.376}   & \multirow{10}{*}{0.6006}  & \multirow{20}{*}{9.81} & \multirow{10}{*}{6.1288}  & \multirow{10}{*}{6.1288}               & \multirow{20}{*}{71.4285} & \multirow{10}{*}{0.6006}  \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.52 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.5  &                          & -0.1809 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.53 &                          & -0.1509 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.54 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.51 &                          & -0.1709 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.52 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.51 &                          & -0.1709 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.54 &                          & -0.1409 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.51 &                          & -0.1709 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{4-6} \cline{8-8} \cline{10-12} \cline{14-15} \cline{17-17} 
+                     &                           &                         & \multirow{10}{*}{0.085} & \multirow{10}{*}{0.33} & 0.84 &                          & -0.1509 &                          & \multirow{10}{*}{1.3812} & \multirow{10}{*}{-0.3791} & \multirow{10}{*}{-0.2744} &                        & \multirow{10}{*}{13.5208} & \multirow{10}{*}{-3.7108} &                           & \multirow{10}{*}{-0.2744} \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.86 &                          & -0.1709 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.84 &                          & -0.1509 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.81 &                          & -0.129  &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.84 &                          & -0.1509 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.83 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.84 &                          & -0.1509 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.85 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.85 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0.85 &                          & -0.1609 &                          &                          &                           &                           &                        &                           &                                        &                           &                           \\ \hline
+\end{tabular}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$N$                  & $M$                       & $m$                     & $h_1$                   & $h_2$                  & $t$  & $<t>$                   & $t-<t>$ & $a_{(theor)}$            & $a_{(prac)}$             & $\Delta a$               & $\varepsilon(a)$          & $g_{(theor)}$          & $g$                       & $\Delta g$                & $\frac 1m$              & $\varepsilon(g)$          \\ \hline
+\multirow{20}{*}{10} & \multirow{20}{*}{0.06152} & \multirow{20}{*}{0.016} & \multirow{10}{*}{0.135} & \multirow{10}{*}{0.28} & 0,49 & \multirow{20}{*}{0.608} & -0.118  & \multirow{20}{*}{1.1288} & \multirow{10}{*}{0.7854} & \multirow{10}{*}{0.3433} & \multirow{10}{*}{0.4371}  & \multirow{20}{*}{9.81} & \multirow{10}{*}{6.8259}  & \multirow{10}{*}{2.984}   & \multirow{20}{*}{62.5} & \multirow{10}{*}{0.4371}  \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,48 &                         & -0.128  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,48 &                         & -0.128  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,49 &                         & -0.118  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,48 &                         & -0.128  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,49 &                         & -0.118  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,48 &                         & -0.128  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,48 &                         & -0.128  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,49 &                         & -0.118  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,48 &                         & -0.128  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{4-6} \cline{8-8} \cline{10-12} \cline{14-15} \cline{17-17} 
+                     &                           &                         & \multirow{10}{*}{0.085} & \multirow{10}{*}{0.33} & 0,74 &                         & -0.132  &                          & \multirow{10}{*}{1.7328} & \multirow{10}{*}{-0.604} & \multirow{10}{*}{-0.3485} &                        & \multirow{10}{*}{15.0588} & \multirow{10}{*}{-5.2488} &                         & \multirow{10}{*}{-0.3485} \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,71 &                         & -0.1019 &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,79 &                         & -0.182  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,71 &                         & -0.1019 &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,72 &                         & -0.1119 &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,71 &                         & -0.1019 &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,71 &                         & -0.1019 &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,76 &                         & -0.152  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,72 &                         & -0.1119 &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \cline{6-6} \cline{8-8}
+                     &                           &                         &                         &                        & 0,75 &                         & -0.142  &                          &                          &                          &                           &                        &                           &                           &                         &                           \\ \hline
+\end{tabular}
+\end{table}
+
+\end{landscape}
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
