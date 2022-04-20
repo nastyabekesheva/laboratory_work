@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{article} %2,5,7,8
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{lscape,lipsum,graphicx}
+\usepackage[absolute]{textpos}
+\usepackage{fancyhdr}
+\usepackage[paper=portrait,pagesize]{typearea}
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\newcommand{\lcm}{\textrm{lcm}}
+\makeatother
+\usepackage[table,xcdraw]{xcolor}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 4}	
+\end{center}
+\begin{enumerate}
+	\item $W=\{1,2,3,5,6,10,15,30\},\>\cup := \lcm,\>\cap := \gcd,\>\bar{}\>:=\frac{30}x,\>x\in W,\>0:=1,\>1:=30$ \begin{itemize}
+		\item [$(\mathcal{B}_2)$] $x\cup y=y\cup x\>-\>\lcm(x,\>y)=\lcm(y,\>x)\\m_1=\lcm(x,\>y)\Leftrightarrow m_1\>\vdots\>x,\>m_1\>\vdots\>y,\>m_1\>-\>\min$ таке число\\$m_2=\lcm(y,\>x)\Leftrightarrow m_2\>\vdots\>y,\>m_2\>\vdots\>x,\>m_1\>-\>\min$ таке число\\$\Rightarrow m_1=m_2$
+		\item [$(\mathcal{B}'_2)$] $x\cap y=y\cap x\>-\>\gcd(x,\>y)=\gcd(x,\>y)\\M_1=\gcd(x,\>y)\Leftrightarrow x\>\vdots\>M_1,\>y\>\vdots\>M_1,\>M_1\>-\>\max$ таке число\\$M_2=\gcd(y,\>x)\Leftrightarrow y\>\vdots\>M_2,\>x\>\vdots\>M_2,\>M_2\>-\>\max$ таке число\\$\Rightarrow M_1=M_2$
+		\item [$(\mathcal{B}_5)$] $x\cup(y\cap z)=(x\cup y)\cap(y\cup z)\>-\>\lcm(x,\>\gcd(y,\>z))=\gcd(\lcm(x,\>y),\>\lcm(y,\>z)))\\p$ - просте, $p_x=p_1^{x_1}\dots p_n^{x_n},\>p_y=p_1^{y_1}\dots p_n^{y_n},\>p_z=p_1^{z_1}\dots p_n^{z_n}\\\max(p_x,\>\min(p_y,\>p_z))=\min(\max(p_x,\>p_y),\>\max(p_y,\>p_z))\\\left\{\begin{array}{ll}
+			\min(p_y,\>p_z)=\min(p_z,\>p_y),&p_x<p_yp_z\\
+			p_z=p_z,&p_x>p_yp_z
+		\end{array}\right.\Rightarrow\lcm(x,\>\gcd(y,\>z))=\gcd(\lcm(x,\>y),\>\lcm(y,\>z)))$
+		\item [$(\mathcal{B}'_5)$] $x\cap(y\cup z)=(x\cap y)\cup(y\cap z)\>-\>\gcd(x,\>\lcm(y,\>z))=\lcm(\gcd(x,\>y),\>\gcd(y,\>z)))\\p$ - просте, $p_x=p_1^{x_1}\dots p_n^{x_n},\>p_y=p_1^{y_1}\dots p_n^{y_n},\>p_z=p_1^{z_1}\dots p_n^{z_n}\\\min(p_x,\>\max(p_y,\>p_z))=\max(\min(p_x,\>p_y),\>\min(p_y,\>p_z))\\\left\{\begin{array}{ll}
+			\max(p_y,\>p_z)=\max(p_y,\>p_z),&p_x>p_yp_z\\
+			p_x=p_x,&p_x<p_yp_z
+		\end{array}\right.$
+		\item [$(\mathcal{B}_7)$] $x\cup0=x\>-\>\lcm(x,\>1)=1\\\forall x\in\mathbb{N}_0:\>x\>\vdots\>1.\>m=\lcm(x,\>1)\Leftrightarrow m\>\vdots\>x,\>m\>\vdots\>1,\>m\>-\>\min$ таке число\\$\Rightarrow m=1$
+		\item [$(\mathcal{B}'_7)$] $x\cap1=x\>-\>\gcd(x,\>30)=x\\\forall x\in W:\>30\>\vdots\>x(\frac{30}1=1,\>\frac{30}2=15,\frac{30}3=10,\>\frac{30}5=6)$
+		\item [$(\mathcal{B}_8)$] $x\cup \overline{x}=1\>-\>\lcm(x,\>\frac{30}x)=30\\x$ та $\frac{30}x$ - взаємнопрості $\Rightarrow\lcm(x,\>\frac{30}x)=x\cdot\frac{30}x=30$
+		\item [$(\mathcal{B}'_8)$] $x\cap\overline{x}=0\>-\>\gcd(x,\>\frac{30}x)=1\\\gcd(1,\>\frac{30}1)=1,\>\gcd(2,\>\frac{30}2)=1,\>\gcd(3,\>\frac{30}3)=1,\>\gcd(5,\>\frac{30}5)=1$
+	\end{itemize}
+	$W_{12}=\{1,2,3,4,6,12\} \\(\mathcal{B}_2),\>(\mathcal{B}'_2),\>(\mathcal{B}_5),\>(\mathcal{B}'_5)$ - справедливі $\forall W_n\subset\mathbb{N}\\(\mathcal{B}_7),\>(\mathcal{B}_8)$ - справедливі для $W_{12}$, так як і у $W$, і у $W_{12}\>0:=\min \{\}=1\\1:=\max\{W_{12}\}=12$
+		\begin{itemize} 
+		\item [$(\mathcal{B}'_7)$] $x\cap 1\>-\>\gcd(x,\>12)=x\\\forall x\in W_{12}:\>x\>\vdots\>12(\frac{12}1=12,\>\frac{12}2=6,\>\frac{12}3=4)$
+		\item [$(\mathcal{B}'_8)$] $x\cap\overline{x}=0\>-\>\gcd(x,\>\frac{12}x)=1\\\gcd(1,\>\frac{12}1)=1,\>\gcd(2,\>\frac{12}2)=1,\>\gcd(3,\>\frac{12}3)=1$
+		\end{itemize}
+	\item \begin{enumerate} 
+	\item $(\overline{x}\cup\overline{y})\cap(\overline{x}\cup y)=\overline{x}\cup(\overline{y}\cap y)=\overline{x}\cup0=\overline{x}$
+	\item $x\cup y\cup \overline{x\cap y}=x\cup y\cup\overline{x}\cup\overline{y}=1\cup1=1$
+	\item $(\omega\cup\overline{x}\cup y\cup z)\cap y=((\omega\cup\overline{x}\cup z)\cup y)\cap y=y$
+	\item $\overline{\overline{x}\cup\overline{x}}=x\cap x=x$
+	\item $\overline{\omega}\cap\overline{(x\cap y\cap z\cap \omega)}=\overline{\omega}\cap ((\overline{x}\cup\overline{y}\cup \overline{z})\cup\overline{\omega})=\overline{\omega}$
+	\item $\overline{x}\cup\overline{y}\cup(x\cap y\cap \overline{z})=$
+	\end{enumerate}
+	\item \begin{enumerate}
+	\item $(\overline{x}\cap y)\cup(\overline{y}\cap z)\cup (\overline{x}\cap z)=(\overline{x}\cap y)\cup(\overline{y}\cap z)\\(\overline{x}\cap y)\cup(\overline{y}\cap z)\cup (\overline{x}\cap z)=(\overline{x}\cap y)\cup(\overline{y}\cap z)\cup((\overline{x}\cap y\cap z)\cup(\overline{x}\cap \overline{y}\cap z)=\\=((\overline{x}\cap y)\cup(\overline{x}\cap z))\cap((\overline{y}\cap z)\cup(\overline{y}\cap z)\cup\overline{z})=(\overline{x}\cap y)\cup(\overline{y}\cap z)$
+	\item $(\overline{x}\cap y)\cup(x\cap z)=(x\cap z)\cup(z\cap y)\cup(\overline{x}\cap \overline{z}\cap y)\\(x\cap z)\cup(z\cap y)\cup(\overline{x}\cap \overline{z}\cap y)=(x\cap z)\cup(y\cap(z\cup \overline{x}\cap\overline{z}))=(x\cap z)\cup(y\cap(0\cup\overline{x}))=\\=(x\cap z)\cup(y\cap\overline{x})$
+	\item $(x\cap\overline{z})\cup(\overline{x}\cap\overline{y})\cup(\overline{x}\cap z)\cup(\overline{y}\cap z)=\overline{y}\cup(\overline{x}\cap z)\cup(x\cap\overline{z})\\(x\cap\overline{z})\cup(\overline{x}\cap\overline{y})\cup(\overline{x}\cap z)\cup(\overline{y}\cap z)=(x\cap\overline{z})\cup(z\cap(\overline{x}\cup\overline{y}))\cup(\overline{x}\cap\overline{y})=\\=(x\cap\overline{z})\cup (z\cap\overline{x}\cup(\overline{y}\cup(\overline{x}\cap\overline{y})))=(x\cap\overline{z})\cup(z\cap\overline{x})\cup\overline{y}=\overline{y}\cup(\overline{x}\cap z)\cup(x\cap\overline{z})$
+	\item $(\overline{x}\cap\overline{z})\cup(y\cap\overline{z})\cup(x\cap\overline{y})$
+	\end{enumerate}
+	\item Обмежена решітка з доповненням, що є дистрибутивною - булева алгебра.\\ Нехай $x$ елмент цієї решітки, а $y,\>z$ - його доповнення. Доведемо, що $y=z.\\y=y\cap 1,\>1=x\cup z,\>y\cap x=0\Rightarrow y=y\cap(x\cup z)=(y\cap x)\cup(y\cap z)=0\cup(y\cap z)=y\cap z\\$ Те сам для $z:\>z=z\cap y.\left\{\begin{array}{l}
+		y = y\cap z\\
+		z = z\cap y
+	\end{array}\right.\Rightarrow y=z$
+	\item $W=\{x,\>y,\>z\},\>(W,\cap,\cup,\bar{},0,\>1)\\x\cap(y\cup z)=x\cap 1=x\ne0=0\cup0=(x\cap y)\cup(x\cap z)$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
