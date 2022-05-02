@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch}}
+\newcommand{\arsh}{\textrm{arcsh}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 3}	
+\end{center}
+\begin{itemize}
+	\item [4.13] $\bigintsss\sin^6x\dx=\bigintsss (1-\cos^2x)^3\dx=\bigintsss\left(1-3\cos^2x+3\cos^4x-\cos^6x\right)\dx=x-3\bigintsss\left(\frac{1+\cos2x}{2}\right)\dx+3\bigintsss\left(\frac{1+\cos2x}{2}\right)^2\dx-\bigintsss\cos^6x$
+	\item [4.14] $\bigintsss\sin^5x\cos^5x=\left|\begin{array}{c}
+		t=\sin x\\
+		\dy t=\cos x
+	\end{array} \right|=\bigintsss\cos^4x\sin^5x\dy(\sin x)=\bigintsss t^5\cdot(1-\sin^2x)\dy(\sin x)=\\=\bigintsss t^5\cdot(1-2t^2+t^4)\dy t=\bigintsss t^5\dy t-2\bigintsss t^7\dy t+\bigintsss t^9\dy t=\frac16t^6-\frac28t^8+\frac1{10}t^{10}=\\=\frac16\sin^6x-\frac28\sin^8x+\frac1{10}\sin^{10}x+c$
+	\item [4.15] $\bigintsss \tan^5x\dx=\left|\begin{array}{c}
+		t=\tan x\\\dx =\frac{\dt}{1+t^2}
+	\end{array} \right|=\bigintsss \frac{t^5}{1+t^2}\dt=\left|\begin{array}{c}
+		u =t^2\\\dy u=2t\dt
+	\end{array} \right|=\frac12\bigintsss\frac{u^2}{u+1}\dy u=\frac12\bigintsss\left(u+\frac1{u+1}-1 \right)\dy u=\frac12\left(\frac12 u^2+\ln|u+1|-u \right)=\frac12\left(\frac12t^4+\ln|t^2+1| -t^2\right)=\frac12\left(\frac12\tan^4x+\ln|\tan^2x+1
+	|-\tan^2x \right)+c$
+	\item [4.16] $\bigintsss\frac{\dx}{\sqrt{\tan x}}$
+	\item [4.17] $\bigintsss\sin5x\cos x\dx=\frac12\bigintsss\left(\sin6x+\sin4x\right)\dx=\frac12\left(-\frac16\cos6x-\frac14\cos4x \right)+c$
+	\item [4.18] $\bigintsss\cos^2ax\sin^2bx\dx=\bigintsss\frac14\left(\sin(b+a)x-\sin(b-a)x \right)^2\dx=\\=\frac14\bigintsss\left(\sin^2(b+a)x+2\sin(b+a)x\sin(b-a)x-\sin^2(b-a)x\right)\dx=\\=\frac14\left(\bigintsss\frac{1-\cos2(b+a)x}2\dx+\bigintsss\left(-\cos(b+a+b-a)x+\cos(b+a-b+a)x\right)\dx+\bigintsss\frac{1-\cos2(b-a)x}2\dx \right)=\\=\frac14\left(\frac12\left(x-\frac{\sin2(b+a)x}{2(b+a)}\right)-\frac{\sin2bx}{2b}+\frac{\sin2ax}{2x}+\frac12\left(x-\frac{\sin2(b-a)x}{2(b-a)} \right) \right)+c$
+	\item [4.19] $\bigintsss\frac{\sin^2x}{\sin x+2\cos x}\dx=\left|\begin{array}{c}
+		t=\tan\frac x2\\\dx=\frac2{t^2+1}\dt
+	\end{array} \right|=\bigint\frac{\frac{4t^2}{(1+t^2)^2}}{\frac{2t}{1+t^2}+2\frac{1-t^2}{1+t^2}}\cdot \frac2{1+t^2}\dt=\bigints\frac{\frac{4t^2}{1+t^2}}{2t+2-2t^2}\cdot \frac2{1+t^2}\dt=\\=4\bigintss\frac{t^2}{(1+t^2)^2(1+t-t^2)}\dt\>\textcircled{=}\\\\\tab \frac{t^2}{-(1+t^2)^2(1-t+t^2)}=\frac{At+B}{t^2+1}+\frac{Ct+D}{(t^2+1)^2}+\frac{Et+F}{t^2-t-1}\\t^2=-(At+B)(t^2+1)(t^2-t-1)-(Ct+D)(t^2-t-1)-(Et+F)(t^2+1)^2\\0\cdot t^5+0\cdot t^4+0\cdot t^3+t^2+0\cdot t+0=-At^5+At^4+At^2+At-Bt^4+Bt^3+Bt+B-Ct^3+\\+Ct^2+Ct-Dt^2+Dt+D-Et^5-2Et^3-Et-Ft^4-2Ft^2-F\\0\cdot t^5+0\cdot t^4+0\cdot t^3+t^2+0\cdot t+0=t^5(-A-E)+t^4(A-B-F)+t^3(B-C-2E)+t^2(A+C-D-2F)+t(A+B+C+D-E)+(B+D-F)\\\left\{\begin{array}{lll}
+		t^5:\tab  & -A-E=0\tab & A=0\\
+		t^4: & A-B-F=0 & B=\frac15\\
+		t^3: & B-C-2F=0 & C=\frac15\\
+		t^2: & A-C-D-2F=1 & D=-\frac25\\
+		t^1: & A+B+C+D-E=0 & E=0\\
+		t^0: & B+D-F=0 & F=-\frac15\\
+	\end{array} \right.\\\\\textcircled{=}-4\bigintss\left(\frac1{5(t^2+1)}+\frac{t-2}{5(t^2+1)^2}-\frac1{5(t^2-t-1)} \right)\dy t=-4\left(\frac15\arctan t+\frac15\bigintss_i\left(\frac t{(t^2+1)^2}+\frac 2{(t^2+1)^2} \right)\dy t +\right. \\\left.+ \frac15\bigintss_{ii}\left(\frac{2}{\sqrt5(2t-\sqrt5 -1)}-\frac{2}{\sqrt5(2t+\sqrt5-1)} \right)\dy t\right)\textcircled{=}$
+	\begin{itemize} 
+		\item [i.] $\bigintss\left(\frac t{(t^2+1)^2}+2\cdot\frac 1{(t^2+1)^2} \right)\dy t=\frac12\bigintsss\frac{1}{(t^2+1)^2}\dy (t^2+1)+\frac{t}{2(t^2+1)}+\frac12\bigintsss\frac1{t^2+1}\dy t=\\=-\frac1{4(t^2+1)}+\frac{t}{2(t^2+1)}+\frac12\arctan t+c$
+		\item [ii.] $\bigintss\left(\frac{2}{\sqrt5(2t-\sqrt5 -1)}-\frac{2}{\sqrt5(2t+\sqrt5-1)} \right)\dy t=\\=\frac2{\sqrt5}\left(\bigintss\frac{1}{(2t-\sqrt5 -1)}\dy(2t-\sqrt5 -1)+ \bigintss\frac{1}{(2t+\sqrt5 -1)}\dy(2t+\sqrt5 -1)\right)=\\=\frac1{\sqrt5}\left(\ln|2t-\sqrt5 -1|+\ln|2t+\sqrt5 -1| \right)+c$
+	\end{itemize}
+	$\textcircled{=}-\frac45\left(\arctan t + -\frac1{4(t^2+1)}+\frac{t}{2(t^2+1)}+\frac12\arctan t+\frac1{\sqrt5}\ln|2t-\sqrt5 -1|+\ln|2t+\sqrt5 -1| \right)+c$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\end{document}
