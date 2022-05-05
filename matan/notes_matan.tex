@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{bookest}
+\documentclass[a4paper,12pt, centered]{bookest}
 \usepackage[russian,english]{babel}
 \usepackage{ucs}
 \usepackage[utf8]{inputenc}
@@ -20,7 +20,8 @@
 \usepackage{multicol}
 \usepackage{longdivision}
 \usepackage{polynom}
-
+\usepackage{extarrows}
+\usepackage{ragged2e}
 
 \polyset{%
   style=C,
@@ -37,7 +38,12 @@
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \newcommand\dx{\textbf{ d}x}
 \newcommand\dy{\textbf{ d}}
+\newcommand\const{\textrm{const}}
 \newcommand\lcm{\textrm{lcm}}
+\newcommand{\longeq}{\scalebox{2}[1]{=}}
+\newcommand{\zstroke}{%
+  \text{\ooalign{\hidewidth -\kern-.3em-\hidewidth\cr$z$\cr}}%
+}
 \newmdenv[   linecolor=black,
   topline=false,
   bottomline=false,
@@ -67,14 +73,14 @@
 \section{Понятие первообразной и неопределеного интеграла}
 Функция $F(x)$ называется \textbf{первообразной} функции $f(x)$ на множестве $X\subset \mathbb{R}$, или $\forall x\in X\>\>F'(x)=f(x)$.
 \begin{theorem}
-Если $F(x)$ - некоторая первообразная для $f(x)$ на множестве $X$, то любая другая первообразная имеет вид: $F(x)+c$, где $c=const$ - произвольная.
+Если $F(x)$ - некоторая первообразная для $f(x)$ на множестве $X$, то любая другая первообразная имеет вид: $F(x)+c$, где $c=\const$ - произвольная.
 	
 \end{theorem}
 \begin{proof}
-Пусть $F(x)$ - первообразная функции  $f(x)$, т.е.  $F'(x)=f(x)$; Тогда: $(F(x)+c)'=F'(x)+0=f(x)\Rightarrow F(x)+c$ - первообразная для $f(x)(c=const)$.\\ 
+Пусть $F(x)$ - первообразная функции  $f(x)$, т.е.  $F'(x)=f(x)$; Тогда: $(F(x)+c)'=F'(x)+0=f(x)\Rightarrow F(x)+c$ - первообразная для $f(x)(c=\const)$.\\ 
 Пусть $F_1(x)$ - тоже первообразная для $f(x)$, т.е. $F_1'(x)=f(x)$.\\
 Рассмотрим разность: $F_1(x)-F(x);$\\
-$(F_1(x)-F(x))'=F_1'(x)-F'(x)=f(x)-f(x)=0\Rightarrow F_1(x)-F(x)=c=const$, т.е. :$F_1(x)=F(x)+c$
+$(F_1(x)-F(x))'=F_1'(x)-F'(x)=f(x)-f(x)=0\Rightarrow F_1(x)-F(x)=c=\const$, т.е. :$F_1(x)=F(x)+c$
 \end{proof}
 Таким образом множество всех первообразных функции $f(x)$ имеет вид $F(x)+c$.\\
 Множество всех первообразных функции $f(x)$ называется \textbf{неопределенным интегралом} этой функции и обозначается $\int f(x)dx$.\\
@@ -107,7 +113,7 @@ $F'(0)$ - не существует $\Rightarrow$ противоречие $\Rig
 		$\int \dy(F(x))=\int F'(x)\dx=\int f(x)\dx=F(x)+c$
 	\end{proof}
 	\item Постоянный множитель можно выносить за знак интеграла.
-	$$\int af(x)\dx=a\int f(x)\dx,\>\> a=const.$$
+	$$\int af(x)\dx=a\int f(x)\dx,\>\> a=\const.$$
 	\begin{proof}
 		$\int af(x)\dx=\int a F'(x)\dx=\int(aFx)'\dx=\int \dy(aF(x))=(aF(x)++c_1)=a(F(x)+\frac{c_1}{a}=\Big|c=\frac{c_1}{a}\Big|=a(f(x)+c)=a\int f(x)\dx$
 	\end{proof}
@@ -210,7 +216,7 @@ $\int f(x)\dx = |f(x)=u,\>\dx=\dy v|\Rightarrow \dy u=u'\dx=...\Rightarrow v=\in
 \end{enumerate}
 
 \begin{example}
-$\int_{I} e^x\sin2x\dx\underset{III}{=}\bigg|u=e^x\Rightarrow \dy u=e^x\dx;\>\sin2x\dx=\dy v;\>v=\int\sin2x\dx=\\=-\frac{\cos2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\int\frac{\cos2x}{2}\cdot e^xdx=\bigg|u=e^x;\>\dy u=e^x;\>\dy v=\cos2x\dx;\>v=\\=\frac{\sin2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\frac{1}{2}(\frac{e^x\sin2x}{2}-\int\frac{\sin2x}{2}\cdot e^x\dx)=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\\-\frac{1}{4}\int \underset{I}{e^x\sin2x}\dx\\I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\frac{1}{4}I;\>\>I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x.\\I=\frac{4}{5}(\frac{1}{4}e^x\sin2x-\frac{1}{2}e^x\cos2x)+c$
+$\int_{I} e^x\sin2x\dx\underset{III}{\longeq}\bigg|u=e^x\Rightarrow \dy u=e^x\dx;\>\sin2x\dx=\dy v;\>v=\int\sin2x\dx=\\=-\frac{\cos2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\int\frac{\cos2x}{2}\cdot e^xdx=\bigg|u=e^x;\>\dy u=e^x;\>\dy v=\cos2x\dx;\>v=\\=\frac{\sin2x}{2}\bigg|=-\frac{e^x\cos2x}{2}+\frac{1}{2}(\frac{e^x\sin2x}{2}-\int\frac{\sin2x}{2}\cdot e^x\dx)=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\\-\frac{1}{4}\int \underset{I}{e^x\sin2x}\dx\\I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x-\frac{1}{4}I;\>\>I=-\frac{e^x\cos2x}{2}+\frac{1}{4}e^x\sin2x.\\I=\frac{4}{5}(\frac{1}{4}e^x\sin2x-\frac{1}{2}e^x\cos2x)+c$
 \end{example}
 \section{Интегрирование рациональных функций}
 \subsection{Основные сведения о рациональных функциях}
@@ -563,13 +569,13 @@ $$\forall(T,\>\xi)\>\>\sigma_*(f\>|\>T)\leq\sigma^*(f\>|\>T)$$
 	$\lim\Omega(f\>|\>T)=0\Leftrightarrow\forall\varepsilon>0\>\>\exists\delta=\delta(\varepsilon)>0\>\>\forall T\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow\Omega(f\>|\>T)<\varepsilon$
 \end{remark}
 \begin{proof}$\\$
-	Необходимое:\\ Пусть $f(X)\in R([a,\>b])\Rightarrow\exists I(f)=const:\\\forall\varepsilon>0\>\>\exists\delta=\delta(\varepsilon)>0\>\>\forall(T,\>\xi)\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow|\sigma(f\>|\>T,\>\xi)-I(f)|<\frac\varepsilon4\\$ Из модуля: $I(f)-\frac\varepsilon4<\sigma(f\>|\>T,\>\xi)<I(f)\\$ Так как: $\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi))\leq\sigma^*(f\>|\>T)\>\>\forall T\\$
+	Необходимое:\\ Пусть $f(X)\in R([a,\>b])\Rightarrow\exists I(f)=\const:\\\forall\varepsilon>0\>\>\exists\delta=\delta(\varepsilon)>0\>\>\forall(T,\>\xi)\>\>\alpha(T)<\delta(\varepsilon)\Rightarrow|\sigma(f\>|\>T,\>\xi)-I(f)|<\frac\varepsilon4\\$ Из модуля: $I(f)-\frac\varepsilon4<\sigma(f\>|\>T,\>\xi)<I(f)\\$ Так как: $\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi))\leq\sigma^*(f\>|\>T)\>\>\forall T\\$
 
 
   \includegraphics[height=1.5cm]{2_3.png}
 $\begin{array}{l}
 	\Rightarrow I(f)-\frac\varepsilon4\leq\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi)\leq\sigma^*(f\>|\>T)\leq I(f)+\frac\varepsilon4 \\\Rightarrow\Omega(f\>|\>T)-\sigma^*(f\>|\>T)-\sigma_*(f\>|\>T)\leq\frac\varepsilon2<\varepsilon\forall\varepsilon\\\alpha(T)<\delta(\varepsilon)\rightarrow\lim\limits_{\alpha(t)\to0}\Omega(f\>|\>t)=0
-\end{array}\\$ Достаточное \\ Пусть $\lim\limits_{\alpha(t)\to0}\Omega(f\>|\>t)=0\Rightarrow\lim\limits_{\alpha(t)\to0}\sigma_*(f\>|\>T)=\lim\limits_{\alpha(t)\to0}\sigma^*(f\>|\>t)=const\\$ Так как: $\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi)\leq\sigma^*(f\>|\>T)\>\>\forall T\Rightarrow\exists\lim\limits_{\alpha(T)\to0}\sigma(f\>|\>T,\>\xi)=const=\\=I(f),$ т.е. $f(x)\in R([a,\>b])$
+\end{array}\\$ Достаточное \\ Пусть $\lim\limits_{\alpha(t)\to0}\Omega(f\>|\>t)=0\Rightarrow\lim\limits_{\alpha(t)\to0}\sigma_*(f\>|\>T)=\lim\limits_{\alpha(t)\to0}\sigma^*(f\>|\>t)=\const\\$ Так как: $\sigma_*(f\>|\>T)\leq\sigma(f\>|\>T,\>\xi)\leq\sigma^*(f\>|\>T)\>\>\forall T\Rightarrow\exists\lim\limits_{\alpha(T)\to0}\sigma(f\>|\>T,\>\xi)=\const=\\=I(f),$ т.е. $f(x)\in R([a,\>b])$
 \end{proof}
 \end{theorem}
 \section{Некоторые классы интегрируемых функций}
@@ -655,7 +661,7 @@ $$f(x)\>:\>[a,\>b]\to R,\>f(x)\textrm{ - монотонна}$$
 	\begin{enumerate}
 		\item Если функция $f(x)$ интегрируема на отрезке $[a,\>b]$, то и модуль функции интегрируем на этом отрезке $f(x)\in R([a,\>b])$
 		\item Если функции $f(x)$ и $g(x)$   интегрируемы на отрезке $[a,\>b]$, то их линейная комбинация интегрируема на отрезке $[a,\>b]$.\\ $\begin{array}{ccl}
-			f(x)\in R([a,\>b]) &&1)\>(\alpha f(x)+\beta g(x))\in R([a,\>b]),\>\alpha,\>\beta =const\\
+			f(x)\in R([a,\>b]) &&1)\>(\alpha f(x)+\beta g(x))\in R([a,\>b]),\>\alpha,\>\beta =\const\\
 			&\Rightarrow&2)\>f(x)\cdot g(x)\in R([a,\>b])\\
 			g(x)\in R([a,\>b])&&3)\>\frac{f(x)}{g(x)}\in  R([a,\>b]),\>\forall x\in[a,\>b]\>g(x)\ne0
 		\end{array}$
@@ -748,7 +754,7 @@ $$f(x)\>:\>[a,\>b]\to R,\>f(x)\textrm{ - монотонна}$$
 Пусть $f(x)\in R([a,\>b]).$ Тогда $\forall x\in[a,\>b]:\>f(x)\in R[a,\>x]$($x$ - фиксированая точка). Рассмотрим функцию $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t$
 \begin{theorem}[непрерывность интеграла как функции верхнего предела] Пусть функция $f(x)$ интегрируема на отрезке $[a,\>b]$. Тогда функция $\Phi(x)=\int\limits_{a}^{x}f(t)\dy t$ непрерывна на отрезке $[a,\>b]$ $$f(x)\in R([a,\>b])\Rightarrow\Phi(x)=\int\limits_{a}^{x}f(t)\dy t\in C([a,\>b])$$
 	\begin{proof}
-		Пусть $x_0\in[a,\>b]$ и $\Delta x$ такое, чтобы $(x_0+\Delta x)\in[a,\>b]$. Тогда: $\lim\limits_{\Delta x\to0}\Phi(x_0,\Delta x)=\lim\limits_{\Delta x\to0}\left(\Phi(x_0+\Delta x)-\Phi(x_0)\right)=\lim\limits_{\Delta x\to0}\left(\int\limits_{a}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t\right)\underset{\textrm{аддетивность}}{=}\\=\lim\limits_{\Delta x\to0}\left(\int\limits_{x_0+\Delta x}^{x_0}f(t)\dy t+\int\limits_{x_0}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t \right)=\lim\limits_{\Delta x\to0}\int\limits_{x_0}^{x_0+\Delta x}f(t)\dy t=\\=\lim\limits_{\Delta x\to0}\mu(x_0,\>\Delta x)\cdot\Delta x=\left|\begin{array}{lr}
+		Пусть $x_0\in[a,\>b]$ и $\Delta x$ такое, чтобы $(x_0+\Delta x)\in[a,\>b]$. Тогда: $\lim\limits_{\Delta x\to0}\Phi(x_0,\Delta x)=\lim\limits_{\Delta x\to0}\left(\Phi(x_0+\Delta x)-\Phi(x_0)\right)=\lim\limits_{\Delta x\to0}\left(\int\limits_{a}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t\right)\underset{\textrm{аддетивность}}{\longeq}\\=\lim\limits_{\Delta x\to0}\left(\int\limits_{x_0+\Delta x}^{x_0}f(t)\dy t+\int\limits_{x_0}^{x_0+\Delta x}f(t)\dy t-\int\limits_{a}^{x_0}f(t)\dy t \right)=\lim\limits_{\Delta x\to0}\int\limits_{x_0}^{x_0+\Delta x}f(t)\dy t=\\=\lim\limits_{\Delta x\to0}\mu(x_0,\>\Delta x)\cdot\Delta x=\left|\begin{array}{lr}
 			 m=\inf f(t) & m\leq\mu(x_0,\>\Delta x)\leq M\\
 			 t\in[x_0,\>x_0+\Delta x] & \mu(x_0,\>\Delta x)\textrm{ - ограничена}\\
 			 M=\sup f(t) & \Delta\to0
@@ -792,18 +798,289 @@ $$f(x)\>:\>[a,\>b]\to R,\>f(x)\textrm{ - монотонна}$$
 	Пусть $F(x)$ - обобщенная первообразная для $f(x)$ на отрезке $[a,\>b]$. Тогда справедлива формула: $$\int\limits_{a}^{b}f(x)\dx=F(b)-F(a)=F(x)\bigg|_a^b$$ 
 \end{theorem}
 \begin{proof}
-	Пусть $F(x)$ - первообразная для $f(x).$ Знаем: $\Phi(x)=\int\limits_{a}^{b}f(t)\dy t$ - тоже первообразная для $f(x)\Rightarrow\forall x\in[a,\>b]:\>\Phi(x)=F(x)+c,\>c=const(*)$ \\При $x=a:\>(*)\Rightarrow\Phi(a)=F(a)+c,$ но $\Phi(a)=\int\limits_{a}^{a}f(t)\dy t=0\Rightarrow c=-F(a).$ \\При $x=b:\>(*)\Rightarrow\Phi(b)=F(b)+c,$ но $\Phi(b)=\int\limits_{a}^{b}f(t)\dy t=\int\limits_{a}^{b}f(x)\dx,\>c=-F(a)\Rightarrow\int\limits_{a}^{b}f(x)\dx=F(b)-F(a)$
+	Пусть $F(x)$ - первообразная для $f(x).$ Знаем: $\Phi(x)=\int\limits_{a}^{b}f(t)\dy t$ - тоже первообразная для $f(x)\Rightarrow\forall x\in[a,\>b]:\>\Phi(x)=F(x)+c,\>c=\const(*)$ \\При $x=a:\>(*)\Rightarrow\Phi(a)=F(a)+c,$ но $\Phi(a)=\int\limits_{a}^{a}f(t)\dy t=0\Rightarrow c=-F(a).$ \\При $x=b:\>(*)\Rightarrow\Phi(b)=F(b)+c,$ но $\Phi(b)=\int\limits_{a}^{b}f(t)\dy t=\int\limits_{a}^{b}f(x)\dx,\>c=-F(a)\Rightarrow\int\limits_{a}^{b}f(x)\dx=F(b)-F(a)$
 \end{proof}
 Формула Ньютона-Лейбница устанавливает связь между понятиями определенного и неопределенного интеграла, и позволяет находить значения определенного интеграла как разность первообразных, избегая громоздких операций суммирования бесконечно малых величин и предельного перехода. Интеграли от кусочно-непрерывной функции можно находить либо используя обобщенную первообразною, либо пользуясь свойством аддитивности, либо свойством 13 определенного интеграла.
 \begin{example}
-	\begin{enumerate}
-		\item $\int\limits_{-1}^{2}sign\>x\dx=\left|(|x|)'=sign\>x\>\forall x\ne0 \right|=|x|\big|_{-1}^2=2-1=1$
-		\item $f(x)=\left\{\begin{array}{rl}
+		$\int\limits_{-1}^{2}sign\>x\dx=\left|(|x|)'=sign\>x\>\forall x\ne0 \right|=|x|\big|_{-1}^2=2-1=1$
+\end{example}
+\begin{example}
+	$f(x)=\left\{\begin{array}{rl}
 			e^x,&0<x<1\\
 			2,&1<x<2
 		\end{array}\right.\\\int\limits_0^2f(x)\dx=|$ аддитивность $|=\int\limits_0^1f(x)\dx+\int\limits_1^2f(x)\dx=\int\limits_0^1e^x\dx+\int\limits_1^22\dx=e^x\big|_0^1+2x\big|_1^2=e+1$
-	\end{enumerate}
 \end{example}
+
+\section{Замена перменной в определенном интеграле}
+\begin{theorem}[замена пременной]
+$\\$Пусть: \begin{center}
+	$\begin{array}{ll}
+	\textrm{функция} & f(x)\in c([a,\>b]);\\
+	\textrm{функция} & \varphi(t):\>[\alpha,\>\beta]\to[a,\>b],
+\end{array}$
+\end{center}
+причем \begin{center}
+	$\varphi(\alpha)=a,\>\varphi(\beta)=b\textrm{ и }\varphi(t)\in c([\alpha,\>\beta]),\>\varphi'(t)\in C([\alpha,\>\beta)]$
+\end{center}
+Тогда: $$f(\varphi(t))\cdot\varphi'(t)\in R([\alpha,\>\beta])\textrm{ и }\int\limits_a^b f(x)\dx=\int\limits_\alpha^\beta f(\varphi(t))\cdot\varphi'(t)\dy t$$
+\begin{proof}
+	$f(x)\in C([a,\>b]),\>\varphi(t)\in C([\alpha,\>\beta]),\>\varphi'(t)\in C([\alpha,\>\beta])\Rightarrow\\\Rightarrow f(\varphi(t))\cdot\varphi'(t)\in C([\alpha,\>\beta])\Rightarrow f(\varphi(t))\cdot\varphi'(t)\in R([\alpha,\>\beta])\hfill (*)\\f(x)\in C([a,\>b])\Rightarrow f(x)\in R([a,\>b])\Rightarrow \int\limits_a^b f(x)\dx=F(a)-F(b),\\F'(x)=f(x)\Rightarrow F(\varphi(t))$ - первообразная для $f(\varphi(t))\cdot\varphi'(t),$ т.е. $\\\int\limits_\alpha^\beta f(\varphi(t))\cdot\varphi'(t)\dy t=F(\varphi(t))\Big|_\alpha^\beta=F(\varphi(\beta))-F(\varphi(\alpha))=\left|\begin{array}{l}
+		\varphi(\beta)=b\\
+		\varphi(\alpha)=a
+	\end{array}\right|=\\=F(b)-F(a)\hfill(**)\\(*)=(**)$
+\end{proof}
+\end{theorem}
+При замене переменной в определенном интеграле нет необходимости после интегрирования возвращатся к старой пременной. Вместо этого при выполнение замены следует найти пределы $\alpha$ и $\beta$ для замены $t$.
+\textbf{Нахождение пределов:}
+$x=\left.\varphi(t):\begin{array}{lllll}
+	x=a &\Rightarrow& \varphi(t)=a &\Rightarrow& t=\alpha\\
+	x=b &\Rightarrow& \varphi(t)=b &\Rightarrow& t=\beta
+\end{array}\right\}\>t\in[\alpha,\>\beta]\Rightarrow x\in[a\>b]$
+Если выполняется замена переменной в виде $t=\psi(x),$ то пределы определяются непосредственно $\alpha=\psi(a),\>\beta=\psi(b).$ При этом необходимо, чтобы обратная функция $\psi^{-1}(t)=x$ была непрерывна и дифференцируема на $[\alpha,\>beta].$     
+\begin{example}
+	$\int\limits_{-a}^a\sqrt{a^2-x^2}\dx=\left|\begin{array}{lll}
+		x=a\sin t;& -a\leq a\sin t\leq a;& \varphi(t)=a\sin t\textrm{ - непрерывна}\\
+		-a\leq x\leq a;& -1\leq \sin t\leq;& \varphi'(t)=a\cos t\textrm{ - непрерывна}
+	\end{array} \right|\Rightarrow\\\Rightarrow\left|\left.\begin{array}{llll}
+		x = -a:& a\sin t=-a;& \sin t=-1\Rightarrow& t=-\frac\pi2;\\
+		x = a:& a\sin t=a;& \sin t=1\Rightarrow& t=\frac\pi2;
+	\end{array}\right\}\begin{array}{ll}
+		-a\to a\\
+		-\frac\pi2\to\frac\pi2
+	\end{array}\begin{array}{c}
+		\includegraphics[height=1cm]{2_7}
+	\end{array} \right|=\\=\int\limits_{-\frac\pi2}^{\frac\pi2}\sqrt{a^2-a^2\sin^2t}a\cos t\dy t=\int\limits_{-\frac\pi2}^{\frac\pi2}a^2|\cos t|\cdot\cos t\dy t\underset{\cos\geq 0\textrm{ на }[-\frac\pi2;\>\frac\pi2]}{\longeq}\int\limits_{-\frac\pi2}^{\frac\pi2}a^2\cdot\frac{1+\cos2t}2\dy t=\frac{a^2}2\left(\left(\frac\pi2+\frac12\sin\pi\right)-\left(-\frac\pi2+\frac12\sin(-\pi)\right)\right)=\frac{\pi a^2}2$
+\end{example}
+\begin{example}
+	Можно ли использовать замену $x=\sin t$ в $\int\limits_0^3x\sqrt[4]{(1-x^2)^2}\dx\\$ Нельзя: $x\in[0,\>3],\>\sin t\in[-1,\>1]\Rightarrow$ интервал $x$ не покрывается $\sin t$ 
+\end{example}
+\begin{example}
+	Покажем, что $\int\limits_{-a}^af(x)\dx=\left[\begin{array}{rl}
+		0,& \textrm{если }f(x)=-f(x)\textrm{ (нечетная)}\\
+		2\int\limits_0^af(x)\dx,& \textrm{если }f(-x)=f(x)\textrm{ (четная)}
+	\end{array} \right.\\\int\limits_{-a}^af(x)\dx=\int\limits_{-a}^0\underbrace{f(x)\dx}_{I_1}+\int\limits_0^a\underbrace{f(x)\dx}_{I_2}=\left|\begin{array}{cccc}
+		I_1 &:&x=-t&\dx=-\dy t\\x=-a,&t=a,&x=0,&t=0
+	\end{array} \right|=\\\int\limits_a^0f(-t)\cdot(-\dy t)+\int\limits_0^af(x)\dx=\int\limits_0^af(-x)\dx+\int\limits_0^af(x)\dx$
+	\begin{itemize}
+		\item [(a)] если $f(x)=-f(x):\>-\int\limits_0^af(x)\dx+\int\limits_0^af(x)\dx=0$
+		\item [(b)] если $f(-x)=f(x):\>\int\limits_0^af(x)\dx+\int\limits_0^af(x)\dx=2\int\limits_0^af(x)\dx$
+	\end{itemize}
+\end{example}
+\begin{example}
+	Если $T$ - период $f(x)$, то $\forall a,\>b:\>\int\limits_{a}^{a+T}f(x)\dx=\int\limits_{b}^{b+T}f(x)\dx$
+\end{example}
+\begin{example}
+	$\int\limits_{-1}^1|x|\dx=\big||x|\textrm{ четная } \big|=2\int\limits_0^1|x|\dx\int\limits_0^1x\dx=2\frac{x^2}2=x^2$
+\end{example}
+\begin{example}
+	$\int\limits_{-5}^5(x^7+\sqrt[3]{x}+5\sin^7x)\dx=0$
+\end{example}
+\section{Интегрирование по частям в определенном интеграле}
+$(uv)'=u'v+v'u(u=u(x),\>v=v(x))\Rightarrow uv$ - первообразная для $\\\begin{array}{rl}
+	f(x)=u'v+uv'\Rightarrow &\int\limits_a^b(u'v+v'u)\dx=uv\Big|_a^b\\
+	&\int\limits_a^bv\underbrace{u'\dx}_{\dy u}+\int\limits_a^by\underbrace{v'\dx}_{\dy v}\Big|_a^b\\
+	&\int\limits_a^bu\dy v=uv\Big|_a^b-\int\limits_a^bv\dy u
+\end{array}$
+\begin{example}
+	$I_n=\int\limits_0^{\frac\pi2}\sin^nx\dx=\int\limits_0^{\frac\pi2}\sin^{n-1}x\dx=-\int\limits_0^{\frac\pi2}\sin^{n-1}x\dy(\cos x)=\\=\left|\begin{array}{l}
+		u=	\sin^{n-1}x\\\dy u=(n-1)\sin^{n-2}x\cos x\dx\\\dy v=\dy(\cos x),\>v=\cos x
+	\end{array} \right|=-\left(\cos x\cdot\sin^{n-1}x\Big|_0^{\frac\pi2}-\right.\\-\left.\int\limits_0^{\frac\pi2}(n-1)\cdot\sin^{n-2}x\cdot\cos^2x\dx\right)=(n-1)\int\limits_0^{\frac\pi2}\sin^{n-2}x(1-\sin^2x)\dx=\\=(n-1)(I_{n-1}-I_n)\\I_n=(n-1)I_{n-2}-(n-1)I_n,\>I_n(1+n-1)=(n-1)I_{n-2},\\I_n=\frac{(n-1)}nI_{n-2},\>I_{n-2}=\frac{n-3}{n-2}I_n\\$ прии этом: $I_1=\int\limits_0^{\frac\pi2}\sin x\dx=-\cos x\Big|_0^{\frac\pi2}=1,\>I_0\int\limits_0^{\frac\pi2}\dx=-\frac\pi2\\\begin{array}{rrlr}
+		\textrm{Тогда: }&\textrm{при }n	=2k:&I_n=\frac{2k-1}{2k}\cdot\frac{2k-3}{2k-2}\cdot\hdots\cdot\frac12I_0,&(2k-1)(2k-3)\dots1=(2k-1)!!\\
+		&& I_2k=\frac{(2k-1)!!}{(2k)!!}\cdot\frac\pi2&(2k)(2k-1)\dots2=(2k)!!\\
+		&\textrm{при }n=2k-1:&I_{2k-1}=\frac{2k-2}{2k-1}\cdot\frac{2k-4}{2k-3}\cdot\hdots\cdot\frac23\cdot I_1,&\\
+		&&I_{2k-1}=\frac{(2k-1)!!}{(2k-1)!!}
+		
+	\end{array}$
+\end{example}
+\section{Некоторые геометрические и физические приложения определенного интеграла}
+\subsection{Общие подходы}
+\begin{enumerate}
+	\item Метод интегральных сумм \\ Пусть известно, что $F$ определяется на некотором отрезке и линейно зависит от этого отрезка $F=f(b-a)(f=\const).$ Кроме того, известно, что величина $F$ является аддитивной 
+		\begin{gather*}
+[a,\>b]:\>a=x_0<x_1<x_2<\dots<x_n=b\Rightarrow F=\sum\limits_{k=1}^nF_k\\F_k=f_k\Delta x_k,\textrm{ где } \Delta x_k=x_k-x_{k-1},\>f_k=\const\textrm{ на }[a,\>b]
+\end{gather*}
+		Eсли теперь $F_k$ не есть постоянная, $f=f(x),\>x\in[a,\>b].\>f(x)$ - кусочно-непрерывная на $[a,\>b].$ Тогда частичные отрезки можно выбрать настолько малыми, что: \begin{gather*}
+			\forall x\in[x_{k-1},\>x_k]\>\>f(x)\approx\const\\\textrm{Tогда } F_k\approx f_k\Delta x_k,\>k=\overline{1,n} \textrm{ и } F\approx\sum\limits_{k=1}^nf_k\Delta x_k\\F=\lim\limits_{n\to\infty}\sum\limits_{k=1}^nf_k\Delta x_k=\int\limits_a^bf(x)\dx
+		\end{gather*}
+		\item Метод дифференциала \\ Рассматривается величина $F(x)$ на $[a,\>b],$ причем $F(a)=0$(по смыслу задачи), $F(b)=F$(енкоторая величина) $\forall x\in[a,\>b]\>:\>F(x).$ для $x+\Delta x\>:\>F(x+\Delta x).$ Приращение $F:\>\Delta F=F(x+\Delta x)-F(x).$ Знаем: $\Delta F\approx \dy F$. При опеределенни вида дифференциала $F$ допускаются некоторые упрощения. При этом дифференциал записывается в виде: \begin{gather*}
+			\dy F = f(x)\cdot \dx(\textrm{по смыслу задачи}).\>\int\limits_a^b\dy F=\int\limits_a^bf(x)\dx\\\textrm{Учитывая, что: } \int\limits_a^b\dy F=F(b)-F(a)=F. \textrm{ т.е. } F=\int\limits_a^bf(x)\dx  
+		\end{gather*}
+\end{enumerate}
+\subsection{Вычисление площадей фигур}
+\begin{enumerate}
+	\item Кривые, заданные уравнениями в декартовых координатах
+		\begin{enumerate} 
+			\item Рассмотрим на плоскости $xOy$ криволинейную трапецию, основание которой есть отрезок $[a,\>b]$ оси $Ox,$ боковые стороны ограничены прямыми $x=a,\>x=b,$ а верхнее основание ограничено линией $y=f(x).$ Для получения формулы применяем метод интегральных сумм.\\
+			\begin{table}[htp]\centering
+\tab\tab\begin{tabular}{p{14cm}}
+\begin{enumerate} 
+				\item Разбиваем $[a,\>b]$ на частичные отрезки произвольными точками. 
+				\item Площадь криволинейной трапеции равна сумме площадей элементарных трапеций. 
+				\item  Площадь элементарной трапеции можно заменить площадью прямоугольника $S_k=\Delta x_k\cdot f_k\Rightarrow S=\lim\limits_{n\to\infty}\sum\limits_{k=1}^nf_k\Delta x_k=\int\limits_a^bf(x)\dx$
+				\end{enumerate}\\
+				\includegraphics[width=14cm]{2_9_2_2}
+
+\end{tabular}
+\end{table} 
+
+    
+			\item $S=\int\limits_a^b|y(x)|\dx=\left|\begin{array}{c}
+				x\in[a,\>b]\\y(x)<0
+			\end{array} \right|\Rightarrow S=-\int\limits_a^bf(x)\dx,\>y=|y(x)|$ на $[a,\>b]$
+			\includegraphics[width=14cm]{2_9_2_3}\newpage
+			\item $S=\int\limits_a^b(y_2(x)-y_1(x))\dx$ \\\includegraphics[width=14cm]{2_9_2_4}
+			\item Криволинейная трапеция. \\$y=c,\>y=d,\>x=0,\>y=y(x),\>x=x(y),\>S=\int\limits_c^dx(y)\dy y$\\\includegraphics[width=14cm]{2_9_2_5}
+		\end{enumerate}  
+		\item Кривые заданы параметрическими уравнениями 
+		\begin{enumerate}
+			\item $L:\>\left\{\begin{array}{l}
+				x=x(t)\\y=y(t)
+			\end{array} \right.\>\alpha\leq t\leq\beta\begin{array}{l}
+				\includegraphics[width=4cm]{2_9_2_6}
+			\end{array}\\$ Знаем: $S=\int_a^b y(x)\dx\\\left|\begin{array}{ll}
+				y=y(t):&\dx=x'(t)\dy t\\
+				x=x(t):&x=a,\>x(t)=a\to t=\alpha\\
+				&x=b,\>x(t)=b\to t=\beta
+			\end{array} \right|$ $$S=\int\limits_\alpha^\beta y(t)\>:\>x'(t)\dy t$$\newpage
+			\item $S=\int\limits_c^dx(y)\dy y\\\left|\begin{array}{llll}
+				y=y(t)&y=c:&y(t)=c\to t=\alpha&\\x=x(t)&y=d:&y(t)=d\to t=\beta&\dy y=y'(t)\dy t
+			\end{array} \right|\begin{array}{c}
+				\includegraphics[width=4cm]{2_9_2_7}
+			\end{array}$ $$S=\int\limits_\alpha^\beta x(t)\cdot y'(t)\dy t$$
+		\end{enumerate}
+		\begin{example}
+			\begin{itemize}
+				\item [1.] $S_\textrm{ф}$ - ограничена : $y_1=x^2-2x,\>y_2=Ox,\>x=3\\\begin{array}{c}
+					 \\
+					x\in[0,\>3]\\
+					\tab\includegraphics[width=4cm]{2_9_2_8}
+				\end{array} \begin{array}{l}
+					S=S_1+S_2\\S=-\int\limits_0^2(x^2-2x)\dx+\int\limits_2^3(x^2-2x)\dx=\dots=\\=\frac83
+				\end{array}$
+				\item [2.] $S_\textrm{эл},\>\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\\\begin{array}{l}
+					\includegraphics[width=4cm]{2_9_2_9}
+				\end{array}\begin{array}{l}
+					y_1=-b\sqrt{1-\frac{x^2}{a^2}}\\
+					y_2=b\sqrt{1-\frac{x^2}{a^2}}\\
+					S_\textrm{эл}=2\int\limits_{-a}^ab\sqrt{1-\frac{x^2}{a^2}}\dx=\left|\textrm{триг. замена} \right|
+				\end{array}\\$ параметрическое уравнение эллипса \\$\left\{\begin{array}{l}
+					x=a\cos t\\y=b\sin t 
+				\end{array} \right.$ Симметрия $\Rightarrow S_\textrm{эл}=4S_1.\tab 0\leq t\leq 2\pi\\\begin{array}{l}
+					\includegraphics[width=2cm]{2_9_2_11}
+				\end{array}\left\{\begin{array}{ll}
+					x=a\cos t; & S_1=\int\limits_{\alpha}^\beta y(t)\cdot x'(t)\dy t=\\
+					y=b\sin t; & =\int\limits_0^{\frac\pi2}(b\sin t-a\sin t)\dy t=
+				\end{array} \right.\left|\begin{array}{c}
+					x=0\\a\cos t=0;t=\frac{\pi}2\\x=a\\a\cos t=a;t=a
+				\end{array} \right|\\=ab\int\limits_0^{\frac\pi2}\sin^2t\dy t=\frac{ab}2\int\limits_0^{\frac\pi2}(1-\cos^2t)\dy t=\frac{ab}2\left(t-\frac{\sin2t}2\right)\Big|_0^{\frac{\pi}2}=\frac{ab}2\left(\frac{\pi}2-0\right)=\\=\frac{\pi ab}4;\tab  S_\textrm{эл}=4S_1=\pi ab$
+			\end{itemize}
+		\end{example}\newpage
+		
+		\item Кривые, заданные в полярных координатах\\Площадь криволинейного сектора. Метод дифференциала:\\Пусть $S=S(\varphi)$ - площадь криволинейного сектора, причем $S(\alpha)=0,\>S(\beta)=S$ - некоторая площадь. Возьмем $\varphi\in(\alpha,\>\beta):\>\Delta S=S(\varphi+\Delta\varphi)-S(\varphi).\>\Delta S\approx\dy S.$ В качестве $\dy S$ возьмем площадь не криволинейного, а кругового сектора$\\(S_\textrm{сектора}=\frac{R^2\alpha}{2})\Rightarrow\dy S=\frac12\rho^2(\varphi)\dy\varphi.$ Интегрируем, получаем: $$S_\textrm{сектора}=\frac12\int\limits_\alpha^\beta\rho^2(\varphi)\dy\varphi $$
+			\includegraphics[width=14cm]{2_9_2_12}
+			\begin{example}
+				Найти $s_\phi:\>r=a\cos3\varphi\>(a>0)\\r>0\Rightarrow\cos3\varphi>0,\>-\frac\pi2+2\pi_n\leq 3\varphi \leq \frac\pi2+2\pi_n,\>-\frac\pi6+\frac{2\pi_n}3\leq\varphi\leq\frac\pi6+\frac{2\pi_n}3$ 
+				\begin{enumerate} 
+					\item $n=0:\tab -\frac\pi6\leq\varphi\frac\pi6\Rightarrow-\frac\pi2\leq3\varphi\leq\frac\pi2,$
+					\item $n=1:\tab \frac\pi2\leq\varphi\leq\frac{5\pi}6\Rightarrow\frac{3\pi}2\leq3\varphi\leq\frac{5\pi}2,$
+					\item $n=2:\tab \frac{7\pi}6\leq\varphi\leq\frac{3\pi}2\Rightarrow\frac{7\pi}2\leq3\phi\leq\frac{9\pi}2$ \begin{itemize}
+							\item [1)] $3\varphi=-\frac\pi2\Rightarrow\varphi=-\frac\pi6\Rightarrow\cos3\varphi=0\Rightarrow r=0\\3\varphi=0\Rightarrow\varphi=0\Rightarrow\cos3\varphi=1\Rightarrow r=a\\3\varphi=\frac\pi2\Rightarrow\varphi=\frac\pi6\Rightarrow\cos3\varphi=0\Rightarrow r=0\\$ \item[2)], 3) - рассуждения аналогичны
+					\end{itemize}
+				\end{enumerate} $S=6S_1,\>S_1=\frac12\int\limits_0^\frac\pi6r^2(\varphi)\dy \varphi=\frac{a^2}2\int\limits_0^\frac\pi6\cos^23\varphi\dy\varphi=\frac{a^2}4\int\limits_0^\frac\pi6(1-\cos6\varphi)\dy\varphi=\\=\frac{a^2}4(\varphi+\frac16\sin6\varphi)\Big|_0^{\frac{\pi}6}=\frac{a^2}4\cdot\frac\pi6\Rightarrow S_\phi=\frac{6a^2\pi}{4\cdot 6}=\frac{a^2\pi}4$
+				\begin{center}
+					\includegraphics[width=9cm]{2_9_2_13}
+				\end{center}
+			\end{example}
+\end{enumerate}
+\subsection{Вычисление длин дуг кривых}
+\begin{enumerate}
+	\item Кривая заданная явно: $y=y(x)\\\begin{array}{l}
+		\textrm{Под длинной кривой }AB\textrm{ понимаю предел,}\\\textrm{к которому стремится длинна ломаной, вписанной}\\\textrm{в эту кривую, когда длина максимального звена}\\\textrm{стремится к нулю.} AB:\>y=y(x),\>x\in[a,\>b]\\\textrm{Пусть } L\textrm{ - длина } AB.\textrm{ Введем функцию } f(x):\\l(x)\textrm{ - длина }AM.\>(M(x,\>y(x)),\>a\leq x\leq b),\\\textrm{ при этом: }l(a)=0,\>l(b)=L\textrm{ - искомая. }\Delta l\textrm{ - дуга}\\MN,\>\dy l(x)\overset{\textrm{def}}{\underset{\dy f}{\longeq}}l'(x)\dx,\>l'(x)\overset{\textrm{def f'}}{{\longeq}}\lim\limits_{\Delta x\to0}\frac{\Delta l}{\Delta x}=\
+	\end{array} \begin{array}{c}
+		\includegraphics[width=5cm]{2_9_2_14}
+	\end{array}\\=\lim\limits_{\Delta x\to0}-\frac{\sqrt{(\Delta x)^2+(\Delta y)^2}}{\Delta x}=\lim\limits_{\Delta x\to0}\sqrt{1+\left(\frac{\Delta x}{\Delta y} \right)^2}=\sqrt{1+(y'(x))^2},\>\dy l=\sqrt{1+(y'(x))^2}\dx$ $$L=\int\limits_a^b\dy l, \textrm{ т.е. }L=\int\limits_a^b\sqrt{1+(y'(x))^2}\dx$$
+	\begin{remark}
+		$\\\begin{array}{c}
+			\includegraphics[width=3cm]{2_9_2_15}
+		\end{array}\begin{array}{l}
+			\textrm{Величина  } \dy l \textrm{называется дифференциалом длины дуги.}\\\dy l=\sqrt{(\dx)^2+(\dy y)^2},\>\dy y=y'(x)\dx
+		\end{array}$
+	\end{remark}
+	\item Дина дуги кривой, заданной параметрически.\\$L=\left\{\begin{array}{l}
+		x=x(t),\\y=y(t)
+	\end{array}\right.\alpha\leq t\leq\beta\\L=\int\dy l=\left|\begin{array}{ll}
+		\dx=x'(T)\dy t, & \dy l=\sqrt{1+(y'(x)^2}\dx = \sqrt{1+\left(\frac{y_t'}{x_t'}\cdot x_t'\dy t \right)}=\\
+		\dy =y'(t)\dy t, & =\sqrt{(x_t')^2+(y_t')^2}\dy t
+	\end{array} \right|\textcircled{=}$
+	\begin{remark}
+		Т.к. величина $\dy l>0,\>\sqrt{\dots}>0\Rightarrow\dy t>0.$ Это означает, что по $t$ при вычислении длин кривой пределы всегда расставляються от меньшего к большему
+	\end{remark}
+	$$\textcircled{=}\>L=\int\limits_a^b\sqrt{(x_t')^2+(y_t')^2}\dy t$$
+	\begin{example}
+		Найти длину окружности: $x^2+y^2=R^2.$ Параметрическое уравнение окружности: 
+		$\left\{\begin{array}{l}
+			x=R\cos t,\\y=R\sin t,
+		\end{array}\right. t\in[0,\>2\pi]\\x_t'=-R\sin t,\>(x_t')^2+(y_t')^2=(-R\sin t)^2+(R\cos t)^2=R^2,\>y_t'=R\cos t\\l_I=\int\limits_0^{\frac{\pi}2}\sqrt{(x_t')^2+(y_t')^2}\dy t=R\int\limits_0^{\frac\pi2}\dy t=\frac{R\pi}2\Rightarrow l=4l_I=2\pi R$
+	\end{example}
+	\item Кривая, заданная уравнением в полярных координатах
+		$\\\begin{array}{l}
+			r=r(\varphi),\>\alpha\leq\varphi\leq\beta\\
+			\dy l=\sqrt{(\dx)^2+(\dy y)^2}
+		\end{array}\tab\left\{\begin{array}{l}
+			x=r(\varphi)\cos\varphi\\
+			y=r(\varphi)\sin\varphi
+		\end{array} \right.\\x_\varphi'=r'(\varphi)\cos\varphi+r(\varphi)\cdot(-\sin\varphi)\\(x_\varphi')^2=(r'(\varphi))^2\cos^2\varphi-2r(\varphi)\cdot r(\varphi)\cos\varphi\sin\varphi-r^2(\varphi)\sin^2\varphi,\\y_\varphi'=r'(\varphi)\sin\varphi+r(\varphi)\cos\varphi\\(y_\varphi')^2=(r'(\varphi))^2\sin^2\varphi+2r(\varphi)\cdot r'(\varphi)\cdot\cos\varphi\sin\varphi+r^2(\varphi)\cos^2\varphi,\\(x_\varphi')^2+(y_\varphi')^2=(r'(\varphi))^2+r^2(\varphi).$ $$l=\int\limits_\alpha^\beta\sqrt{(x_\varphi')^2+(y_\varphi')^2\dy\varphi}=\int\limits\limits_\alpha^\beta\sqrt{(r'(\varphi))^2+r^2(\varphi)}\dy\varphi$$
+		\begin{example}
+			Найти длину кривой $r=a(1+\cos\varphi)\\\tab\begin{array}{l}
+				\varphi=0\Rightarrow\cos\varphi=1\Rightarrow r=2a\\
+				\varphi=\frac\pi2\Rightarrow\cos\varphi=0\rightarrow r=a\\
+				\varphi=\pi\Rightarrow\cos\varphi=-1\Rightarrow r=0\\
+				
+			\end{array} \begin{array}{c}
+				\includegraphics[width=3cm]{2_9_2_16}
+			\end{array}\\\frac12l=\int\limits_0^\pi\sqrt{(r')^2+r^2}\dy\varphi,\\(r_\varphi')=a(-\sin\varphi),\>(r')^2=a^2\sin^2\varphi,\>r^2=a^2(1+2\cos\varphi+\cos^2\varphi)\\\frac12l=\int\limits_0^\pi\sqrt{a^2(\sin^2\varphi+1+2\cos\varphi+\cos^2\varphi)}\dy\varphi=a\int\limits_0^\pi\sqrt{2(1+\cos\varphi)}\dy\varphi=\\=a\int\limits_0^\pi\sqrt{4\cos^2\frac\varphi2}\dy\varphi=2a\int\limits_0^\pi\left|\cos\frac\varphi2\right|\dy\varphi=\left|\begin{array}{c}
+				\varphi\in[0,\>\pi]\\\cos\frac\varphi2>0
+			\end{array} \right|=2a\int\limits_0^\pi\cos\frac\varphi2\dy\varphi=\\=2a\sin\frac\varphi2\cdot2\Big|_0^\frac\pi2=4a(\sin\frac\pi2-\sin0)=4a,\>l=2\cdot4a=8a$  
+		\end{example}
+\end{enumerate}
+\subsection{Вычисление объемов тел}
+\begin{enumerate} 
+	\item Объем тела по известным поперечным сечением (нарезаная колбаса??)$\\\begin{array}{c}
+		\includegraphics[width=8cm]{2_9_2_17}
+	\end{array}\begin{array}{l}
+		\forall \zstroke\in[a,\>b]\textrm{ известна площадь} S(\zstroke)\\\textrm{сечение этого тела плоскостью,}\\\textrm{перпендикулярной оси } O\zstroke.\\\textrm{Пусть } V(\zstroke)\textrm{ - объем тела,}\\\textrm{ограниченный }s(\zstroke)\textrm{ и } a\textrm{ (от нижней}\\\textrm{части до }S(\zstroke)). \dy V=|h=\dy\zstroke|=\\=S(\zstroke)\dy\zstroke\Rightarrow V=\bigintsss\limits_a^bS(\zstroke)\dy\zstroke
+	\end{array}$
+	\begin{example}
+		Найти объем тела: $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{\zstroke^2}{c^2}=1\\$ При фиксированном $\zstroke\tab(-c\leq\zstroke\leq c):\\\begin{array}{c}
+			\includegraphics[width=5cm]{2_9_2_18}
+		\end{array}\begin{array}{l}
+			\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{\zstroke^2}{c^2}=1,\>\frac{x^2}{a^2}+\frac{y^2}{b^2}=1-\frac{\zstroke^2}{c^2},\>\frac{x^2}{a^2}+\frac{y^2}{b^2}=\frac{c^2-\zstroke^2}{c^2}\\\frac{x^2}{a^2\cdot\frac{c^2-\zstroke^2}{c^2}}+\frac{y^2}{b^2\cdot\frac{c^2-\zstroke^2}{c^2}}=1,\>\frac{x^2}{\left(\frac ac\cdot\sqrt{c^2-\zstroke^2}\right)^2}+\frac{y^2}{\left(\frac bc\cdot\sqrt{c^2-\zstroke^2}\right)^2}=1\\\textrm{ - уравнение эллипса с полуосями: }\\a_1=\frac ac\cdot\sqrt{c^2-\zstroke^2},\>b_1=\frac bc\cdot\sqrt{c^2-\zstroke^2}.\\\textrm{ Известно: }S(\zstroke)\textrm{ - площадь эллипса} = \pi a_1b_1=\\=\pi\frac{ab}c(c^2-\zstroke^2).\\V=\int\limits_{-c}^c\pi\frac{ab}c(c^2-\zstroke^2)\dy\zstroke=\frac{\pi ab}{c^2}\left(c^2\zstroke-\frac {\zstroke^3}3\right)\bigg|_{-c}^c=\\=\frac{\pi ab}{c^2}\left(c^3+c^3-\frac{c^3}3-\frac{c^3}3\right)=\frac43\pi abc
+		\end{array}$ 
+	\end{example}\newpage
+	\item Объем тела вращения 
+		\begin{enumerate} 
+			\item Вращение воукруг оси $Ox$\\ $\begin{array}{c}
+				\includegraphics[width=8cm]{2_9_2_19}
+			\end{array}\begin{array}{l}
+				AB:\>y=y(x),\>a\leq x\leq b\\S(x)=\pi y^2(x)\>(S\textrm{ кргуа})\\\\V=\pi\bigintsss\limits_a^by^2(x)\dx
+			\end{array}$ \begin{remark}
+				$\\\begin{array}{c}
+					\includegraphics[width=5cm]{2_9_2_20}
+				\end{array}V=V_1-V_2=\pi\bigintsss\limits_a^b\left(y_2^2(x)-y_1^2(x)\right)\dx$
+			\end{remark}
+		\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
