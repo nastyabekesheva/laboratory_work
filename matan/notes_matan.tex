@@ -20,6 +20,7 @@
 \usepackage{multicol}
 \usepackage{longdivision}
 \usepackage{polynom}
+\usepackage{cancel}
 \usepackage{extarrows}
 \usepackage{ragged2e}
 
@@ -929,8 +930,10 @@ $(uv)'=u'v+v'u(u=u(x),\>v=v(x))\Rightarrow uv$ - первообразная дл
 			\end{array} \right|\Rightarrow S=-\int\limits_a^bf(x)\dx,\>y=|y(x)|$ на $[a,\>b]$
 			\includegraphics[width=14cm]{2_9_2_3}\newpage
 			\item $S=\int\limits_a^b(y_2(x)-y_1(x))\dx$ \\\includegraphics[width=14cm]{2_9_2_4}
-			\item Криволинейная трапеция. \\$y=c,\>y=d,\>x=0,\>y=y(x),\>x=x(y),\>S=\int\limits_c^dx(y)\dy y$\\\includegraphics[width=14cm]{2_9_2_5}
-		\end{enumerate}  
+			\item Криволинейная трапеция. \\$y=c,\>y=d,\>x=0,\>y=y(x),\>x=x(y),\>S=\int\limits_c^dx(y)\dy y$\\\begin{center}
+				\includegraphics[width=10cm]{2_9_2_5}
+
+			\end{center}		\end{enumerate}  
 		\item Кривые заданы параметрическими уравнениями 
 		\begin{enumerate}
 			\item $L:\>\left\{\begin{array}{l}
@@ -1067,10 +1070,51 @@ $(uv)'=u'v+v'u(u=u(x),\>v=v(x))\Rightarrow uv$ - первообразная дл
 				$\\\begin{array}{c}
 					\includegraphics[width=5cm]{2_9_2_20}
 				\end{array}V=V_1-V_2=\pi\bigintsss\limits_a^b\left(y_2^2(x)-y_1^2(x)\right)\dx$
+				\item Вращение воукруг оси $Oy$\\$\begin{array}{c}
+				\includegraphics[width=8cm]{2_9_2_21}
+			\end{array}\begin{array}{l}
+				AB:\>y=y(x)\Leftrightarrow x=x(y),\\c\leq y\leq d\\\\V=\pi\bigintsss\limits_a^bx^2(y)\dy y
+			\end{array}$
 			\end{remark}
 		\end{enumerate}
+\end{enumerate}\newpage
+\subsection{Механическое приложение определенного интеграла}
+\begin{enumerate}
+	\item Работа переменной силы с модулем $F(x)$ по перемещению материальной точки вдоль отрезка $[a,\>b]\\\begin{array}{c}
+			\includegraphics[width=4cm]{2_9_2_22}		
+	\end{array}\>\>\>\>\begin{array}{l}
+		\textrm{Если } F_n=\const\textrm{, то } A=F(b-a).\>A=\sum\limits_{k=1}^nA_k.\\A\textrm{ - работа силы }F.\textrm{ Отрезок }[a,\>b]\textrm{ разбивается на}\\\textrm{элементарные отрезки, которые выбираються}\\\textrm{настолько малыми, что силу } F(x)\textrm{ на них можно}\\\textrm{примерно считать постоянной на} [x_{k-1},\>x_k]:\>F(x)\approx F_k   
+	\end{array}$ $$A\approx \sum\limits_{k=1}^nF_k\cdot\Delta x_k\Rightarrow\left|\lim\limits_{n\to\infty}\right|=A=\int\limits_a^bF(x)\dx$$
+	\item $S$ - путь, пройденный материальной точкой за время $\Delta t$ ($v=v(t),\>\Delta t=t_2-t_1$)$$S=\int\limits_{t_1}^{t_2}v(t)\dy t$$
+	\item Масса неоднородного стержня$\\\begin{array}{c}
+			\includegraphics[width=4cm]{2_9_2_23}		
+	\end{array}\>\>\>\>\begin{array}{l}
+		\textrm{Линейная плотность: } \rho(x). \textrm{Если }\rho=\const\>\forall x\in[a,\>b],\\\textrm{то масса } m=\rho(b-a).\\\textrm{Разбиваем на элементарные участки: }[x_{k-1},\>x_k]:\\\rho(x)\approx \rho_k=\const\Rightarrow m_k=\rho_k\Delta x_k=\rho(x)\dx    
+	\end{array}$$$m=\int\limits_a^b\rho(x)\dx$$
+	\item Статические моменты и моменты инерции плоской кривой \begin{enumerate}
+		\item  Для точки: $\\\begin{array}{c}
+			\includegraphics[width=4.5cm]{2_9_2_24}
+		\end{array}\begin{array}{l}
+			\textrm{Систематическим моментом точи (моментом}\\\textrm{первого порядка) относительно оси } Ox \textrm{ (или}\\\textrm{оси } Oy)\textrm{ называется произвидение массы этой}\\\textrm{точки на расстояние до соответствующей оси.}
+		\end{array}\\M_x=y\cdot m$ - статический момент относительно $Ox\\M_y=x\cdot m$ - статический момент относительно $Oy\\P_K(x_k,\>y_k);\>m_k$ - материальная точка
+		\item Для системы точек\\Для системы материальных точек с соответствующими координатами\\ и соответствующими массами статическими моментами  относительно \\координатных осей называется сумма статических моментов всех точек  $$M_x=\sum\limits_{k=1}^ny_km_k,\tab\>M_y=\sum\limits_{k=1}^nx_km_k$$ Центром масс системы материальных точек называется точка $C(x_0,\>y_0)$, обладающая свойством: \\если в этой точке  сосредоточить всю массу системы, то$$m=\sum\limits_{k=1}^nm_k,\>my_0=\sum\limits_{k=1}^ny_km_k,\>mx_0=\sum\limits_{k=1}^nx_km_k$$ $$x_0=\frac{\sum\limits_{k=1}^nx_km_k}{\sum\limits_{k=1}^nm_k},\tab y_0=\frac{\sum\limits_{k=1}^ny_km_k}{\sum\limits_{k=1}^nm_k}$$
+		\item Для плоской кривой (однородной)\\$\\\begin{array}{c}
+			\includegraphics[width=4.5cm]{2_9_2_25}
+		\end{array}\begin{array}{l}
+				AB:\>y=y(x)\tab a\leq x\leq b\tab \rho=\const\\\textrm{Кривая разбивается на элементарные дуги}\dy l,\\\textrm{которые можно считать точками, всю кривую}\\\textrm{можно представить как систему точек.}\\\dy m=\rho\dy l=\rho\sqrt{1+(y_x')^2}\dx
+		\end{array}$ $$m=\int\limits_a^b\rho\sqrt{1+(y_x')^2}\dx$$\\$\dy M_x=y(x)\dy m,\>\dy M_y=x\dy m.$ Статическими моментами однородной кривой $AB$ относительно координатных осей называют величины $$M_x=\rho\int\limits_a^by(x)\sqrt{1+(y_x')^2}\dx,\>M_y=\rho\int\limits_a^bx\sqrt{1+(y_x')^2}\dx$$ $$mx_0=M_y,\tab my_o=M_x$$ Для координат центра масс $$x_0=\frac{\cancel{\rho}\int\limits_a^bx\sqrt{1+(y_x')^2}\dx}{\cancel{\rho}\int\limits_a^b\sqrt{1+(y_x')^2}\dx}(\rho=\const),\tab y_0=\frac{\int\limits_a^by(x)\sqrt{1+(y_x')^2}\dx}{\int\limits_a^b\sqrt{1+(y_x')^2}\dx}$$ Моментом инерции (моментом 2 порядка) материальной точки относительно координатной оси называется произведение массы этой точки на квадрат расстояния до соответствующей оси. Для однородной кривой $AB$\\ выражение для моментов инерции имеет вид: $$I_x=\int\limits_a^by^2(x)\rho\sqrt{1+(y_x')^2}\dx,\tab I_y=\int\limits_a^bx^2\rho\sqrt{1+(y_x')^2}\dx$$
+	\end{enumerate}
 \end{enumerate}
-
+\begin{example}
+	Найти центр масс однородной дуги окружности $AB:\>\>\left\{\begin{array}{l}
+		x^2+y^2=R^2\\
+		x\geq0,\>y\geq0
+	\end{array} \right.\\\begin{array}{c}
+		\includegraphics[width=4cm]{2_9_2_26}
+	\end{array}\begin{array}{l}
+		\rho=\const,\>x_0=\frac {M_y}m,\>y_0=\frac{M_x}m,\>m=\rho S\\y=\sqrt{R^2-x^2},\>m=\rho\int\sqrt{1+(y_x')^2\dx}=\dots\\l=2\pi R\Rightarrow l_{AB}=\frac{\pi R}2\cdot\rho\\\textrm{Из соображений симметрии можно предположить, что}\\\textrm{центр масс будет расположен на биссектрисе } y=x\Rightarrow\\\Rightarrow x_0=y_0.\>M_y=\rho\int x\sqrt{1+(y_x')^2\dx}=\rho\int\limits_0^Rx\frac R{\sqrt{R^2-x^2}}\dx
+	\end{array}\\=\rho R\cdot\left(-\frac12 \right)\int\limits_0^R\frac{\dy(R^2-x^2)}{(R^2-x^2)^{\frac12}}=-\rho\frac R2\cdot \frac{(R^2-x^2)^{\frac12}}{\frac12}\bigg|_0^R=-\rho R(0-R)=\rho R^2\\x_0=\frac{\rho R^2}{\rho\cdot\frac{\pi R}2}=\frac{2\rho}\pi,\>y_0=\frac{2R}\pi$ (по симметрии)
+\end{example}
 
 
 
