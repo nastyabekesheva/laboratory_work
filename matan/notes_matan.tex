@@ -57,7 +57,7 @@
 {\end{leftrule}}
 
 \begin{document}
-\title{Математический анализ 2}
+\title{Математический анализ II}
 \maketitle
 \date{}
 \catcode`@=11
@@ -1115,7 +1115,13 @@ $(uv)'=u'v+v'u(u=u(x),\>v=v(x))\Rightarrow uv$ - первообразная дл
 		\rho=\const,\>x_0=\frac {M_y}m,\>y_0=\frac{M_x}m,\>m=\rho S\\y=\sqrt{R^2-x^2},\>m=\rho\int\sqrt{1+(y_x')^2\dx}=\dots\\l=2\pi R\Rightarrow l_{AB}=\frac{\pi R}2\cdot\rho\\\textrm{Из соображений симметрии можно предположить, что}\\\textrm{центр масс будет расположен на биссектрисе } y=x\Rightarrow\\\Rightarrow x_0=y_0.\>M_y=\rho\int x\sqrt{1+(y_x')^2\dx}=\rho\int\limits_0^Rx\frac R{\sqrt{R^2-x^2}}\dx
 	\end{array}\\=\rho R\cdot\left(-\frac12 \right)\int\limits_0^R\frac{\dy(R^2-x^2)}{(R^2-x^2)^{\frac12}}=-\rho\frac R2\cdot \frac{(R^2-x^2)^{\frac12}}{\frac12}\bigg|_0^R=-\rho R(0-R)=\rho R^2\\x_0=\frac{\rho R^2}{\rho\cdot\frac{\pi R}2}=\frac{2\rho}\pi,\>y_0=\frac{2R}\pi$ (по симметрии)
 \end{example}
-
+\section{Несобственные интегралы}
+\begin{enumerate}
+	\item Несобственные интегралы I рода. (по неограниченным интервалам)\\ Пусть $f(x):\>[a,\>+\infty)\to R$ и $\forall B\geq a\>\>f(x)\in R([a,\>B]).\\$\textbf{Несобственным интегралом }  $I$ рода от функции $f(x)$ на интервале $[a,\>+\infty)$ выражение $\int\limits_a^{+\infty}f(x)\dx=\lim\limits_{B\to+\infty}\int\limits_a^Bf(x)\dx$. Тогда $\lim\limits_{B\to+\infty}\int\limits_a^Bf(x)\dx$ обозначают символом $\int\limits_a^{+\infty}f(x)\dx$ и называют НИ-$I$. Если этот предел существует и является конечным, то функция $f(x)$ называется \textbf{интегральной в несобственном}\\\textbf{смысле}, а это число называется значением НИ. При этом говорят, что НИ сходится. Если этот предел существует и конечный, то интеграл является сходящимся. В противном случае - расходящимся. Обозначение (def): $$\int\limits_a^{+\infty}f(x)\dx=\lim\limits_{B\to+\infty}\int\limits_a^Bf(x)\dx$$ Аналогично: $$\int\limits^a_{-\infty}f(x)\dx=\lim\limits_{A\to-\infty}\int\limits_A^af(x)\dx$$ Таким образом: $$\int\limits^{+\infty}_{-\infty}f(x)\dx=\int\limits^{c}_{-\infty}f(x)\dx+\int\limits^{+\infty}_{c}f(x)\dx=\lim\limits_{A\to-\infty}\int\limits^{c}_{A}f(x)\dx\lim\limits_{B\to+\infty}\int\limits_{c}^{B}f(x)\dx$$ В последнем соотношении интеграл слева сходится, если сходятся одновременно оба интеграла справа. Если один из них сходится, адругой расходится, то общий интеграл является расходящимся. Для такого интеграла вводят понятие главного значения. Главное значение (v.p.) $$\int\limits^a_{-\infty}f(x)\dx=\lim\limits_{A\to+\infty}\int\limits_{-A}^Af(x)\dx$$ Бывают ситуации когда интеграл существует только в смысле главного значения. 
+	\item Нeсобственные интегралы  II рода. (от неограниченных функций)\\ Пусть $f(x)$ определена на полуинтервале: $f(x):\>[a,\>b]\to\mathbb{R},\>\lim\limits_{x\to b-0}\left|f(x)\right|=+\infty\\$ и при этом: $\forall\omega\>:\>[a,\>\omega]\subset[a,\>b)\>\>f(x)\in R([a,\>\omega]).\\$\textbf{Несобственным интегралом }II рода от функции $f(x)$ на полуинтервале $[a,\>b)$ называется предел $\lim\limits_{\omega\to b-0}\int\limits_a^\omega f(x)\dx.$ Обозначение (def): $$\int\limits_a^bf(x)\dx=\lim\limits_{\omega\to b-0}\int\limits_a^\omega f(x)\dx$$ Если этот предел существует и конечный, то функция $f(x)$ называется \textbf{инте-}\\\textbf{грируемой в несобственном смысле }на интервале $[a,\>b)$, а интервал называется сходящимся. Если предел не существует либо бесконечный, то интегралрасходится. Аналогично: $$\textrm{если }\lim\limits_{x\to a+0}\left|f(x)\right|=+\infty,\textrm{ то }\int\limits_a^bf(x)\dx=\lim\limits_{\omega\to a+0}\left|f(x)\right|\int\limits_\omega^bf(x)\dx$$$$\textrm{если }\lim\limits_{x\to c}\left|f(x)\right|=+\infty, a<c<b,\textrm{ то }\int\limits_a^bf(x)\dx=\int\limits_a^cf(x)\dx+\int\limits_c^bf(x)\dx$$ $$=\lim\limits_{\omega\to c-0}\left|f(x)\right|\int\limits^\omega_af(x)\dx+\lim\limits_{\tau\to c+0}\left|f(x)\right|\int\limits_\tau^bf(x)\dx$$ Главное значение $\int\limits_a^bf(x)\dx\>(f(x)\to\infty$ при $x\to c\in(a,\>b))$ (v.p.) $$\int\limits_a^bf(x)\dx=\lim\limits_{\varepsilon\to+0}\left(\int\limits_a^{c-\varepsilon}f(x)\dx+\int\limits_{c+\varepsilon}^bf(x)\dx \right)$$ Бывают интегралы, которые сходятся только как v.p. \begin{remark}
+		Рассмотренный несобственный интеграл может одновременно являтся несобственным интегралом и I, и II рода.
+	\end{remark}
+\end{enumerate}
 
 
 
