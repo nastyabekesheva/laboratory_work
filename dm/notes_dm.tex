@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{bookest}
+\documentclass[a4paper,12pt, centered]{bookest}
 \usepackage[ukrainian,english]{babel}
 \usepackage{ucs}
 \usepackage[utf8]{inputenc}
@@ -11,12 +11,18 @@
 \usepackage{xparse}
 \usepackage{amssymb}
 \usepackage{tikz} 
+\usepackage{afterpage}
+\usepackage{wrapfig}
 \usepackage[makeroom]{cancel}
-\usepackage{booktabs,caption}          \usepackage[flushleft]{threeparttable}
+\usepackage{booktabs,caption}          
+\usepackage[flushleft]{threeparttable}
 \definecolor{black}{cmyk}{.30,0,0,.67} 
-\title{Дискретна математика 2}
+\title{Дискретна математика 2\\ \small (Discrete mathematics)
+}
+
 \date{\today}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}[section]
@@ -25,10 +31,14 @@
 \newtheorem*{prop*}{Proposition}
 \newtheorem{cons}{Consequence}
 \newtheorem*{cons*}{Consequence}
+\newtheorem*{fact*}{Fact}
 \newtheorem*{remark*}{\emph{Remark}}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 \DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Aa}{\mathcal{A}}
+\DeclareMathOperator{\Mm}{\mathcal{M}}
 \DeclareMathOperator{\blank}{ }
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \newmdenv[   linecolor=black,
@@ -47,8 +57,7 @@
 
 \def\bcases#1{\caseswithdelim[{#1}}
 \def\vcases#1{\caseswithdelim|{#1}}
-
-
+\usepackage[titletoc]{appendix}
 \begin{document}
 \maketitle
 \vspace*{\fill}
@@ -58,6 +67,20 @@
 \end{flushright}
 \let\cleardoublepage\clearpage
 \tableofcontents
+\newpage
+\thispagestyle{empty}
+\hspace{0pt}
+\vfill
+\begin{center}
+	\LARGE{\textbf{Основа теорії чисел}}
+\end{center}
+\begin{center}
+	(Fundamentals of Number theory)
+\end{center}
+\vfill
+\hspace{0pt}
+\pagebreak
+\newpage
 \chapter{Лекція 1}
 \section{Подільність чисел}
 	\begin{enumerate}
@@ -67,8 +90,8 @@
 		\mathbb{Z}=\{-1,\>0,\>1,-2,\>2,\dots\}$
 	\end{enumerate}
 	\begin{definition}
-		$a$ поділяється на $b\>\>-\>\>a\>\vdots\>b$ або  $b$ ділить $a$($b$ є дільником$a$)$\>\>b\>|\>a.\\
-		a\>\vdots\>b\Leftrightarrow\exists k\in\mathbb{Z}:\>\>a=kb$
+		$a$ поділяється на $b\>\>-\>\>a\>\vdots\>b$ або  $b$ ділить $a$($b$ є дільником$a$)$\>\>b\>|\>a.$
+		$$a\>\vdots\>b\Leftrightarrow\exists k\in\mathbb{Z}:\>\>a=kb$$
 	\end{definition}
 	\begin{property*}$ $
 	\begin{enumerate}
@@ -80,7 +103,7 @@
 		\item $a\>\vdots\>b\Leftrightarrow ac\>\vdots\>bc,\>c>0$
 	\end{enumerate}		
 	\end{property*}
-	\begin{theorem}[про ділення з остачею] 
+	\begin{theorem}[Euclidean divisiom] 
 	$$\forall a,\>b\in\mathbb{Z}\>\>\exists!q,\>r\>:\>q\in\mathbb{Z},\>r\in\mathbb{N}\>\>0\leq r\leq |b|\>\>a=bq+r$$
 	\newpage
 	\begin{proof}$ $
@@ -215,8 +238,8 @@ $$\forall a,\>b,\>c\in\mathbb{N}:\>\>\lcm(a,\>b,\>c)=\frac{a\cdot b\cdot c\cdot 
 \end{example}	
 \section{Eвклідові послідовності}
 \begin{definition}
-Послідовність $a_0,\>a_1,\dots,\>a_i\in\mathbb{R}$ - евклідова, якщо $\forall n,\>m\in\mathbb{N}_0\
-\>\>n>m:\>\>\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n-m})\Rightarrow\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n\mod m})$	
+Послідовність $a_0,\>a_1,\dots,\>a_i\in\mathbb{R}$ - евклідова,  $$\textrm{якщо } \forall n,\>m\in\mathbb{N}_0\
+\>\>n>m:$$$$\>\>\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n-m})\Rightarrow\gcd(a_n,\>a_m)=\gcd(a_m,\>a_{n\mod m})$$
 \end{definition}
 \begin{theorem}
 	$$(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n,\>m:\>\>\gcd(a_n,\>a_m)=a_{\gcd(n,\>m)}$$
@@ -244,7 +267,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 \let\cleardoublepage\clearpage
 \chapter{Лекція 3}
 \section{Розширений алгоритм Евкліда}
-\begin{theorem}[лема Безу]
+\begin{theorem}[Little Bezout's theorem]
 	$$\forall a,\> b\in\mathbb{N},\>d=\gcd(a,\>b)\>\>\>\>\exists u,\> v\in\mathbb{Z},\>d=au+bv$$
 	\begin{proof}
 		$\\r_0=r_1q_1+r_2\\
@@ -295,7 +318,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 \end{theorem}
 \section{Лінійні діафантові рівняння}
 \begin{definition}
-	$f(x_1,\>x_2\>,\dots,\>x_n)=0,\>x_i\in\mathbb{Z}\\ a_1x_1+a_2x_2+\dots+a_nx_n=c,\>a_i\in\mathbb{Z},\>c\in\mathbb{Z}\\ ax+by=c,\>\>a,\>b,\>c\in\mathbb{Z}$ - коефіціенти, $x,\>y\in\mathbb{Z}$ - невідомі.
+	$f(x_1,\>x_2\>,\dots,\>x_n)=0,\>x_i\in\mathbb{Z}$$$ a_1x_1+a_2x_2+\dots+a_nx_n=c,\>a_i\in\mathbb{Z},\>c\in\mathbb{Z}$$$$ ax+by=c,\>\>a,\>b,\>c\in\mathbb{Z}\textrm{ - коефіціенти, } x,\>y\in\mathbb{Z}\textrm{ - невідомі.}$$
 \end{definition}
 
 \begin{theorem}
@@ -334,17 +357,19 @@ $5x+3y=9\\1=5\cdot(-1)+3\cdot2\\x_0=9,\>y_0=18\\\begin{cases}
 \end{example}
 \chapter{Лекція 4}
 \section{Прості числа}
-\begin{definition}
-	
-$n\in\mathbb{N}$ - просте $\Leftrightarrow$ має рівно два дільники 1 та $n$\\
-$n\in\mathbb{N}$ - cкладене $\Leftrightarrow\exists a:\>\>1<a<n\>\>\>\>n\>\vdots\>a$\\
+\begin{definition}$n\in\mathbb{N}$
+\begin{align*}
+	\textrm{ - просте }\Leftrightarrow\textrm{ має рівно два дільники 1 та }n\\
+	\textrm{ - cкладене }\Leftrightarrow\exists a:\>\>1<a<n\>\>\>\>n\>\vdots\>a
+\end{align*}
 \end{definition}
+
 1 - не просте, не складене
 
 \begin{lemma}
 	$$n\in\mathbb{N}:\>\>\gcd(n,\>n+1)=1$$
 \end{lemma}
-\begin{theorem}[Евклід]
+\begin{theorem}[Euclid]
 	$$\textrm{Якщо }A=\{p_1,\>p_2,\>\dots,p_n\}\textrm{ - скінченна сукупність простих чисел, то існує просте } \underline{P}\notin A$$
 	\begin{proof}
 		$\\Q=p_1p_2p_3\dots p_n+1\Rightarrow Q\>\overline{\vdots }\>p_i,\>n=\overline{1,n}\\ Q$ - або просте, або має простий дільник
@@ -391,19 +416,17 @@ $(m+1)!\>\vdots\>2,\>(m+1)!\>\vdots\>3,\>(m+1)!\>\vdots\>5,\>\dots,\>(m+1)!\>\vd
 \begin{lemma}
 	$$M_p \textrm{ - просте }\Rightarrow p \textrm{ - просте }.\>\>p=a\cdot b\Rightarrow M_p=2^{ab}-1\>\vdots\>2^a-1$$
 \end{lemma}
-\begin{center}
-	\line(1,0){390}
-\end{center}
+$\\$
 \textbf{Постулат Бертрана}\\
 $\forall n\in\mathbb{N},\>\geq 4.$ інтервал $n\dots 2n-2$ містить просте число.
 \\\\
 \textbf{Функція розподіла простих чисел} $\Pi(x)$\\
 $\Pi(x)=$ кількість простих чисел $<x.$\\
 $\frac12\cdot \frac{x}{\log_2x}\leq \Pi(x)\leq 5\cdot\frac{x}{log_2x}\rightarrow \alpha\cdot\frac{x}{\ln x}\leq\Pi(x)\leq\beta\cdot\frac{x}{\ln x},\>\>\alpha=0.92129,\>\beta=1,10555$
-\begin{theorem}[Адамер, Вале]
+\begin{theorem}[Adamer, Vallee]
 	$$\Pi(x)\sim \frac{x}{\ln x}(\Pi(x)\sim\int\limits_{2}^{x}\frac{dt}{\ln t})\Rightarrow p_n\sim n\cdot \ln n$$
 \end{theorem}
-\begin{theorem}[Діріхле]
+\begin{theorem}[Dirichlet]
 	$$\textrm{Якщо } \gcd(a,\>b)=1, \textrm{ то існує }\infty\textrm{простих чисел виду }a\cdot m+b$$
 \end{theorem}
 \section{Основна теорема арифметики}
@@ -413,7 +436,7 @@ $\frac12\cdot \frac{x}{\log_2x}\leq \Pi(x)\leq 5\cdot\frac{x}{log_2x}\rightarrow
 		$ $Нехай $ab\>\vdots\>p$, але $a\>\overline{\vdots}\>p\Rightarrow \gcd(a,\>p)=1\Rightarrow\\\Rightarrow\exists u,\>v,\>\>\>\>au+pv=1\Rightarrow \underbrace{ab}_{\vdots\>p}\cdot u+\underbrace{p}_{\vdots\>p}\cdot bv=\underbrace{b}_{\vdots\>p}$
 	\end{proof}
 \end{lemma}
-\begin{theorem}[основна теорема арифметики]
+\begin{theorem}[Fundamental theorem of arithmetics]
 	$$\forall n\in\mathbb{N}:\>\>n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}\textrm{, де }p_1<p_2<\dots<p_t-\textrm{ - прості, }\alpha_i\geq1 \textrm{ - натуральні.}$$
 	\begin{proof}$ $
 		\begin{enumerate}
@@ -440,10 +463,12 @@ $((4k_1+1)(4k_2+1)=4(\dots)+1$
 \end{example}
 \chapter{Лекція 5}
 \section{Мультиплікативні функції}
-$f(n)$ - мультіплікативна:\begin{enumerate}
+\begin{definition}$f(n)$ - мультіплікативна:
+	\begin{enumerate}
 	\item $f(n)\not\equiv$
 	\item $\forall a,\>b\in\mathbb{N}:\tab \gcd(a,\>b)=1\Rightarrow f(ab)=f(a)f(b)$
 \end{enumerate}
+\end{definition}
 \begin{example}
 $\\f(n)=1\\f(n)=n\\f(n)=n^S$	
 \end{example}
@@ -456,7 +481,7 @@ $\\f(n)=1\\f(n)=n\\f(n)=n^S$
 	\end{enumerate}
 \end{property*}
 \begin{definition}
-	$f(n)$ - мультиплікативнa. Числовий інтеграл $g(n)=\sum\limits_{d\>|\>n}f(d)$
+	$f(n)$ - мультиплікативнa. $$\textrm{Числовий інтеграл }g(n)=\sum\limits_{d\>|\>n}f(d)$$
 \end{definition}
 \begin{theorem}[S]
 \label{S}
@@ -467,8 +492,12 @@ $\\f(n)=1\\f(n)=n\\f(n)=n^S$
 \end{theorem}
 $$g(n)=\prod\limits_{i=1}^{t}\sum\limits_{\beta_i=0}^{\alpha_i}f(p_i^{\beta_i})$$
 \section{Кількість та сума дільників}
-Кількість дільників $\tau(n)=\sum\limits_{d\>|\>n}1$\\
-Сума дільників $\sigma(n)=\sum\limits_{d\>|\>n}d$
+\begin{definition}Кількість дільників 
+	$$\tau(n)=\sum\limits_{d\>|\>n}1$$
+\end{definition}
+\begin{definition}Сума дільників
+	$$\sigma(n)=\sum\limits_{d\>|\>n}d$$
+\end{definition}
 \begin{prop*}
 \[n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\tab p_t^{\alpha_t}:\>\>\tau(n)=(1+\alpha_1)(1+\alpha_2)\dots(1+\alpha_t)\\ \]\[ \sigma =\prod\limits_{i=0}^{t}\frac{p_i^{\alpha+1}}{p_i-1}\]
 \end{prop*}
@@ -490,7 +519,7 @@ $n=1001=7\cdot11\cdot13\\\tau(1001)=(1+1)(1+1)(1+1)=8\\\sigma(1001)=(1+7)(1+11)(
 \end{property*}
 \section{Досконалі числа}
 \begin{definition}
-	Досконале число $n$:\\$n$ = сумі усіх дільників окрім власне $n$ або $\sigma(n)=2n$
+	Досконале число $n$:$$n =\textrm{ сумі усіх дільників окрім власне }n\textrm{ або }\sigma(n)=2n$$
 \end{definition}
 \begin{example}
 	$n=6:\tab 1+2+3=6$
@@ -498,7 +527,7 @@ $n=1001=7\cdot11\cdot13\\\tau(1001)=(1+1)(1+1)(1+1)=8\\\sigma(1001)=(1+7)(1+11)(
 \begin{example}
 	$n=28:\tab 1+2+4+7+14=28$
 \end{example}
-\begin{theorem}[Евклід-Ойлер]
+\begin{theorem}[Euclid-Euler]
 $$\textrm{Парне }n \textrm{ - досконале }\Leftrightarrow n=2^{p-1}\cdot M_p, \textrm{ де }M_p=2^p-1\textrm{ - просте число Марсена}$$
 \begin{proof}$ $
 	\begin{enumerate}
@@ -535,7 +564,7 @@ $$\sum\limits_{d\>|\>n}M(d)f((d)=(1-f(p_1))(1-f(p_2))\dots(1-f(p_t))$$
 	\begin{proof}
 		$\\\sum\limits_{d\>|\>n}M(d)\cdot\sum\limits_{\delta\>|\>\frac nd}f(\delta)=\sum\limits_{(d,\>\delta),\>d\delta\>|\>n}\mu(	d\cdot f(\delta)=\sum\limits_{\delta\>|\>n}\sum\limits_{d\>|\>\frac nd}\mu(d)f(\delta)=\\=\sum\limits_{\delta\>|\>n}f(\delta)\cdot\sum\limits_{d\>|\>\frac nd_{=1\Rightarrow\delta=n}}\mu(d)=f(n)$
 	\end{proof}
-\end{theorem}\newpage
+\end{theorem}
 \begin{example}
 	$a_0,\>a_1,\>\dots,\>a_n\\ A(s)=\sum\limits_{n=1}^{\infty}\frac{a_n}{n^s}$ - ряд Діріхле.\tab $B(s)=\sum\limits_{n=1}^{\infty}\frac{b_n}{n^s}\\C(s)=A(s)\cdot B(s)=\sum\limits_{n=1}^{\infty}\frac{c_n}{n^s}\Rightarrow C_n=\sum\limits_{d\>|\>n}a_d\cdot b_{\frac nd}\tab\xi(s)=\sum\limits_{n=1}^{\infty}\frac1{n^S}\\ \frac1{\xi(s)}=\sum\limits_{n=1}^{\infty}\frac{\mu(n)}{n^S}\tab C(s)=A(s)\cdot\xi(s)\tab C_n=\sum\limits_{d\>|\>n	}a_d\\ A(s)=C(s)\cdot(\xi(s))'\Rightarrow a_n=\sum\limits_{d\>|\>n}\mu(d)c_{\frac nd}$
 \end{example}
@@ -647,7 +676,7 @@ $$a\cdot\mathbb{Z}_n+b=\mathbb{Z}_n$$
 \end{definition}
 \chapter{Лекція 7}
 \section{Китайська теорема про остачі}
-\begin{theorem}[КТО]
+\begin{theorem}[Chinese remainder theorem]
 	$$\begin{cases}
 		x\equiv b_1(\mod n_1)\\
 		x\equiv b_2(\mod n_2)\\
@@ -712,7 +741,7 @@ $$\sum\limits_{d\>|\>n}\varphi(d)=n$$
 \end{prop*}
 $\\\sum\limits_{d\>|\>n}\varphi(d)=n\Rightarrow\varphi(n)=\sum\limits_{d\>|\>n}\mu(d)\cdot\frac nd=n-\frac n{p_1}-\frac n{p_2}-\dots-\frac n{p_t}+\frac n{p_2p_3}+\dots+\frac n{p_{t-1}p_t}-\\-\frac n{p_1p_2p_2}-\dots+(-1)^t\frac n{p_1p_2\dots p_t}$
 \section{Теорема Ойлера та мала теорема Ферма}
-\begin{theorem}[Ойлер]
+\begin{theorem}[Euler]
 $$\forall n\in\mathbb{N},\>\forall a\in\mathbb{Z}_n^*:\>\>a^{\varphi(n)}\equiv 1(\mod n)$$
 \begin{proof}
 	$\\\forall a\in\mathbb{Z}_n^*:\>\>a\mathbb{Z}_n^*=\mathbb{Z}_n^*$ якщо $x$ пробігає усі значення $\mathbb{Z}_n^*$, то $ax$ також пробігає $\mathbb{Z}_n^*$\\$ax\equiv ay(\mod n)\Rightarrow x\equiv y(\mod n)\\\mathbb{Z}_n^*=\{b_1,\>b_2,\dots,\>b_{\varphi(n)}\}=\{ab_1,\>ab_2,\dots,\>ab_{\varphi(n)}\}\Rightarrow\\\Rightarrow  \cancel{b_1}\cancel{b_2}\dots \cancel{b_{\varphi(n)}}\equiv a\cancel{b_1}\cdot a\cancel{b_2} \dots a\cancel{b_{\varphi(n)}}1\equiv a^{\varphi(n)}(\mod n)$
@@ -722,7 +751,7 @@ $$a\>\bar{\vdots}\>p\Rightarrow a^{p-1}\equiv 1(\mod n)$$
 	
 \end{cons*}
 \end{theorem}
-\begin{theorem}[Мала теорема Ферма]
+\begin{theorem}[Fermat's little theorem]
 $$p\textrm{ - просте: }\forall a\tab a^p\equiv p(\mod a)$$
 	\begin{proof}
 		$\\a\>\vdots\>p\tab a^p\equiv a\equiv 0(\mod p)\\a\>\bar{\vdots}\>p\tab a^{p-1}\equiv 1(\mod p)$
@@ -762,7 +791,7 @@ $$\lambda(n)=\min \{u\>:\>\forall a\in\mathbb{Z}_{n}^*:\>\> a^u\equiv 1(\mod n)\
 \begin{cons*}
 	$$\lambda(p^\alpha)=\varphi(p^\alpha)$$
 \end{cons*}
-\begin{theorem}[Кармайкл]$\\$
+\begin{theorem}[Carmichael]$\\$
 	\begin{enumerate}
 		\item $n=p$ $$\lambda(n)=\begin{cases}
 			\varphi(n),\>n=2,\>4,\>p^\alpha,\>p\geq 3\\ \frac12 \varphi(n),\>n=2,\>\alpha>3
@@ -805,7 +834,7 @@ $B=2,\tab B=10,\tab B=16\\$
 	$70$ у $B=3\\70=23\cdot 3+1\\23=7\cdot 3+2\\7=2\cdot 3+1\\2=0\cdot3+2\\70=\overline{2121}_3$
 \end{example}
 \section{Ознака подільності числа}
-\begin{theorem}[Ознака подільності Паскаля]
+\begin{theorem}[Pascal's divisibility rule]
 	$$\textrm{Нехай }n=a_{k-1}a_{k-2}\dots a_1a_0,\>m\in\mathbb{N},\tab r_0:=1,\>r_{i+1}r_1B\mod m$$
 	$$\textrm{Тоді }n\equiv\sum\limits_{i=0}^{k-1}a_ir_i(\mod m),\tab n\>\vdots\>m\Leftrightarrow\sum\limits_{i=0}^{k-1}a_ir_i\>\vdots\>m$$
 	\begin{proof}
@@ -853,7 +882,7 @@ $C_n^k=\frac{n!}{k!(n-k)!}$
 \begin{prop*}["біном для дурників"]
 	$$\forall a,\>b\in\mathbb{Z},\> p\textrm{ - просте }(a+b)^p\equiv a^p+b^p(\mod p)$$
 \end{prop*}
-\begin{theorem}[Люка]
+\begin{theorem}[Lucas']
 	$$ p\textrm{ - просте },\>n=\overline{n_{k-1}n_{k-2}\dots n_1n_0},\>\>m=\overline{m_{k-1}m_{k-2}\dots m_1m_0}$$
 	$$C_m^n\equiv C^{m_0}_{n_0}C^{m_1}_{n_1}\dots C^{m_{k-1}}_{n_{k-1}}(\mod p)$$
 	\begin{proof}
@@ -902,7 +931,7 @@ $f(x)\equiv 0(\mod m)$
 	$$\Rightarrow f(x)\equiv0(\mod p),\>f(x)\mod (x^p-x)\equiv 0(\mod p)$$
 	$$\textrm{можна розглядати }f:\tab \deg f<p$$
 \end{lemma}
-\begin{theorem}[основна теорема алгебри для $\mathbb{Z}_p$]
+\begin{theorem}[Fundamental theorem of arithmetics for $\mathbb{Z}_p$]
 	$\\f(x)\in\mathbb{Z}_p[x],\>\deg f=n<p$
 	$$\textrm{Якщо }a_n\>\bar{\vdots}\>p,\textrm{ то } f(x)\equiv0(\mod p)\textrm{ має }\leq n\textrm{ розв'язків}$$
 	\begin{proof}ММІ за $n$
@@ -924,7 +953,7 @@ $f(x)\equiv 0(\mod m)$
 		\end{proof}
 	\end{cons*}
 \end{theorem}
-\begin{theorem}[Вільсон]
+\begin{theorem}[Wilson]
 $$n \textrm{ - просте}\Leftrightarrow((n+1)!+1)\>\vdots\>n$$
 	\begin{proof}$ $
 		\begin{enumerate}
@@ -946,7 +975,7 @@ $f^{(k)}(x)=\sum\limits_{t=k}^na_tt(t-1)\dots(t-k+1)x^{t-k}$
 		$f^{(0)}(x)\equiv f(x)$
 	\end{remark*}
 \end{lemma}
-\begin{theorem}[Розклад Тейлора для поліномів]$\forall f(x):\>\forall x_0,\>\alpha$
+\begin{theorem}[Taylor series]$\forall f(x):\>\forall x_0,\>\alpha$
 	$$f(x+\alpha)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_
 	0)}{k!}\alpha^k$$
 	\begin{proof}
@@ -1012,7 +1041,7 @@ $f(x)=x^2-\alpha\\x_0$ - корінь, то $(-x_0)$ також корінь
 		$\\$Квадратичні лишки: $(1)^2,\>2^2,\>3^2,\dots,\>\left(\frac {p-1}{2}\right)^2\Rightarrow \frac {p-1}{2}$ штук\\ Але $0<u<v\leq \frac {p-1}{2}:\>u^2\equiv v^2(\mod p)$ то $x^2\equiv u^2 (\mod p)\\$ має 4 розв'язки $\pm u,\>\pm v\Rightarrow$ квадратичних лишків $\frac {p-1}{2}$ штук  
 	\end{proof}
 \end{lemma}
-\begin{theorem}[Критерій Ойлера]
+\begin{theorem}[Euler's criterion]
 	$$a^{\frac {p-1}{2}}\mod p\equiv \left\{\begin{array}{ll}
 	1, & a\textrm{ - квадратичний лишок}\\
 	-1, & a\textrm{ - квадратичний нелишок}	
@@ -1024,7 +1053,7 @@ $f(x)=x^2-\alpha\\x_0$ - корінь, то $(-x_0)$ також корінь
 	\end{proof}
 \end{theorem}
 \section{Критерій квадратичності Гаусса}
-\begin{theorem}[критерій Гаусса]
+\begin{theorem}[Gauss' criterion]
 	$a\in\mathbb{Z}_p^*,\>a\cdot Y_p=\{a,\>2a,\>3a,\dots,\>\frac {p-1}{2}a\},\>l$ - кількість від'ємних лишків у $a\cdot Y_p$
 	$$(-1)^l=\left\{\begin{array}{ll}
 		1, & a\textrm{ - квадратичний лишок}\\
@@ -1090,6 +1119,304 @@ $n$ - непарне, $a$ - довільне
 \begin{example}
 	$x^2\equiv 59(\mod 97)\\\left(\frac {59}{97}\right)=(-1)^{\frac{59-1}{2}\frac{97-1}{2}}\left(\frac {59}{97}\right)=(-1)^{\frac{a-1}{2}\frac{n-1}{2}}\left(\frac {38}{29}\right)=\left(\frac {2}{29}\right)\left(\frac {19}{29}\right)=(-1) \left(\frac {19}{59}\right)=(-1)(-1)^{\frac{19-1}{2}\frac{59-1}{19}}=\\=(+1)\left(\frac {2}{19}\right)=-1$
 \end{example}
+\newpage
+\thispagestyle{empty}
+ \hspace{0pt}
+\vfill
+\begin{center}
+	\LARGE{\textbf{Вступ до абстрактної алгебри}}
+\end{center}
+\begin{center}
+	(Introduction to Abstract algebra)
+\end{center}
+\vfill
+\hspace{0pt}
+\pagebreak
+\newpage
+\chapter{Лекція 1}
+\section{Алгебраїчні системи з однією операцією}
+$\Aa,\>\bullet\>(\Aa\times\Aa\to\Aa)\\$ Операція $\bullet$ - замкнена на множині $\Aa$, бо вона приймає аргументи з множини $\Aa$ і повертає значення з цієї множини\\	
+$B\subseteq\Aa,$ якщо $\forall b_1,\>b_2\in B:\>b_1\bullet B_2\in B$ - $B$ замкнена відносно $\bullet$
+\begin{definition}
+	$$\langle\Aa,\>\bullet\rangle\textrm{ - алгебраїчна система з однією операцією}$$
+\end{definition}	
+\begin{property*}[можливі]$ $
+	\begin{enumerate}
+		\item асоціативність: $\forall a,\>b,\>c\in\Aa:\>a\bullet(b\bullet c)=(a\bullet b)\bullet c$
+		\item комутативність: $\forall a,\>b\in\Aa:\>a\bullet b=b\bullet a$
+		\item $\\\begin{array}{rl}
+			\textrm{нейтральний елемент: }&e_L\in\Aa\textrm{ - лівий нейтральний}\Leftrightarrow\forall a\in\Aa:\>e_L\bullet a=a\\
+			&e_R\in\Aa\textrm{ - правий нейтральний}\Leftrightarrow\forall a\in\Aa:\>a\bullet e_R=a\\
+			&e\in\Aa\textrm{ - нейтральний}\Leftrightarrow\textrm{одночасно лівий і правий}
+		\end{array}$
+		\item $\\\begin{array}{rl}
+			\textrm{"нуль": }&z_L\in\Aa\textrm{ - лівий нуль}\Leftrightarrow\forall a\in\Aa:\>z_L\bullet a=z_L\\
+			&z_R\in\Aa\textrm{ - правий нуль}\Leftrightarrow\forall a\in\Aa:\>a\bullet z_R=z_R\\
+			&z\in\Aa\textrm{ - нейтральний}\Leftrightarrow\textrm{одночасно лівий і правий}
+		\end{array}$
+		\item наявність обернениз елементів:(за умови наявность нейтрального!)\\ \tab $a\in\Aa$ має лівий обернений $a_L^{-1}:\>a_L^{-1}\bullet a=e$\\\tab $a\in\Aa$ має лівий обернений $a_R^{-1}:\>a\bullet a_R^{-1}=e$\\\tab $a^{-1}\in\Aa$ - оберенений до $a\in\Aa$, якщо $a\bullet a^{-1}=a^{-1}\bullet a=e$ 
+	\end{enumerate}
+\end{property*}
+\begin{definition}
+	$$\langle\Aa,\>\bullet\rangle\textrm{ - напівгрупа, якщо операція }\bullet\textrm{ - асоціативна}$$
+\end{definition}
+\begin{definition}
+	$$\langle\Aa,\>\bullet\rangle\textrm{ - моноїд, якщо }\bullet\textrm{ - асоціативна}, \exists e\in\Aa\>\forall a\in\Aa:\>e\bullet a=a\bullet e=a$$
+\end{definition}
+\begin{definition}
+	$$\langle\Aa,\>\bullet\rangle\textrm{ - група, якщо вона моноїд і }\forall a\in\Aa\>\exists a^{-1}\in\Aa:\>a\bullet a^{-1}=a^{-1}\bullet a=e$$
+\end{definition}
+\begin{remark*}$\\$
+	$\bullet$ - комутативна $\Rightarrow$ комутативна напівгрупа\\\tab\tab\tab\tab комутативний моноїд\\\tab\tab\tab\tab абелева група
+\end{remark*}
+\begin{remark*}
+	$ \\$Форми запису:
+	\begin{center}
+		$\begin{array}{cc}
+		\textrm{Мулітиплікативна} & \textrm{Адитивна}\\
+		a\bullet b & a + b\\
+		a^n,\>n\in\mathbb{Z} & n\cdot a,\>n\in\mathbb{Z}\\
+		a^{-1} & -a\\
+		\textrm{"множення"} & \textrm{"додавання"}
+	\end{array}$
+	\end{center}
+\end{remark*}
+\section{Приклади алгебраїчних систем з однією операцією}
+\begin{example}
+	$\\\langle\mathbb{N},\>+ \rangle$ - комутативна напівгрупа, \\$\langle\mathbb{N}_0,\>+ \rangle$ - комутативний моноїд,\\ $\langle\mathbb{Z},\>+ \rangle$ - абелева група,\\ $\langle\mathbb{N},\>- \rangle$ - не алгебраїчна система,\\ $\langle\mathbb{Z},\>+ \rangle$ - не напівгрупа,\\ $\langle\mathbb{N},\>\cdot  \rangle$	- комутативний моноїд,\\ $\langle\mathbb{Z},\>+\cdot \rangle$ - комутативний моноїд, $\to 1^n=1,\>(-1)^{-1}=-1$ \\$\langle\mathbb{Q},\>\cdot \rangle$ - комутативний моноїд, $\mathbb{Q}^*=\mathbb{q}\backslash\{0\}\Rightarrow\langle \mathbb{Q}^*,\>\cdot\rangle$ - абелева группа, \\$\langle\mathbb{Z_m},\>+\mod m \rangle$ - абелева група, \\$\langle\mathbb{Z_m},\>\cdot\mod m \rangle$ - комутативний моноїд, \\$\langle\mathbb{Z_m}^*,\>+\mod m \rangle$ - абелева група\\ $Mat_{n\times m}(\mathbb{R})$: за додаванням - абелева група\\
+	$\tab\tab\>\>\>$ за множенням - моноїд\\
+	$\mathcal{G}L_n(\mathbb{R})=\{M\in M_{a+n\times m}(\mathbb{R})|\det M\neq0 \}$ - загальна лінійна група\\ $X^X=\{f\>|\>f:X\to X,\>\langle X^X,\>\circ\rangle$ - моноїд\\ $Sym(X)$ - множина бієктивних відображень $\Rightarrow\langle Sym(X),\>\circ \rangle$ - група(симетрична група підстановок на $X$)\\$\langle 2^A,\>\cup\rangle$ - комутативний моноїд, $\O$ - нейтральний \\$\langle 2^A,\>\backslash\rangle$ - не напів група, $(B\backslash C)\backslash D\overset{?}{=} B\backslash(C\backslash D)\\\langle 2^*,\>\vartriangle\rangle$ - абелева група,  $A\vartriangle\O =A,\>A=A^{-1}\\\langle A^*,\>\Vert\rangle$ - моноїд
+\end{example}\newpage
+\section{Властивості елементів моноїдів. Циклічні моноїди}
+$\langle \Mm,\>\bullet\rangle$ - моноїд
+\begin{lemma}
+		$$\textrm{У }\Mm\textrm{ існує лише одін нейтральний елемент}$$
+		\begin{proof}$ $
+			Нехай $e_1,\>e_2$ - нейтральні елементи
+\begin{tabular}{cl}
+{\color{red}\rlap{\rule[2.5pt]{6cm}{1pt}}}$\forall g\in \Mm:$ & $g=e_1\bullet \cancel{g}=e_2\bullet \cancel{g}$\\
+  {\color{red}\rlap{\smash{\makebox[7ex]{\rule[-2pt]{1pt}{35pt}}}}} $\Rightarrow e_1=e_2$ & {\color{red} НЕ МОЖНА!!!}
+\end{tabular}\\$\slash*\\$Скорочуваність - теж властивіть. Вона може бути, а може і не бути. І опки ви не доведете, використовувати її не можна.\begin{flushright}
+$*\slash$
+\end{flushright}
+$e_1=e_1\bullet e_2=e_2$(аксіома про нейтральний елемент)
+		\end{proof}
+\end{lemma}
+\begin{lemma}
+	$$\textrm{Якщо }a\in \Mm\textrm{ має лівий та правий обернені елменти, то вони співпадают}$$
+	\begin{proof}
+		$a_l^{-1},\>a_R^{-1}:\>\>a_L^{-1}\bullet a\bullet a_R^{-1}=a_L^{-1}\bullet e=a_L^{-1}\\\tab\tab\tab\>\>\>\> 
+		a_L^{-1}\bullet a\bullet a_R^{-1}=a_R^{-1}\bullet e=a_R^{-1}$
+	\end{proof}
+\end{lemma}
+\begin{lemma}
+	$$\textrm{Якщо }a\in \Mm\textrm{ - оборотний, то він має рівно один обернений елмент}$$
+	\begin{proof}
+		
+	\end{proof}
+\end{lemma}
+\begin{definition}Степін елемента $a\in\Mm:$
+	$$a^0=e,\>a^1=a,\>a^{n+1}=a^n\bullet a,\>n\geq1$$
+	$$\langle a\rangle=\{e,\>a,\>a^2,\dots\}=\{a^n\>|\>n\in\mathbb{N}\}$$
+\end{definition}
+$\Mm$ - цикліччний моноїд $\Leftrightarrow\exists g:\>\Mm=\langle g\rangle\Rightarrow g$ - твірний елемент/генератор
+\begin{theorem}
+	$$\forall a\in\Mm,\>\forall m,\>n\in \mathbb{N}_0:\>a^m\bullet a^n=a^{m+n}$$
+	\begin{proof}
+		MMI:\\$\forall m$ - фіксованe: $n=0$(база): $a^m\bullet a^0=a^m\bullet e=a^m=a^{m+0}\\n\to n+1\tab a^m\bullet a^{n+1}=a^m\bullet a^n\bullet a=a^{n+m}\bullet a=a^{m+n+1}$  
+	\end{proof}
+\end{theorem}
+\textcircled{$\Rightarrow$} Ціклічні моноїди - комутативні 
+\begin{fact*}
+	$$\textrm{Існує фактично один нескінченний циклічний моноїд: }\langle\mathbb{N}_0,\>+ \rangle$$
+	
+	$\begin{array}{r}
+		 \\
+		 \includegraphics[width=6cm]{graph2.png}  
+	\end{array}\begin{array}{l}
+		\Mm=\langle g\rangle:\>g^k\mapsto k\\
+		 \textrm{Нехай існує } \Mm=\langle g\rangle,\>|\Mm|<\infty\\\Rightarrow \exists \min g:\>g^s=g^m,\>m<s\\\langle2\rangle\in\mathbb{Z}_{20}\textrm{ за }\bullet\>\langle2\rangle=\{\overbrace{1,\>2}^{\textrm{передп.}},\overbrace{4,\>8,\>16,\>32}^{\textrm{цикл}}\}\sim C_{2,\>4}
+	\end{array}$ 
+\end{fact*}
+\chapter{Лекція 2}
+\section{Властивості елементів груп. Циклічні групи}
+\begin{align*}
+	\langle G,\>\bullet\rangle\> & \textrm{- замкненість}\\
+	& \textrm{- асоціативність} \\
+	& \textrm{- }\exists\textrm{ нейтральний елемент}\\
+	& \textrm{- } \forall a\>\>\exists a^{-1}\>:\>a\bullet a^{-1}=a^{-1}\bullet a=e
+\end{align*}
+\begin{property*}$ $
+	\begin{enumerate}
+		\item Правило скорочення: $\\\forall a,\>x,\>y\in G:\tab ax=ay\Rightarrow x=y,\>xa=ya\Rightarrow x=y$
+		\item $\forall a,\>b\in G:\tab$ $\begin{array}{c}
+			ax=b\\ya=b
+		\end{array}$ - мають єдиний розв'язок \begin{proof}$ $
+			\begin{enumerate}\item $x=a^{-1}b:\tab ax=a(a^{-1}\bullet b)=(a\bullet a^{-1})b=e\bullet b=b\Rightarrow$ - розв'язок
+			\item Нехай $x_1,\>x_2$ - розв'язки $ax=b\tab \Rightarrow b=ax_1=ax_2\Rightarrow x_1=x_2$
+			  \end{enumerate}
+		\end{proof}
+		\item \begin{prop*}$\forall a,\>b\in G$
+			\begin{enumerate} 
+				\item $e^{-1}=e$
+				\item $(a^{-1})^{-1}=a$
+				\item $(ab)^{-1}=b^{-1}a^{-1}$
+				\item $\forall\in\mathbb{Z}:\>\>(a^{-1})^m=(a^m)^{-1}$
+			\end{enumerate}
+			\begin{proof}$ $
+				\begin{itemize}
+					\item [(c)] $(ab)^-1\bullet\underbrace{(ab)}_{x}=e,\>(ab)^{-1}\bullet a\bullet b\bullet b^{-1}=(ab)^{-1}\bullet a=e\bullet b^{-1}=b^{-1},\>(ab)^{-1}=b^{-1}\bullet a^{-1}$
+				\end{itemize}
+			\end{proof}
+		\end{prop*}
+		\item \begin{theorem} $\forall a\in G,\>\forall m,\>n\in\mathbb{Z}:$
+			$$a^m\bullet a^n=a^{m+n},\tab (a^m)^n=a^{mn}$$
+			\begin{proof}$ $
+				\begin{enumerate} 
+					\item $\\$$\begin{array}{cl}
+						a^m\bullet a^n=a^{m+n}:& (1)\>m,\>n>0\textrm{ - доведено для }\forall\textrm{ моноїд}\\
+						& (2)\>n,\>m<0\textrm{ - }a^m\bullet a^n=(a^{-1})^{-m}(a^{-1})^{-n}\textrm{ - див. п. (1)}\\
+						& (3)\begin{array}{ll} 
+						m>0&a^ma^n=a^m(a^{-1})^t=\underbrace{aaa\dots a}_m\underbrace{a^{-1}a^{-1}\dots a^{-1}}_t\\
+						n<0&m\geq t:\>=a^{m-t}=a^{m+n}\\
+						t=-n<0&m<t:\>=(a^{-1})^{t-m}=a^{m-t}=a^{m+n}
+						\end{array}\\
+						&(4)\>m<0,\>n>0\textrm{ - аналогічно}
+					\end{array}$
+					\item $\\\begin{array}{ll}
+						n\geq0:&(a^m)^n=a^m\bullet a^m\bullet\dots\bullet a^m=a^{mn}\\
+						n<0:&(a^m)^n=((a^m)^{-1})^{-n}=((a^{-1})^m)^{-n}=(a^{-1})^{-mn}=a^{mn}
+					\end{array}$
+				\end{enumerate}
+			\end{proof}
+		\end{theorem}
+	\end{enumerate}
+\end{property*}
+\begin{fact*}
+	Циклічні групи $$G\textrm{ - циклічна}\Leftrightarrow\exists g:G=\langle g\rangle$$$$\Rightarrow\textrm{усі циклічні групи зводятся до }\langle\mathbb{Z},\>+\rangle$$$$\textrm{усі циклічні групи зводятся до }\langle \mathbb{Z}_m,\>
+	+\rangle$$
+\end{fact*}
+\section{Порядок групи, порядок елементу групи. Підгрупи}
+\begin{lemma}
+	$$\langle G,\>\bullet\rangle,\>a\in G,\>\langle a\rangle\textrm{ - скінченна}\Rightarrow\langle a\rangle\textrm{ н містить передпорядку}$$ 
+	\begin{proof}
+		$\\\begin{array}{c}
+			\includegraphics[width=3cm]{graph3}
+		\end{array} \langle a\rangle$ - скінченна $\Rightarrow\begin{array}{l}
+			\exists m,\>s:\>s>m>0.\\
+			a^s=a^m\Rightarrow a^s\bullet(a^m)^{-1}=e,\>a^{s-m}=e.
+		\end{array}$
+	\end{proof}
+\end{lemma}
+\begin{definition}$\langle a\rangle$
+	$$\textrm{ - орбітa елемента }a$$
+\end{definition}
+\begin{definition}$\ord G$
+	$$\textrm{Порядок групи} = |G|$$
+\end{definition}
+\begin{definition}$\ord a$
+	$$\textrm{Порядок елементу} = |\langle a\rangle|$$
+	\begin{align*}
+		\textrm{Якщо }\exists n\in\mathbb{N}:\>a^n=e,\textrm{ то }\ord a=\min\{n\>|\>a^n=e\},\>\textrm{ інакше }\ord a=\infty
+	\end{align*}
+\end{definition}
+\begin{example}
+	$\ord e=1,\tab \ord a=1\Leftrightarrow a=e$
+\end{example}
+\begin{example}
+	$\langle\mathbb{Z},\>+\rangle:\>\ord0=1,\>\ord 1=\infty\\\langle\mathbb{Z}_4,\>+\rangle:\>\ord0=1,\>\ord1=4,\>\ord2=2$
+\end{example}
+\begin{lemma}
+	\begin{align*}
+		\textrm{Якщо }g\in G \textrm{ має скінченний порядок: }\ord g^u=n<\infty,\textrm{ то }g=e\Leftrightarrow u\>\vdots\>n
+	\end{align*}
+	\begin{proof}
+		$\\$\textcircled{$\Leftarrow$} $u=k\bullet n\Rightarrow g^u=(g^n)^k=e^k=e$$\\$\textcircled{$\Rightarrow$} Нехай $u\>\bar{\vdots}\>n\Rightarrow u=nq+r,\>0<r<n\\\tab e\bullet g^u=(g^n)^q\bullet g^r=e^q\bullet g^r=g^r\Rightarrow n$ - не порядок $g$ - Упс!
+	\end{proof}
+\end{lemma}
+\begin{definition}Підгрупа
+	$$H\subseteq G\textrm{ - підгрупа }G\Leftrightarrow H\textrm{ - група}$$
+	\begin{center}
+		$\begin{array}{cl}
+		\langle H,\>\bullet\rangle & - \textrm{ замкненість}\\
+			 & - \textrm{ асоціативність}\\
+			  & - \textrm{ наявність }e\\
+			   & - \textrm{ наявність обернених}
+	\end{array}$
+	\end{center}	
+\end{definition}
+\begin{example}
+	$\begin{array}{cl}
+		\langle\mathbb{Z},\>+\rangle: & 2\mathbb{Z}\textrm{ - підгрупа}\\
+		& n\mathbb{Z}=\{nm\>|\>m\in\mathbb{Z}\}\textrm{ - підгрупа}\\
+		& 2\mathbb{Z}+1\textrm{ - не підгрупа (не замкнена)}\\
+		& \mathbb{Z}_n\textrm{ - підгрупа}\mathbb{Z}
+	\end{array}$
+\end{example}
+\begin{example}
+	$\mathcal{S}L_n(\mathbb{R})\subseteq\mathcal{G}L_n(\mathbb{R}),\> \mathcal{S}L_n(\mathbb{R})=\{M\in\mathcal{G}L_n(\mathbb{R})\>|\>\det M=1\}$ - спеціальна підгрупа
+\end{example}
+Тривіальні підгрупи: $\{e\},\>G$, інші пігрупи - власні
+\begin{prop*}
+	$$H\subseteq G\textrm{ - }\Leftrightarrow\forall a,\>b\in H:\>\>a\bullet b^{-1}\in H$$
+\end{prop*}
+\section{Класи суміжності, індекс підгрупи, теорема \\Лагранжа та наслідки з неї}
+\begin{definition}Нехай $\langle G,\>\bullet\rangle$ - група, $H\subseteq G$ - підгупа 
+	\begin{align*}
+		\textrm{Елементи} g_1,\>g_2 - & \textrm{(ліво) конгуретні відносно} H: \begin{array}{l}
+			g_1\equiv g_2(\mod n)\Leftrightarrow g_1^{-1}\bullet g_2\in H\Leftrightarrow\\\Leftrightarrow\exists h\in H:g_2=g_1\bullet h,\>g_1=g_2\bullet h^{-1}
+		\end{array}\\
+		& \textrm{(право) конгурентні}\longrightarrow g_1\bullet g_2^{-1}\in H\>\exists h\in H:\>g_2=h\bullet g_1
+	\end{align*}
+\end{definition}
+\begin{lemma}
+	$$\equiv\mod H\leftarrow g_1\underset{H}{\sim}g_2\>(\textrm{відношення еквівалентності на }G)$$
+\end{lemma}
+$\begin{array}{cc}
+	\textrm{лівий клас суміжності }g\in G: \>gH=\{gh\>|\>h\in H\} & \textrm{правий }:\>Hg=\{hg\>|\>h\in H\}	
+\end{array}\\\Rightarrow G\bigcup\limits_{g\in G}gH$
+\begin{prop*}усі класи суміжно рівнопотужні
+	$$\forall g\in G\tab |gH|=|H|$$
+	\begin{proof}
+		Розглянемо відображення $fg:H\rightarrow gH\\\begin{array}{cl}
+			fg(x)=g\bullet x& - \textrm{ сюр'єктивне за побудовою } gH\\
+			& - \textrm{ ін'єктивне: }x_1,\>x_2\in H\>\>fg(x_1)=fg(x_2),\>g\bullet x_1=g\bullet x_2,\>x_1=x_2 
+		\end{array}\\\Rightarrow fg$ - бієкція $\Rightarrow|gH|=|H|$
+	\end{proof}
+\end{prop*}
+\begin{definition}
+	$$\textrm{Індекс пігрупи }H\textrm{ у групі }G:\>[G:H]=\textrm{кількість різник класів суміжності}$$
+\end{definition}
+$\\G\>- $ скінченна $\Rightarrow$ індекс скінченний\\
+$G\>- $ не скінченна $\Rightarrow$ що завгодно
+\begin{example}
+	$[G:\{e\}]=|G|,\>[G:G]=1,\>\langle\mathbb{Z},\>+\rangle,\>H=n\mathbb{Z},\>[\mathbb{Z}:n\mathbb{Z}]=n$
+\end{example}
+\begin{theorem}[Lagrange]
+	$$|G|=[G:H]\cdot|H|,\textrm{ якщо } G\textrm{ - скінченна}$$
+	\begin{proof}
+	$G=\bigcup\limits_{g}|gH|=\#$класiв сумижностi $\cdot\>|H|=[G:H]\cdot|H|$
+\end{proof}
+\end{theorem}
+\begin{cons*}Нехай $|G|=n<\infty$
+	\begin{enumerate}
+		\item $\forall H$ - підгрупа: $n\>\vdots\>|H|$
+		\item $\forall g\in G:\>n\>\vdots\>\ord g$ \begin{proof}
+			$\ord g=|\langle g\rangle|,\>\langle g\rangle$ - підгрупа $G$
+		\end{proof}
+		\item $\forall g\in G:\>g^n=e$
+		\item $\forall$ група простого порядку є циклічною\begin{proof}
+			$|G|=p,\>p\geq 2$ - просте, $\exists g+e\Rightarrow\ord g\>|\>p,\>\ord g\neq1\Rightarrow\ord g=p\Rightarrow\\\Rightarrow|\langle g\rangle|=p\Rightarrow |\langle g\rangle|=G$
+		\end{proof}
+	\end{enumerate}
+\end{cons*}
+\begin{theorem}[Sylow]
+	$$|G|=n,\>n\textrm{ - складене},\>p^\alpha\>|\>n,\>p\textrm{ - просте}\Rightarrow\exists H\subseteq\textrm{ - підгрупа, }|H|=p^\alpha$$
+\end{theorem}
+\begin{theorem}
+	$$G\textrm{ - нециклічна скінченна абелева група},\>|G|=n\Rightarrow\exists u\>|\>n,\>u<n:\>\forall g\in G:\>g^u=e$$
+\end{theorem}
+Для $\langle\mathbb{Z}_m^*,\>\bullet\rangle$ число $u$ визначається функцією Кармайкла $\lambda(m)$
 
 
 
@@ -1098,6 +1425,153 @@ $n$ - непарне, $a$ - довільне
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{appendices}
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+
+\chapter[A]{Appendix}
+\section{Подільність многочленів}
+$1+x+x^2+x^3+\dots+x^{n-1}=S(x)\\ 1+x(1+x+x^2+\dots+x^{n-2}=1+x(s(x)-x^{n-1}=S(x)$
+$$x^{n-1}=(X-1)(x^{n-1}+x^{n-2}+\dots+x+1)$$
+\section{Наслідок з подільності(теорема Безу)}
+$x\to\frac{x}{y}:\tab \frac{x^n}{y^n}-1=(\frac xy-1)(\frac{x^{n-1}}{y^{n-1}}+\frac{x^{n-2}}{y^{n-2}}+\frac xy+1)\tab \big|\>x\tab \cdot y^n$
+$$x^n-y^n=(x-y)(x^{n-1}+	x^{n-2}y+x^{n-3}y^2+\dots+xy^{n-2}+y^{n-1}$$
+$$\Rightarrow(x^n-y^n)\>\vdots\>(x-y)$$
+Поліном: $p(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0,\>a_n\in\mathbb{R},\>a_n\neq0,\>\deg p=n\\\tab p(x)-p(y)=a_n(x^n-y^n)+a_{n-1}(x^{n-1}-y^{n-1})+\dots+a_1(x-y)+a_0\cdot0\\\tab p(x)-p(y)\>\vdots\>(x-y),\> p(x)-p(y)=(x-y)\cdot Q(x,\>y),\>Q(x,\>y)_{\textrm{ - поліном від } x,\>y}$
+\begin{theorem*}[Безу]
+	$$p(x)\textrm{ - поліном},\forall\>\alpha\textrm{ - число}\Rightarrow p(x)-p(\alpha)\>\vdots\>(x-\alpha)$$
+	\centering або
+	$$\forall\>\alpha\textrm{ - число}\>\exists q(x):\>p(x)=(x-\alpha)\cdot q(x)+p(\alpha),\>\deg q=\deg p-1$$
+\end{theorem*}
+\section{Наслідок з теореми Безу}
+\begin{enumerate}
+	\item якщо $\alpha$ - корінь $p(x),$ то $p(x)\>\vdots\>(x-\alpha)\\p(\alpha)=0\Rightarrow p(x)=(x-\alpha)\cdot q(x)+p(\alpha)=(x-\alpha)\cdot q(x)$
+	\item якщо $\alpha_1,\>\alpha_2,\dots,\alpha_n\in\mathbb{C}$ - усі корені з урахуванням кратності, то \\ $p(x)=a_n(x-\alpha_1)(x-\alpha_2)\dots(x-\alpha_n)$
+\end{enumerate}
+\section{Теорема Вієта}
+$\tab x^n:\>a_n=a_n\\\tab x^{n-1}:\>a_{n-1}=a_n(-\alpha_1-\alpha_2-\dots-\alpha_n)\Rightarrow\alpha_1+\alpha_2+\dots+\alpha_n=-\frac{a_{n-1}}{a_n}\\p(x)=a_3x^3+a_2x^2+a_1x+a_0=a_3(x-\alpha_1)(x-\alpha_2)(x-\alpha_3)=a_3(x^3-\alpha_1x^2-\\-\alpha_2x^2-\alpha_3x^2\alpha_1\alpha_2x+\alpha_1\alpha_3x+\alpha_2\alpha_3x-\alpha_1\alpha_2\alpha_3)\\\Rightarrow\begin{array}{rl}
+	x^3:&a_3=a_3\\
+	x^2:&a_2=a_3(-\alpha_1-\alpha_2-\alpha_3)\\
+	x:&a_1=a_3(\alpha_1\alpha+\alpha_1\alpha_3+\alpha_2\alpha_3)\\
+	x^0=1:&a_0=a_3(-\alpha_1\alpha_2\alpha_3)
+\end{array}\begin{array}{c}
+	x^k: a_k=a_n\cdot(-1)^{n-k}\sum\alpha_{i_1}\alpha_{i_2}\dots\alpha_{i_k}\\1\leq i_1<i_2<\dots<i_n\leq n
+\end{array}\\
+\tab\Rightarrow\alpha_1+\alpha_2+\dots+\alpha_n=-\frac{a_{n-1}}{a_n},\tab\alpha_1\alpha_2\dots\alpha_n=(-1)^n\cdot\frac{a_0}{a_n}$
+\section{Схема Горнера}
+$\tab p(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0\\
+\tab q(x)=b_nx^n+b_{n-1}x^{n-1}+\dots+b_1x+b_0\\
+p(x)=(x-\alpha)\cdot q(x)+p(\alpha)=(x-\alpha)(b_{n-1}x^{n-1}+\dots+b_1x+b_0)+p(\alpha)=\\\begin{array}{lllllll}
+	=b_{n-1}\cdot x^{n} & +b_{n-2}\cdot x^{n-1} & +b_{n-3}\cdot x^{n-2} & +\dots & +b_1\cdot x^2 & +b_0\cdot x & \\
+	 & -\alpha b_{n-1}x^{n-1} & -\alpha b_{n-2}x^{n-2} & -\dots & -\alpha b_2x^2 & -\alpha b_1x & -\alpha b_0 +p(\alpha)= 
+\end{array}\\=a_n\cdot x^n+a_{n-1}\cdot x^{n-1}+\dots+a_1x+a_0\\\Rightarrow\begin{array}{l}
+	a_n=b_{n-1}\\a_{n-1}=b_{n-2}-\alpha\cdot b_{n-1}\\a_{n-2}=b_{n-3}-\alpha\cdot b_{n-2}\\\tab\vdots\\a_1=b_0-\alpha b_1\\a_0=p(\alpha)-\alpha b_0
+\end{array}\Rightarrow\begin{array}{l}
+	b_{n-1}=a_n\\b_{n-2}a_{n-1}+\alpha\cdot b_{n-1}\\b_{n-3}=a_{n-2}+\alpha\cdot b_{n-2}\\\tab\vdots\\b_0=a_1+\alpha b_1\\p(\alpha)=a_0+\alpha b_0
+\end{array}$
+\begin{center}
+\begin{table}[!htp]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c}
+           & $a_n$     & $a_{n-1}$ & $a_{n-2}$ & $\dots$ & $a_{n}$ & $a_1$         & $a_0$       \\ \hline
+$\alpha$   & $b_{n-1}$ & $b_{n-2}$ & $b_{n-3}$ & $\dots$ & $b_1$   & $b_0$         & $p(\alpha)$ \\ \hline
+$\alpha_2$ & $c_{n-2}$ & $c_{n-3}$ & $c_{n-4}$ & $\dots$ & $c_0$   & $q(\alpha_2)$ &            
+\end{tabular}
+\end{table}
+\end{center}
+$\slash*\\$\tab Задача схеми Горнера - поділити многочлен на $(x-\alpha)$, не обчислюючи усі степені $\alpha$.
+Ефективніший за ділення у стовпчик - простий (лише 1 "+" та 1 "$x$" на одну клітинку) та швидкий (один цикл for + перекладання з одного масиву у інший)\begin{flushright}
+$*\slash$
+\end{flushright}
+\section{Ланцюгові дроби}
+$\alpha\in\mathbb{R}:\>\>\alpha=a_1+a_0,\>a_\in\mathbb{Z},\>0\leq\alpha_1<1\\
+\alpha=a_1+\frac{1}{\frac{1}{\alpha_1}}=a_1+\frac{1}{\frac{a_2}{\alpha_2}}=a_1+\frac{1}{a_2+\frac{1}{\frac{1}{\alpha_2}}}=a_1+\frac{1}{a_2+\frac{1}{a_3+\alpha_3}}=\dots\\$
+Ланцюговий дріб $\alpha$ - представлення $\alpha$ у вигляді $a_1+\frac{1}{a_2+\frac{1}{a_3+\alpha_3}}\>:\>\alpha=[a_1;\>a_2,\>a_3,\>a_4,\dots],\\\>a_1\in\mathbb{Z},\>a_1\in\mathbb{N}_0$
+\section{Чим більше знаємо дробів - тим точніше $\alpha$}
+$$\alpha=a_1+\frac{1}{a_2+\frac{1}{a_3+\frac{1}{a_4+\frac{1}{a_5+\dots}}}}$$
+\section{Кожен скінченний дріб описує одне раціональне число}
+\begin{prop*} $$\alpha\in\mathbb{Q},\>\alpha=\frac mn \Leftrightarrow\alpha \textrm{ має скінченний ланцюговий дріб}$$ 
+	\begin{proof}$ $
+		\begin{itemize}
+			\item [$\Leftarrow$] $[a_1;\>a_2,\>a_3,\dots,\>a_t]=a_1+$
+\begin{tabular}{ccccc}
+\multicolumn{2}{c}{1}      &            &                 &       \\ \cline{1-2}
+$a_2+$    & \multicolumn{2}{c}{1}       &                 &       \\ \cline{2-3}
+          & $a_3+$         & \multicolumn{2}{c}{1}        &       \\ \cline{3-4}
+          &                & \multicolumn{2}{c}{$\ddots$} &       \\
+          &                &            & $a_{t-1}+$      & 1     \\ \cline{5-5} 
+          &                &            &                 & $a_t$
+\end{tabular} $=\dots=\frac mn$
+			\item [$\Rightarrow$] (Алгоритм Евкліда!) $\\\alpha=\frac mn =\frac{r_0}{r_1}=\frac{r_1q_1+r_2}{r_1}=q_1+\frac{r_2}{r_1}=q_1+\frac1{\frac{r_1}{r_2}}=q_1+\frac1{q_2+\frac{r_3}{r_2}}=\dots=\\=q_1+$\begin{tabular}{ccccc}
+\multicolumn{2}{c}{1}      &            &                 &       \\ \cline{1-2}
+$q_2+$    & \multicolumn{2}{c}{1}       &                 &       \\ \cline{2-3}
+          & $q_3+$         & \multicolumn{2}{c}{1}        &       \\ \cline{3-4}
+          &                & \multicolumn{2}{c}{$\ddots$} &       \\
+          &                &            & $+$      & 1     \\ \cline{5-5} 
+          &                &            &                 & $q_n$
+\end{tabular} $\Rightarrow\alpha=[q_1;\>q_2,\>q_3,\dots,\>q_n]$
+		\end{itemize}
+	\end{proof}
+\end{prop*}
+$\slash*\\$\begin{itemize}
+	\item [$\Leftarrow$]Усі $a_i$ - цілі, невід'ємні (нулі лише для ірраціональних випадків), крім $а_1$ - воно може бути від'ємним, цілим. (тому ми його відділяємо;) 
+	\item [$\Rightarrow$] Алгоритм Евкліда скінченний, тому фокус такий.
+\end{itemize}
+\begin{flushright}
+$*\slash$
+\end{flushright}
+\section{Наближення числа $\pi$}
+$\frac{22}7\approx\pi:\tab $
+\begin{tabular}{ll|l|llll}
+\cline{3-3}
+22 & = & 3 & $\cdot$ & 7 & + & 1 \\
+7  & = & 7 & $\cdot$ & 1 & + & 0 \\ \cline{3-3}
+\end{tabular}$\tab\Rightarrow\tab \frac{22}7=3+\frac17\\\\$
+$\frac{25}7:\tab $
+\begin{tabular}{ll|l|llll}
+\cline{3-3}
+25 & = & 3 & $\cdot$ & 7 & + & 4 \\
+7  & = & 1 & $\cdot$ & 4 & + & 3 \\
+4  & = & 1 & $\cdot$ & 3 & + & 1 \\
+3  & = & 3 & $\cdot$ & 1 & + & 0 \\ \cline{3-3}
+\end{tabular}$\tab\Rightarrow\tab\begin{array}{c}
+	\frac {25}7=3+\frac1{1+\frac1{1+\frac13}}=3+\frac1{1+\frac43}=\\=3+\frac1{\frac74}=\frac{25}7
+\end{array}$
+
+
+
+
+
+
+
+
+\end{appendices}
 
 
 
