@@ -1,0 +1,36 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 2}%TODO 1.22(б,в), 1.28	
+\end{center}
+\begin{itemize}
+	\item [1.11] $(ab+cd)\>\vdots\>(a+c).$ Prove $(ad+cb)\>\vdots\>(a+c).\\(a+c)\>\vdots\>(a+c)\Rightarrow (b+d)(a+c)\>\vdots\>(a+c)\Rightarrow (ab+cd+ad+cd)\>\vdots\>(a+c),\\\>(ab+cd)\>\vdots\>(a+c)\Rightarrow(ad+cb)\>\vdots\>(a+c)$
+	\item [1.12] \begin{itemize} 
+		\item [(b)] Prove that if $2a-b\>\vdots\>11$ then $51a-9b\>\vdots\>11.\\(2a-b)\>\vdots\>11\Rightarrow(18a-9b)\>\vdots\>11\Rightarrow(51a-9b-33a)\>\vdots\>11\Rightarrow(51a-9b)\>\vdots\>11-33a\>\vdots\>11$
+	\end{itemize}
+	\item [1.13] Prove that if $x^y\>\vdots\>y^x$ and $y^x\>\vdots\>z^y$ then $x^z\>\vdots\>z^x.\\x^y\>\vdots\>y^x\Rightarrow\left(x^y \right)^z\>\vdots\>\left(y^x \right)^z\Rightarrow x^{yz}\>\vdots\>y^{xz}\Rightarrow\left(x^z \right)^y\>\vdots\>\left(y^z \right)^x\Rightarrow\\\tab y^z\>\vdots\>z^y\Rightarrow \left(y^z \right)^x\>\vdots \left(z^y \right)^x\\\Rightarrow\left(x^z \right)^y\>\vdots\>\left(z^y \right)^x\Rightarrow x^{zy}\>\vdots\>z^{yx}\Rightarrow \left(x^z \right)^y\>\vdots\>\left(z^x \right)^y\Rightarrow x^z\>\vdots\>z^x$
+	\item [1.15] \begin{itemize} 
+		\item [(b)] Let $\delta$ be any common divisor of $a$ and $b$. Prove $\gcd\left(\dfrac{a}{\delta},\>\dfrac{b}{\delta} \right)=\dfrac{\gcd(a,\>b)}{\delta}. \\\gcd\left(\dfrac{a}{\delta},\>\dfrac{b}{\delta} \right)=\max\left\{d\>\big|\>\dfrac{a}{\delta}\>\vdots\>d,\>\dfrac{b}{\delta}\>\vdots\>d\right\}=\dfrac{1}{\delta}\max\{d\>|\>a\>\vdots\>d,\>b\>\vdots\>d,\>d\>\vdots\>\delta\}=\dfrac{1}{\delta}\max\{d\>|\>a\>\vdots\>d,\>b\>\vdots\>d\}=\\=\dfrac{\gcd(a,\>b)}{\delta}$
+	\end{itemize}
+	\item [1.19] Prove that if $a=b+2\>\vdots\>2$ then $\gcd(a,\>b)=2$ and if $a=b+2\overline{\>\vdots\>}2$ then $\gcd(a,\>b)=1\\$Let $a=2k+3,\>b=2k+1\\\tab2k+3=(2k+1)\cdot1+2\\\tab2k+1=2\cdot k+1\\\tab 2=1\cdot 2\\\gcd(a,\>b)=\gcd(2k+3,\>2k+1)=1\\$ Let $a=2k+4,\>b=2k+2\\\tab 2k+4=(2k+2)\cdot1+2\\\tab 2k+2=2\cdot(k+1)\\\gcd(a,\>b)=\gcd(2k+4,\>2k+2)=2$
+	\item [1.20] Prove $\gcd(ab,\>bc,\>ac)\>\vdots\>\gcd^2(a,\>b,\>c)\\\gcd^2(a,\>b,\>c)=\gcd(a,\>b,\>c)\cdot\gcd(a,\>b,\>c)=\gcd(a\cdot\gcd(a,\>b,\>c),\>b\cdot\gcd(a,\>b,\>c),\>c\cdot\gcd(a,\>b,\>c))\\=\gcd(\gcd(aa,\>ab,\>ac),\>\gcd(ba,\>bb,\>bc),\>\gcd(ca,\>cb,\>cc))=\gcd(aa,\>ab,\>ac,\>bb,\>bc,\>cc)\\\Rightarrow\gcd(ab,\>bc,\>ac)\>\vdots\>\gcd(aa,\>ab,\>ac,\>bb,\>bc,\>cc)\Rightarrow\gcd(ab,\>bc,\>ac)\>\vdots\>\gcd^2(a,\>b,\>c)\\$ 
+	\item [1.21] Let $a,\>b$ be coprime.\\$\gcd(a+b,\>a-b)=\gcd(a-b,\>2b)\\$ If $a\overline{\>\vdots\>}2$ and $b\overline{\>\vdots\>}2\Rightarrow a-b\>\vdots\>2\Rightarrow\gcd(a-b,\>2b)\\$If $a\overline{\>\vdots\>}2$ and $b\>\vdots\>2\Rightarrow a-b\overline{\>\vdots\>}2\Rightarrow\gcd(a,\>b)=1=\gcd(b-a,\>b)\Rightarrow\gcd(a-b,\>2b)=1$
+	\item [1.22] \begin{itemize} 
+	\item [(b)] Let $a,\>b$ be coprime. Prove that $\gcd(a^2+b^2,\>ab)=1\\1=\gcd(a,\>b)=\gcd(a+b,\>a)=\gcd(a+b,\>ab)=\gcd((a+b)^2,\>ab)=\gcd(a^2+2ab+b^2,\>ab)=\\=\gcd(a^2+b^2,\>ab)$
+	\item [(c)] $\gcd(a+b,\>a^2+b^2)=?\\$ If $a\overline{\>\vdots\>}2$ and $b\overline{\>\vdots\>}2\Rightarrow a+b\>\vdots\>2\Rightarrow a^2+b^2\>\vdots\>2\Rightarrow\gcd(a+b,\>a^2+b^2)=2\\$If $a\overline{\>\vdots\>}2$ and $b\>\vdots\>2\Rightarrow a-b\overline{\>\vdots\>}2\Rightarrow a^2+b^2\overline{\>\vdots\>}2\Rightarrow\gcd(a+b,\>a^2+b^2)=1$
+	\end{itemize}
+	\item [1.23] Let $a,\>b$ be odd and $a-b=2^n$. Prove that $a$ and $b$ are coprime.\\$\gcd(a,\>b)=\gcd(b,\>a)=\gcd(a,\>a-b)=\gcd(a,\>2^n)=1$
+	\item [1.28] Prove that $\gcd(a,\>b)=\gcd(13a+8b,\>5a+3b)\\\gcd(13a+8b,\>8a+5b)=\gcd(8a+5b,\>5a+3b)=\gcd(5a+3b,\>3a+2b)=\\=\gcd(3a+2b,\>2a+b)=\gcd(2a+b,\>a+b)=\gcd(a+b,\>-a)=\gcd(-a,\>-b)=\gcd(a,\>b)$
+\end{itemize}
+
+
+\end{document}
