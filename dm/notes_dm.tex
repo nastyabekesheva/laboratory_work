@@ -1450,6 +1450,7 @@ $G=\langle g\rangle=\{g^k\>|\>k\in\mathbb{Z}\}$\\
 		$|\langle g^k\rangle|=|\langle g^M\rangle|\Rightarrow\ord g^k=\ord^M\Rightarrow\gcd(n,\>k)=\gcd(n,\>M)=d\\\Rightarrow\langle g^k\rangle=\langle g^d\rangle=\langle g^M\rangle$
 	\end{proof}
 \end{cons*}
+\section{Стуруктура циклічних груп}
 \begin{prop*}$G=\langle g\rangle,\>|G|=n<\infty$
 	\begin{align*}
 		\forall d\>|\>n:&-\textrm{існує єдинна підгрупа індексу } d\\
@@ -1471,13 +1472,53 @@ $G=\langle g\rangle=\{g^k\>|\>k\in\mathbb{Z}\}$\\
 	\includegraphics[width=17cm]{graph4}
 \end{center}\newpage
 \section{Нормальні підгрупи}
+\begin{definition}$H\triangleleft G$
+	$$H\subseteq G\textrm{ - нормальна}\Leftrightarrow\forall g\in G,\>\forall h\in H:\>\>ghg^{-1}\in H$$
+\end{definition}
 
-
-
-
-
-
-
+У абелевої групи усі підгрупи нормальні 
+\begin{theorem}[equivalent conditions]
+	\begin{align*}
+		(1)\>\>& H\triangleleft G\\
+		(2)\>\>& \forall g\in G:\>gHg^{-1}=H\\
+		(3)\>\>& \forall g\in G:\>gH=Hg
+	\end{align*}
+	\begin{proof}
+		\begin{align*}
+			(1)\sim(2)&\textrm{ за означенням} :\>gHg^{-1}\subseteq H:\>H?\subseteq gHg^{-1}:\>\forall h\in H:\>\exists h'\in H:\>h=gHg^{-1}\\&\textrm{ Нехай } h'=g^{-1}\cdot h\cdot g\in H\textrm{ - з означення нормальності для } g^{-1}\\&\textrm{ Тоді } gh'g^{-1}=gg^{-1}hgg^{-1}=h\\(2)\sim(3)&\>gHg^{-1}=H\Leftrightarrow gH=Hg
+		\end{align*}
+	\end{proof}
+\end{theorem}
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \begin{center}
+    \includegraphics[width=0.2\textwidth]{graph5}
+  \end{center}
+\end{wrapfigure}
+Введемо $G/ H=\{gh\>|\>g\in G\}$ - множина усіх класів суміжності.$\langle G,\>\cdot\rangle\Rightarrow\langle G/H,\>\cdot\rangle.\\(g_1H)\cdot(g_2H)=(g_1g_2)H\\fg(x)=gx\\hg(x)=xg$ \newblock
+\section{Факор-групы}\newblock\\
+\begin{theorem}
+	$$\textrm{Якщо }H\triangleleft G,\textrm{ то }\langle G/H,\>\cdot\rangle\textrm{ - група (фактор-група)}$$
+	\begin{proof}$\\$
+		\begin{itemize}
+			\item [$-$] замкненість - з побудови
+			\item [$-$] успадкування з $\langle G,\>\cdot\rangle$
+			\item [$-$] нейтральний елемент : $eH=H$
+			\item [$-$] оберенений елемент : $\left(gH\right)^{-1}=\left(g^{-1}\right)H$\tab\tab де пастка?
+			\item [] $\begin{array}{l}
+				(\underset {\parallel}{g_1H})\cdot(\underset {\parallel}{g_2H})=(\underset {\cancel\parallel}{g_1g_2})H\\(a_1H)\cdot(a_2H)=(a_1a_2)H
+			\end{array}$ - не факт, що $\cdot$ - операція
+		\end{itemize}
+		Треба довести, що $\left\{\begin{array}{l}
+			a_1\equiv a_2\mod H\\
+			b_1\equiv b_2\mod H
+		\end{array} \right.\Rightarrow a_1b_1\equiv a_2b_2\mod H$
+		\begin{itemize}
+			\item [] $\begin{array}{lll}
+				\exists h_{a_1},\>h_{a_2}\in H: &a_1=h_a\cdot a_2 & \Rightarrow a_1b_1=h_1\cdot a_2\cdot h_b\cdot b_2\\&&\textrm{Але: }H\textrm{ - нормальна підгрупа}\\&&\Rightarrow a_2H=Ha_2\Rightarrow\exists h_c:\>a_2h_b=h_ca_2\\&&\Rightarrow a_1b_1=h_ah_c\cdot a_2b_2\Rightarrow a_1b_!\equiv a_1b_1\equiv a_2b_2\mod H
+			\end{array}$
+		\end{itemize}	
+	\end{proof}
+\end{theorem}
 
 
 
