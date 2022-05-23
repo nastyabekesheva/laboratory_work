@@ -1,0 +1,47 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch}}
+\newcommand{\arsh}{\textrm{arcsh}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 6}	
+\end{center}
+\begin{itemize}
+	\item [5.11] $\bigint\dfrac{x\sqrt[3]{2+x}}{x+\sqrt[3]{2+x}}\dx=\left|\begin{array}{ll}
+		2+x=t^3,&x=t^3-2\\\dfrac\dx\dt=3t^2 ,&\dx=3t^2\dt
+	\end{array}\right|=\bigint\dfrac{3t^3(t^3-2)}{t^3+t-2}\dt=3\bigint\dfrac{t^6-2t^3}{t^3+t-2}\dt=\\=3\bigint\left( t^3-t+1+\dfrac{t-2}{t^2+t+2} \right)\dt=3\left(\dfrac{t^4}4-\dfrac{t^2}2+t+\dfrac12\ln|t^2+t+2\right.-\\-\left.\dfrac{5}{\sqrt7}\arctan\left(\dfrac{2t+1}{\sqrt7} \right) \right)+c$
+	\item [5.12] $\bigint\dfrac{\sqrt{x+1}-\sqrt{x-1}}{\sqrt{x+1}+\sqrt{x-1}}\dx=\\\\\tab \dfrac{\sqrt{x+1}-\sqrt{x-1}}{\sqrt{x+1}+\sqrt{x-1}}=\dfrac{(\sqrt{x+1}-\sqrt{x-1})^2}{x+1-x+1}=\dfrac{2\left(x-\sqrt{x^2-1}\right)}{2}=x-\sqrt{x^2-1}\\\\=\bigintss\left(x-\sqrt{x^2-1}\right)\dx=\dfrac{x^2}2-\bigintss\sqrt{\ch^2t-1}\sh t\dt=\dfrac{x^2}2-\bigintss\sh^2t\dt=\dfrac{x^2}2-\bigintss\dfrac{\ch2t-1}{2}\dt=\\=\dfrac{1}4\left(2x^2-\sh2t-t \right)=\dfrac{1}4\left(2x^2-\sh(2\arch x)-\arch x\right)+c$
+	\item [5.13] $\bigint\dfrac{1-\sqrt{x+1}}{1+\sqrt[3]{x+1}}\dx=\left|\begin{array}{l}
+		x+1=t^6\\\dx=6t^5\dt
+	\end{array} \right|=\bigint\dfrac{(1-t^3)6t^5}{1+t^2}\dt=-6\bigint\left(\dfrac2{t+1}+t^7-t^6-2t^4+\right.\\+2t^3-2t^2+2t-2 \bigg)\dt=-6\left(2\ln|t+1|+\dfrac{t^8}8-\dfrac{t^7}7-\dfrac{2t^5}5+\dfrac{t^4}2-\dfrac{2t^3}3+t^2-2t \right)+c=\\=-6\left(2\ln|\sqrt[6]{x+1}+1|+\dfrac{(\sqrt[6]{x+1})^8}8-\dfrac{(\sqrt[6]{x+1})^7}7-\dfrac{2(\sqrt[6]{x+1})^5}5+\dfrac{(\sqrt[6]{x+1})^4}2\right.-\\-\left.\dfrac{2(\sqrt[6]{x+1})^3}3+(\sqrt[6]{x+1})^2-2\sqrt[6]{x+1} \right)+c$
+	\item [5.16] $\displaystyle\int \dx=\left|\begin{array}{l}
+		\sqrt{x^2-2x+2}=t+ x\\x=-\dfrac{t^2-2}{2+2t}\\
+		\dx=\dfrac{2t^2+4t+4}{(2+2t)^2}\dt
+	\end{array} \right|=\bigint-\dfrac{2t^6+6t^5+8t^4-16t^2-24t-16}{(2+2t)^4}\dt$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
