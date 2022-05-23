@@ -5,6 +5,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{scalerel}
 \usepackage{amsthm}
 \usepackage{mdframed} 
 \usepackage{xcolor}
@@ -39,8 +40,10 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\Aa}{\mathcal{A}}
 \DeclareMathOperator{\Mm}{\mathcal{M}}
+\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\blank}{ }
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand\bigbang{\vcenter{\hbox{\resizebox{!}{1.6$\Bigg$}{!}}}}
 \newmdenv[   linecolor=black,
   topline=false,
   bottomline=false,
@@ -322,7 +325,7 @@ $(a_i)\textrm{ - евклідова і } a_0=0,\textrm{ то }\forall n>m:\>\>\g
 \end{definition}
 
 \begin{theorem}
-	$$\textrm{Нехай} ax+by=c\>\> d=\gcd(a,\>b)$$
+	$$\textrm{Нехай } ax+by=c\>\> d=\gcd(a,\>b)$$
 	\begin{enumerate}
   		\item рівняння має розв'язки $\Leftrightarrow c\>\vdots\>d$
   		\item $a=a_0\cdot d,\>b=b_0\cdot d,\>c=c_0\cdot d,\> (x_0,\>y_0)$ - якийсь розв'язок рівняння. \\ Тоді довільний розв'язок $(x,\>y):\\\begin{cases}
@@ -427,7 +430,7 @@ $\dfrac12\cdot \dfrac{x}{\log_2x}\leq \Pi(x)\leq 5\cdot\dfrac{x}{log_2x}\rightar
 	$$\Pi(x)\sim \dfrac{x}{\ln x}(\Pi(x)\sim\int\limits_{2}^{x}\dfrac{dt}{\ln t})\Rightarrow p_n\sim n\cdot \ln n$$
 \end{theorem}
 \begin{theorem}[Dirichlet]
-	$$\textrm{Якщо } \gcd(a,\>b)=1, \textrm{ то існує }\infty\textrm{простих чисел виду }a\cdot m+b$$
+	$$\textrm{Якщо } \gcd(a,\>b)=1, \textrm{ то існує }\infty\textrm{ простих чисел виду }a\cdot m+b$$
 \end{theorem}
 \section{Основна теорема арифметики}
 \begin{lemma}[Euclid]
@@ -465,7 +468,7 @@ $((4k_1+1)(4k_2+1)=4(\dots)+1$
 \section{Мультиплікативні функції}
 \begin{definition}$f(n)$ - мультіплікативна:
 	\begin{enumerate}
-	\item $f(n)\not\equiv$
+	\item $f(n)\not\equiv0$
 	\item $\forall a,\>b\in\mathbb{N}:\tab \gcd(a,\>b)=1\Rightarrow f(ab)=f(a)f(b)$
 \end{enumerate}
 \end{definition}
@@ -1136,7 +1139,7 @@ $n$ - непарне, $a$ - довільне
 \chapter{Лекція 1}
 \section{Алгебраїчні системи з однією операцією}
 $\Aa,\>\cdot \>(\Aa\times\Aa\to\Aa)\\$ Операція $\cdot $ - замкнена на множині $\Aa$, бо вона приймає аргументи з множини $\Aa$ і повертає значення з цієї множини\\	
-$B\subseteq\Aa,$ якщо $\forall b_1,\>b_2\in B:\>b_1\cdot  B_2\in B$ - $B$ замкнена відносно $\cdot $
+$B\subseteq\Aa,$ якщо $\forall b_1,\>b_2\in B:\>b_1\cdot  B_2\in B$ - $B$ замкнена відносно $\cdot ,\>\Aa$ - не порожня.
 \begin{definition}
 	$$\langle\Aa,\>\cdot \rangle\textrm{ - алгебраїчна система з однією операцією}$$
 \end{definition}	
@@ -1469,7 +1472,7 @@ $G=\langle g\rangle=\{g^k\>|\>k\in\mathbb{Z}\}$\\
 	\end{proof}
 \end{prop*}
 \begin{center}
-	\includegraphics[width=17cm]{graph4}
+	\includegraphics[width=16.5cm]{graph4}
 \end{center}\newpage
 \section{Нормальні підгрупи}
 \begin{definition}$H\triangleleft G$
@@ -1518,7 +1521,97 @@ $G=\langle g\rangle=\{g^k\>|\>k\in\mathbb{Z}\}$\\
 			\end{array}$
 		\end{itemize}	
 	\end{proof}
+	\textcircled{$\Rightarrow$} $G/H$ - фактор-група. $|G/H|=[G:H]=\dfrac{|G|}{|H|},$ якщо $|G|<\infty$
 \end{theorem}
+\section{Морфізми алгебраїчних структур}
+\begin{definition}$\langle S,\>\cdot\rangle,\>\langle A,\>\times\rangle$ - алгебраїчні структури
+	\begin{align*}
+		\textrm{Гомоморфізм:}\tab & f:S\to A,\>\forall a,\>b\in S:\>f(a\cdot b)=f(a)\times f(b)\\\textrm{Мономорфізм:}\tab  & \textrm{ін'єктивний гомоморфізм}\\
+		\textrm{Епіморфізм:}\tab & \textrm{сюр'єктивний гомоморфізм}\\
+		\textrm{Ізооморфізм:}\tab & \textrm{бієктивний гомоморфізм}\\&S\sim A\textrm{ ізоморфні структури}
+	\end{align*}
+\end{definition}
+\textcolor{red}{\scalerel*{!}{\bigg)}} З точки зору абстрактної алгебри ізоморфні структури співпадають: \\\tab\tab властивості, які випливають з аксіом, співпадають:\\\tab\tab  - існує єдина група порядку 2 (з точністю до ізоморфізму)\\\tab\tab  - існує єдина нескінченна циклічна група (з точністю до ізоморфізму)
+\begin{definition}
+	\begin{align*}
+		\textrm{Розділяемо } & \textrm{ гомоморфізм моноїдів та груп. }\\
+		\textrm{Ендоморфізм: } & \textrm{ гоморфізм алгеброїчною структури саму на себе.}\\
+		\textrm{Автоморфізм: } & \textrm{ бієктивний ендоморфізм.}
+	\end{align*}
+\end{definition}
+\begin{fact*}$\forall S\textrm{ - напівгрупа}$
+	$$\textrm{множина її автоморфізмів утворює группу }\langle Aut(S),\>\circ\rangle$$
+\end{fact*}
+Поняття нормальності підгрупи пов'язане з внутрішнім автоморфізмами \\\tab $\varphi_a(x)=a\times a^{-1}$\newpage
+\begin{example}
+	$\langle\mathbb{R},\>+\rangle,\>\langle\mathbb{R}^+,\>\cdot\rangle\tab \mathbb{R}^+=\{x\in\mathbb{R}\>:\>x>0\}\\ f(x)=e^x:\>f(x+y)=e^{x+y}=e^x\cdot e^y=f(x)\cdot f(y)\\ f^{-1}(x)=\ln x\Rightarrow f$ - ізоморфізм
+\end{example}
+\begin{example}
+	$f(a)=a\mod n:\tab$ гомоморфізм $\langle\mathbb{Z},\>+\rangle$ на $\langle\mathbb{Z}_n,\>+\rangle,\>\langle\mathbb{Z},\>\cdot\rangle$ на $\langle\mathbb{Z}_n,\>\cdot\rangle$\\ сюр'єктивне $\Rightarrow$ епіморфізм
+\end{example}
+\begin{example}
+	\begin{align*}
+		\det:\>Mat_{n\times n}(\mathbb{R})\to\mathbb{R}&\textrm{ - гомоморфізм за множенням}\\ \det\left[\begin{array}{ll@{}}
+a &0\\
+0 & \ddots 
+\end{array}\right] = a&\textrm{ - епіморфізм}\\\det:\>Mat_{n\times n}(\mathbb{R})\to\mathbb{C}&\textrm{ - не епіморфізм}
+	\end{align*}
+\end{example}
+\chapter{Лекція 4}
+\section{Tеорема про гомоморфізм груп}
+
+\begin{lemma}$\langle G,\>\cdot\rangle,\>\langle H,\>\times\rangle,\>f:G\to H$ гомоморфізм груп
+	\begin{align*}
+		(1)&\>f(e_G)=e_H\\
+		(2)&\>f(a_G^{-1})=(f(a_H))^{-1}
+	\end{align*}
+	\begin{proof}$\\$
+		\begin{itemize}
+			\item [(1)] $\forall a\in G:\>f(a\cdot e_G)=f(a)\times f(e_H)=e_H=f(e_G)$
+		\end{itemize}
+	\end{proof}
+\end{lemma}
+\begin{definition}Ядро гомоморфізму $$\ker f=f^{-1}(e_H)=\{a\in G\>:\>f(a)=e_h\}$$ 
+\end{definition}
+\begin{definition}Образ гомоморфізму $$\im f=f(G)=\{b\in H\>|\>\exists a\in G:\>f(a)=b\}$$
+	
+\end{definition}
+\begin{example}
+	$f(a)=a\mod n,\tab f:\mathbb{Z}\to\mathbb{Z}_n\\\Rightarrow\ker f=n\mathbb{Z},\>\im f=\mathbb{Z}_n$
+\end{example}
+\begin{example}
+	$\det:\mathcal{G}L_n(\mathbb{R})\to\mathbb{R}\\\ker(\det)=\{A\>|\>\det A=1\}=\mathcal{S}L_n(\mathbb{R}),\>\im(\det)=\mathbb{R}\backslash\{0\}$
+\end{example}
+\begin{theorem}[group homomorphism]$\\\tab\langle G,\>\cdot\rangle,\>\langle H,\>\times\rangle,\>f:G\to H$ гомоморфізм груп
+	\begin{align*}
+		(1)&\>\ker f\textrm{нормальна підгрупа }G\\
+		(2)&\>G/\ker f\sim\im f
+	\end{align*}\newpage
+	\begin{proof}
+		$\\$\begin{itemize}
+			\item [(1)] $?\>\forall g\in G,\>\forall a\in\ker f:\>gag^{-1}\in\ker f:\tab f(gag^{-1})=f(g)\times f(a)\times f(g^{-1})=f(g)\times e_H\times(f(g))^{-1}=f(g)\times(f(g))^{-1}=e_H\Rightarrow gag^{-1}\in\ker f$
+			\item [(2)] $K=\ker f:$ побудуємо ізоморфізм $\psi:G/K\to\im f,\>\psi(gK):=f(g)\\$
+				$\\\begin{array}{lll}
+					(a)&\textrm{коректність: } & g_1\equiv g_2(\mod K)\Leftrightarrow\psi(g_1)=\psi(g_2)\>(\Rightarrow f(g_1)=f(g_2))\\&&\exists a\in K:\>g_1=a\cdot g_2,\> \psi(g_1k)=f(g_1)=f(a\cdot g_2)=\\&&=f(a)\times f(g_2)=e_H\times f(g_2)	=f(g_2)
+				\end{array}\\\\\begin{array}{lll}
+					(b)&\textrm{гомоморфізм - з побудови: }&\psi(g_1k\cdot g_2k)=g(g_1g_2)=f(g_1)\times f(g_2)=\\&&=\psi(g_1k)\times\psi(g_2k)
+				\end{array}\\\\\begin{array}{lll}
+					(c)&\textrm{сюр'єктивність - з означення }\im t 
+				\end{array}\\\\\begin{array}{lll}
+					(d)&\textrm{ін'єктивність: }&\psi(g_1k)=\psi(g_2k)\Rightarrow f(g_1)=f(g_2)\Rightarrow f(g_1)\times (f(g))^{-1}=\\&&=e_H\Rightarrow f(g_1\cdot g_2^{-1})=e_H,\>g_1\cdot g_2^{-1}\in K\Rightarrow g_1=g_2(\mod K)
+				\end{array}\\\Rightarrow\psi$ - ізоморфізм 
+		\end{itemize}
+	\end{proof}
+\end{theorem}
+\begin{prop*}
+	\begin{align*}
+		\textrm{Якщо }H\triangleleft G\textrm{, то відображення }&\varphi:G\to G/H\textrm{ - гомоморфізм}\\&\varphi(g):=gH\tab \ker\varphi =H
+	\end{align*}
+\end{prop*}
+
+
+
+
 
 
 
