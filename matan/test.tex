@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[none]{hyphenat}
+\usepackage[russian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mdframed} 
+\usepackage{xcolor}
+\usepackage{xparse} 
+\usepackage{scalerel}
+\usepackage{stackengine}
+\usepackage{bigints}
+\usepackage{enumerate}	
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{longdivision}
+\usepackage{polynom}
+\usepackage{cancel}
+\usepackage{extarrows}
+\usepackage{ragged2e}
+\newcommand\showdiv[1]{\overline{\smash{\hstretch{.5}{\right)}\mkern-3.2mu\hstretch{.5}{\right)}}#1}}
+\let\ph\phantom
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand\dx{\textbf{ d}x}
+\newcommand\dt{\textbf{ d}t}
+\newcommand\dint{\displaystyle\int}
+\newcommand\dy{\textbf{ d}}
+\newcommand\const{\textrm{const}}
+\newcommand\lcm{\textrm{lcm}}
+\newcommand{\longeq}{\scalebox{2}[1]{=}}
+\newcommand{\zstroke}{%
+  \text{\ooalign{\hidewidth -\kern-.3em-\hidewidth\cr$z$\cr}}%
+}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{enumerate}
+	\item $\dint(x+1)e^{2x}\dx=\left|\begin{array}{ll}
+		u=x+1&\dy u=\dx\\
+		\dy v=e^{2x}\dx& v=\dfrac12e^{2x}
+	\end{array}\right|=\dfrac12(x+1)e^{2x}-\dint\dfrac12e^{2x}\dx=\\=\dfrac12(x+1)e^{2x}-\dfrac14e^{2x}+c$
+	\item $\dint\cos(\ln x)\cdot\dfrac1x\dx=\left|\begin{array}{ll}
+		t=\ln x&\dt=x\dx 
+	\end{array} \right|=\dint\cos t\dt=\sin t=\sin(\ln x)+c$
+	\item $\dint\dfrac{2x}{x^2+1}=\dint\dfrac1{x^2+1}\dy(x^2+1)=\ln|x^2+1|+c$
+	\item $\dint\sin^2x\cos^2x\dx=\dfrac14\dint\sin^22x\dx=\dfrac18\dint\left(1-\cos4x \right)=\dfrac18\left(x-\dfrac14\sin4x\right)+c$
+	\item $\dint\dfrac{\dx}{1+\sin x+\cos x}=|\tan\frac x2=t|=\dint\dfrac{2\dt}{1+t^2}\cdot\dfrac1{1+\frac{2t}{1+t^2}+\frac{1-t^2}{1+t^2}}=\dint\dfrac{\dt}{1+t}=\\=\ln|t+1|=\ln|\tan\frac x2+1|+c$
+	\item $\dint\dfrac{x-2}{x^2-7x+12}\dx=\dint\dfrac{x-2}{(x-3)(x-4)}\dx=\dint\left(\dfrac A{x-3}+\dfrac B{x-4} \right)\dx=\\\tab A=\dfrac{x-2}{x-4}\bigg|_{x=3}=-1\\\tab B=\dfrac{x-2}{x-3}\bigg|_{x=4}=2\\=\dint\left(-\dfrac 1{x-3}+\dfrac 2{x-4} \right)\dx=-\ln|x-3|+2\ln|x-4|+c$
+	\item $\dint\dfrac{x\dx}{\sqrt[3]{x+1}}=\dint x(x+1)^{-\frac13}\dx=\left|\begin{array}{lll}
+		m=1&n=1&\dfrac{m+1}n=2\\
+		t^3=x+1&x=t^3-1&\dx=3t^2\dt
+	\end{array} \right|=\\=\dint\dfrac{3t^2(t^3-1)\dt}{t}=3\dint\left( t^4-t\right)\dt=3\left(\dfrac{t^5}5-\dfrac{t^2}2 \right)=3\left(\dfrac{\sqrt[3]{x+1}^5}5-\dfrac{\sqrt[3]{x+1}	^2}2 \right)$
+	\item $\dint\dfrac{x^3}{(1-4x^2)^{\frac32}}\dx=\left|\begin{array}{l}
+		t^2=1-4x^2\\x=\frac14\sqrt{1-t^2}\\\dx=-\dfrac12\cdot\dfrac{t}{\sqrt{1-t^2}}
+	\end{array} \right|=\dint\dfrac{t^2-1}{16t^2}\dt=\dfrac1{16}\dint\left(1-\dfrac1{t^2} \right)=\\=\dfrac1{16}\left(t +\dfrac1t\right)=\dfrac1{16}\left(\sqrt{1-4x^2} +\dfrac1{\sqrt{1-4x^2}}\right)+c$
+	\item $\dint\limits_0^1\dfrac{x}{x^4+1}\dx=\left|\begin{array}{l}
+		t=x^2\\x=\sqrt t\\\dx=\dfrac{\dt}{2\sqrt{x}}
+	\end{array} \right|=\dfrac12\dint\limits_0^1\dfrac{\dt}{(t^2+1)}=\dfrac12\arctan t\bigg|_0^1=\dfrac12\arctan x^2\bigg|_0^1=\dfrac\pi8$
+	\item $\left\{\begin{array}{l}
+		y=\sqrt x\\
+		y=0\\
+		x=4
+	\end{array} \right.\Rightarrow x_1=0,\>x_2=4\\S=\dint_0^4\left(\sqrt x\right)\dx=\dfrac{16}3$
+	\item $l=\dint\limits_0^{11}\sqrt{1+(f'(x))^2}\dx=\dint\limits_0^{11}\sqrt{1+(3\sqrt x)^2}\dx=\dint\limits_0^{11}\sqrt{1+9x}\dx=\dfrac19\dint\limits_0^{11}\sqrt{1+9x}\dy(1+9x)=\\=\dfrac2{27}\sqrt{1+9x}|1+9x|\bigg|_0^{11}=74$
+\end{enumerate}	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
