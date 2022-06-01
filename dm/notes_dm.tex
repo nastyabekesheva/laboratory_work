@@ -1608,10 +1608,107 @@ a &0\\
 		\textrm{Якщо }H\triangleleft G\textrm{, то відображення }&\varphi:G\to G/H\textrm{ - гомоморфізм}\\&\varphi(g):=gH\tab \ker\varphi =H
 	\end{align*}
 \end{prop*}
-
-
-
-
+\section{Кільця}
+$\langle A,\>+,\>\cdot\rangle,$ + = "додавання", $\cdot$ = "множення"  
+\begin{definition}$\langle\mathcal{R},\>+,\>\cdot\rangle$
+	\begin{align*}
+		\textrm{ - кільце}\tab&(1)\>\langle\mathcal{R},\>+\rangle\textrm{ - абелева група}\\&(2)\>\langle\mathcal{R},\>\cdot\rangle\textrm{ - напівгрупа}\\&(3)\>\textrm{дистрибутивність: }\forall a,\>b\in\mathbb{R}:&(a+b)\cdot c=a\cdot c+b\cdot c\\&&c\cdot(a+b)=c\cdot a+c\cdot bx
+	\end{align*}
+\end{definition}
+Якщо $\mathcal{R}=\{r\}$, то - тривіальне кільце - нудне та нецікаве $\Rightarrow|\mathcal{R}|\geq2$
+\begin{example}
+	$\mathbb{R},\>\mathbb{C},\>\mathbb{Q}$ - кільця за $+,\>\cdot$
+\end{example}
+\begin{example}
+	кільце лишків $|\mathbb{Z}_n|\>(+\mod,\>\cdot\mod)$
+\end{example}
+\begin{example}
+	кільце матриць $Mat_{n\times m(\mathbb{R})}$
+\end{example}
+\begin{example}
+	кільце поліномів $R[x]=\left\{\displaystyle\sum_{k=0}^na_kx^k\>|\>a_k\in\mathbb{R}\right\}$
+\end{example}
+\begin{definition}
+	$$\mathcal{R}^+\equiv\langle\mathcal{R},\>+\rangle\textrm{ - адетивна група кільця }\mathcal{R}$$
+	$$\textrm{Нуль кільця - нейтральний елемент - }\mathcal{O}\>(\mathcal{O}_{\mathcal{R}})$$
+	$$\textrm{обернене за додаванням}: -a$$
+	$$\forall m\in\mathbb{Z}:\>ma=\left\{\begin{array}{l}
+		a+a+\dots+a,\>m>0\\
+		(-a)+(-a)+\dots+(-a),\>m<0
+	\end{array} \right.$$
+\end{definition}
+\begin{lemma}
+	\begin{align*}
+		\textrm{у довільному кільці }\mathcal{R}:\tab&(1)\>\forall a\in\mathcal{R}:&0\cdot a=a\cdot0=0\\&(2)\>\forall a,\>b\in\mathcal{R}:&(-a)\cdot b=a\cdot (-b)=-(a\cdot b)
+	\end{align*}
+	\begin{proof}
+		$\\\>(1)\>0=0+0\Rightarrow0\cdot a=(0+0)\cdot a=0\cdot a+0\cdot a\\\textrm{ }\>\>\>\>\>0=0\cdot a$ аналогічно $a\cdot0=0$
+	\end{proof}
+\end{lemma}
+\section{Напівкільця}
+\begin{definition}$\langle\mathcal{S},\>+,\>\cdot\rangle$
+	\begin{align*}
+		\textrm{- напівкільце}\tab&(1)\>\langle\mathcal{S},\>+\rangle\textrm{ - комутативний мноїд}\\&(2)\>\langle\mathcal{S},\>\cdot\rangle\textrm{ - напівгрупа}\\&(3)\>\textrm{дистрибутивність}\\&(4)\>\textrm{мультиплікативність нуля}:&\forall a\in\mathcal{S}:\>0\cdot a=a\cdot0=0
+	\end{align*}
+\end{definition}
+\begin{example}
+	$\mathbb{N}_0$ - напівкільце за $+,\>\cdot$ (нема оберненого елмента за додаванням)
+\end{example}
+\begin{example}
+	$\langle \{Q\},\>\oplus,\>\&\rangle$ - булеве напівкільце (нема оберненого елмента за множенням)
+\end{example}
+\section{Класи кілець, підкільця, ідеали}
+\textbf{Типи кілець:}
+\begin{enumerate}
+	\item кільце з одиницею: $\langle \mathcal{R},\>\cdot \rangle$ - моноїд, нейтральний елмент - $1\>(1_\mathcal{R})$ - одиниця за множенням. $\mathcal{R}$ - нетривіальне $\Rightarrow0\neq1$
+	\item комутативне кільце: $\cdot$ - комутативне
+	\item кільце без дільника нуля: \\$a\cdot b=0,\>a\neq0,\>b\neq0\Rightarrow a$ - лівий, $b$ - правий дільники нуля\\$\Rightarrow\forall a,\>b\in\mathcal{R}:\>a\cdot b\Rightarrow(a=)\lor(b=0)$ 
+	\item область цілісності (цілісне кільце) (integral domain) - комутативне кільце за одиниею і без дільників нуля\\$$\mathcal{R}\textrm{ - цілісне кільце}\Leftrightarrow\forall a\neq0,\>b,\>c\in\mathcal{R}:\>a\cdot b=a\cdot c\Rightarrow b=c$$
+\end{enumerate}
+\begin{definition}$\langle\mathcal{F},\>+,\>\cdot\rangle$
+	$$\textrm{Поле - кільце, у якому }\langle\mathcal{F}\backslash\{0\},\>\cdot\rangle\textrm{ - абелева група}$$
+\end{definition}
+\begin{fact*}
+	$$\textrm{Поле - цілісне кільце, скінчене цілісне кільце - поле}$$
+\end{fact*}
+\begin{example}
+	$\mathbb{R},\>\mathbb{C},\>\mathbb{Q}$ - поля
+\end{example}
+\begin{example}
+	$\mathbb{Z}$ - цілісне кільце, $2\mathbb{Z}$ - комутативне кільце без одиниці 
+\end{example}
+\begin{example}
+	$\mathbb{Z}_n$ - комутативне кільце з одиницею. $n$ - просте $\Rightarrow\mathbb{Z}_n$ - поле, \\$n$ - складне $\Rightarrow$ є дільники нуля
+\end{example}
+\begin{example}
+	$Mat_{n\times m}(\mathbb{R})$ - некомутативне кільце з одиницею
+\end{example}
+\begin{definition}
+	$$a^{-1}\textrm{ - оборотний, якщо }\exists a^{-1}\in\mathcal{R}:\>a\cdot a^{-1}=a^{-1}\cdot a=1$$
+	$$\mathcal{R}^*\textrm{ - множина усіх оборотних елментів }\mathcal{R}$$
+\end{definition}
+\begin{lemma}
+	$$\langle\mathcal{R}^*,\>\cdot\rangle\textrm{ - група}$$
+\end{lemma}
+\begin{definition}
+	$$\textrm{Підкільце }\mathcal{R}'\subseteq\mathcal{R}.\>\langle\mathcal{R}',\>+,\>\cdot\rangle\textrm{ - кільце}$$
+\end{definition}
+\begin{lemma}[subring criterion]
+	\begin{align*}
+		\mathcal{R}'\subseteq\mathcal{R}\tab\Leftrightarrow\tab&(1)\>1_\mathcal{R}\in\mathcal{R}'\\&(2)\>\forall x,\>y\in\mathcal{R}':&x-y\in\mathcal{R}'\\&&x\cdot y\in\mathcal{R}'
+	\end{align*}
+\end{lemma}
+\begin{definition}
+	\begin{align*}
+		\textrm{Ідеал }\mathcal{I}\subseteq\mathcal{R}\tab\Leftrightarrow\tab&(1)\>\mathcal{I}\textrm{ - підкільце}\\&(2)\>\forall a\in\mathcal{I},\>\forall r\in\mathcal{R}:&a\cdot r\in\mathcal{I},\>r\cdot a\in\mathcal{I}
+	\end{align*}
+\end{definition}
+\begin{example}
+	$\mathbb{Z}$ - підкільце у $\mathcal{R}$, але не ідеал
+\end{example}
+\begin{example}
+	$2\mathbb{Z},\>n\mathbb{Z}$ - ідеали у $\mathbb{Z}$
+\end{example}
 
 
 
