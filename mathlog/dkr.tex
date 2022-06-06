@@ -98,15 +98,15 @@
 		\\\\\emph{\textbf{Tseitin:}}\\
 		\begin{align*}
 			\mathcal{T}(a)\backslash\mathcal{T}_0(A)&=\{(\neg P),(P\land R),(\neg P\land R),(Q\leftrightarrow\neg P\land R),\\&(\neg(Q\leftrightarrow\neg P\land R)),(P\land R\to\neg(Q\leftrightarrow\neg P\land R))\}
-		\end{align*}
+		\end{align*}t
 		\begin{align*}
 			\textrm{substitute } \neg P\textrm{ with }S_1&&\\P\land R\textrm{ with }S_2&&\\
 			\tilde{\varphi_T}(A)&=1\land(S_1\leftrightarrow\neg P)\land(S_2\leftrightarrow P\land R)&\\A_1&=S_2\to\neg(Q\leftrightarrow S_1\land R)&\\\textrm{substitute } S_1\land R\textrm{ with }S_3&&\\\tilde{\varphi_T}(A)&=1\land(S_1\leftrightarrow\neg P)\land(S_2\leftrightarrow P\land R)\land(S_3\leftrightarrow S_1\land R)&\\A_2&=S_2\to\neg(Q\leftrightarrow S_3)&\\\textrm{substitute } Q\leftrightarrow S_3\textrm{ with }S_4&&\\\tilde{\varphi_T}(A)&=1\land(S_1\leftrightarrow\neg P)\land(S_2\leftrightarrow P\land R)\land(S_3\leftrightarrow S_1\land R)\land&\\&\land(S_4\leftrightarrow(Q\leftrightarrow S_3))&\\A_3&=S_2\to\neg(S_4)&\\\textrm{substitute } \neg S_4\textrm{ with }S_5&&\\\tilde{\varphi_T}(A)&=1\land(S_1\leftrightarrow\neg P)\land(S_2\leftrightarrow P\land R)\land(S_3\leftrightarrow S_1\land R)\land&\\&\land(S_4\leftrightarrow(Q\leftrightarrow S_3))\land(S_5\leftrightarrow \neg S_4) &\\A_4&=S_2\to S_5&\\\textrm{substitute } S_2\to S_5\textrm{ with }S_6\\\tilde{\varphi_T}(A)&=1\land(S_1\leftrightarrow\neg P)\land(S_2\leftrightarrow P\land R)\land(S_3\leftrightarrow S_1\land R)\land&\\&\land(S_4\leftrightarrow(Q\leftrightarrow S_3))\land(S_5\leftrightarrow \neg S_4)\land(S_6\leftrightarrow (S_2\to S_5))\land S_6 &\\ A_5&=S_6&
 		\end{align*}
 		\begin{align*}
-			\cnf(\tilde{\varphi_T}(A))=& (P \lor S_1) \land (\neg S_1 \lor \neg P) \land (\neg P \lor \neg R \lor S_2) \land\\&\land (\neg S_2 \lor P) \land (\neg S_2 \lor R) \land (\neg S_1 \lor \neg R \lor S_3) \land (\neg S_3 \lor S_1) \land\\&\land (\neg S_3 \lor R) \land (\neg Q \lor \neg S_3 \lor S_4) \land (Q \lor S_3 \lor S_4) \land (\neg S_3 \lor Q \lor \neg S_4) \land\\&\land (\neg Q \lor S_3 \lor \neg S_4) \land (S_4 \lor S_5) \land (\neg S_5 \lor \neg S_4) \land (\neg S_2 \lor S5_) \land S_6
+			\cnf(\tilde{\varphi_T}(A))=& (P \lor S_1) \land (\neg S_1 \lor \neg P) \land (\neg P \lor \neg R \lor S_2) \land\\&\land (\neg S_2 \lor P) \land (\neg S_2 \lor R) \land (\neg S_1 \lor \neg R \lor S_3) \land (\neg S_3 \lor S_1) \land\\&\land (\neg S_3 \lor R) \land (\neg Q \lor \neg S_3 \lor S_4) \land (Q \lor S_3 \lor S_4) \land (\neg S_3 \lor Q \lor \neg S_4) \land\\&\land (\neg Q \lor S_3 \lor \neg S_4) \land (S_4 \lor S_5) \land (\neg S_5 \lor \neg S_4) \land (\neg S_2 \lor S_5) \land S_6=\\&=(\neg P\lor\neg R\lor S_2)\land(\neg P\lor \neg S_1)\land(P\lor\neg Q\lor\neg R\lor\neg S_5)\land\\&\land (P\lor S_1)\land(\neg Q\lor S_3\lor\neg S_4)\land (Q\lor\neg R\lor\neg S_4)\land(Q\lor S_3\lor\neg S_5)\land\\&\land(R\lor\neg S_2)\land(R\lor\neg S_3)\land(\neg S_2\lor\neg S_3)\land(S_4\lor S_5)\land S_6  
 		\end{align*}
-		Rank = $\left|\{P,Q,R,S_1,S_2,S_3,S_4,S_5,S_6\}\right|=9,$ Complexity = $\displaystyle\sum_{\land\in\cnf(\tilde{\varphi_T}(A)}1=14$ 
+		Rank = $\left|\{P,Q,R,S_1,S_2,S_3,S_4,S_5,S_6\}\right|=9,$ Complexity = $\displaystyle\sum_{\land\in\cnf(\tilde{\varphi_T}(A)}1=11$ 
 	\item $W = \{P_2 \lor P_4 \lor  \neg P_5, P_1 \lor  \neg P_2 \lor  \neg P_4, \neg P_1 \lor  \neg P_3 \lor P_5, P_1 \lor P_3 \lor  \neg P_4, \neg P_1 \lor  \neg P_4 \lor P_5, \neg P_2 \lor  \neg P_5 \lor  \neg P_2,
 \neg P_1 \lor  P_3, P_2 \lor  \neg P_4, \neg P_2 \lor P_5\} \\\\\emph{\textbf{DPLL}:}\\$
 	\begin{itemize}
@@ -250,70 +250,158 @@
 		A[1/P]&=((1\to\neg R)\leftrightarrow(Q\land\neg 1\land R))\to S=((1\to\neg R)\leftrightarrow0)\to S\\
 		A[0/P]&=((0\to\neg R)\leftrightarrow(Q\land\neg 0\land R))\to S=(1\leftrightarrow(Q\land R))\to S\\
 		A&=(P\Rightarrow A[1/P], A[0/P])\\
-		A_{0}[1/Q]&=((1\to\neg R)\leftrightarrow(1\land\neg 1\land R))\to S=((1\to\neg R)\leftrightarrow0)\to S\\
-		A_{0}[0/Q]&=((1\to\neg R)\leftrightarrow(0\land\neg 1\land R))\to S=((1\to\neg R)\leftrightarrow 0)\to S\\
-		A_0&=(Q\Rightarrow A[1/Q], A[0/Q])\\
-		A_{1}[1/Q]&=((0\to\neg R)\leftrightarrow(1\land\neg 0\land R))\to S=(1\leftrightarrow R)\to S \\
-		A_{1}[0/Q]&=((0\to\neg R)\leftrightarrow(0\land\neg 0\land R))\to S=((0\to\neg R)\leftrightarrow0)\to S=1\\
-		A_1&=(Q\Rightarrow A[1/Q], A[0/Q])\\
-		A_{00}[1/R]&=((1\to\neg 1)\leftrightarrow(1\land\neg 1\land 1))\to S=S\\
-		A_{00}[0/R]&=((1\to\neg 0)\leftrightarrow(1\land\neg 1\land 0))\to S=1\\
-		A_{01}[1/R]&=((1\to\neg 1)\leftrightarrow(0\land\neg 1\land 1))\to S=S\\
-		A_{01}[0/R]&=((1\to\neg 0)\leftrightarrow(0\land\neg 1\land 0))\to S=1\\
-		A_{00}&=(R\Rightarrow A[1/R], A[0/R])\\
-		A_{01}&=(R\Rightarrow A[1/R], A[0/R])\\
-		A_{10}[1/R]&=((0\to\neg 1)\leftrightarrow(1\land\neg 0\land 1))\to S=S\\
-		A_{10}[0/R]&=((0\to\neg 0)\leftrightarrow(1\land\neg 0\land 0))\to S=1\\
-		A_{11}[1/R]&=((0\to\neg 1)\leftrightarrow(0\land\neg 0\land 1))\to S=1\\
-		A_{11}[0/R]&=((0\to\neg 0)\leftrightarrow(0\land\neg 0\land 0))\to S=1\\
-		A_{10}&=(R\Rightarrow A[1/R], A[0/R])\\
-		A_{11}&=(R\Rightarrow A[1/R], A[0/R])\\
-		A_{000}[1/S]&=1,\>A_{000}[0/S]=0,\>A_{001}[1/S]=1,\>A_{001}[0/S]=1\\
-		A_{010}[1/S]&=1,\>A_{010}[0/S]=0,\>A_{011}[1/S]=1,\>A_{011}[0/S]=1\\
-		A_{100}[1/S]&=1,\>A_{100}[0/S]=0,\>A_{101}[1/S]=1,\>A_{101}[0/S]=1\\
-		A_{110}[1/S]&=1,\>A_{110}[0/S]=1,\>A_{111}[1/S]=1,\>A_{111}[0/S]=1
+		A_{1}[1/Q]&=((1\to\neg R)\leftrightarrow(1\land\neg 1\land R))\to S=((1\to\neg R)\leftrightarrow0)\to S\\
+		A_{1}[0/Q]&=((1\to\neg R)\leftrightarrow(0\land\neg 1\land R))\to S=((1\to\neg R)\leftrightarrow 0)\to S\\
+		A_1&=(Q\Rightarrow A_1[1/Q], A_1[0/Q])\\
+		A_{0}[1/Q]&=((0\to\neg R)\leftrightarrow(1\land\neg 0\land R))\to S=(1\leftrightarrow R)\to S \\
+		A_{0}[0/Q]&=((0\to\neg R)\leftrightarrow(0\land\neg 0\land R))\to S=((0\to\neg R)\leftrightarrow0)\to S=1\\
+		A_1&=(Q\Rightarrow A_1[1/Q], A_1[0/Q])\\
+		A_{11}[1/R]&=((1\to\neg 1)\leftrightarrow(1\land\neg 1\land 1))\to S=S\\
+		A_{11}[0/R]&=((1\to\neg 0)\leftrightarrow(1\land\neg 1\land 0))\to S=1\\
+		A_{10}[1/R]&=((1\to\neg 1)\leftrightarrow(0\land\neg 1\land 1))\to S=S\\
+		A_{10}[0/R]&=((1\to\neg 0)\leftrightarrow(0\land\neg 1\land 0))\to S=1\\
+		A_{11}&=(R\Rightarrow A_{11}[1/R], A_{11}[0/R])\\
+		A_{10}&=(R\Rightarrow A_{10}[1/R], A_{10}[0/R])\\
+		A_{01}[1/R]&=((0\to\neg 1)\leftrightarrow(1\land\neg 0\land 1))\to S=S\\
+		A_{01}[0/R]&=((0\to\neg 0)\leftrightarrow(1\land\neg 0\land 0))\to S=1\\
+		A_{00}[1/R]&=((0\to\neg 1)\leftrightarrow(0\land\neg 0\land 1))\to S=1\\
+		A_{00}[0/R]&=((0\to\neg 0)\leftrightarrow(0\land\neg 0\land 0))\to S=1\\
+		A_{01}&=(R\Rightarrow A_{01}[1/R], A_{01}[0/R])\\
+		A_{00}&=(R\Rightarrow A_{00}[1/R], A_{00}[0/R])\\
+		A_{111}[1/S]&=1,\>A_{111}[0/S]=0,\>A_{110}[1/S]=1,\>A_{110}[0/S]=1\\
+		A_{101}[1/S]&=1,\>A_{101}[0/S]=0,\>A_{100}[1/S]=1,\>A_{100}[0/S]=1\\
+		A_{011}[1/S]&=1,\>A_{011}[0/S]=0,\>A_{010}[1/S]=1,\>A_{010}[0/S]=1\\
+		A_{001}[1/S]&=1,\>A_{001}[0/S]=1,\>A_{000}[1/S]=1,\>A_{000}[0/S]=1
 	\end{align*}
 	\emph{\textbf{BDT}:}\\
 	\begin{center}
 		\begin{forest}
 		BDT
 		[P
-		[Q[R[S[1][0]
-		]
-		[S[1][1]
-		]
-		]
-		[R[S[1][0]
-		]
-		[S[1][1]
-		]
-		]
-		]
-		[Q[R[S[1][0]
-		]
-		[S[1][1]
-		]
-		]
-		[R[S[1][1]
-		]
-		[S[1][1]
-		]
-		]
-		]
+			[Q
+				[R
+					[S
+						[1][1]
+					]
+					[S
+						[1][1]
+					]
+				]
+				[R
+					[S
+						[1][1]
+					]
+					[S
+						[0][1]
+					]
+				]
+			]
+			[Q
+				[R
+					[S
+						[1][1]
+					]
+					[S
+						[0][1]
+					]
+				]
+				[R
+					[S
+						[1][1]
+					]
+					[S
+						[0][1]
+					]
+				]
+			]
 		]
 	\end{forest}
 	\end{center}
-	\emph{\textbf{ORBDD}:}\\
+	\emph{\textbf{ROBDD}:}\\
 	\begin{center}
 		\begin{forest}
 			BDT
-			[P[Q [R, tikz={\draw node[above=0.5cm] {$16$} [my edge]  () [ looseness=1.5, bend right=120] to (my one) ;} [S, tikz={\draw [ 0 my edge] () [bend right=80] to (my one) ;tikz={\draw [my edge] () [bend right] to (my zero) ;}}  
-			[,phantom]]
-			][R ,tikz={\draw [my edge] () [bend left] to (my one.north) ;}[S[0, name = my zero][1, name = my one]
+			[P
+				[Q,
+					tikz={\draw [ 0 my edge]  () [looseness=1.5, bend right=120] to (my one) ;}[,phantom]
+					[R,
+						tikz={\draw [ 0 my edge]  () [looseness=1.8, bend right=120] to (my one) ;}[,phantom]
+						[S 
+							[0, name = my zero] 
+							[1, name = my one] 
+						]
+					]
+				]
+				[Q,
+					[R,
+						tikz={\draw [ 0 my edge] [bend right=10] () to (my one) ;}[,phantom]
+						[S,
+							tikz={\draw [ 0 my edge]  () [looseness=1.2, bend right=10] to (my zero) ;}
+							tikz={\draw [ my edge] () [looseness=1.2, bend right=160] to (my one) ;}
+							[,phantom]
+						]
+					]
+					[R,
+						tikz={\draw [ 0 my edge] [looseness=1.6, bend left=100] () to (my one) ;}[,phantom]
+						[S,
+							tikz={\draw [ my edge] () to (my one) ;}
+							tikz={\draw [ 0 my edge] [looseness=.8, bend left=150] () to (my zero) ;}
+							[,phantom]
+						]
+					]
+				]
 			]
+		\end{forest}
+		\begin{forest}
+			BDT
+			[P
+				[Q,
+					tikz={\draw [ 0 my edge]  () [looseness=1.5, bend right=120] to (my one) ;}[,phantom]
+					[R,
+						tikz={\draw [ 0 my edge]  () [looseness=1.8, bend right=120] to (my one) ;}[,phantom]
+						[S 
+							[0, name = my zero] 
+							[1, name = my one] 
+						]
+					]
+				]
+				[Q,
+					[R,
+						tikz={\draw [ 0 my edge]  () [bend right=10] to (my one) ;}
+						tikz={\draw [ my edge ] () [bend right] to (my);}
+						[,phantom]
+					]
+					[R,		
+						[S,
+							tikz={\draw [ 0 my edge]  () [bend right=10] to (my zero) ;}[,phantom]
+							tikz={\draw [my edge]  () [bend left=10] to (my one) ;}
+							[,phantom],
+							name = my
+						]
+					]
+				]
 			]
-			][Q, tikz={\draw [my edge] () [bend left=60 ] to (my one) ;}[R, tikz={\draw [my edge] () [ looseness=1.2, bend left=50] to (my one) ;}[S,tikz={\draw [my edge] () [ looseness=2.3, bend left=150] to (my zero) ; tikz={\draw [ 0 my edge] () [bend left] to (my one.north) ;}}[,phantom]] ]
-			]
+		\end{forest}
+		\begin{forest}
+			BDT
+			[P
+				[Q,
+					tikz = {\draw [0 my edge] () [looseness=1.3, bend right=120] to (my one) ;}[,phantom]
+					[R, name = myr,
+						tikz = {\draw [0 my edge] () [looseness=1.3, bend right=120] to (my one) ;}[,phantom]
+						[S, name = mys,
+							[0, name = my zero] 
+							[1, name = my one]
+						]
+					]
+				]
+				[Q,
+					tikz = {\draw [0 my edge] () to (myr) ;}[,phantom]
+					[R,
+						tikz = {\draw [ 0 my edge] () [looseness=1.3, bend left=10] to (my one) ;}[,phantom]
+						tikz = {\draw [my edge] [bend right] () to (mys) ;}
+					]
+				]
 			]
 		\end{forest}
 	\end{center}
@@ -327,16 +415,75 @@
 		=&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0),(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0))),\\&(Q\Rightarrow(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0),(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0))))&\textrm{ - full unordered}\\
 		=&(P\Rightarrow(Q\Rightarrow1,(R\Rightarrow1,(S\Rightarrow1,0))))&\textrm{ - full ordered}
 	\end{align*}
-	\item \begin{align*}
-		A=&\textrm{ Serhiy and Boris are about the same age}\\
-		B=&\textrm{ Serhiy is older than Boris}\\
-		C=&\textrm{ Nadiya and Boris are of different age}\\
-		D=&\textrm{ Boris is older than Fedor}\\
-		A\lor B=&\textrm{ Either Serhiy and Boris are about the same age}\\& \textrm{or Serhiy is older than Boris}\\
-		A\to C=&\textrm{ If Serhiy and Boris are about the same age}\\&\textrm{then Nadiya and Boris are of different age}\\
-		B\to D=&\textrm{ If Serhiy is older than Boris}\c&\textrm{then Boris is older than Fedor}\\
-		C\to D=&\textrm{ If Nadiya and Boris are of different age}\\&\textrm{then Boris is older than Fedor}\\
-		(A\to C\to D)\lor(B\to D)
+	\item 
+	$A$ - Serhiy and Boris are about the same age, $B$ - Serhiy is older than Boris, $C$ - Nadiya and Boris are of different age, $D$ - Boris is older than Fedor
+	\begin{align*}
+		T&=(A\lor B)\land(A\to C)\land(B\to D)\land (C\to D)=\\&=(A\lor B)\land(\neg A\lor C)\land(\neg B\lor D)\land (\neg C\lor D)=\\&=(\neg A\lor C)\land(A\lor B)\land D
+	\end{align*}
+	$W=\{A\lor B,\neg A\lor C,\neg B\lor D,\neg C\lor D\}$
+	\\\\\emph{\textbf{DPLL:}}\\
+	\begin{itemize}
+		\item [\textbf{SPLIT}] $(A)\\W_{11}=\{B,\neg B\lor D,\neg C\lor D\}\\W_{12}=\{C,\neg B\lor D,\neg C\lor D\}$
+		\item [\textbf{UNIT}] $(B\in W_{11},C\in W_{12})\\W_{21}=\{D,\neg C\lor D\}\\W_{22}=\{\neg B\lor D,D\}$
+		\item [\textbf{UNIT}] $(D\in W_{21},D\in W_{22})\\W_{31}=\{\neg C\}\\W_{32}=\{\neg B\}$
+		\item [\textbf{UNIT}] $(C\in W_{21},B\in W_{22})\\W_{41}=\O\\W_{42}=\O$
+	\end{itemize}
+	W - unsatisfiable
+	\\\\\emph{\textbf{Resolution:}}\\
+	\begin{multicols}{4}
+		\begin{enumerate}[(1)]
+			\item $A\lor B$
+			\item $\neg A\lor C$
+			\item $\neg B\lor D$
+			\item $\neg C\lor D$
+		\end{enumerate}
+	\end{multicols}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \begin{align*}
+				B\lor C\tab &(1,2,A)
+			\end{align*}
+			\item \begin{align*}
+				\neg A\lor D\tab & (2,4,C) 
+			\end{align*}
+			\item \begin{align*}
+				A\lor D\tab (1,3,B)
+			\end{align*}
+			\item \begin{align*}
+				D\tab & (b,c,A)
+			\end{align*}
+		\end{enumerate}
+	\end{multicols}
+	\emph{\textbf{Shannon:}}\\\\
+	$T=(A\lor B)\land(\neg A\lor C)\land(\neg B\lor D)\land (\neg C\lor D),\>A<B<C<D$
+	\begin{align*}
+		T[1/A]&=(1\lor B)\land(\neg 1\lor C)\land(\neg B\lor D)\land (\neg C\lor D)\\
+		T[0/A]&=(0\lor B)\land(\neg 0\lor C)\land(\neg B\lor D)\land (\neg C\lor D)\\
+		T&=(A\Rightarrow T[1/A],T[0/A])\\
+		T_0[1/B]&=(1\lor 1)\land(\neg 1\lor C)\land(\neg 1\lor D)\land (\neg C\lor D)\\
+		T_0[0/B]&=(1\lor 0)\land(\neg 1\lor C)\land(\neg 0\lor D)\land (\neg C\lor D)\\
+		T_0&=(B\Rightarrow T_0[1/B],T_0[0/B])\\
+		T_1[1/B]&=(0\lor 1)\land(\neg 0\lor C)\land(\neg 1\lor D)\land (\neg C\lor D)\\
+		T_1[0/B]&=(0\lor 0)\land(\neg 0\lor C)\land(\neg 0\lor D)\land (\neg C\lor D)=0\\
+		T_1&=(B\Rightarrow T_1[1/B],T_1[0/B])\\
+		T_{00}[1/C]&=(1\lor 1)\land(\neg 1\lor 1)\land(\neg 1\lor D)\land (\neg 1\lor D)=D\\
+		T_{00}[0/C]&=(1\lor 1)\land(\neg 1\lor 0)\land(\neg 1\lor D)\land (\neg 0\lor D)=0\\
+		T_{01}[1/C]&=(1\lor 0)\land(\neg 1\lor 1)\land(\neg 0\lor D)\land (\neg 1\lor D)=D\\
+		T_{01}[0/C]&=(1\lor 0)\land(\neg 1\lor 0)\land(\neg 0\lor D)\land (\neg 0\lor D)=0\\
+		T_{00}&=(C\Rightarrow T_{00}[1/C],T_{00}[0/C])\\
+		T_{01}&=(C\Rightarrow T_{01}[1/C],T_{01}[0/C])\\
+		T_{10}[1/C]&=(0\lor 1)\land(\neg 0\lor 1)\land(\neg 1\lor D)\land (\neg 1\lor D)=D\\
+		T_{10}[0/C]&=(0\lor 1)\land(\neg 0\lor 0)\land(\neg 1\lor D)\land (\neg 0\lor D)=D\\
+		T_{11}[1/C]&=(0\lor 0)\land(\neg 0\lor 1)\land(\neg 0\lor D)\land (\neg 1\lor D)=0\\
+		T_{11}[0/C]&=(0\lor 0)\land(\neg 0\lor 0)\land(\neg 0\lor D)\land (\neg 0\lor D)=0\\
+		T_{10}&=(C\Rightarrow T_{10}[1/C],T_{10}[0/C])\\
+		T_{11}&=(C\Rightarrow T_{11}[1/C],T_{11}[0/C])
+	\end{align*}
+	\begin{align*}
+		T_{000}[1/D]&=1,\>T_{000}[0/D]=0,\>T_{001}[1/D]=0,\>T_{001}[0/D]=0\\
+		T_{010}[1/D]&=1,\>T_{010}[0/D]=0,\>T_{011}[1/D]=0,\>T_{011}[0/D]=0\\
+		T_{100}[1/D]&=1,\>T_{100}[0/D]=0,\>T_{101}[1/D]=1,\>T_{101}[0/D]=0\\
+		T_{101}[1/D]&=0,\>T_{101}[0/D]=0,\>T_{111}[1/D]=0,\>T_{101}[0/D]=0\\
 	\end{align*}
 \end{enumerate}
 
