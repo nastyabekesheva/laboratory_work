@@ -11,6 +11,7 @@
 \usepackage{forest}
 \usepackage{graphicx}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
 \tikzset{
   0 my edge/.style={densely dashed, my edge},
   my edge/.style={-{Stealth[]}},
@@ -323,88 +324,25 @@
 			BDT
 			[P
 				[Q,
-					tikz={\draw [ 0 my edge]  () [looseness=1.5, bend right=120] to (my one) ;}[,phantom]
-					[R,
-						tikz={\draw [ 0 my edge]  () [looseness=1.8, bend right=120] to (my one) ;}[,phantom]
-						[S 
-							[0, name = my zero] 
-							[1, name = my one] 
+					tikz = {\draw [ 0 my edge] () [looseness=1.7, bend right=120] to (myo) ;}[,phantom]
+					[R, name =myr,
+						tikz = {\draw [ 0 my edge] () [looseness=1.9, bend right=120] to (myo) ;}[,phantom]
+						[S, name = mys,
+							[0, name = myz][,phantom]
+							[1, name = myo]						
 						]
 					]
 				]
 				[Q,
+					tikz = {\draw [my edge] () to (myr) ;}
 					[R,
-						tikz={\draw [ 0 my edge] [bend right=10] () to (my one) ;}[,phantom]
-						[S,
-							tikz={\draw [ 0 my edge]  () [looseness=1.2, bend right=10] to (my zero) ;}
-							tikz={\draw [ my edge] () [looseness=1.2, bend right=160] to (my one) ;}
-							[,phantom]
-						]
-					]
-					[R,
-						tikz={\draw [ 0 my edge] [looseness=1.6, bend left=100] () to (my one) ;}[,phantom]
-						[S,
-							tikz={\draw [ my edge] () to (my one) ;}
-							tikz={\draw [ 0 my edge] [looseness=.8, bend left=150] () to (my zero) ;}
-							[,phantom]
-						]
-					]
-				]
-			]
-		\end{forest}
-		\begin{forest}
-			BDT
-			[P
-				[Q,
-					tikz={\draw [ 0 my edge]  () [looseness=1.5, bend right=120] to (my one) ;}[,phantom]
-					[R,
-						tikz={\draw [ 0 my edge]  () [looseness=1.8, bend right=120] to (my one) ;}[,phantom]
-						[S 
-							[0, name = my zero] 
-							[1, name = my one] 
-						]
-					]
-				]
-				[Q,
-					[R,
-						tikz={\draw [ 0 my edge]  () [bend right=10] to (my one) ;}
-						tikz={\draw [ my edge ] () [bend right] to (my);}
+						tikz = {\draw [ 0 my edge] () [bend left=30] to (myo) ; \draw [my edge] () to (mys);}			
 						[,phantom]
 					]
-					[R,		
-						[S,
-							tikz={\draw [ 0 my edge]  () [bend right=10] to (my zero) ;}[,phantom]
-							tikz={\draw [my edge]  () [bend left=10] to (my one) ;}
-							[,phantom],
-							name = my
-						]
-					]
 				]
 			]
 		\end{forest}
-		\begin{forest}
-			BDT
-			[P
-				[Q,
-					tikz = {\draw [0 my edge] () [looseness=1.3, bend right=120] to (my one) ;}[,phantom]
-					[R, name = myr,
-						tikz = {\draw [0 my edge] () [looseness=1.3, bend right=120] to (my one) ;}[,phantom]
-						[S, name = mys,
-							[0, name = my zero] 
-							[1, name = my one]
-						]
-					]
-				]
-				[Q,
-					tikz = {\draw [0 my edge] () to (myr) ;}[,phantom]
-					[R,
-						tikz = {\draw [ 0 my edge] () [looseness=1.3, bend left=10] to (my one) ;}[,phantom]
-						tikz = {\draw [my edge] [bend right] () to (mys) ;}
-					]
-				]
-			]
-		\end{forest}
-	\end{center}
+		\end{center}
 	\begin{align*}
 		&\mathcal{T}(A)=\{P,Q,R,S\},\>|\mathcal{T(A)}|=4\\
 		A:&\>\{\neg P,\neg Q,R,S\},\{\neg P,Q,R,S\},\>\{P,\neg Q,R,S\},\>\{P,Q,R,S\}\\
@@ -416,75 +354,148 @@
 		=&(P\Rightarrow(Q\Rightarrow1,(R\Rightarrow1,(S\Rightarrow1,0))))&\textrm{ - full ordered}
 	\end{align*}
 	\item 
-	$A$ - Serhiy and Boris are about the same age, $B$ - Serhiy is older than Boris, $C$ - Nadiya and Boris are of different age, $D$ - Boris is older than Fedor
+	$P$ - Serhiy and Boris are about the same age, $Q$ - Serhiy is older than Boris, $R$ - Nadiya and Boris are of different age, $S$ - Boris is older than Fedor
 	\begin{align*}
-		T&=(A\lor B)\land(A\to C)\land(B\to D)\land (C\to D)=\\&=(A\lor B)\land(\neg A\lor C)\land(\neg B\lor D)\land (\neg C\lor D)=\\&=(\neg A\lor C)\land(A\lor B)\land D
+		A&=(P\lor Q)\land(P\to R)\land(Q\to S)\land (R\to S)=\\&=(P\lor Q)\land(\neg P\lor R)\land(\neg Q\lor S)\land (\neg R\lor S)=\\&=(\neg P\lor R)\land(P\lor Q)\land S
 	\end{align*}
-	$W=\{A\lor B,\neg A\lor C,\neg B\lor D,\neg C\lor D\}$
+	$W=\{P\lor Q,\neg P\lor R,\neg Q\lor S,\neg R\lor S\}$
 	\\\\\emph{\textbf{DPLL:}}\\
 	\begin{itemize}
-		\item [\textbf{SPLIT}] $(A)\\W_{11}=\{B,\neg B\lor D,\neg C\lor D\}\\W_{12}=\{C,\neg B\lor D,\neg C\lor D\}$
-		\item [\textbf{UNIT}] $(B\in W_{11},C\in W_{12})\\W_{21}=\{D,\neg C\lor D\}\\W_{22}=\{\neg B\lor D,D\}$
-		\item [\textbf{UNIT}] $(D\in W_{21},D\in W_{22})\\W_{31}=\{\neg C\}\\W_{32}=\{\neg B\}$
-		\item [\textbf{UNIT}] $(C\in W_{21},B\in W_{22})\\W_{41}=\O\\W_{42}=\O$
+		\item [\textbf{SPLIT}] $(P)\\W_{11}=\{Q,\neg Q\lor S,\neg R\lor S\}\\W_{12}=\{R,\neg Q\lor S,\neg R\lor S\}$
+		\item [\textbf{UNIT}] $(Q\in W_{11},R\in W_{12})\\W_{21}=\{S,\neg R\lor S\}\\W_{22}=\{\neg Q\lor S,S\}$
+		\item [\textbf{UNIT}] $(S\in W_{21},S\in W_{22})\\W_{31}=\{\neg R\}\\W_{32}=\{\neg Q\}$
+		\item [\textbf{UNIT}] $(R\in W_{21},Q\in W_{22})\\W_{41}=\O\\W_{42}=\O$
 	\end{itemize}
 	W - unsatisfiable
 	\\\\\emph{\textbf{Resolution:}}\\
 	\begin{multicols}{4}
 		\begin{enumerate}[(1)]
-			\item $A\lor B$
-			\item $\neg A\lor C$
-			\item $\neg B\lor D$
-			\item $\neg C\lor D$
+			\item $P\lor Q$
+			\item $\neg P\lor R$
+			\item $\neg Q\lor S$
+			\item $\neg R\lor S$
 		\end{enumerate}
 	\end{multicols}
 	\begin{multicols}{2}
 		\begin{enumerate}
 			\item \begin{align*}
-				B\lor C\tab &(1,2,A)
+				Q\lor R\tab &(1,2,P)
 			\end{align*}
 			\item \begin{align*}
-				\neg A\lor D\tab & (2,4,C) 
+				\neg P\lor S\tab & (2,4,R) 
 			\end{align*}
 			\item \begin{align*}
-				A\lor D\tab (1,3,B)
+				P\lor S\tab (1,3,Q)
 			\end{align*}
 			\item \begin{align*}
-				D\tab & (b,c,A)
+				S\tab & (b,c,P)
 			\end{align*}
 		\end{enumerate}
 	\end{multicols}
 	\emph{\textbf{Shannon:}}\\\\
-	$T=(A\lor B)\land(\neg A\lor C)\land(\neg B\lor D)\land (\neg C\lor D),\>A<B<C<D$
+	$A=(P\lor Q)\land(\neg P\lor R)\land(\neg Q\lor S)\land (\neg R\lor S),\>P<Q<R<S$
 	\begin{align*}
-		T[1/A]&=(1\lor B)\land(\neg 1\lor C)\land(\neg B\lor D)\land (\neg C\lor D)\\
-		T[0/A]&=(0\lor B)\land(\neg 0\lor C)\land(\neg B\lor D)\land (\neg C\lor D)\\
-		T&=(A\Rightarrow T[1/A],T[0/A])\\
-		T_0[1/B]&=(1\lor 1)\land(\neg 1\lor C)\land(\neg 1\lor D)\land (\neg C\lor D)\\
-		T_0[0/B]&=(1\lor 0)\land(\neg 1\lor C)\land(\neg 0\lor D)\land (\neg C\lor D)\\
-		T_0&=(B\Rightarrow T_0[1/B],T_0[0/B])\\
-		T_1[1/B]&=(0\lor 1)\land(\neg 0\lor C)\land(\neg 1\lor D)\land (\neg C\lor D)\\
-		T_1[0/B]&=(0\lor 0)\land(\neg 0\lor C)\land(\neg 0\lor D)\land (\neg C\lor D)=0\\
-		T_1&=(B\Rightarrow T_1[1/B],T_1[0/B])\\
-		T_{00}[1/C]&=(1\lor 1)\land(\neg 1\lor 1)\land(\neg 1\lor D)\land (\neg 1\lor D)=D\\
-		T_{00}[0/C]&=(1\lor 1)\land(\neg 1\lor 0)\land(\neg 1\lor D)\land (\neg 0\lor D)=0\\
-		T_{01}[1/C]&=(1\lor 0)\land(\neg 1\lor 1)\land(\neg 0\lor D)\land (\neg 1\lor D)=D\\
-		T_{01}[0/C]&=(1\lor 0)\land(\neg 1\lor 0)\land(\neg 0\lor D)\land (\neg 0\lor D)=0\\
-		T_{00}&=(C\Rightarrow T_{00}[1/C],T_{00}[0/C])\\
-		T_{01}&=(C\Rightarrow T_{01}[1/C],T_{01}[0/C])\\
-		T_{10}[1/C]&=(0\lor 1)\land(\neg 0\lor 1)\land(\neg 1\lor D)\land (\neg 1\lor D)=D\\
-		T_{10}[0/C]&=(0\lor 1)\land(\neg 0\lor 0)\land(\neg 1\lor D)\land (\neg 0\lor D)=D\\
-		T_{11}[1/C]&=(0\lor 0)\land(\neg 0\lor 1)\land(\neg 0\lor D)\land (\neg 1\lor D)=0\\
-		T_{11}[0/C]&=(0\lor 0)\land(\neg 0\lor 0)\land(\neg 0\lor D)\land (\neg 0\lor D)=0\\
-		T_{10}&=(C\Rightarrow T_{10}[1/C],T_{10}[0/C])\\
-		T_{11}&=(C\Rightarrow T_{11}[1/C],T_{11}[0/C])
+		A[1/P]&=(1\lor Q)\land(\neg 1\lor R)\land(\neg Q\lor S)\land (\neg R\lor S)\\
+		A[0/P]&=(0\lor Q)\land(\neg 0\lor R)\land(\neg Q\lor S)\land (\neg R\lor S)\\
+		A&=(P\Rightarrow A[1/Q],A[0/Q])\\
+		A_1[1/Q]&=(1\lor 1)\land(\neg 1\lor R)\land(\neg 1\lor S)\land (\neg R\lor S)\\
+		A_1[0/Q]&=(1\lor 0)\land(\neg 1\lor R)\land(\neg 0\lor S)\land (\neg R\lor S)\\
+		A_1&=(Q\Rightarrow A_1[1/Q],A_1[0/Q])\\
+		A_0[1/Q]&=(0\lor 1)\land(\neg 0\lor R)\land(\neg 1\lor S)\land (\neg R\lor S)\\
+		A_0[0/Q]&=(0\lor 0)\land(\neg 0\lor R)\land(\neg 0\lor S)\land (\neg R\lor S)=0\\
+		A_0&=(Q\Rightarrow A_0[1/Q],A_0[0/Q])\\
+		A_{11}[1/R]&=(1\lor 1)\land(\neg 1\lor 1)\land(\neg 1\lor S)\land (\neg 1\lor S)=S\\
+		A_{11}[0/R]&=(1\lor 1)\land(\neg 1\lor 0)\land(\neg 1\lor S)\land (\neg 0\lor S)=0\\
+		A_{10}[1/R]&=(1\lor 0)\land(\neg 1\lor 1)\land(\neg 0\lor S)\land (\neg 1\lor S)=S\\
+		A_{10}[0/R]&=(1\lor 0)\land(\neg 1\lor 0)\land(\neg 0\lor S)\land (\neg 0\lor S)=0\\
+		A_{11}&=(R\Rightarrow A_{11}[1/R],A_{11}[0/R])\\
+		A_{10}&=(R\Rightarrow A_{10}[1/R],A_{10}[0/R])\\
+		A_{01}[1/R]&=(0\lor 1)\land(\neg 0\lor 1)\land(\neg 1\lor S)\land (\neg 1\lor S)=S\\
+		A_{01}[0/R]&=(0\lor 1)\land(\neg 0\lor 0)\land(\neg 1\lor S)\land (\neg 0\lor S)=S\\
+		A_{00}[1/R]&=(0\lor 0)\land(\neg 0\lor 1)\land(\neg 0\lor S)\land (\neg 1\lor S)=0\\
+		A_{00}[0/R]&=(0\lor 0)\land(\neg 0\lor 0)\land(\neg 0\lor S)\land (\neg 0\lor S)=0\\
+		A_{01}&=(R\Rightarrow A_{01}[1/R],A_{01}[0/R])\\
+		A_{00}&=(R\Rightarrow A_{00}[1/R],A_{00}[0/R])\\
 	\end{align*}
 	\begin{align*}
-		T_{000}[1/D]&=1,\>T_{000}[0/D]=0,\>T_{001}[1/D]=0,\>T_{001}[0/D]=0\\
-		T_{010}[1/D]&=1,\>T_{010}[0/D]=0,\>T_{011}[1/D]=0,\>T_{011}[0/D]=0\\
-		T_{100}[1/D]&=1,\>T_{100}[0/D]=0,\>T_{101}[1/D]=1,\>T_{101}[0/D]=0\\
-		T_{101}[1/D]&=0,\>T_{101}[0/D]=0,\>T_{111}[1/D]=0,\>T_{101}[0/D]=0\\
+		A_{111}[1/S]&=1,\>A_{111}[0/S]=0,\>A_{101}[1/S]=0,\>A_{101}[0/S]=0\\
+		A_{101}[1/S]&=1,\>A_{101}[0/S]=0,\>A_{100}[1/S]=0,\>A_{100}[0/S]=0\\
+		A_{011}[1/S]&=1,\>A_{011}[0/S]=0,\>A_{010}[1/S]=1,\>A_{010}[0/S]=0\\
+		A_{001}[1/S]&=0,\>A_{001}[0/S]=0,\>A_{000}[1/S]=0,\>A_{000}[0/S]=0\\
 	\end{align*}
+	\emph{\textbf{BDT}:}\\
+	\begin{center}
+		\begin{forest}
+			BDT
+			[P
+				[Q
+					[R
+						[S
+							[0][0]
+						]
+						[S
+							[0][0]
+						]
+					]
+					[R
+						[S
+							[1][0]
+						]
+						[S
+							[0][1]
+						]
+					]
+				]
+				[Q
+					[R
+						[S
+							[0][0]
+						]
+						[S
+							[0][1]
+						]
+					]
+					[R
+						[S
+							[0][0]
+						]
+						[S
+							[0][1]
+						]
+					]
+				]
+			]
+		\end{forest}
+	\end{center}
+	\emph{\textbf{ROBDD}:}\\
+	\begin{center}
+		\begin{forest}
+			BDT
+			[P,
+				[Q,
+					tikz = {\draw [0 my edge] () [looseness=1, bend right=90] to (myo);}[,phantom]
+					[R,
+						tikz = {\draw [my edge] () to (mys);}
+						[S,
+							tikz = {\draw [0 my edge] () to (myo); \draw [my edge] () to (myz);}[,phantom]
+						]
+					]
+				]
+				[Q,
+					[R,
+						tikz = {\draw [0 my edge] () [bend right] to (myz);}[,phantom]
+						[S, name = mys
+							[0, name = myz]
+							[1, name = myo]
+						]
+					]
+					[R,
+						tikz = {\draw [my edge] () to (mys) ; \draw [0 my edge] () [bend left=20] to (myz);}[,phantom]
+					]
+				]
+			]
+		\end{forest}
+	\end{center}
 \end{enumerate}
 
 
