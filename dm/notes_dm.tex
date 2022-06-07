@@ -9,6 +9,7 @@
 \usepackage{amsthm}
 \usepackage{mdframed} 
 \usepackage{xcolor}
+\usepackage{enumerate}
 \usepackage{xparse}
 \usepackage{amssymb}
 \usepackage{tikz} 
@@ -1709,6 +1710,120 @@ $\langle A,\>+,\>\cdot\rangle,$ + = "додавання", $\cdot$ = "множе�
 \begin{example}
 	$2\mathbb{Z},\>n\mathbb{Z}$ - ідеали у $\mathbb{Z}$
 \end{example}
+\chapter{Лекція 5}
+\section{Головні Ідеали}
+\begin{definition}
+	$$\textrm{Ідеал, породженний елементом }a\in\mathcal{R}:\>(a)\textrm{ - ідеал }\mathcal{I}\subseteq\mathcal{R}\>\min\textrm{потужності }a\in\mathcal{I}$$
+\end{definition}
+\begin{prop*}
+	$$\mathcal{R}\textrm{ - комутативне кільце}:\>(a)=\{ra+ka\>|\>r\in\mathcal{R},\>k\in\mathbb{Z}\}$$
+	\begin{proof}$ $
+		\begin{enumerate}
+			\item $a\in(a),\>(a)$ - підкільце (замкнене за $+,\>\cdot$)
+			\item $(a)$ - ідеал?$\tab \forall b\in\mathcal{R},\forall c\in(a):\>c=ra+ka\\\hspace*{6.5cm} bc=bra+b\cdot(ka)=\underbrace{(br+kb)\cdot a}_{r'}\in(a)$
+			\item $(a)$ - $\min$ ідеал з $a:\\$нехай $\mathcal{I}$ ідеал, $a\in\mathcal{I}$ тоді $\forall r\in\mathcal{R}:\>ra\in\mathcal{I},\>\forall k\in\mathbb{Z}:\>ka\in\mathcal{I}\Rightarrow ra+ka\in\mathcal{I}\Rightarrow\\\Rightarrow(a)\subseteq\mathcal{I}\Rightarrow(a)=\mathcal{I}$ 
+		\end{enumerate}
+	\end{proof}
+\end{prop*}
+\begin{remark*}
+	$\mathcal{R}$ - кмутативне кільце з одиницею, то $(a)=\{ra\>|\>r\in\mathcal{R}\}\\$ Якщо $\mathcal{R}$ не містить одиницю, то $\{ra\>|\>r\in\mathcal{R}\}$ - ідеал, але не обов'язково містить $a$
+\end{remark*}
+\begin{example}
+	$2\mathbb{Z}=\{0,\pm2,\pm4,\dots\}\\4:\>\{4k\>\>k\in2\mathbb{Z}\}=\{0,\pm8,\pm16,\dots\}$
+\end{example}
+
+\begin{definition}
+	$$\mathcal{I}\subseteq\mathcal{R}\textrm{ - головний ідеал}\Leftrightarrow\exists a\in\mathcal{R}:\>\mathcal{I}=(A)$$
+	$$\mathcal{R}\textrm{ - кільце головних ідеалів}\Leftrightarrow\forall\textrm{ ідеали }\mathcal{R}\textrm{ - головний}$$
+\end{definition}
+\begin{example}
+	$\mathbb{Z}$ - кільце головних ідеалів (усі ідеали - $n\mathbb{Z}=(n)$)
+\end{example}
+\begin{prop*}
+	$$\forall\textrm{ поле }\mathcal{F}\textrm{ є лише два (тривіальні) ідеали }:(0)=\{0\},\>(1)=\mathcal{F}$$
+	\begin{proof}
+		Нехай $\mathcal{I}\subseteq\mathcal{F}$ - ідеал $\Rightarrow\exists x\in\mathcal{F},\>\forall y\neq0:\>\exists y^{-1}\\x=(x\cdot y^{-1})\cdot y\in\mathcal{Z}\Rightarrow\mathcal{F}\in\mathcal{I}\Rightarrow\mathcal{I}=\mathcal{F}$
+	\end{proof}
+\end{prop*}
+\begin{remark*}
+	для некомутативних кілець усе значно складніше 
+\end{remark*}
+\section{Фактор-кільця}
+Нехай $\mathcal{I}\in\mathcal{R}$ - ідеал, оскільки $\mathcal{R}^+$ - абелева група, то $\mathcal{I}^+\triangleleft \mathcal{R}^+\Rightarrow$ можна побудувати фактор-групу $\mathcal{R}/\mathcal{I}$ з класів суміжності за + . 
+\begin{definition}Елементи $a,\>b\in\mathcal{R}$ конгруентні за ідеалом $\mathcal{I}$
+	$$a\equiv b(\mod\mathcal{I})\Leftrightarrow a-b\in\mathcal{I}$$
+\end{definition}
+\begin{prop*}Нехай $a\equiv b(\mod\mathcal{I}),c\equiv d(\mod\mathcal{I})$
+	\begin{align*}
+		\textrm{Тоді}:\tab & (1)\>a+c\equiv b+d(\mod\mathcal{I})\Rightarrow n\cdot a\equiv n\cdot b(\mod\mathcal{I}),\>\forall n\in\mathbb{Z}\\
+		&(2)\>\forall r\in\mathcal{R}:\>ra\equiv rb(\mod\mathcal{I}),\>ar\equiv rb(\mod\mathcal{I})\\
+		&(3)\>ac\equiv bd(\mod\mathcal{I})
+	\end{align*}
+	\begin{proof}$ $
+		\begin{enumerate}[(1)]
+			\item з означення класів суміжності
+			\item $ra-rb=r\cdot(a-b)\in\mathcal{I}$ (за означенням ідеалу)
+			\item $ac-bd=ac-bc+bc-bd=(a-b)\cdot c+b\cdot (c-d)\in\mathcal{I}$
+		\end{enumerate}
+	\end{proof}
+\end{prop*}
+\textcircled{$\Rightarrow$} на класах суміжності $\mathcal{R}/\mathcal{I}=\{a+\mathcal{I}\>|\>a\in\mathcal{R}\}\\\tab $ окрім +: $(a+\mathcal{I})+(b+\mathcal{I})=(a+b)+\mathcal{I}\\\tab$ можна ввести $\cdot:\>(a+\mathcal{I})\cdot(b+\mathcal{I})=ab+\mathcal{I}$ 
+\begin{theorem}[quotient ring]
+	$$\langle\mathcal{R}/\mathcal{I},\>+\>,\cdot\rangle\textrm{ - кільце (факторкільце за ідеалом }\mathcal{I})$$
+\end{theorem}
+\begin{example}
+	$\mathbb{Z},\>n\mathbb{Z}=(n)\Rightarrow\mathbb{Z}/(n)=\mathbb{Z}/n\mathbb{Z}=\{[0],\>[1],\dots,\>[n-1]\}\sim\mathbb{Z}_n$
+\end{example}
+\begin{remark*}
+	фактор-кільця не обов'язково успадковують властивості $\mathbb{Z}$
+\end{remark*}
+\begin{definition}
+	$$\textrm{Ідеал }\mathcal{I}\subseteq\mathcal{R}\textrm{ - простий}\Leftrightarrow\forall a,\>b\in\mathcal{R}:\>a\cdot b\in\mathcal{I}\Rightarrow(a\in\mathcal{I})\lor(b\in\mathcal{I})$$
+	$$\textrm{Ідеал }\mathcal{I}\subseteq\mathcal{R}\textrm{ - максимальний}\Leftrightarrow\forall \mathcal{I}'\textrm{ - ідеал}\mathcal{R}:\>\mathcal{I}\subseteq\mathcal{I}'\subseteq\mathcal{R}\Rightarrow(\mathcal{I}=\mathcal{I}')\lor(\mathcal{I}'=\mathcal{R})$$
+\end{definition}
+\begin{theorem}$\mathcal{R}$ - комутативне кільце, $\mathcal{I}\in\mathcal{R}$ - ідеал
+	\begin{align*}
+		(1)&\>\mathcal{R}/\mathcal{I} \textrm{ - цілісне кільце }\Leftrightarrow\mathcal{I}\textrm{ - простий ідеал}\\
+		(2)&\>\mathcal{R}/\mathcal{I}\textrm{ - поле }\mathcal{I}\textrm{ - максимальний },\mathcal{R}\textrm{ містить одиницю}
+	\end{align*}
+	\begin{proof}$ $
+		\begin{enumerate}[(1)]
+			\item $\mathcal{R}/\mathcal{I}$ - цілісне кільце $\Leftrightarrow \mathcal{R}/\mathcal{I}$ не містить дільників нуля\\$(a+\mathcal{I})\cdot(b+\mathcal{I})=\mathcal{I}\Rightarrow((a+\mathcal{I})=\mathcal{I})\lor((b+\mathcal{I})=\mathcal{I})\Rightarrow(a\in\mathcal{I})\lor(b\in\mathcal{I})\\ab+\mathcal{I}=\mathcal{I}\Leftrightarrow ab\in\mathcal{I}$ - означення простого ідеалу!	
+			\item $\mathcal{I}$ - $\max$ ідеал $\Rightarrow\mathcal{R}/\mathcal{I}$ - поле\\$\mathcal{I}\neq\mathcal{R}:\>a\not\in\mathcal{I}:\>\mathcal{I}_a=\{ax+y\>|\>x\in\mathcal{R},y\in\mathcal{I}\}\\\Rightarrow\mathcal{I}_a$ - ідеал, $\mathcal{I}\subseteq\mathcal{I}_a\Rightarrow\mathcal{I}_a\neq\mathcal{I}\Rightarrow\mathcal{I}_a=\mathcal{R}\Rightarrow\exists x\in\mathcal{R},\>y\in\mathcal{I}:ax+y=1\\\Rightarrow1+\mathcal{I}=ax+y+\mathcal{I}=ax+\mathcal{I}=(a+\mathcal{I})\cdot(x+\mathcal{I})\Rightarrow\exists(a+\mathcal{I})^{-1}=(x+\mathcal{I})\\\Rightarrow\mathcal{R}/\mathcal{I}$ - поле 
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\section{Теорема про гомоморфізм кілець}
+$\langle\mathcal{R},\>+,\>\cdot\rangle,\>\langle\mathcal{R}',\>\oplus,\>\otimes\rangle$ - кільця
+\begin{definition}Гомоморфізм кілець
+	\begin{align*}
+		F:\mathcal{R}\to\mathcal{R}'\textrm{ - відображення}.\tab \forall a,\>b\in\mathcal{R}:\tab&f(a+b)=f(a)\oplus f(b)\\&f(a\cdot b)=f(a)\otimes f(b)\\\Rightarrow f\in\textrm{гомоморфізм }\mathcal{R}^+\textrm{ на }\mathcal{R}^\oplus
+	\end{align*}
+\end{definition}
+\begin{definition}Ядроб образ аналогічно до груп
+	$$\ker f=\{a\in\mathcal{R}\>|\>f(a)=0_\mathcal{R'}\}$$
+	$$\im f=f(\mathcal{R})$$
+\end{definition}
+\begin{theorem}[ring homomorphism]
+	\begin{align*}
+		\textrm{Нехай }f\textrm{ - гомоморфізм }:\>&(1)\>\ker f\textrm{}\mathcal{R}\\
+		\mathcal{R}\textrm{ на }\mathcal{R}'\>\>&(2)\mathcal{R}/\ker f\sim\im f,\textrm{ де ізоморфізм}&\psi:\mathcal{R}/\ker f\to\im f\\&&\psi(a+\ker f):=f(a)
+	\end{align*}
+\end{theorem}
+\begin{prop*}для $\forall\mathcal{I}$ - ідеалу $\mathcal{R}$
+	\begin{align*}
+		\varphi:\mathcal{R}\to\mathcal{R}/\mathcal{I}\textrm{ - гомоморфізм}\tab&\ker f=\mathcal{I}\\\varphi(a)=a+\mathcal{I}\tab&\im\varphi=\mathcal{R}/\mathcal{I}
+	\end{align*}
+\end{prop*}
+
+
+
+
+
+
+
+
+
 
 
 
