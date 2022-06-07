@@ -1,0 +1,65 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch }}
+\newcommand{\arsh}{\textrm{arcsh }}
+\newcommand{\csch}{\textrm{csch }}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 11}	
+\end{center}
+\begin{itemize}
+	\item [9.9] \begin{enumerate}[(a)]
+		\item $\bigintss\limits_0^1\ln x\dx=\lim\limits_{a\to0^+}\left(\bigintss\limits_a^1\ln x\dx \right)=\lim\limits_{a\to0^+}(-1-\ln a\cdot a+a)=1$
+		\item $\bigintss\limits_{-\infty}^{+\infty}\dfrac{\dx}{1+x^2}=\bigintss\limits_{-\infty}^{0}\dfrac{\dx}{1+x^2}+\bigintss\limits_{0}^{+\infty}\dfrac{\dx}{1+x^2}=\lim\limits_{a\to-\infty}\left(\bigintss\limits_{a}^{0}\dfrac{\dx}{1+x^2} \right)+\lim\limits_{a\to+\infty}\left(\bigintss\limits_{0}^{a}\dfrac{\dx}{1+x^2} \right)=\\=\lim\limits_{a\to-\infty}\left(-\arctan a \right)+\lim\limits_{a\to+\infty}\left(\arctan a \right)=\dfrac\pi2+\dfrac\pi2=\pi$
+		\item $\bigintss\limits_{-1}^{1}\dfrac{\dx}{\sqrt{1-x^2}}=\bigintss\limits_{-1}^{0}\dfrac{\dx}{\sqrt{1-x^2}}+\bigintss\limits_{0}^{1}\dfrac{\dx}{\sqrt{1-x^2}}=\lim\limits_{a\to-	1^+}\left(\bigintss\limits_{a}^{0}\dfrac{\dx}{\sqrt{1-x^2}} \right)+\lim\limits_{a\to+1^-}\left(\bigintss\limits_{0}^{a}\dfrac{\dx}{\sqrt{1-x^2}} \right)=\\=\lim\limits_{a\to-1^+}\left(-\arcsin a \right)+\lim\limits_{a\to1^-}\left(\arcsin a \right)=\pi$
+	\end{enumerate}
+	\item [9.10] \begin{enumerate}[(a)]
+		\item $\bigintss\limits_1^\infty\dfrac{\dx}{x\sqrt[3]{x^2+1}} - I\\x\to\infty\>f(x)=\dfrac{1}{x\sqrt[3]{x^2+1}}=x^{-\frac53},\>p=\dfrac53>1\Rightarrow$ сходится
+		\item 
+	\end{enumerate}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
