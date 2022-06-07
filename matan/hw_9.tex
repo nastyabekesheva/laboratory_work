@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch }}
+\newcommand{\arsh}{\textrm{arcsh }}
+\newcommand{\csch}{\textrm{csch }}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 9}	
+\end{center}
+\begin{enumerate}
+	\item $x=\dfrac1{y\sqrt{1+\ln y}},x=0,y=1,y=e^3\\\bigints\limits_1^{e^3}\dfrac1{y\sqrt{1+\ln y}}\dy y=\left|\begin{array}{ll}
+		t=\ln y&\dt=\dfrac1y\dy y\\t_1=0&t_2=3
+	\end{array} \right|=\bigints\limits_0^3\dfrac1{\sqrt{1+t}}\dt=2\sqrt{1+t}\bigg|_0^3=2$
+	\item $\left\{\begin{array}{l}
+		x=\sqrt2\cos t\\y=2\sqrt2\sin t
+	\end{array}\right.,y=2\>(y\geq2)\\
+		2\sqrt2\sin t\geq2\Rightarrow t\in\left[\dfrac\pi4, \dfrac{3\pi}4\right]\\S=\bigintss\limits_\frac\pi4^\frac{3\pi}42\sqrt2\sin t(-\sqrt2\sin t)\dt-2\cdot2=2\bigintss\limits_\frac\pi4^\frac{3\pi}4(1-\cos2t)\dt-4=2\left(1-\dfrac12\sin2t\right)\bigg|_\frac\pi4^\frac{3\pi}4=\\=\pi-2$
+	\item $\left\{\begin{array}{l}
+		x=2\cos t\\y=6\sin t
+	\end{array} \right.,y=3\>(y\geq3)\\6\sin t\geq3\Rightarrow t\in\left[\dfrac\pi6,\>\dfrac{5\pi}6 \right]\\S_1=\bigintss\limits_\frac\pi6^\frac{5\pi}66\sin t\cdot 2(-\sin t)\dt=12\bigintss\limits_\frac\pi6^\frac{5\pi}6-\sin^2t\dt=-6\bigintss\limits_\frac\pi6^\frac{5\pi}6(1-\cos2t)\dt=-6\left(t-\dfrac12\sin2t \right)\bigg|_\frac\pi6^\frac{5\pi}6=\\=4\pi+3\sqrt3.\tab S=S_1-3(x_1-x_2)=4\pi+3\sqrt3-3\left(2\cos\dfrac\pi6-2\cos\dfrac{5\pi}6 \right)=4\pi-3\sqrt3$
+	\item $\left\{\begin{array}{l}
+		x=16\cos^3t\\y=\sin^3t
+	\end{array} \right.,x=6\sqrt3\>(x\geq6\sqrt3)\\16\cos^3t\geq6\sqrt3\Rightarrow t\in\left[0,\>\dfrac\pi6 \right]\\S=6\bigints\limits_\frac\pi6^0-\sin t\cdot16\cos^2t\cdot\sin^3t\dt=96\bigints\limits^\frac\pi6_0\sin^4\cos^2t\dt=12\bigints\limits^\frac\pi6_0\sin^2t(1-\cos2t)\dt=\\=6\bigints\limits^\frac\pi6_0(1-\cos4t)(1-\cos2t)\dt=6\bigints\limits^\frac\pi6_0(1-\cos4t-\cos2t+\cos4t\cos2t)\dt=\\=6\left(t-\dfrac14\sin4t-\dfrac12\sin2t \right)+3\bigints\limits^\frac\pi6_0(\cos3t+\cos6t)\dt=6\left(t-\dfrac14\sin4t-\dfrac12\sin2t \right)+\\+3\left(\dfrac12\sin2t+\dfrac16\sin6t \right)\bigg|_0^\frac\pi6=\pi-\dfrac32\sqrt2$
+	\item $\left\{\begin{array}{l}
+		x=32\cos^3t\\y=\sin^3t
+	\end{array} \right.,x=4\>(x\geq4)\\32\cos^3t\geq4\Rightarrow t\in\left[-\dfrac\pi3,\>\dfrac\pi3 \right]$\newpage $S=\bigintss\limits_{-\frac\pi3}^\frac\pi312\sin^3t(1-\cos2t)\dt=\bigintss\limits_{-\frac\pi3}^\frac\pi3=12\left(\bigintss\limits_{-\frac\pi3}^\frac\pi3\sin^2t\dt+\bigintss\limits_{-\frac\pi3}^\frac\pi3\sin^2t\cos^2t\dt \right)=\\=\left|\begin{array}{ll}
+		u=\sin 2t&\dy u=2\cos2t\dt\\t_1=-\dfrac{\sqrt3}2&t_2=\dfrac{\sqrt3}{2}
+	\end{array} \right|=6\bigintss\limits_{-\frac\pi3}^\frac\pi3(1-\cos4t)\dt-6\bigintss\limits_{-\frac{\sqrt3}2}^{\frac{\sqrt3}2}t^2\dt=\\=6\left(t-\dfrac14\sin4t \right)\bigg|_{-\frac\pi3}^\frac\pi3-2t^3\bigg|_{-\frac{\sqrt3}2}^{\frac{\sqrt3}2}=4\pi$
+	\item $r=\cos2\varphi\\		T=\pi,r=\cos2\varphi\geq0\Rightarrow\varphi\in\left[-\dfrac\pi4,\dfrac\pi4\right]\\S=2\left(\dfrac12\bigintss\limits_0^\frac\pi4 r^2\dy\varphi\right)=\bigintss\limits_0^\frac\pi4\cos^22\varphi\dy\varphi=\dfrac12\bigintss\limits_0^\frac\pi4(1+\cos4\varphi)\dy\varphi=\dfrac12\left(\varphi+\dfrac14\sin4\varphi\right)\bigg|_0^\frac\pi4=\dfrac\pi8$
+	\item $\left\{\begin{array}{l}
+		r=\sqrt3\cos\varphi\\r=\sin\varphi
+	\end{array} \right.,0\leq\varphi\leq\dfrac\pi2\\\sqrt3\cos\varphi=\sin\varphi\Rightarrow\varphi=\dfrac\pi3\\S_1=\dfrac12\bigintss\limits_0^\frac\pi3\sin^2\varphi\dy\varphi=\dfrac14\bigintss\limits_0^\frac\pi3(1-\cos2\varphi)\dy\varphi=\dfrac14\left(\varphi-\dfrac12\sin^2\varphi\right)\bigg|_0^\frac\pi3=\dfrac1{12}\pi-\dfrac{\sqrt3}{16}\\S_2=\dfrac12\bigintss\limits_\frac\pi3^\frac\pi23\cos^2\varphi\dy\varphi=\dfrac34\bigintss\limits_\frac\pi3^\frac\pi2(1+\cos2\varphi)\dy\varphi=\dfrac34\left(\varphi+\dfrac12\sin2\varphi \right)\bigg|_\frac\pi3^\frac\pi2=\dfrac3{24}\pi-\dfrac{3\sqrt3}{16}\\\Rightarrow S=S_1+S_2=\dfrac5{24}\pi-\dfrac{\sqrt3}{4}$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
