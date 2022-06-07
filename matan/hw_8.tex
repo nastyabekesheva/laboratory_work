@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand{\dx}{\textbf{d}x}
+\newcommand{\dt}{\textbf{d}t}
+\newcommand{\dy}{\textbf{d}}
+\newcommand{\arch}{\textrm{arcch }}
+\newcommand{\arsh}{\textrm{arcsh }}
+\newcommand{\csch}{\textrm{csch }}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 8}	
+\end{center}
+\begin{itemize}
+	\item [6.9] \begin{enumerate}
+		\item $I_1=\bigintsss\limits_0^1x^2\dx,\>I_2=\bigintsss\limits_0^1x^3\dx\\\begin{array}{ll}
+			[0,\>1]:&x^3\leq x^2\\&I_2\leq I_1
+		\end{array}$
+		\item $I_1=\bigintsss\limits_1^2x^2\dx,\>I_2=\bigintsss\limits_1^2x^3\dx\\\begin{array}{ll}
+			[1,\>2]:&x^3\geq x^2\\&I_2\geq I_1
+		\end{array}$
+	\end{enumerate}
+	\item [6.10] \begin{enumerate}
+		\item $I_1=\bigintsss\limits_0^12^{x^2}\dx,\>I_2=\bigintsss\limits_0^12^{x^3}\dx\\\begin{array}{ll}
+			[0,\>1]:&x^3\leq x^2\\&2^{x^3}\leq2^{x^2}\\&I_2\leq I_1
+		\end{array}$
+		\item $I_1=\bigintsss\limits_1^2x^2\dx,\>I_2=\bigintsss\limits_1^2x^3\dx\\\begin{array}{ll}
+			[1,\>2]:&x^3\geq x^2\\&2^{x^3}\geq2^{x^2}\\&I_2\geq I_1
+		\end{array}$
+		\item $I_1=\bigintsss\limits_1^2\ln x\dx,\>I_2=\bigintsss\limits_1^2\ln^2x\dx\\\begin{array}{ll}
+			[1,\>2]:&\ln1=\ln^21\\&\ln2>\ln^22\\&\ln x\geq \ln^2x\\&I_2\geq I_1
+		\end{array}$
+		\item $I_1=\bigintsss\limits_3^2\ln x\dx,\>I_2=\bigintsss\limits_3^2\ln^2x\dx\\\begin{array}{ll}
+			[3,\>4]:&\ln3<\ln^23\\&\ln4<\ln^24\\&\ln x\leq \ln^2x\\&I_2\leq I_1
+		\end{array}$
+	\end{enumerate}
+	\item [6.11] \begin{enumerate}
+		\item $I=\bigintsss\limits_{\frac\pi4}^{\frac{5\pi}4}(1+\sin^2x)\dx\\\begin{array}{ll}
+		f(x)=1+\sin^2x:&0\leq\sin |x|\leq 1\\&0\leq\sin^2x\leq 1\\&1\leq1+\sin^2x\leq2
+	\end{array}\tab \begin{array}{c}
+		1\cdot\dfrac\pi4\leq I\leq 2\cdot\dfrac{5\pi}4\\
+		\dfrac\pi4\leq I\leq\dfrac{5\pi}2 
+	\end{array}$
+	\item $I=\bigintsss\limits_{\frac1e}^ex^2e^{-x^2}\dx\\\begin{array}{lll}
+		f(x)=x^2e^{-x^2}
+	\end{array}$
+	\end{enumerate}
+	\item [6.12] $I=\bigints\limits_0^1\dfrac{x^n}{1+x}\dx\\f(x)=\dfrac{x^n}{1+x}$ - неперервна на $[0,\>1]\Rightarrow I=\dfrac{\xi^n}{1+\xi}(b-a)\\\lim\limits_{n\to\infty}\dfrac{\xi^n}{1+\xi}=\dfrac\infty{1+x}$
+	\item [6.13] $\dfrac\dy\dx\bigintsss\limits_{\sin x}^{\cos x}\cos\pi t^2\dt=(\cos x)'(\cos(\pi\cos x))-(\sin x)'(\cos(\pi\sin x))=\\=-\sin x(\cos(\pi\cos x))-\cos x(\cos(\pi\sin x))$
+	\item [6.14] \begin{enumerate}
+		\item 
+	\end{enumerate}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
