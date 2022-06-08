@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{center}
+{\LARGE Домашня робота 4}
+\end{center}
+\begin{itemize}
+	\item [2.3] Let $f(n),\>g(n)$ be multiplicative. \begin{itemize} 
+		\item [(b)] Prove $l(n)=f^a(n)$ - multiplicative.\\
+			$l(n)=f^a(n)=\underbrace{f(n)f(n)\dots f(n)}_a$. Let $n=ab,\>\gcd(a,\>b)=1\\\Rightarrow l(ab)=\underbrace{l(a)l(b)l(a)l(b)\dots l(a)l(b)}_{a}$
+			\item [(c)] Prove $y(n)=\dfrac{f(n)}{g(n)}$ - multiplicative.\\
+				Let $n=ab,\>\gcd(a,\>b)=1\Rightarrow\dfrac fg(ab)=\dfrac fg(a)\cdot\dfrac fg (b)=\dfrac{f(a)f(b)}{g(a)g(b)}$
+		\end{itemize}
+		\item [2.4]$g(n)=\sum\limits_{d\>|\>n}f(n).$ \begin{itemize} 
+		\item [(c)] Prove $g(p^\alpha)=\displaystyle\sum\limits_{\beta=0}^{\alpha}f(p^\beta).\\n=p^\alpha$
+		\end{itemize}
+		\item [2.9] Let $\gcd(a,\>b)>1$ \begin{itemize} 
+			\item [(a)] Let $a=r_1^{\alpha_1}r_2^{\alpha_2}\dots r_t^{\alpha_t}q_1^{\alpha_{t+1}}q_2^{\alpha_{t+2}}\dots q_t^{\alpha_{t+k}},\>b=r_1^{\beta_1}r_2^{\beta_2}\dots r_t^{\beta_t}p_1^{\beta_{t+1}}p_2^{\beta_{t+2}}\dots p_t^{\beta_{t+n}}\\\tau(ab)=\tau\left(r_1^{\alpha_1}r_2^{\alpha_2}\dots r_t^{\alpha_t}q_1^{\alpha_{t+1}}q_2^{\alpha_{t+2}}\dots q_t^{\alpha_{t+k}}r_1^{\beta_1}r_2^{\beta_2}\dots r_t^{\beta_t}p_1^{\beta_{t+1}}p_2^{\beta_{t+2}}\dots p_t^{\beta_{t+n}}\right)=\\=(1+\alpha_1+\beta_1)(1+\alpha_2+\beta_2)\dots(1+\alpha_t+\beta_t)(1+\beta_{t+1})(1+\beta_{t+2})\dots\\\dots(1+\beta_{t+n})(1+\beta_{t+1})(1+\alpha_{t+2})\dots(1+\alpha_{t+n})\\\tau(a)\tau(b)=\tau(r_1^{\alpha_1}r_2^{\alpha_2}\dots r_t^{\alpha_t}q_1^{\alpha_{t+1}}q_2^{\alpha_{t+2}}\dots q_t^{\alpha_{t+k}})\tau(r_1^{\beta_1}r_2^{\beta_2}\dots r_t^{\beta_t}p_1^{\beta_{t+1}}p_2^{\beta_{t+2}}\dots p_t^{\beta_{t+n}})=\\=(1+\alpha_1)(1+\alpha_2)\dots(1+\alpha_t)\dots(1+\alpha_{t+k})(1+\beta_1)(1+\beta_2)\dots(1+\beta_k)\dots(1+\beta_{t+n})\\\tau(ab)<\tau(a)\tau(b)$
+			\item [(b)] Let $a=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t},\>b=p_1^{\beta_1}p_2^{\beta_2}\dots p_t^{\beta_k}\\\sigma(ab)=\sigma\left(r_1^{\alpha_1}r_2^{\alpha_2}\dots r_t^{\alpha_t}q_1^{\alpha_{t+1}}q_2^{\alpha_{t+2}}\dots q_t^{\alpha_{t+k}}r_1^{\beta_1}r_2^{\beta_2}\dots r_t^{\beta_t}p_1^{\beta_{t+1}}p_2^{\beta_{t+2}}\dots p_t^{\beta_{t+n}}\right)=\\=\displaystyle\prod\limits_{i=0}^t\dfrac{r_i^{\alpha_i+\beta_i+1}-1}{r_i-1}\displaystyle\prod\limits_{i=t}^{t+k}\dfrac{q_i^{\alpha_i+1}-1}{q_i-1}\displaystyle\prod\limits_{i=t}^{t+n}\dfrac{p_i^{\beta_i+1}-1}{p_i-1}\\\sigma(a)\sigma(b)=\sigma(r_1^{\alpha_1}r_2^{\alpha_2}\dots r_t^{\alpha_t}q_1^{\alpha_{t+1}}q_2^{\alpha_{t+2}}\dots q_t^{\alpha_{t+k}})\sigma(r_1^{\beta_1}r_2^{\beta_2}\dots r_t^{\beta_t}p_1^{\beta_{t+1}}p_2^{\beta_{t+2}}\dots p_t^{\beta_{t+n}})=\\=\displaystyle\prod\limits_{i=0}^t\dfrac{r_i^{\alpha_i+1}-1}{r_i-1}\displaystyle\prod\limits_{i=0}^t\dfrac{r_i^{\beta_i+1}-1}{r_i-1}\displaystyle\prod\limits_{i=t}^{t+k}\dfrac{q_i^{\alpha_i+1}-1}{q_i-1}\displaystyle\prod\limits_{i=t}^{t+n}\dfrac{p_i^{\beta_i+1}-1}{p_i-1}\\\sigma(ab)<\sigma(a)\sigma(b)$
+		\end{itemize}
+		\item [2.10] Prove $\displaystyle\sum\limits_{k=1}^n\sigma(k)=\displaystyle\sum\limits_{k=1}^nk\left\lfloor\dfrac nk \right\rfloor.\\\displaystyle\sum\limits_{k=1}^n\sigma(k)=\displaystyle\sum\limits_{k=1}^n\displaystyle\sum\limits_{d\>|\>k}d=\displaystyle\sum\limits_{d=1}^nd\displaystyle\sum\limits_{k\leq n,\>d\>|\>k}1=\displaystyle\sum\limits_{k=1}^nk\left\lfloor\dfrac nk \right\rfloor$
+		\item [2.16] Find $\min n$ that $n=2^\alpha pq,\>\sigma(n)=3n.\\\sigma(n)=\sigma(2^\alpha)\sigma(p)\sigma(q)=\left(2^{\alpha+1}-1\right)(p+1)(q+1)=\\\tab\left(2^{\alpha+1}-1\right)\overline{\>\vdots\>}2,\>(p+1)\>\vdots\>2,\>(q+1)\>\vdots\>2\\=3\cdot2^\alpha pq\Rightarrow\alpha\geq2\\$Let $\alpha=2.\\12pq=7(p+1)(q+1)\Rightarrow5pq=7(p+q+1)\Rightarrow p=\dfrac{7(q+1)}{5q-7}\Rightarrow q=7,\>p=2$ - contradiciton\\
+			Let $\alpha=3.\\24pq=15(p+1)(q+1)\Rightarrow9pq=15(p+q+1)\Rightarrow p=\dfrac{15(q+1)}{9q-15}\Rightarrow q=5,\>p=3\\n=2^3\cdot5\cdot3=120\Rightarrow\sigma(120)=360=3\cdot120$ 
+		\item [2.18] Let $\tau_m(n)$ be amount of all solutions of $x_1x_2\dots x_m=n.$ Prove $\tau_m(n)$ - multiplicative.\\$\tau_m(ab),\>\gcd(a,\>b)=1\Rightarrow\alpha_1\alpha_2\dots\alpha_m=a,\>\beta_1\beta_2\dots\beta_m=b,\>\forall \alpha_i,\>\beta_k:\>\alpha_i\neq\beta_k,\>i\leq m,\>k\leq m\\\Rightarrow\tau_m(ab)=\tau_m(a)\tau_b(m)$
+		\item [2.20] Find $\delta(n)=\displaystyle\prod_{d\>|\>n}d$ for $n=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t}.\\\delta(n)=\delta(p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t})=\displaystyle\prod_{d\>|\>p_1^{\alpha_1}\dots}d=p_1p_1^2\dots p_1^{\alpha_1}p_2p_2^2\dots p_2^{\alpha_2}p_tp_t^2\dots p_t^{\alpha_t}=\\=p_1^{1+2+\dots+\alpha_1}p_2^{1+2+\dots+\alpha_2}\dots p_t^{1+2+\dots+\alpha_t}=p_1^{\frac12\alpha_1(\alpha_+1)}p_2^{\frac12\alpha_2(\alpha_2+1)}\dots p_t^{\frac12\alpha_t(\alpha_t+1)}=\displaystyle\prod_{p_1^{\alpha_i}\>|\>n}p_i^{\frac12\alpha_i(\alpha_i+1)}\\\delta(p_1^{\alpha_1})\delta(p_2^{\alpha_2})\dots\delta(p_t^{\alpha_t})=p_1p_1^2\dots p_1^{\alpha_1}p_2p_2^2\dots p_2^{\alpha_2}p_tp_t^2\dots p_t^{\alpha_t}=\delta(p_1^{\alpha_1}p_2^{\alpha_2}\dots p_t^{\alpha_t})\\\Rightarrow\delta(n)$ - multiplicative
+		\item [2.21] Prove that $\delta^2(n)=n^{\tau(n)}.\\\displaystyle\prod_{d\>|\>n}d=\displaystyle\prod_{d\>|\>n}\dfrac nd=n^{\tau(n)}\displaystyle\prod_{d\>|\>n}\dfrac1d\Rightarrow\left(\displaystyle\prod_{d\>|\>n}d\right)^2=n^{\tau(n)}\Rightarrow\delta^2=n^{\tau(n)}$
+		\item [2.24] Prove that $\displaystyle\sum_{d\>|\>n}\mu(d)f(d)=\displaystyle\prod_{p\>|\>n}(1-f(p)).\\\displaystyle\sum_{d\>|\>p}\mu(d)f(d)=1-f(p),\>\displaystyle\sum_{d\>|\>p^\alpha}\mu(d)f(d)=1-f(p)+\underbrace{\mu(p^2)f(p^2)+\dots+\mu(p^\alpha)f(p^\alpha)}_{0}=1-f(p)\\\displaystyle\sum_{d\>|\>n}\mu(d)f(d)=\displaystyle\prod_{p\>|\>n}(1-f(p))$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
