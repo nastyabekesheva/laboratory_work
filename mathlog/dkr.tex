@@ -322,18 +322,18 @@
 	\begin{center}
 		\begin{forest}
 			BDT
-			[P
-				[Q,
+			[P, label=above:{\small 16},	
+				[Q, label=0:{\small 8},	
 					tikz = {\draw [ 0 my edge] () [looseness=1.7, bend right=120] to (myo) ;}[,phantom]
-					[R, name =myr,
+					[R, name =myr, label={\small 16},	
 						tikz = {\draw [ 0 my edge] () [looseness=1.9, bend right=120] to (myo) ;}[,phantom]
 						[S, name = mys,
-							[0, name = myz][,phantom]
-							[1, name = myo]						
+							[0, name = myz, label=right:{\small 3},	][,phantom]
+							[1, name = myo, label=right:{\small 13},	]						
 						]
 					]
 				]
-				[Q,
+				[Q, label=0:{\small 8},	
 					tikz = {\draw [my edge] () to (myr) ;}
 					[R,
 						tikz = {\draw [ 0 my edge] () [bend left=30] to (myo) ; \draw [my edge] () to (mys);}			
@@ -346,12 +346,12 @@
 	\begin{align*}
 		&\mathcal{T}(A)=\{P,Q,R,S\},\>|\mathcal{T(A)}|=4,weight(P)=2^4=16\\
 		A:&\>\{P,Q,R,S\},\{P,Q,\neg R,S\},\{P,Q,\neg R,\neg S\},\{P,\neg Q,R,S\},\{P,\neg Q,\neg R,S\},\\&\{P,\neg Q,\neg R,S\},\{P,\neg Q,\neg R,\neg S\},\{\neg P,Q,R,S\},\{\neg P,Q,\neg R,S\},\{\neg P,Q,\neg R,\neg S\},\\&\{\neg P,\neg Q,R,S\},\{\neg P,\neg Q,R,\neg S\},\{\neg P,\neg Q,\neg R, S\},\{\neg P,\neg Q,\neg R,\neg S\}\\
-		(P\Rightarrow&(Q\Rightarrow1,(R\Rightarrow1,(S\Rightarrow1,0))),(Q\Rightarrow(R\Rightarrow1,(S\Rightarrow1,0)),(R\Rightarrow1,(S\Rightarrow1,0))))
+		&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow1,0),1),(R\Rightarrow(S\Rightarrow1,0),1)),(Q\Rightarrow(R\Rightarrow(S\Rightarrow1,0),1),1))
 	\end{align*}
 	\begin{align*}
-		=&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow1,0))))&\textrm{ - ordered}\\
-		=&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0),(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0))),\\&(Q\Rightarrow(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0),(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,0))))&\textrm{ - full unordered}\\
-		=&(P\Rightarrow(Q\Rightarrow1,(R\Rightarrow1,(S\Rightarrow1,0))))&\textrm{ - full ordered}
+		=&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow1,0),1)))&\textrm{ - ordered}\\
+		=&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,1),(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,1))),\\&(Q\Rightarrow(R\Rightarrow(S\Rightarrow 1,0),(S\Rightarrow 1,1),(R\Rightarrow(S\Rightarrow 1,1),(S\Rightarrow 1,1))))&\textrm{ - full unordered}\\
+		=&(P\Rightarrow(Q\Rightarrow(R\Rightarrow(S\Rightarrow1,0),(S\Rightarrow1,1))))&\textrm{ - full ordered}
 	\end{align*}
 	\item 
 	$P$ - Serhiy and Boris are about the same age, $Q$ - Serhiy is older than Boris, $R$ - Nadiya and Boris are of different age, $S$ - Boris is older than Fedor
@@ -475,7 +475,7 @@
 				[Q,
 					tikz = {\draw [0 my edge] () [looseness=1, bend right=90] to (myo);}[,phantom]
 					[R,
-						tikz = {\draw [my edge] () to (mys);}
+						tikz = {\draw [my edge] () to (mys) ;}
 						[S,
 							tikz = {\draw [0 my edge] () to (myo); \draw [my edge] () to (myz);}[,phantom]
 						]
