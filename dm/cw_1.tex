@@ -1,0 +1,253 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{multicol}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Домашня контрольна робота}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Варіант №23
+            
+        \vspace{1.5cm}
+            
+        \textbf{Бекешева Анастасія}
+            
+        \vfill
+            
+        Дискретна математика 2
+            
+        \vspace{0.8cm}
+            
+
+            
+        \Large
+        ФІ-12\\11.06.2022
+            
+    \end{center}
+\end{titlepage}
+	\begin{enumerate}
+		\item $$494x+627y=133$$\begin{flalign*}
+			\gcd&(494,627):\\
+			627 &= 494\cdot1 + 133&\\
+			494 &= 133\cdot3 + 95\\
+			133 &= 95\cdot1 + 38\\
+			95 &= 38\cdot2 + 19\\
+			38 &= 19\cdot2 + 0\Rightarrow494\cdot14-11\cdot627=&\gcd(494, 627) = 19 19
+		\end{flalign*}
+		\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 1 & 3  & 1  & 2  &     \\ \hline
+$u_i$ & 0 & 1 & -1 & 4  & -5 & 14  \\ \hline
+$v_i$ & 1 & 0 & 1  & -3 & 4  & -11 \\ \hline
+\end{tabular}
+\end{table}$\\26x + 33y = 7$\begin{flalign*}
+	\gcd&(33,26):\\
+	33 &= 26\cdot1 + 7\\
+26 &= 7\cdot3 + 5\\
+7 &= 5\cdot1 + 2\\
+5 &= 2\cdot2 + 1\\
+2 &= 1\cdot2 + 0\Rightarrow26\cdot14-11\cdot33=1&\gcd(33,26)=1
+\end{flalign*}
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 1 & 3  & 1  & 2  &     \\ \hline
+$u_i$ & 0 & 1 & -1 & 4  & -5 & 14  \\ \hline
+$v_i$ & 1 & 0 & 1  & -3 & 4  & -11 \\ \hline
+\end{tabular}
+\end{table}\\$(x_0, y_0) : (98, -77)\\\\\left\{\begin{array}{l}
+	x = 98 + 33k\\
+y = -77 - 26k
+\end{array} \right.\Rightarrow494\cdot98-77\cdot627=133.\>26\cdot98-77\cdot33=7$
+\item $$\left\{\begin{array}{l}
+	x\equiv12\>(\mod29)\\
+	x\equiv6\>(\mod43)\\
+	x\equiv76\>(\mod78)
+\end{array} \right.$$$\\N=97266,\>N_1=3354,\>N_2=2262,\>N_3=1247$\newpage
+\begin{multicols}{3}
+	\begin{flalign*}
+	\gcd&(29, 3354):\\
+		3354 &= 29\cdot115 + 19\\
+29 &= 19\cdot1 + 10\\
+19 &= 10\cdot1 + 9\\
+10 &= 9\cdot1 + 1\\
+9 &= 1\cdot9 + 0\\
+	\end{flalign*}\\
+	\begin{flalign*}
+	\gcd&(43, 2262):\\
+		2262 &= 43\cdot52 + 26\\
+43 &= 26\cdot1 + 17\\
+26 &= 17\cdot1 + 9\\
+17 &= 9\cdot1 + 8\\
+9 &= 8\cdot1 + 1\\
+8 &= 1\cdot8 + 0\\
+	\end{flalign*}\
+	\begin{flalign*}
+	\gcd&(78, 1247):\\
+		1247 &= 78\cdot15 + 77\\
+78 &= 77\cdot1 + 1\\
+77 &= 1\cdot77 + 0
+	\end{flalign*}
+\end{multicols}
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 115 & 1    & 1   & 1    &     \\ \hline
+$u_i$ & 0 & 1   & -115 & 116 & -231 & 347 \\ \hline
+$v_i$ & 1 & 0   & 1    & -1  & 2    & -3  \\ \hline
+\end{tabular}\tab
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$q_i$ &   & 15 & 1   &    \\ \hline
+$u_i$ & 0 & 1  & -15 & 16 \\ \hline
+$v_i$ & 1 & 0  & 1   & -1 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 52 & 1   & 1  & 1    & 1   &      \\ \hline
+$u_i$ & 0 & 1  & -52 & 53 & -105 & 158 & -263 \\ \hline
+$v_i$ & 1 & 0  & 1   & -1 & 2    & -3  & 5    \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+$n_i$ & 29   & 43   & 78   \\ \hline
+$N_i$ & 3354 & 2262 & 1247 \\ \hline
+$M_i$ & -3   & 5    & -1   \\ \hline
+\end{tabular}
+\end{table}
+$x_0=(12\cdot3354\cdot(-3)+6\cdot2262\cdot5+76\cdot1247\cdot(-1))\>( \mod 97266 )\equiv -147656\>( \mod 97266 )\equiv\\\equiv 46876\\\\\left\{\begin{array}{l}
+	46876\equiv12\>\>(\mod29)\\
+	46876\equiv6\>\>(\mod43)\\
+	46876\equiv76\>\>(\mod78)
+\end{array} \right.$
+\item $$387^{1202} \mod 775$$
+	\begin{flalign*}
+	\gcd&(775,387):&\\
+		775 &= 387\cdot2 + 1\\
+387 &= 1\cdot387 + 0\Rightarrow-2\cdot387+1\cdot775=1 &\gcd(387, 775) = 1\\
+	\end{flalign*}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+\hline
+$q_i$ &   & 2 &    \\ \hline
+$u_i$ & 0 & 1 & -2 \\ \hline
+$v_i$ & 1 & 0 & 1  \\ \hline
+\end{tabular}
+\end{center}
+$\varphi(775) = \varphi(5\cdot5\cdot31) = 775\cdot\left(1-\dfrac15\right)\cdot\left(1-\dfrac1{31}\right) = 600\\387^{1202} \equiv 387^{600\cdot2}\cdot387^2 ( \mod 775)  \equiv 194 $\newpage
+	\item \begin{enumerate} 
+	\item $$256\equiv13\>(\mod540)$$ \begin{flalign*}
+		\gcd&(256, 540):\\
+		540 &= 256\cdot2 + 28\\
+256 &= 28\cdot9 + 4\\
+28 &= 4\cdot7 + 0&\gcd(256, 540) = 4\\
+	\end{flalign*}$\Rightarrow$ no solutions
+	\item $$379x \equiv 552\>(\mod 914)$$
+	\begin{flalign*}
+	\gcd&(379, 914):\\
+		914 &= 379\cdot2 + 156\\
+379 &= 156\cdot2 + 67\\
+156 &= 67\cdot2 + 22\\
+67 &= 22\cdot3 + 1\\
+22 &= 1\cdot22 + 0&\gcd(379, 914) = 1
+	\end{flalign*}
+	\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 2 & 2  & 2  & 3   &     \\ \hline
+$u_i$ & 0 & 1 & -2 & 5  & -12 & 41  \\ \hline
+$v_i$ & 1 & 0 & 1  & -2 & 5   & -17 \\ \hline
+\end{tabular}
+\end{table}$\\\Rightarrow$1 solution$\\a^{-1} \equiv 41\>(\mod 914)\\
+x \equiv 41\cdot552\>(\mod 914) \equiv 696\\379\cdot696 \equiv 552\>(\mod 914)$
+	\end{enumerate}
+	\item $$189x \equiv 195\>(\mod 879)$$
+		\begin{flalign*}
+		\gcd&(189, 879):\\
+			879 &= 189\cdot4 + 123\\
+189 &= 123\cdot1 + 66\\
+123 &= 66\cdot1 + 57\\
+66 &= 57\cdot1 + 9\\
+57 &= 9\cdot6 + 3\\
+9 &= 3\cdot3 + 0&\gcd(189, 879) = 3
+		\end{flalign*}
+		\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 4 & 1  & 1  & 1  & 6  &     \\ \hline
+$u_i$ & 0 & 1 & -4 & 5  & -9 & 14 & -93 \\ \hline
+$v_i$ & 1 & 0 & 1  & -1 & 2  & -3 & 20  \\ \hline
+\end{tabular}
+\end{table}$\\\Rightarrow$ 3 solutions\newpage \begin{flalign*}
+	\gcd&(63, 293):\\
+	293 &= 63\cdot4 + 41\\
+63 &= 41\cdot1 + 22\\
+41 &= 22\cdot1 + 19\\
+22 &= 19\cdot1 + 3\\
+19 &= 3\cdot6 + 1\\
+3 &= 1\cdot3 + 0\Rightarrow-93\cdot63+20\cdot293=1 &\gcd(63, 293) = 1
+\end{flalign*}
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$q_i$ &   & 4 & 1  & 1  & 1  & 6  &     \\ \hline
+$u_i$ & 0 & 1 & -4 & 5  & -9 & 14 & -93 \\ \hline
+$v_i$ & 1 & 0 & 1  & -1 & 2  & -3 & 20  \\ \hline
+\end{tabular}
+\end{table}$\\a^{-1} \equiv 200\>( \mod 293)\\
+x_0 \equiv 200\cdot65\>( \mod 293) \equiv 108,\>189\cdot108 \equiv 195\>(\mod 879)\\
+x \equiv x_0+\dfrac{1\cdot n}{\gcd(a,n)}\equiv401,\>189\cdot401 \equiv 195\>(\mod 879)\\
+x\equiv x_0+\dfrac{2\cdot n}{\gcd(a,n)} \equiv 694,\>189\cdot694 \equiv 195\>(\mod 879)$\\
+	\end{enumerate}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
