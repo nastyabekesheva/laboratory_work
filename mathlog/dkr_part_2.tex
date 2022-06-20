@@ -1,0 +1,198 @@
+\documentclass[a4paper,12pt, centered]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{fleqn}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{forest}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\DeclareMathOperator{\cnf}{cnf}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[left=20mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Домашня контрольна робота}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Варіант №12002
+            
+        \vspace{1.5cm}
+            
+        \textbf{Бекешева Анастасія}
+            
+        \vfill
+            
+        Part II
+            
+        \vspace{0.8cm}
+            
+
+            
+        \Large
+        ФІ-12\\14.06.2022
+            
+    \end{center}
+\end{titlepage}
+\begin{enumerate}
+	\setcounter{enumi}{5}
+	\item $(\forall x)(\neg Q(x)\land\neg P(x))\lor(\forall x)(S(x)\to Q(x))\models(\forall x)(S(x)\to\neg P(x))$
+		\begin{align*}
+			&(\forall x)(\neg Q(x)\land\neg P(x))\lor(\forall x)(\neg S(x)\lor Q(x)\land\neg((\forall x)(\neg S(x)\lor\neg P(x)))\\
+			&(\forall x_1)(\neg Q(x_1)\land\neg P(x_1))\lor(\forall x_2)(\neg S(x_2)\lor Q(x_2))\land(\exists x_3)( S(x_3)\land P(x_3))\\
+			&(\forall x_1)(\neg Q(x_1)\land\neg P(x_1))\lor(\forall x_2)(\neg S(x_2)\lor Q(x_2))\land( S(f(x_3))\land P(f(x_3)))\\
+			&(\neg Q(x_1)\land\neg P(x_1))\lor(\neg S(x_2)\lor Q(x_2))\land( S(f(x_3))\land P(f(x_3)))\\
+			&(\neg P(x_1) \lor P(f(x_3)) \lor S(f(x_3))) \land  (\neg P(x_1) \lor Q(x_2) \lor \neg S(x_2)) \land \\& \land(P(f(x_3)) \lor \neg Q(x_1) \lor S(f(x_3))) \land  (\neg Q(x_1) \lor Q(x_2) \lor \neg S(x_2))\\
+		\end{align*}
+		\begin{multicols}{2}
+			\begin{enumerate}[(1)] 
+				\item $\neg P(x_1) \lor P(f(x_3)) \lor S(f(x_3))$
+				\item $\neg P(x_1) \lor Q(x_2) \lor \neg S(x_2)$
+				\item $P(f(x_3)) \lor \neg Q(x_1) \lor S(f(x_3))$
+				\item $\neg Q(x_1) \lor Q(x_2) \lor \neg S(x_2)$
+			\end{enumerate}
+		\end{multicols}
+		\begin{multicols}{2}
+			\begin{enumerate}[(a)] 
+				\item \begin{align*}
+					S(f(x_3))\tab&(1,\{f(x_3)/x_1\})
+				\end{align*}
+				\item \begin{align*}
+					\neg S(x_2)\tab&(4,\{x_2/x_1\})
+				\end{align*}
+				\item \begin{align*}
+					\# \tab&(a, b,\{f(x_3)/x_2\})
+				\end{align*}
+			\end{enumerate}
+		\end{multicols}
+	\item $(\forall x)\underbrace{(\neg Q(x)\land\neg P(x))}_{A}\lor(\forall x)\underbrace{(S(x)\to Q(x))}_{B}$\\
+	$Q(d_1)=\mathbb{F},P(d_1)=\mathbb{F},S(d_2)=\mathbb{T},Q(d_2)=\mathbb{T}\Rightarrow A\lor B=\mathbb{T}$
+	\begin{align*}
+		A\lor B=\mathbb{T}:\tab&	Q(d_1)=\mathbb{F},P(d_1)=\mathbb{F},S(d_2)=\mathbb{T},Q(d_2)=\mathbb{T}\\
+		A\lor B=\mathbb{F}:\tab&Q(d_1)=\mathbb{T},P(d_1)=\mathbb{T},S(d_2)=\mathbb{T},Q(d_2)=\mathbb{F}
+	\end{align*}$\Rightarrow$ premise is neither a tautology, nor a contradiction
+	\item $\Sigma=\{8,d\},w_1=d8d8dd,w_2=dd8dd8,S:\left\{\begin{array}{l}
+		dd8\to8d\\dd\to\cdot\varepsilon\\8\to d8\\8\to dd
+	\end{array} \right.$
+		\begin{align*}
+			w_1:\tab&d8d8\underline{dd}\\
+			w_2:\tab&\underline{dd8}dd8\vdash 8d\underline{dd8}\vdash\underline{8}d8d\vdash d\underline{8}d8d\vdash\underline{dd}8d8d 
+		\end{align*}
+		$S:\left\{\begin{array}{l}
+		dd8\to8d\\8\to d8\\dd\to\cdot\varepsilon\\8\to dd
+	\end{array} \right.$
+		\begin{align*}
+			w_1:\tab&d\underline{8}d8dd\vdash\underline{dd8}d8dd\vdash8\underline{dd8}dd\vdash \underline{8}8ddd\vdash d\underline{8}8ddd\vdash\underline{dd8}8ddd\vdash\\&\vdash  \underline{8}d8ddd\vdash d\underline{8}d8ddd\vdash \underline{dd8}d8ddd\vdash 8\underline{dd8}ddd\vdash88dddd&\Rightarrow\textrm{ loop} \\ 
+			w_2:\tab&\underline{dd8}dd8\vdash 8d\underline{dd8}\vdash\underline{8}d8d\vdash d\underline{8}d8d\vdash\underline{dd8}d8d\vdash8\underline{dd8}d\vdash\underline{8}8dd\vdash\\&\vdash d\underline{8}8dd\vdash \underline{dd8}8dd\vdash\underline{8}d8dd\vdash d\underline{8}d8dd\vdash \underline{dd8}d8dd\vdash 8\underline{dd8}dd&\Rightarrow\textrm{ loop} \\ 
+		\end{align*}\newpage
+		$S:\left\{\begin{array}{l}
+		dd8\to8d\\dd\to\varepsilon\\8\to d8\\8\to dd
+	\end{array} \right.$
+		\begin{align*}
+			w_1:\tab&d8d8\underline{dd}\vdash d\underline{8}d8\vdash \underline{dd8}d8\vdash 8\underline{dd}8\vdash \underline{8}8\vdash d\underline{8}8\vdash \underline{dd8}8\vdash\\&\vdash \underline{8}d8\vdash d\underline{8}d8&\Rightarrow\textrm{ loop} \\ 
+			w_2:\tab&\underline{dd8}dd8\vdash 8d\underline{dd8}\vdash \underline{8}d8d\vdash d\underline{8}d8d\vdash \underline{dd8}d8d\vdash 8\underline{dd8}d\vdash\\&\vdash 88\underline{dd}\vdash\underline{8}8\vdash d\underline{8}8\vdash \underline{dd8}8\vdash \underline{8}d8\vdash d\underline{8}d8\vdash \underline{dd8}d8\vdash\\&\vdash8\underline{dd8}\vdash \underline{8}8d \vdash d\underline{8}8d&\Rightarrow\textrm{ loop}
+		\end{align*}
+		$w=88$
+		\begin{align*}
+			w:\tab&\underline{8}8\vdash d\underline{88}\vdash \underline{dd8}8\vdash\underline{8}d8\vdash d\underline{8}d8\vdash \underline{dd8}d8\vdash 8\underline{dd8}\vdash\\&\vdash \underline{8}8d\vdash d\underline{8}8d\vdash \underline{dd8}8d\vdash \underline{8}d8d\vdash d\underline{8}d8d\vdash \underline{dd8}d8d&\Rightarrow\textrm{ loop}
+		\end{align*}
+	\item $w_1 = 11100, w_2 = 00111, C_1 = 1q01011, C_2 = 11q110\#11, \Pi = \{ q_00q_11R, q_01q_20R,\\ q_0\#q_10S, q_10q_01L,
+q_11q_21S, q_20q_01R, q_21q_41S, q_30q_01S, q_40q_10S, q_41q_0\#R\}$
+		\begin{align*}
+			w_1:\tab&q_011100\vdash0q_21100\vdash0q_41100\vdash0\#q_0100\vdash0\#0q_200\vdash&\\
+			&\vdash0\#01q_00\vdash0\#011q_1\#\\
+			w_2:\tab&q_000111\vdash1q_10111\vdash\vdash q_011111\vdash0q_21111\vdash0q_41111\vdash\\&\vdash0\#q_0111\vdash0\#0q_211\vdash0\#0q_411\vdash0\#0\#q_01\vdash0\#0\#0q_2\#\\
+			C_1:\tab&1q_01011\vdash10q_2011\vdash101q_011\vdash1010q_21\vdash1010q_41\vdash&\\&\vdash1010\#q_0\#\vdash1010\#q_10\vdash1010q_0\#1\vdash1010q_101\vdash&\\&\vdash101q_0011\vdash1011q_111\vdash1011q_211\vdash1011q_411\vdash101\#q_01\vdash&\\&\vdash1011\#0q_2\#\\
+			C_2:\tab&11q_110\#11\vdash11q_210\#11\vdash11q_410\#11\vdash11\#q_010\#11\vdash&\\&\vdash11\#0q_20\#\vdash\underline{11\#01q_0\#11}\vdash11\#01q_1011\vdash11\#0q_11111\vdash&\\&\vdash11\#0q_21111\vdash11\#0q_41111\vdash\underline{11\#01q_0\#11}&\Rightarrow\textrm{loop}\\&C_1\models C_F,C_2\cancel{\models}C_F\\
+			w=1:\tab&q_01\vdash0q_2\#
+		\end{align*}
+		\item Delete second entry of $x$ character, if the number of $z$ characters in the input word is greater
+exactly 2 for the number of characters $y$ in the input word.\\$\mathcal{M}=\left(\{\#, 0, x,y,z\},\{q_0,q_1,q_2,q_3,q_4,q_5,q_6,q_7,q_{\textrm{exit}},q_{\textrm{end}},q_{\textrm{blank}},q_{\textrm{check}},q_{\textrm{backc}},q_{\textrm{getback}},q_{\textrm{gbagain}},\right.\\q_{\textrm{addzero}},q_{\textrm{fx}} ,q_{\textrm{fy}},q_{\textrm{fz}},q_{\textrm{x}} ,q_{\textrm{y}},q_{\textrm{z}},q_{\textrm{delx}}     \left.\} \right) \\$
+		\textbf{Algorithm:\\\tab Input: $\omega\in\{x,y,z\}^*$}
+		\begin{enumerate}[(1)]
+			\item Find and mark two z entries, or else end
+			\item Compare amount of z and y entries: \begin{enumerate}[(i)]
+			\item Find and mark y entry, then z entry, or else end
+			\item Find and mark z entry, then y entry, or else end
+		\end{enumerate}
+			\item Get back to initial word(clear marking)
+			\item Find first x entry, or else end
+			\item Find second x entry, or else end
+			\item Delete second x entry: \begin{enumerate}[(i)]
+			\item Mark(set) second x entry as 0
+			\item Move each letter entry one cell right
+		\end{enumerate}
+		\end{enumerate}
+		\textbf{\tab Output: $\omega'\in\{x,y,z\}^*$}
+			\begin{align*}
+				\Pi=\{&q_0xq_0xR, q_0yq_0yR, q_0zq_1ZR, q_1xq_1xR, q_1yq_1yR, q_1zq_{\textrm{check}}ZL, q_1\#q_{\textrm{exit}}\#L, q_{\textrm{exit}}xq_{\textrm{exit}}xL,\\& q_{\textrm{exit}}yq_{\textrm{exit}}yL, q_{\textrm{exit}}zq_{\textrm{exit}}zL,q_{\textrm{exit}}Zq_{\textrm{exit}}zL, q_{\textrm{exit}}Yq_{\textrm{exit}}yL, q_{\textrm{exit}}\#q_{\textrm{end}}\#S, q_{\textrm{b}}xq_{\textrm{b}}x, q_{\textrm{b}}yq_{\textrm{b}}yL,\\& q_{\textrm{b}}zq_{\textrm{b}}z, q_{\textrm{b}}Xq_{\textrm{b}}X, q_{\textrm{b}}Yq_{\textrm{b}}Y, q_{\textrm{b}}Zq_{\textrm{b}}ZL, q_{\textrm{b}}\#q_{\textrm{blank}}\#R, q_{\textrm{blank}}\#q_{\textrm{blank}}\#L, q_{\textrm{blank}}xq_2xR,\\& q_{\textrm{blank}}yq_2yR, q_{\textrm{blank}}Yq_2YR, q_{\textrm{blank}}Zq_2ZR, q_{\textrm{blank}}zq_2zR, q_2\#q_{\textrm{b}}\#L, q_2xq_2xR, q_2Zq_2ZR,\\& q_2Yq_2YR, q_2yq_{\textrm{fz}}YR, q_2zq_{\textrm{fy}}ZR, q_{\textrm{fz}}xq_{\textrm{fz}}xR, q_{\textrm{fz}}yq_{\textrm{fz}}yR, q_{\textrm{fz}}Yq_{\textrm{fz}}YR, q_{\textrm{fz}}Zq_{\textrm{fz}}ZR, q_{\textrm{fz}}zq_{\textrm{check}}ZR,\\& q_{\textrm{fz}}\#q_{\textrm{exit}}\#L, q_{\textrm{fy}}xq_{\textrm{fy}}xR, q_{\textrm{fy}}zq_{\textrm{fy}}zR, q_{\textrm{fy}}Zq_{\textrm{fy}}ZR, q_{\textrm{fy}}Yq_{\textrm{fy}}YR, q_{\textrm{fy}}yq_{\textrm{check}}YR, q_{\textrm{fy}}\#q_{\textrm{exit}}\#L,\\& q_{\textrm{check}}yq_{\textrm{backc}}yL, q_{\textrm{check}}zq_{\textrm{backc}}zL, q_{\textrm{check}}xq_{\textrm{check}}xR, q_{\textrm{check}}Yq_{\textrm{check}}YR, q_{\textrm{check}}Zq_{\textrm{check}}ZR,\\& q_{\textrm{check}}\#q_{\textrm{backc}}\#R, q_{\textrm{getback}}xq_{\textrm{getback}}xL, q_{\textrm{getback}}yq_{\textrm{getback}}yL, q_{\textrm{getback}}Yq_{\textrm{getback}}YL,\\& q_{\textrm{getback}}zq_{\textrm{getback}}zL, q_{\textrm{getback}}Zq_{\textrm{getback}}ZL, q_{\textrm{getback}}\#q_{\textrm{gbagain}}\#R, q_{\textrm{gbagain}}q_4\#S,\\& q_{\textrm{gbagain}}xq_{\textrm{check}}xS, q_{\textrm{gbagain}}yq_{\textrm{check}}yS, q_{\textrm{gbagain}}Yq_{\textrm{check}}YS, q_{\textrm{gbagain}}zq_{\textrm{check}}zS, \\&q_{\textrm{gbagain}}Zq_{\textrm{check}}ZS, q_{\textrm{backc}}xq_{\textrm{backc}}x, q_{\textrm{backc}}yq_{\textrm{backc}}yL, q_{\textrm{backc}}zq_{\textrm{backc}}z, q_{\textrm{backc}}Xq_{\textrm{backc}}X, \\&q_{\textrm{backc}}Yq_{\textrm{backc}}Y, q_{\textrm{backc}}Zq_{\textrm{backc}}ZL, q_{\textrm{backc}}\#q_{\textrm{blankc}}\#R, q_{\textrm{blankc}}\#q_{\textrm{blankc}}\#Lz q_{\textrm{blankc}}xq_3xR, \\&q_{\textrm{blankc}}yq_3yR, q_{\textrm{blankc}}Yq_3YR, q_{\textrm{blankc}}Zq_3ZR, q_{\textrm{blankc}}zq_3zR, q_3xq_2xS, q_3yq_2yS, q_3zq_2zS,\\& q_3Yq_2YS, q_3Zq_2ZS, q_3\#q_2\#L, q_4\#q_4\#L, q_4xq_5xS, q_4Yq_5YS, q_4Zq_5ZS, q_5xq_5xL,\\& q_5Yq_5yL, q_5Zq_5zL, q_5\#q_{\textrm{fx}}\#R, q_{\textrm{fx}}yq_{\textrm{fx}}yR, q_{\textrm{fx}}zq_{\textrm{fx}}zR, q_{\textrm{fx}}xq_{\textrm{delx}}xR, q_{\textrm{delx}}yq_{\textrm{delx}}yR, \\&q_{\textrm{delx}}zq_{\textrm{delx}}zR, q_{\textrm{delx}}\#q_{\textrm{end}}\#S, q_{\textrm{delx}}xq_60L, q_6xq_6xL, q_6yq_6yL, q_6zq_6zL, q_6\#q_7\#S, q_7\#q_7\#R,\\& q_7xq_{\textrm{x}}xR, q_7yq_{\textrm{y}}yR, q_7zq_{\textrm{z}}zR, q_{\textrm{x}}0q_{\textrm{addzero}}xL, q_{\textrm{x}}yq_{\textrm{y}}yR, q_{\textrm{x}}zq_{\textrm{z}}zR, q_{\textrm{y}}zq_{\textrm{z}}zR, q_{\textrm{z}}yq_{\textrm{y}}yR, \\&q_{\textrm{y}}yq_{\textrm{y}}yR, q_{\textrm{x}}xq_{\textrm{x}}xR, q_{\textrm{z}}zq_{\textrm{z}}zR, q_{\textrm{z}}xq_{\textrm{x}}xR, q_{\textrm{y}}0q_{\textrm{addzero}}yL, q_{\textrm{z}}0q_{\textrm{addzero}}zL, q_{\textrm{addzero}}zq_60L,\\& q_{\textrm{addzero}}xq_60L, q_{\textrm{addzero}}yq_60L, q_{\textrm{x}}\#q_{\textrm{end}}\#S, q_{\textrm{y}}\#q_{\textrm{end}}\#S, q_{\textrm{z}}\#q_{\textrm{end}}\#S, q_70q_{\textrm{end}}\#S\}
+			\end{align*}
+		\item $f_1(x)=x^2+3,f_2(x)=2x+2,f_3(x,y,z)=yz+3(x+z),f_4(x,y)=|2x-3y+5|+2y$
+			\begin{align*}
+				g(x)&=S^1(f_1(x))=x^2+4\\
+				h(x)&=f_1(S^1(x))=(x+1)^2+3\\
+				y(x)&=S^1(f_2(x))=2x+3\\f_2,f_3\\I_3^3(x,y,z)\\g^2(0,x)&=2x+2\\g^2(y+1,x)&=I^3(y,g(y,x),x)=y
+			\end{align*}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
