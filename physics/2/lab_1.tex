@@ -17,6 +17,7 @@
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \addto\captionsenglish{\renewcommand{\figurename}{Рис.}}
 \addto\captionsenglish{\renewcommand{\tablename}{Таблиця}}
+\captionsetup[table]{justification=raggedleft,singlelinecheck=off}
 \usepackage{titlesec}
 \usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
 \titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
@@ -187,18 +188,18 @@
 	\subsection{Графік залежності $U$ від $I$. Апроксимація.}
 	\begin{figure*}[!h]
 		\centering
-		\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=40mm]{media/graph5a.png}
+		\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph5aa.png}
     		\caption{Батарейка}
 			\label{fig:5a}
     	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=40mm]{media/graph5b.png}
+    	\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph5bb.png}
     		\caption{Акумулятор}
 			\label{fig:5b}
     	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=40mm]{media/graph5c.png}
+    	\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph5cc.png}
     		\caption{Блок живлення}
 			\label{fig:5c}
     	\end{subfigure}\hfill
@@ -207,136 +208,31 @@
 	\end{figure*}
 	\begin{figure*}[!h]
 		\centering
-		\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=40mm]{media/graph6a.png}
+		\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph6aa.png}
     		\caption{Батарейка}
 			\label{fig:6a}
     	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=40mm]{media/graph6b.png}
+    	\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph6bb.png}
     		\caption{Акумулятор}
 			\label{fig:6b}
     	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=40mm]{media/graph6c.png}
+    	\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph6cc.png}
     		\caption{Блок живлення}
 			\label{fig:6c}
     	\end{subfigure}\hfill
 		\caption{Апроксимовані графіки залежності $U$ від $I$}
 		\label{fig:6}
-	\end{figure*}
-	% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-\begin{table}[htp]\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-  & $U$  & $I$  & $\langle I\rangle$      & $\langle U\rangle$      & $I^2$  & $\langle I\rangle^2$    & $\langle I^2\rangle$    & $I\cdot U$ & $\langle I\cdot U\rangle$ & $k$                      & $b$                     \\ \hline
-0 & 4.3  & 0.1  & \multirow{8}{*}{0.4688} & \multirow{8}{*}{3.0438} & 0.01   & \multirow{8}{*}{0.2197} & \multirow{8}{*}{0.2853} & 0.43       & \multirow{8}{*}{1.2084}   & \multirow{8}{*}{-3.3288} & \multirow{8}{*}{4.6041} \\ \cline{1-3} \cline{6-6} \cline{9-9}
-1 & 3.8  & 0.2  &                         &                         & 0.04   &                         &                         & 0.76       &                           &                          &                         \\ \cline{1-3} \cline{6-6} \cline{9-9}
-2 & 3.6  & 0.3  &                         &                         & 0.09   &                         &                         & 1.08       &                           &                          &                         \\ \cline{1-3} \cline{6-6} \cline{9-9}
-3 & 3.5  & 0.4  &                         &                         & 0.16   &                         &                         & 1.4        &                           &                          &                         \\ \cline{1-3} \cline{6-6} \cline{9-9}
-4 & 2.8  & 0.5  &                         &                         & 0.25   &                         &                         & 1.4        &                           &                          &                         \\ \cline{1-3} \cline{6-6} \cline{9-9}
-5 & 2.6  & 0.6  &                         &                         & 0.36   &                         &                         & 1.56       &                           &                          &                         \\ \cline{1-3} \cline{6-6} \cline{9-9}
-6 & 2.25 & 0.75 &                         &                         & 0.5625 &                         &                         & 1.6875     &                           &                          &                         \\ \cline{1-3} \cline{6-6} \cline{9-9}
-7 & 1.5  & 0.9  &                         &                         & 0.81   &                         &                         & 1.35       &                           &                          &                         \\ \hline
-\end{tabular}
-\caption{Дані для знаходження апроксимації. Батарейка.}
-\label{table:approxb}
-\end{table}
-\begin{table}[htp]\centering
-\begin{adjustwidth}{-0.5cm}{}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-  & $U$   & $I$  & $\langle I\rangle$     & $\langle U\rangle$       & $I^2$  & $\langle I\rangle^2$    & $\langle I^2\rangle$    & $I\cdot U$ & $\langle I\cdot U\rangle$ & $k$                      & $b$                      \\ \hline
-0 & 12.09 & 0.25 & \multirow{8}{*}{1.125} & \multirow{8}{*}{11.8487} & 0.0625 & \multirow{8}{*}{1.2656} & \multirow{8}{*}{1.5938} & 3.0225     & \multirow{8}{*}{13.2506}  & \multirow{8}{*}{-0.2414} & \multirow{8}{*}{12.1204} \\ \cline{1-3} \cline{6-6} \cline{9-9}
-1 & 12.02 & 0.5  &                        &                          & 0.25   &                         &                         & 6.01       &                           &                          &                          \\ \cline{1-3} \cline{6-6} \cline{9-9}
-2 & 11.9  & 0.75 &                        &                          & 0.5625 &                         &                         & 8.925      &                           &                          &                          \\ \cline{1-3} \cline{6-6} \cline{9-9}
-3 & 11.85 & 1.0  &                        &                          & 1.0    &                         &                         & 11.85      &                           &                          &                          \\ \cline{1-3} \cline{6-6} \cline{9-9}
-4 & 11.8  & 1.25 &                        &                          & 1.5625 &                         &                         & 14.75      &                           &                          &                          \\ \cline{1-3} \cline{6-6} \cline{9-9}
-5 & 11.77 & 1.5  &                        &                          & 2.25   &                         &                         & 17.655     &                           &                          &                          \\ \cline{1-3} \cline{6-6} \cline{9-9}
-6 & 11.71 & 1.75 &                        &                          & 3.0625 &                         &                         & 20.4925    &                           &                          &                          \\ \cline{1-3} \cline{6-6} \cline{9-9}
-7 & 11.65 & 2.0  &                        &                          & 4.0    &                         &                         & 23.3       &                           &                          &                          \\ \hline
-\end{tabular}
-\end{adjustwidth}
-\caption{Дані для знаходження апроксимації. Акумулятор.}
-\label{table:approxa}
-\end{table}
-\begin{table}[htp]\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-   & $U$   & $I$ & $\langle I\rangle$     & $\langle U\rangle$       & $I^2$ & $\langle I\rangle^2$     & $\langle I^2\rangle$    & $I\cdot U$ & $\langle I\cdot U\rangle$ & $k$                    & $b$                    \\ \hline
-0  & 12.95 & 0.1 & \multirow{20}{*}{1.05} & \multirow{20}{*}{12.475} & 0.01  & \multirow{20}{*}{1.1025} & \multirow{20}{*}{1.435} & 1.295      & \multirow{20}{*}{12.9325} & \multirow{20}{*}{-0.5} & \multirow{20}{*}{13.0} \\ \cline{1-3} \cline{6-6} \cline{9-9}
-1  & 12.9  & 0.2 &                        &                          & 0.04  &                          &                         & 2.58       &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-2  & 12.85 & 0.3 &                        &                          & 0.09  &                          &                         & 3.855      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-3  & 12.8  & 0.4 &                        &                          & 0.16  &                          &                         & 5.12       &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-4  & 12.75 & 0.5 &                        &                          & 0.25  &                          &                         & 6.375      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-5  & 12.7  & 0.6 &                        &                          & 0.36  &                          &                         & 7.62       &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-6  & 12.65 & 0.7 &                        &                          & 0.49  &                          &                         & 8.855      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-7  & 12.6  & 0.8 &                        &                          & 0.64  &                          &                         & 10.08      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-8  & 12.55 & 0.9 &                        &                          & 0.81  &                          &                         & 11.295     &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-9  & 12.5  & 1.0 &                        &                          & 1.0   &                          &                         & 12.5       &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-10 & 12.45 & 1.1 &                        &                          & 1.21  &                          &                         & 13.695     &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-11 & 12.4  & 1.2 &                        &                          & 1.44  &                          &                         & 14.88      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-12 & 12.35 & 1.3 &                        &                          & 1.69  &                          &                         & 16.055     &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-13 & 12.3  & 1.4 &                        &                          & 1.96  &                          &                         & 17.22      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-14 & 12.25 & 1.5 &                        &                          & 2.25  &                          &                         & 18.375     &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-15 & 12.2  & 1.6 &                        &                          & 2.56  &                          &                         & 19.52      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-16 & 12.15 & 1.7 &                        &                          & 2.89  &                          &                         & 20.655     &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-17 & 12.1  & 1.8 &                        &                          & 3.24  &                          &                         & 21.78      &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-18 & 12.05 & 1.9 &                        &                          & 3.61  &                          &                         & 22.895     &                           &                        &                        \\ \cline{1-3} \cline{6-6} \cline{9-9}
-19 & 12.0  & 2.0 &                        &                          & 4.0   &                          &                         & 24.0       &                           &                        &                        \\ \hline
-\end{tabular}\caption{Дані для знаходження апроксимації. Блок жівлення.}
-\label{table:approxps}
-\end{table}
+	\end{figure*}$\\$
 	\subsection{Внутрішній опір.}
 	\begin{itemize}
-		\item З графіку \ref{fig:6a} лінійна апроксимація залежності $U$ від $I$ батарейки: $$y=-3.329 x + 4.604$$ А отже $R_i$ апроксимоване дорівнює $3.329$
+		\item З графіку \ref{fig:6a} лінійна апроксимація залежності $U$ від $I$ батарейки: $$y=-3.269 x + 4.567$$ А отже $R_i$ апроксимоване дорівнює $3.329$
 		\item З графіку \ref{fig:6b} лінійна апроксимація залежності $U$ від $I$ акумулятору: $$y=-0.5 x + 13$$  А отже $R_i$ апроксимоване дорівнює $0.5$
-		\item З графіку \ref{fig:6b} лінійна апроксимація залежності $U$ від $I$ блоку живлення: $$y=-0.2414 x + 12.12$$ А отже $R_i$ апроксимоване дорівнює $0.2414$
-	\end{itemize}
-	\subsection{Нормовані графіки залежності потужності і струму.}
-	 \begin{figure*}[!h]
-		\centering
-		\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=50mm]{media/graph7aa.png}
-    		\caption{Батарейка}
-			\label{fig:7a}
-    	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=50mm]{media/graph7bb.png}
-    		\caption{Акумулятор}
-			\label{fig:7b}
-    	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=50mm]{media/graph7cc.png}
-    		\caption{Блок живлення}
-			\label{fig:7c}
-    	\end{subfigure}\hfill
-		\caption{Нормована залежність зміни потужностей від струму}
-		\label{fig:7}
-	\end{figure*}\newpage
-	 \begin{figure*}[!h]
-		\centering
-		\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=50mm]{media/graph8aaa.png}
-    		\caption{Батарейка}
-			\label{fig:8a}
-    	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=50mm]{media/graph8bbb.png}
-    		\caption{Акумулятор}
-			\label{fig:8b}
-    	\end{subfigure}\hfill
-    	\begin{subfigure}{0.4\linewidth}
-			\includegraphics[height=50mm]{media/graph8ccc.png}
-    		\caption{Блок живлення}
-			\label{fig:8c}
-    	\end{subfigure}\hfill
-		\caption{Нормовані графіки залежності потужності джерела від навантаження}
-		\label{fig:8}
-	\end{figure*}
-	\subsection{Похибки.}
-	Похибки будуть обчислюватись за такими формулами:
+		\item З графіку \ref{fig:6b} лінійна апроксимація залежності $U$ від $I$ блоку живлення: $$y=-0.244 x + 12.12$$ А отже $R_i$ апроксимоване дорівнює $0.2414$
+	\end{itemize}\subsection{Похибки.}
+	Похибки та усереднені значення будуть обчислюватись за такими формулами:
 	\begin{equation}\label{eq:p1}
 		\langle R_i\rangle=\dfrac1n\sum_{k=1}^{n}R_{i_k}
 	\end{equation}
@@ -347,20 +243,42 @@
 		\varepsilon_{R_i}=\dfrac{\Delta R_i}{\bar{R_i}},\>\bar{R_i}=\dfrac{R_{i_1}+R_{i_2}+\dots+R_{i_n}}{n}
 	\end{equation}
 	\begin{itemize}
-		\item За формулою \ref{eq:p1}: $$\textrm{Батарейка: }\langle R_i\rangle=0.744$$ $$\textrm{Акумулятор: }\langle R_i\rangle=1.045$$ $$\textrm{Блока живлення: }\langle R_i\rangle=1.079$$
-		\item За формулою \ref{eq:p2}, так як систематична похибка не була дана, можна вважати, що вона дорівнює нулю. A отже: $$\textrm{Батарейка: }\Delta R_i=6.472\%$$ $$\textrm{Акумулятор: }\Delta R_i=0.605\%$$ $$\textrm{Блока живлення: }\Delta R_i=1.66\%$$
-		\item За формулою \ref{eq:p3}: $$\textrm{Батарейка: }\varepsilon_{R_i}=8.694\%$$ $$\textrm{Акумулятор: }\varepsilon_{R_i}=0.579\%$$ $$\textrm{Блока живлення: }\varepsilon_{R_i}=1.539\%$$
+		\item За формулою \ref{eq:p1}: $$\textrm{Батарейка: }\langle R_i\rangle=2.99$$ $$\textrm{Акумулятор: }\langle R_i\rangle=0.5$$ $$\textrm{Блока живлення: }\langle R_i\rangle=0.24$$
+		\item За формулою \ref{eq:p2}: $$\textrm{Батарейка: }\Delta R_i=17.92\%$$ $$\textrm{Акумулятор: }\Delta R_i=0.0\%$$ $$\textrm{Блока живлення: }\Delta R_i=1.54\%$$
+		\item За формулою \ref{eq:p3}: $$\textrm{Батарейка: }\varepsilon_{R_i}=6.0\%$$ $$\textrm{Акумулятор: }\varepsilon_{R_i}=0.0\%$$ $$\textrm{Блока живлення: }\varepsilon_{R_i}=6.32\%$$
 	\end{itemize}
-	Похибки виникли через неточність вимірюваня(людський фактор). Стосовно того де похибка відсутня, або дуже мала, можна сказати, що через відсутність систематичної похибки, неможливо правильно вирахувати абсолютну похибку.
-	
+	Похибки виникли через неточність вимірюваня(людський фактор). 
+\newpage
+	\subsection{Нормовані графіки залежності потужності і струму.}
+	 \begin{figure*}[!h]
+		\centering
+		\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph7aaa.png}
+    		\caption{Батарейка}
+			\label{fig:8a}
+    	\end{subfigure}\hfill
+    	\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph7bbb.png}
+    		\caption{Акумулятор}
+			\label{fig:8b}
+    	\end{subfigure}\hfill
+    	\begin{subfigure}{0.6\linewidth}
+			\includegraphics[height=65mm]{media/graph7ccc.png}
+    		\caption{Блок живлення}
+			\label{fig:8c}
+    	\end{subfigure}\hfill
+		\caption{Нормовані графіки залежності потужності джерела від навантаження}
+		\label{fig:8}
+	\end{figure*}
+		
 	\subsection{Висновки}	
 	Мета лаборотарної роботи полягала у дослідженні опору, сили струму, напруги, потужності, ККД в електричному полі. Протягом роботи також були досліджені питання властивостей електричного поля та поведінки струму. Після обробки даних та необхідних підрахунків було визначено залежності напруг на клемах джерел струму від сили струму. Всього було побудовано три залежності: для батарейки, акумулятора та блоку живлення. 
 	\subsection{Характеристики джерел}
 	У ході експерименту було визначено внутрішній опір джерел та їх напругу холостого ходу:
 	\begin{itemize}
-		\item Батарейка: $R_i=3.329$ Ом, $U_0=4.5$ В.
+		\item Батарейка: $R_i=3.269$ Ом, $U_0=4.5$ В.
 		\item Акумулятор: $R_i=0.5$ Ом, $U_0=13$ В.
-		\item Блок живлення: $R_i=0.241$ Ом, $U_0=12.13$ В.
+		\item Блок живлення: $R_i=0.244$ Ом, $U_0=12.13$ В.
 	\end{itemize} 
 	На \ref{fig:5} та \ref{fig:6} рисунах спостерігається лінійна залежність напруги від сили струму. З них можна зробити висновок, що  внутрішні опори $R_i$ джерел струму і напруги є сталими. 
 	На \ref{fig:7} та \ref{fig:8} рисунках було показано нормована залежність зміни потужностей від струму та нормовані графіки залежності потужності джерела від навантаження для таких джерел: батарейка, акумулятор та блок живлення. Легко бачити, що нормовані залежності напруги та струму від зовнішнього навантаження є взаємно-протилежними, що відповідає теорії. Після обрахуну внутрішнього $R_i$ та зовнішнього $R_e$ опорів можна зазначити, що батарейка є джерелом напруги, акумулятор - джерело напруги (може бути й джерелом струму, але далеко не найкращим), блок живлення може бути, як і джерелом напруги, так і джерелом напруги(але конкретно блок живлення у цьому експеременті не є гарним джерелом струму). 
@@ -380,43 +298,45 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[htp]\centering
-\begin{adjustwidth}{-3.3cm}{}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-  & \makecell{$U_0$,\\  В} & \makecell{$I$, \\  А} & \makecell{$U$,\\  В} & \makecell{$R_i$ (approx)\\  Ом} & \makecell{$R_i$,\\  Ом} & \makecell{$R_e$,\\  Ом} & \makecell{$U_i$,\\  В} & \makecell{$U_e$,\\  В} & \makecell{$P_e$, \\  Вт} & \makecell{$P_i$, \\  Вт} & \makecell{$I_{kz}$,\\  А} &\makecell{ $P_0$, \\  Вт} & $\dfrac{P_e}{P_0}$ & $\dfrac{P_i}{P_0}$ & \makecell{$P$, \\  Вт} & $\dfrac{P}{P_0}$ & \makecell{ККД, \\  \%} & \makecell{$\langle R_i\rangle$, \\  Ом} & \makecell{$\Delta_{R_i}$, \\  \%} & \makecell{$\varepsilon_{R_i}$, \\  \%} \\ \hline
-0 & \multirow{8}{*}{4.5}            & 0.1                            & 4.3                           & \multirow{8}{*}{3.329}                   & 0.977                            & 44.023                           & 0.333                           & 4.167                           & 0.44                              & 0.033                             & \multirow{8}{*}{1.352}             & \multirow{8}{*}{6.083}            & 0.072              & 0.005              & 0.474                           & 0.078            & 7.237                           & \multirow{8}{*}{0.744}                           & \multirow{8}{*}{6.472}                     & \multirow{8}{*}{8.694}                          \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-1 &                                 & 0.2                            & 3.8                           &                                          & 0.884                            & 21.616                           & 0.666                           & 3.834                           & 0.865                             & 0.133                             &                                    &                                   & 0.142              & 0.022              & 0.998                           & 0.164            & 14.213                          &                                                  &                                            &                                                 \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-2 &                                 & 0.3                            & 3.6                           &                                          & 0.857                            & 14.143                           & 0.999                           & 3.501                           & 1.273                             & 0.3                               &                                    &                                   & 0.209              & 0.049              & 1.572                           & 0.258            & 20.924                          &                                                  &                                            &                                                 \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-3 &                                 & 0.4                            & 3.5                           &                                          & 0.854                            & 10.396                           & 1.332                           & 3.168                           & 1.663                             & 0.533                             &                                    &                                   & 0.273              & 0.088              & 2.196                           & 0.361            & 27.344                          &                                                  &                                            &                                                 \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-4 &                                 & 0.5                            & 2.8                           &                                          & 0.7                              & 8.3                              & 1.664                           & 2.836                           & 2.075                             & 0.832                             &                                    &                                   & 0.341              & 0.137              & 2.907                           & 0.478            & 34.11                           &                                                  &                                            &                                                 \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-5 &                                 & 0.6                            & 2.6                           &                                          & 0.667                            & 6.833                            & 1.997                           & 2.503                           & 2.46                              & 1.198                             &                                    &                                   & 0.404              & 0.197              & 3.658                           & 0.601            & 40.438                          &                                                  &                                            &                                                 \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-6 &                                 & 0.75                           & 2.25                          &                                          & 0.6                              & 5.4                              & 2.497                           & 2.003                           & 3.038                             & 1.872                             &                                    &                                   & 0.499              & 0.308              & 4.91                            & 0.807            & 49.932                          &                                                  &                                            &                                                 \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-7 &                                 & 0.9                            & 1.5                           &                                          & 0.417                            & 4.583                            & 2.996                           & 1.504                           & 3.712                             & 2.696                             &                                    &                                   & 0.61               & 0.443              & 6.409                           & 1.054            & 61.027                          &                                                  &                                            &                                                 \\ \hline
-\end{tabular}
-	\end{adjustwidth}
 	\label{table:battery}
-	\caption{Батарейка}
+	\begin{flushright}
+		\caption{Батарейка}
+	\end{flushright}	
+\begin{adjustwidth}{-2cm}{}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+\hline
+  & \makecell{$U_0$,\\  В} & \makecell{$I$, \\  А} & \makecell{$U$,\\  В} & \makecell{$R_i$ (approx)\\  Ом} & \makecell{$R_i$,\\  Ом} & \makecell{$R_e$,\\  Ом} & \makecell{$U_i$,\\  В} & \makecell{$U_e$,\\  В} & \makecell{$P_e$, \\  Вт} & \makecell{$P_i$, \\  Вт} & \makecell{$I_{kz}$,\\  А} &\makecell{ $P_0$, \\  Вт} & $\dfrac{P_e}{P_0}$ & $\dfrac{P_i}{P_0}$ & \makecell{$P$, \\  Вт} & $\dfrac{P}{P_0}$ & \makecell{ККД, \\  \%} & \makecell{$\langle R_i\rangle$, \\  Ом} & \makecell{$\Delta_{R_i}$, \\  \%} & \makecell{$\varepsilon_{R_i}$, \\  \%} \\ \hline00     & \multirow{8}{*}{4.5} & 0.1  & 4.3  & \multirow{8}{*}{3.27} & 2.0  & 43.0 & 0.33 & 4.17 & 0.43 & 0.03 & \multirow{8}{*}{1.38} & \multirow{8}{*}{6.2} & 0.07      & 0.01      & 0.46 & 0.07   & 6.94       & \multirow{8}{*}{2.99} & \multirow{8}{*}{17.92} & \multirow{8}{*}{6.0} \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+1     &                      & 0.2  & 3.8  &                       & 3.5  & 19.0 & 0.65 & 3.85 & 0.76 & 0.13 &                       &                      & 0.12      & 0.02      & 0.89 & 0.14   & 12.27      &                       &                        &                      \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+2     &                      & 0.3  & 3.6  &                       & 3.0  & 12.0 & 0.98 & 3.52 & 1.08 & 0.29 &                       &                      & 0.17      & 0.05      & 1.37 & 0.22   & 17.43      &                       &                        &                      \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+3     &                      & 0.4  & 3.5  &                       & 2.5  & 8.75 & 1.31 & 3.19 & 1.4  & 0.52 &                       &                      & 0.23      & 0.08      & 1.92 & 0.31   & 22.6       &                       &                        &                      \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+4     &                      & 0.5  & 2.8  &                       & 3.4  & 5.6  & 1.63 & 2.87 & 1.4  & 0.82 &                       &                      & 0.23      & 0.13      & 2.22 & 0.36   & 22.6       &                       &                        &                      \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+5     &                      & 0.6  & 2.6  &                       & 3.17 & 4.33 & 1.96 & 2.54 & 1.56 & 1.18 &                       &                      & 0.25      & 0.19      & 2.74 & 0.44   & 25.18      &                       &                        &                      \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+6     &                      & 0.75 & 2.25 &                       & 3.0  & 3.0  & 2.45 & 2.05 & 1.69 & 1.84 &                       &                      & 0.27      & 0.3       & 3.53 & 0.57   & 27.24      &                       &                        &                      \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+7     &                      & 0.9  & 1.5  &                       & 3.33 & 1.67 & 2.94 & 1.56 & 1.35 & 2.65 &                       &                      & 0.22      & 0.43      & 4.0  & 0.65   & 21.79      &                       &                        &                      \\ \hline\end{tabular}
+	\end{adjustwidth}
+
 \end{table}	
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[htp]
-\begin{adjustwidth}{-3.8cm}{}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-  & \makecell{$U_0$,\\  В} & \makecell{$I$, \\  А} & \makecell{$U$,\\  В} & \makecell{$R_i$ (approx)\\  Ом} & \makecell{$R_i$,\\  Ом} & \makecell{$R_e$,\\  Ом} & \makecell{$U_i$,\\  В} & \makecell{$U_e$,\\  В} & \makecell{$P_e$, \\  Вт} & \makecell{$P_i$, \\  Вт} & \makecell{$I_{kz}$,\\  А} &\makecell{ $P_0$, \\  Вт} & $\dfrac{P_e}{P_0}$ & $\dfrac{P_i}{P_0}$ & \makecell{$P$, \\  Вт} & $\dfrac{P}{P_0}$ & \makecell{ККД, \\  \%} & \makecell{$\langle R_i\rangle$, \\  Ом} & \makecell{$\Delta_{R_i}$, \\  \%} & \makecell{$\varepsilon_{R_i}$, \\  \%} \\ \hline0     & \multirow{8}{*}{12.13} & 0.25 & 12.09 & \multirow{8}{*}{0.241} & 1.018 & 47.502 & 0.06  & 12.07  & 2.969  & 0.015 & \multirow{8}{*}{50.2} & \multirow{8}{*}{609.4} & 0.005     & 0.0       & 2.984  & 0.005  & 0.487      & \multirow{8}{*}{1.079} & \multirow{8}{*}{1.66} & \multirow{8}{*}{1.539} \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-1     &                        & 0.5  & 12.02 &                        & 1.034 & 23.226 & 0.121 & 12.009 & 5.807  & 0.06  &                         &                          & 0.01      & 0.0       & 5.867  & 0.01   & 0.953      &                        &                       &                        \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-2     &                        & 0.75 & 11.9  &                        & 1.046 & 15.128 & 0.181 & 11.949 & 8.509  & 0.136 &                         &                          & 0.014     & 0.0       & 8.645  & 0.014  & 1.396      &                        &                       &                        \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-3     &                        & 1.0  & 11.85 &                        & 1.065 & 11.065 & 0.241 & 11.889 & 11.065 & 0.241 &                         &                          & 0.018     & 0.0       & 11.307 & 0.019  & 1.816      &                        &                       &                        \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-4     &                        & 1.25 & 11.8  &                        & 1.085 & 8.619  & 0.302 & 11.828 & 13.468 & 0.377 &                         &                          & 0.022     & 0.001     & 13.845 & 0.023  & 2.21       &                        &                       &                        \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-5     &                        & 1.5  & 11.77 &                        & 1.107 & 6.979  & 0.362 & 11.768 & 15.704 & 0.543 &                         &                          & 0.026     & 0.001     & 16.247 & 0.027  & 2.577      &                        &                       &                        \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-6     &                        & 1.75 & 11.71 &                        & 1.128 & 5.803  & 0.423 & 11.708 & 17.773 & 0.739 &                         &                          & 0.029     & 0.001     & 18.512 & 0.03   & 2.916      &                        &                       &                        \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-7     &                        & 2.0  & 11.65 &                        & 1.15  & 4.915  & 0.483 & 11.647 & 19.66  & 0.966 &                         &                          & 0.032     & 0.002     & 20.626 & 0.034  & 3.226      &                        &                       &                        \\ \hline
-\end{tabular}
-\end{adjustwidth}
-
 \label{table:ps}
 	\caption{Блок живлення}
+\begin{adjustwidth}{-2.6cm}{}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+  & \makecell{$U_0$,\\  В} & \makecell{$I$, \\  А} & \makecell{$U$,\\  В} & \makecell{$R_i$ (approx)\\  Ом} & \makecell{$R_i$,\\  Ом} & \makecell{$R_e$,\\  Ом} & \makecell{$U_i$,\\  В} & \makecell{$U_e$,\\  В} & \makecell{$P_e$, \\  Вт} & \makecell{$P_i$, \\  Вт} & \makecell{$I_{kz}$,\\  А} &\makecell{ $P_0$, \\  Вт} & $\dfrac{P_e}{P_0}$ & $\dfrac{P_i}{P_0}$ & \makecell{$P$, \\  Вт} & $\dfrac{P}{P_0}$ & \makecell{ККД, \\  \%} & \makecell{$\langle R_i\rangle$, \\  Ом} & \makecell{$\Delta_{R_i}$, \\  \%} & \makecell{$\varepsilon_{R_i}$, \\  \%} \\ \hline0     & \multirow{8}{*}{12.13} & 0.25 & 12.09 & \multirow{8}{*}{0.24} & 0.16 & 48.36 & 0.06 & 12.07 & 3.02  & 0.02 & \multirow{8}{*}{49.71} & \multirow{8}{*}{603.02} & 0.01      & 0.0       & 3.04  & 0.01   & 0.5        & \multirow{8}{*}{0.24} & \multirow{8}{*}{1.54} & \multirow{8}{*}{6.32} \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+1     &                        & 0.5  & 12.02 &                       & 0.22 & 24.04 & 0.12 & 12.01 & 6.01  & 0.06 &                        &                         & 0.01      & 0.0       & 6.07  & 0.01   & 1.0        &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+2     &                        & 0.75 & 11.9  &                       & 0.31 & 15.87 & 0.18 & 11.95 & 8.93  & 0.14 &                        &                         & 0.01      & 0.0       & 9.06  & 0.02   & 1.48       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+3     &                        & 1.0  & 11.85 &                       & 0.28 & 11.85 & 0.24 & 11.89 & 11.85 & 0.24 &                        &                         & 0.02      & 0.0       & 12.09 & 0.02   & 1.97       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+4     &                        & 1.25 & 11.8  &                       & 0.26 & 9.44  & 0.3  & 11.83 & 14.75 & 0.38 &                        &                         & 0.02      & 0.0       & 15.13 & 0.03   & 2.45       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+5     &                        & 1.5  & 11.77 &                       & 0.24 & 7.85  & 0.37 & 11.76 & 17.66 & 0.55 &                        &                         & 0.03      & 0.0       & 18.2  & 0.03   & 2.93       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+6     &                        & 1.75 & 11.71 &                       & 0.24 & 6.69  & 0.43 & 11.7  & 20.49 & 0.75 &                        &                         & 0.03      & 0.0       & 21.24 & 0.04   & 3.4        &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+7     &                        & 2.0  & 11.65 &                       & 0.24 & 5.82  & 0.49 & 11.64 & 23.3  & 0.98 &                        &                         & 0.04      & 0.0       & 24.28 & 0.04   & 3.86       &                       &                       &                       \\ \hline\end{tabular}
+\end{adjustwidth}
+
+
 \end{table}
 
 
@@ -435,33 +355,34 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[htp]
-\begin{adjustwidth}{-3.5cm}{}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-  & \makecell{$U_0$,\\  В} & \makecell{$I$, \\  А} & \makecell{$U$,\\  В} & \makecell{$R_i$ (approx)\\  Ом} & \makecell{$R_i$,\\  Ом} & \makecell{$R_e$,\\  Ом} & \makecell{$U_i$,\\  В} & \makecell{$U_e$,\\  В} & \makecell{$P_e$, \\  Вт} & \makecell{$P_i$, \\  Вт} & \makecell{$I_{kz}$,\\  А} &\makecell{ $P_0$, \\  Вт} & $\dfrac{P_e}{P_0}$ & $\dfrac{P_i}{P_0}$ & \makecell{$P$, \\  Вт} & $\dfrac{P}{P_0}$ & \makecell{ККД, \\  \%} & \makecell{$\langle R_i\rangle$, \\  Ом} & \makecell{$\Delta_{R_i}$, \\  \%} & \makecell{$\varepsilon_{R_i}$, \\  \%} \\ \hline0     & \multirow{20}{*}{13} & 0.1 & 12.95 & \multirow{20}{*}{0.5} & 1.004 & 128.996 & 0.05 & 12.95 & 1.29   & 0.005 & \multirow{20}{*}{26.0} & \multirow{20}{*}{338.0} & 0.004     & 0.0       & 1.295  & 0.004  & 0.382      & \multirow{20}{*}{1.045} & \multirow{20}{*}{0.605} & \multirow{20}{*}{0.579} \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-1     &                      & 0.2 & 12.9  &                       & 1.008 & 63.992  & 0.1  & 12.9  & 2.56   & 0.02  &                        &                         & 0.008     & 0.0       & 2.58   & 0.008  & 0.757      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-2     &                      & 0.3 & 12.85 &                       & 1.012 & 42.322  & 0.15 & 12.85 & 3.809  & 0.045 &                        &                         & 0.011     & 0.0       & 3.854  & 0.011  & 1.127      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-3     &                      & 0.4 & 12.8  &                       & 1.016 & 31.484  & 0.2  & 12.8  & 5.037  & 0.08  &                        &                         & 0.015     & 0.0       & 5.117  & 0.015  & 1.49       &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-4     &                      & 0.5 & 12.75 &                       & 1.02  & 24.98   & 0.25 & 12.75 & 6.245  & 0.125 &                        &                         & 0.018     & 0.0       & 6.37   & 0.019  & 1.848      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-5     &                      & 0.6 & 12.7  &                       & 1.024 & 20.642  & 0.3  & 12.7  & 7.431  & 0.18  &                        &                         & 0.022     & 0.001     & 7.611  & 0.023  & 2.199      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-6     &                      & 0.7 & 12.65 &                       & 1.028 & 17.543  & 0.35 & 12.65 & 8.596  & 0.245 &                        &                         & 0.025     & 0.001     & 8.841  & 0.026  & 2.543      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-7     &                      & 0.8 & 12.6  &                       & 1.033 & 15.217  & 0.4  & 12.6  & 9.739  & 0.32  &                        &                         & 0.029     & 0.001     & 10.059 & 0.03   & 2.881      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-8     &                      & 0.9 & 12.55 &                       & 1.037 & 13.407  & 0.45 & 12.55 & 10.86  & 0.405 &                        &                         & 0.032     & 0.001     & 11.265 & 0.033  & 3.213      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-9     &                      & 1.0 & 12.5  &                       & 1.042 & 11.958  & 0.5  & 12.5  & 11.958 & 0.5   &                        &                         & 0.035     & 0.001     & 12.458 & 0.037  & 3.538      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-10    &                      & 1.1 & 12.45 &                       & 1.046 & 10.772  & 0.55 & 12.45 & 13.034 & 0.605 &                        &                         & 0.039     & 0.002     & 13.639 & 0.04   & 3.856      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-11    &                      & 1.2 & 12.4  &                       & 1.051 & 9.782   & 0.6  & 12.4  & 14.087 & 0.72  &                        &                         & 0.042     & 0.002     & 14.807 & 0.044  & 4.168      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-12    &                      & 1.3 & 12.35 &                       & 1.056 & 8.944   & 0.65 & 12.35 & 15.116 & 0.845 &                        &                         & 0.045     & 0.002     & 15.961 & 0.047  & 4.472      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-13    &                      & 1.4 & 12.3  &                       & 1.06  & 8.225   & 0.7  & 12.3  & 16.122 & 0.98  &                        &                         & 0.048     & 0.003     & 17.102 & 0.051  & 4.77       &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-14    &                      & 1.5 & 12.25 &                       & 1.065 & 7.601   & 0.75 & 12.25 & 17.103 & 1.125 &                        &                         & 0.051     & 0.003     & 18.228 & 0.054  & 5.06       &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-15    &                      & 1.6 & 12.2  &                       & 1.07  & 7.055   & 0.8  & 12.2  & 18.06  & 1.28  &                        &                         & 0.053     & 0.004     & 19.34  & 0.057  & 5.343      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-16    &                      & 1.7 & 12.15 &                       & 1.075 & 6.572   & 0.85 & 12.15 & 18.993 & 1.445 &                        &                         & 0.056     & 0.004     & 20.438 & 0.06   & 5.619      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-17    &                      & 1.8 & 12.1  &                       & 1.08  & 6.142   & 0.9  & 12.1  & 19.9   & 1.62  &                        &                         & 0.059     & 0.005     & 21.52  & 0.064  & 5.887      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-18    &                      & 1.9 & 12.05 &                       & 1.086 & 5.757   & 0.95 & 12.05 & 20.781 & 1.805 &                        &                         & 0.061     & 0.005     & 22.586 & 0.067  & 6.148      &                         &                         &                         \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
-19    &                      & 2.0 & 12.0  &                       & 1.091 & 5.409   & 1.0  & 12.0  & 21.636 & 2.0   &                        &                         & 0.064     & 0.006     & 23.636 & 0.07   & 6.401      &                         &                         &                         \\ \hline
-\end{tabular}
-\end{adjustwidth}
+\begin{adjustwidth}{-2.2cm}{}
 \label{table:accumulator}
 	\caption{Акумулятор}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+  & \makecell{$U_0$,\\  В} & \makecell{$I$, \\  А} & \makecell{$U$,\\  В} & \makecell{$R_i$ (approx)\\  Ом} & \makecell{$R_i$,\\  Ом} & \makecell{$R_e$,\\  Ом} & \makecell{$U_i$,\\  В} & \makecell{$U_e$,\\  В} & \makecell{$P_e$, \\  Вт} & \makecell{$P_i$, \\  Вт} & \makecell{$I_{kz}$,\\  А} &\makecell{ $P_0$, \\  Вт} & $\dfrac{P_e}{P_0}$ & $\dfrac{P_i}{P_0}$ & \makecell{$P$, \\  Вт} & $\dfrac{P}{P_0}$ & \makecell{ККД, \\  \%} & \makecell{$\langle R_i\rangle$, \\  Ом} & \makecell{$\Delta_{R_i}$, \\  \%} & \makecell{$\varepsilon_{R_i}$, \\  \%} \\ \hline0     & \multirow{20}{*}{13} & 0.1 & 12.95 & \multirow{20}{*}{0.5} & 0.5  & 129.5 & 0.05 & 12.95 & 1.3   & 0.0  & \multirow{20}{*}{26.0} & \multirow{20}{*}{338.0} & 0.0       & 0.0       & 1.3  & 0.0    & 0.38       & \multirow{20}{*}{0.5} & \multirow{20}{*}{0.0} & \multirow{20}{*}{0.0} \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+1     &                      & 0.2 & 12.9  &                       & 0.5  & 64.5  & 0.1  & 12.9  & 2.58  & 0.02 &                        &                         & 0.01      & 0.0       & 2.6  & 0.01   & 0.76       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+2     &                      & 0.3 & 12.85 &                       & 0.5  & 42.83 & 0.15 & 12.85 & 3.86  & 0.04 &                        &                         & 0.01      & 0.0       & 3.9  & 0.01   & 1.14       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+3     &                      & 0.4 & 12.8  &                       & 0.5  & 32.0  & 0.2  & 12.8  & 5.12  & 0.08 &                        &                         & 0.02      & 0.0       & 5.2  & 0.02   & 1.51       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+4     &                      & 0.5 & 12.75 &                       & 0.5  & 25.5  & 0.25 & 12.75 & 6.38  & 0.12 &                        &                         & 0.02      & 0.0       & 6.5  & 0.02   & 1.89       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+5     &                      & 0.6 & 12.7  &                       & 0.5  & 21.17 & 0.3  & 12.7  & 7.62  & 0.18 &                        &                         & 0.02      & 0.0       & 7.8  & 0.02   & 2.25       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+6     &                      & 0.7 & 12.65 &                       & 0.5  & 18.07 & 0.35 & 12.65 & 8.86  & 0.24 &                        &                         & 0.03      & 0.0       & 9.1  & 0.03   & 2.62       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+7     &                      & 0.8 & 12.6  &                       & 0.5  & 15.75 & 0.4  & 12.6  & 10.08 & 0.32 &                        &                         & 0.03      & 0.0       & 10.4 & 0.03   & 2.98       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+8     &                      & 0.9 & 12.55 &                       & 0.5  & 13.94 & 0.45 & 12.55 & 11.3  & 0.4  &                        &                         & 0.03      & 0.0       & 11.7 & 0.03   & 3.34       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+9     &                      & 1.0 & 12.5  &                       & 0.5  & 12.5  & 0.5  & 12.5  & 12.5  & 0.5  &                        &                         & 0.04      & 0.0       & 13.0 & 0.04   & 3.7        &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+10    &                      & 1.1 & 12.45 &                       & 0.5  & 11.32 & 0.55 & 12.45 & 13.7  & 0.6  &                        &                         & 0.04      & 0.0       & 14.3 & 0.04   & 4.05       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+11    &                      & 1.2 & 12.4  &                       & 0.5  & 10.33 & 0.6  & 12.4  & 14.88 & 0.72 &                        &                         & 0.04      & 0.0       & 15.6 & 0.05   & 4.4        &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+12    &                      & 1.3 & 12.35 &                       & 0.5  & 9.5   & 0.65 & 12.35 & 16.06 & 0.84 &                        &                         & 0.05      & 0.0       & 16.9 & 0.05   & 4.75       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+13    &                      & 1.4 & 12.3  &                       & 0.5  & 8.79  & 0.7  & 12.3  & 17.22 & 0.98 &                        &                         & 0.05      & 0.0       & 18.2 & 0.05   & 5.09       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+14    &                      & 1.5 & 12.25 &                       & 0.5  & 8.17  & 0.75 & 12.25 & 18.38 & 1.12 &                        &                         & 0.05      & 0.0       & 19.5 & 0.06   & 5.44       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+15    &                      & 1.6 & 12.2  &                       & 0.5  & 7.62  & 0.8  & 12.2  & 19.52 & 1.28 &                        &                         & 0.06      & 0.0       & 20.8 & 0.06   & 5.78       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+16    &                      & 1.7 & 12.15 &                       & 0.5  & 7.15  & 0.85 & 12.15 & 20.65 & 1.44 &                        &                         & 0.06      & 0.0       & 22.1 & 0.07   & 6.11       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+17    &                      & 1.8 & 12.1  &                       & 0.5  & 6.72  & 0.9  & 12.1  & 21.78 & 1.62 &                        &                         & 0.06      & 0.0       & 23.4 & 0.07   & 6.44       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+18    &                      & 1.9 & 12.05 &                       & 0.5  & 6.34  & 0.95 & 12.05 & 22.9  & 1.8  &                        &                         & 0.07      & 0.01      & 24.7 & 0.07   & 6.77       &                       &                       &                       \\ \cline{1-1} \cline{3-4} \cline{6-11} \cline{14-18}
+19    &                      & 2.0 & 12.0  &                       & 0.5  & 6.0   & 1.0  & 12.0  & 24.0  & 2.0  &                        &                         & 0.07      & 0.01      & 26.0 & 0.08   & 7.1        &                       &                       &                       \\ \hline
+\end{tabular}
+\end{adjustwidth}
+
 \end{table}
 
 
