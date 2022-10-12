@@ -1,4 +1,4 @@
-#Notes from university
+# Notes from university
 ## dm - Discrete math
 *  Notes on lectures
 *  Calculation work
