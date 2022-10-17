@@ -1,0 +1,15 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\newcommand{\Div}{{\textrm{div }}}
+\newcommand{\rot}{{\textrm{rot }}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\dint}{{\displaystyle\int}}
+\begin{document}
+	 Бекешева Анастасія ФІ-12\\
+	 $u=x\pm vt\\\\\dfrac{\delta u}{\delta x}=1;\tab \dfrac{\delta u}{\delta t}=\pm v\\\dfrac{\delta f}{\delta x}=\dfrac{\delta f}{\delta u}\dfrac{\delta u}{\delta x};\tab \dfrac{\delta f}{\delta t}=\dfrac{\delta f}{\delta u}\dfrac{\delta u}{\delta t};\tab \dfrac{\delta f}{\delta x}=\dfrac{\delta f}{\delta u}\Rightarrow\dfrac{\delta^2 f}{\delta x^2}=\dfrac{\delta^2 f}{\delta u^2}\\\dfrac{\delta f}{\delta t}=\pm v\dfrac{\delta f}{\delta u}\Rightarrow\dfrac{\delta^2 f}{\delta t^2}=v^2\dfrac{\delta^2 f}{\delta u^2}\\\\$Застосуємо рівняння Д'Аламбера:$\\\dfrac{\delta^2 f}{\delta x^2}-\dfrac1{v^2}\cdot\dfrac{\delta^2 f}{\delta t^2}=\dfrac{\delta^2 f}{\delta u^2}-\dfrac1{v^2}\cdot\left(v^2\dfrac{\delta^2 f}{\delta u^2}\right)=0$
+	 	
+\end{document}
