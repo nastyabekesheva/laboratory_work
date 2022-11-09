@@ -311,39 +311,55 @@
     \subsection*{Частина 1}
     \begin{figure}[h!]
 		\begin{center}
-			\includegraphics[scale=0.8]{media/graph13}
+			\includegraphics[scale=0.8]{media/graph13a}
 		\end{center}
-		\caption{Графік залежності частоти від опору}
+		\caption{Графік залежності опору від частоти}
 		\label{Picture_1}
 	\end{figure}
+	За допомогою формули (1) розрахуємо $C$ апроксимоване:
+	\begin{equation}
+		C_{\textrm{апр}}=\dfrac{1}{2\pi\cdot b}
+	\end{equation}
+	де $b$ взято з формули апроксимації $y=k+\dfrac{b}{x}$.
+	\begin{itemize}
+		\item $C_{\textrm{апр}}=\dfrac1{2\pi\cdot 160266.457}=0.993\cdot10^{-6}$
+		\item $C_{\textrm{апр}}=\dfrac1{2\pi\cdot 71884.081}=2.214\cdot10^{-6}$
+		\item $C_{\textrm{апр}}=\dfrac1{2\pi\cdot 35942.04}=4.428\cdot10^{-6}$
+	\end{itemize}
+	також обрахуємо імпеданс за формулою (2).
+	\begin{equation}
+		X_C=\dfrac1{2\pi\cdot f\cdot C_{\textrm{апр}}}
+	\end{equation}
+	\begin{table}[htp]
+	\begin{adjustwidth}{-0.9cm}{}
+	\begin{flushright}
+		\caption{Значення експериментальної ємності конденсатора та обчислення похибок }
+	\end{flushright}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+  & $b$                & $C_{\textrm{теор}}$, ф                              & $C_{\textrm{апр}}$  ,       Ф                         & $\Delta_C$,   Ф                                     & $\varepsilon_C$ & $X_{C_1}$ ,    Ом                                      & $X_{C_2}$,       Ом                                   & $X_{C_3}$,  Ом                                         \\ \hline
+0 & 160266.456 & $1\cdot10^{-6}$   & $0.993\cdot10^{-6}$ & 6.9$\cdot10^{-9}$ & 0.69\%          & $0.534\cdot10^{-6}$ & $0.641\cdot10^{-6}$ & $0.801\cdot10^{-6}$ \\ \hline
+1 & 71884.081   & $2.2\cdot10^{-6}$ & $2.214\cdot10^{-6}$ & $1.4\cdot10^{-8}$ & 0.63\%          & $0.239\cdot10^{-6}$ & $0.287\cdot10^{-6}$ & $0.359\cdot10^{-6}$ \\ \hline
+2 & 35942.04  & $4.4\cdot10^{-6}$ & $4.428\cdot10^{-6}$ & $2.8\cdot10^{-8}$ & 0.63\%          & $0.119\cdot10^{-6}$ & $0.143\cdot10^{-6}$ & $0.18\cdot10^{-6}$  \\ \hline
+\end{tabular}
+\end{adjustwidth}
+\end{table}
 	\begin{figure}[h!]
 		\begin{center}
-			\includegraphics[scale=0.8]{media/graph14}
+			\includegraphics[scale=0.8]{media/graph14a}
 		\end{center}
 		\caption{Графік залежності імпедансу $X_c$ від ємності $C$}
 		\label{Picture_2}
 	\end{figure}\newpage
-    
-    \begin{table}[htp]
-    \begin{flushright}
-		\caption{Значення експериментальної ємності конденсатора та обчислення похибок }
-	\end{flushright}
-    \centering  
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-  & $C$ (теор), Ф     & $C$ (експер), Ф    & $\Delta_C$, Ф & $\varepsilon_C$, \% \\ \hline
-0 & $1\cdot10^{-6}$   & $1.27\cdot10^{-6}$ & $2.7\cdot10^{-7}$    & 0.27                 \\ \hline
-1 & $2.2\cdot10^{-6}$ & $2.4\cdot10^{-6}$  & $2\cdot10^{-7}$      & 0.09                 \\ \hline
-2 & $4.4\cdot10^{-6}$ & $3.58\cdot10^{-6}$ & $8.2\cdot10^{-7}$    & 0.19                 \\ \hline
-\end{tabular}
-\end{table}
+   
 \begin{figure}[h!]
 		\begin{center}
-			\includegraphics[scale=0.8]{media/graph15}
+			\includegraphics[scale=0.8]{media/graph15a}
 		\end{center}
 		\caption{Графік залежності частоти від опору}
 		\label{Picture_е}
 	\end{figure}
+	
 \begin{table}[htp]
     \begin{flushright}
 		\caption{Залежності зсуву фаз від частот в усіх даних }
@@ -351,56 +367,64 @@
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-   & $X_c$, Ом & $f$, Гц & $C$, Ф & $R$, Ом & $\tan\varphi$ & $\varphi$, р \\ \hline
-0  & 10        & 16000.0 & 1      & 50      & -0.2          & -0.2         \\ \hline
-1  & 15        & 10600.0 & 1      & 50      & -0.3          & -0.29        \\ \hline
-2  & 20        & 8000.0  & 1      & 50      & -0.4          & -0.38        \\ \hline
-3  & 25        & 6400.0  & 1      & 50      & -0.5          & -0.46        \\ \hline
-4  & 30        & 5300.0  & 1      & 50      & -0.6          & -0.54        \\ \hline
-5  & 40        & 3300.0  & 1      & 50      & -0.8          & -0.67        \\ \hline
-6  & 50        & 3000.0  & 1      & 50      & -1.0          & -0.79        \\ \hline
-7  & 75        & 2600.0  & 1      & 50      & -1.5          & -0.98        \\ \hline
-8  & 100       & 1600.0  & 1      & 50      & -2.0          & -1.11        \\ \hline
-9  & 150       & 1060.0  & 1      & 50      & -3.0          & -1.25        \\ \hline
-10 & 200       & 800.0   & 1      & 50      & -4.0          & -1.33        \\ \hline
+   & $X_C$, Ом& $f$, Гц & $C$, Ф& $R$, Ом& $\tan\varphi$ & $\varphi$, р\\ \hline
+0  & 200   & 800   & 1   & 50  & -4.0          & -1.33     \\ \hline
+1  & 150   & 1060  & 1   & 50  & -3.0          & -1.25     \\ \hline
+2  & 100   & 1600  & 1   & 50  & -2.0          & -1.11     \\ \hline
+3  & 75    & 2600  & 1   & 50  & -1.5          & -0.98     \\ \hline
+4  & 50    & 3000  & 1   & 50  & -1.0          & -0.79     \\ \hline
+5  & 40    & 3300  & 1   & 50  & -0.8          & -0.67     \\ \hline
+6  & 30    & 5300  & 1   & 50  & -0.6          & -0.54     \\ \hline
+7  & 25    & 6400  & 1   & 50  & -0.5          & -0.46     \\ \hline
+8  & 20    & 8000  & 1   & 50  & -0.4          & -0.38     \\ \hline
+9  & 15    & 10600 & 1   & 50  & -0.3          & -0.29     \\ \hline
+10 & 10    & 16000 & 1   & 50  & -0.2          & -0.2      \\ \hline
 \end{tabular}
 \end{table}
-   \begin{table}[htp]
-   \centering
+\begin{table}[htp]
+\centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-   & $X_c$, Ом & $f$, Гц & $C$, Ф & $R$, Ом & $\tan\varphi$ & $\varphi$, р \\ \hline
-0  & 10        & 7300.0  & 1      & 50      & -0.2          & -0.2         \\ \hline
-1  & 15        & 4800.0  & 1      & 50      & -0.3          & -0.29        \\ \hline
-2  & 20        & 3600.0  & 1      & 50      & -0.4          & -0.38        \\ \hline
-3  & 25        & 3000.0  & 1      & 50      & -0.5          & -0.46        \\ \hline
-4  & 30        & 2400.0  & 1      & 50      & -0.6          & -0.54        \\ \hline
-5  & 40        & 1800.0  & 1      & 50      & -0.8          & -0.67        \\ \hline
-6  & 50        & 1500.0  & 1      & 50      & -1.0          & -0.79        \\ \hline
-7  & 75        & 1180.0  & 1      & 50      & -1.5          & -0.98        \\ \hline
-8  & 100       & 730.0   & 1      & 50      & -2.0          & -1.11        \\ \hline
-9  & 150       & 480.0   & 1      & 50      & -3.0          & -1.25        \\ \hline
-10 & 200       & 360.0   & 1      & 50      & -4.0          & -1.33        \\ \hline
+   & $X_C$, Ом& $f$, Гц & $C$, Ф& $R$, Ом& $\tan\varphi$ & $\varphi$, р\\ \hline
+0  & 200   & 360  & 1   & 50  & -4.0          & -1.33     \\ \hline
+1  & 150   & 480  & 1   & 50  & -3.0          & -1.25     \\ \hline
+2  & 100   & 730  & 1   & 50  & -2.0          & -1.11     \\ \hline
+3  & 75    & 1180 & 1   & 50  & -1.5          & -0.98     \\ \hline
+4  & 50    & 1500 & 1   & 50  & -1.0          & -0.79     \\ \hline
+5  & 40    & 1800 & 1   & 50  & -0.8          & -0.67     \\ \hline
+6  & 30    & 2400 & 1   & 50  & -0.6          & -0.54     \\ \hline
+7  & 25    & 3000 & 1   & 50  & -0.5          & -0.46     \\ \hline
+8  & 20    & 3600 & 1   & 50  & -0.4          & -0.38     \\ \hline
+9  & 15    & 4800 & 1   & 50  & -0.3          & -0.29     \\ \hline
+10 & 10    & 7300 & 1   & 50  & -0.2          & -0.2      \\ \hline
 \end{tabular}
 \end{table}
-    \begin{table}[htp]
-    \centering
+\begin{table}[htp]
+\centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-   & $X_c$, Ом & $f$, Гц & $C$, Ф & $R$, Ом & $\tan\varphi$ & $\varphi$, р \\ \hline
-0  & 10        & 3650.0  & 1      & 50      & -0.2          & -0.2         \\ \hline
-1  & 15        & 2400.0  & 1      & 50      & -0.3          & -0.29        \\ \hline
-2  & 20        & 1800.0  & 1      & 50      & -0.4          & -0.38        \\ \hline
-3  & 25        & 1500.0  & 1      & 50      & -0.5          & -0.46        \\ \hline
-4  & 30        & 1200.0  & 1      & 50      & -0.6          & -0.54        \\ \hline
-5  & 40        & 900.0   & 1      & 50      & -0.8          & -0.67        \\ \hline
-6  & 50        & 750.0   & 1      & 50      & -1.0          & -0.79        \\ \hline
-7  & 75        & 590.0   & 1      & 50      & -1.5          & -0.98        \\ \hline
-8  & 100       & 3650.0  & 1      & 50      & -2.0          & -1.11        \\ \hline
-9  & 150       & 240.0   & 1      & 50      & -3.0          & -1.25        \\ \hline
-10 & 200       & 180.0   & 1      & 50      & -4.0          & -1.33        \\ \hline
+   & $X_C$, Ом& $f$, Гц & $C$, Ф& $R$, Ом& $\tan\varphi$ & $\varphi$, р\\ \hline
+0  & 200   & 180   & 1   & 50  & -4.0          & -1.33     \\ \hline
+1  & 150   & 240   & 1   & 50  & -3.0          & -1.25     \\ \hline
+2  & 100   & 365.0 & 1   & 50  & -2.0          & -1.11     \\ \hline
+3  & 75    & 590   & 1   & 50  & -1.5          & -0.98     \\ \hline
+4  & 50    & 750   & 1   & 50  & -1.0          & -0.79     \\ \hline
+5  & 40    & 900   & 1   & 50  & -0.8          & -0.67     \\ \hline
+6  & 30    & 1200  & 1   & 50  & -0.6          & -0.54     \\ \hline
+7  & 25    & 1500  & 1   & 50  & -0.5          & -0.46     \\ \hline
+8  & 20    & 1800  & 1   & 50  & -0.4          & -0.38     \\ \hline
+9  & 15    & 2400  & 1   & 50  & -0.3          & -0.29     \\ \hline
+10 & 10    & 3650  & 1   & 50  & -0.2          & -0.2      \\ \hline
 \end{tabular}
-\end{table}
+\end{table}\newpage
+\subsection*{Висновок 1}
+За результатами обробки дослідних даних отримано залеженість імпедансу від частоти, імпедансу від ємності, зсуву фаз від частоти та обраховано апроксимовану ємність:
+\begin{itemize}
+		\item $C_{\textrm{апр}}=0.993\cdot10^{-6}$
+		\item $C_{\textrm{апр}}=2.214\cdot10^{-6}$
+		\item $C_{\textrm{апр}}=4.428\cdot10^{-6}$
+	\end{itemize}
+Що майже відповідає номіналу. Таке незначне відхилення $(\langle\varepsilon_C\rangle=0.65\%)$, можливо, зумовлено різними наближеннями числа $\pi$ або неточністю вимірювань. 
 
     
     

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  2 NOV 2022 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  10 NOV 2022 00:03
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -904,26 +904,39 @@ LaTeX Warning: Command \CYRR invalid in math mode on input line 108.
 
 Missing character: There is no Ð in font cmr12!
 [2] [3] [4] [5] [6] [7]
-<media/graph13.png, id=67, 592.2125pt x 283.0575pt>
-File: media/graph13.png Graphic file (type png)
-<use media/graph13.png>
-Package pdftex.def Info: media/graph13.png  used on input line 314.
-(pdftex.def)             Requested size: 473.77063pt x 226.44629pt.
-<media/graph14.png, id=69, 407.5225pt x 283.0575pt>
-File: media/graph14.png Graphic file (type png)
-<use media/graph14.png>
-Package pdftex.def Info: media/graph14.png  used on input line 321.
-(pdftex.def)             Requested size: 326.01843pt x 226.44629pt.
- [8 <./media/graph13.png> <./media/graph14.png>]
-<media/graph15.png, id=80, 407.5225pt x 283.0575pt>
-File: media/graph15.png Graphic file (type png)
-<use media/graph15.png>
-Package pdftex.def Info: media/graph15.png  used on input line 342.
-(pdftex.def)             Requested size: 326.01843pt x 226.44629pt.
- [9 <./media/graph15.png>] [10]
+<media/graph13a.png, id=67, 634.37pt x 281.05pt>
+File: media/graph13a.png Graphic file (type png)
+<use media/graph13a.png>
+Package pdftex.def Info: media/graph13a.png  used on input line 314.
+(pdftex.def)             Requested size: 507.49667pt x 224.84029pt.
+
+Overfull \hbox (9.57343pt too wide) in paragraph at lines 314--315
+ [] 
+ []
+
+
+Overfull \hbox (4.88972pt too wide) in paragraph at lines 338--345
+[][] 
+ []
+
+<media/graph14a.png, id=69, 381.425pt x 286.06876pt>
+File: media/graph14a.png Graphic file (type png)
+<use media/graph14a.png>
+Package pdftex.def Info: media/graph14a.png  used on input line 349.
+(pdftex.def)             Requested size: 305.1404pt x 228.85532pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./media/graph13a.png>]
+<media/graph15a.png, id=83, 398.48875pt x 284.06125pt>
+File: media/graph15a.png Graphic file (type png)
+<use media/graph15a.png>
+Package pdftex.def Info: media/graph15a.png  used on input line 357.
+(pdftex.def)             Requested size: 318.79143pt x 227.24928pt.
+ [9 <./media/graph14a.png> <./media/graph15a.png>] [10] [11]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     445.
+(LaTeX3)     469.
 
  (/Users/nastyabekesheva/Desktop/notes/physics/2/.texpadtmp/lab_3.aux)
 
@@ -933,18 +946,18 @@ Package rerunfilecheck Info: File `lab_3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14695 strings out of 478994
- 226933 string characters out of 5858184
- 619843 words of memory out of 5000000
- 31815 multiletter control sequences out of 15000+600000
- 417955 words of font info for 57 fonts, out of 8000000 for 9000
+ 14705 strings out of 478994
+ 227065 string characters out of 5858184
+ 618843 words of memory out of 5000000
+ 31820 multiletter control sequences out of 15000+600000
+ 418292 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 111i,10n,116p,332b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on /Users/nastyabekesheva/Desktop/notes/physics/2/.texpadtmp/lab_3.pdf (10 pages, 490828 bytes).
+ 111i,14n,116p,440b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on /Users/nastyabekesheva/Desktop/notes/physics/2/.texpadtmp/lab_3.pdf (11 pages, 296626 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
