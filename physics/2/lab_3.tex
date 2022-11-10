@@ -338,9 +338,9 @@
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
   & $b$                & $C_{\textrm{теор}}$, ф                              & $C_{\textrm{апр}}$  ,       Ф                         & $\Delta_C$,   Ф                                     & $\varepsilon_C$ & $X_{C_1}$ ,    Ом                                      & $X_{C_2}$,       Ом                                   & $X_{C_3}$,  Ом                                         \\ \hline
-0 & 160266.456 & $1\cdot10^{-6}$   & $0.993\cdot10^{-6}$ & 6.9$\cdot10^{-9}$ & 0.69\%          & $0.534\cdot10^{-6}$ & $0.641\cdot10^{-6}$ & $0.801\cdot10^{-6}$ \\ \hline
-1 & 71884.081   & $2.2\cdot10^{-6}$ & $2.214\cdot10^{-6}$ & $1.4\cdot10^{-8}$ & 0.63\%          & $0.239\cdot10^{-6}$ & $0.287\cdot10^{-6}$ & $0.359\cdot10^{-6}$ \\ \hline
-2 & 35942.04  & $4.4\cdot10^{-6}$ & $4.428\cdot10^{-6}$ & $2.8\cdot10^{-8}$ & 0.63\%          & $0.119\cdot10^{-6}$ & $0.143\cdot10^{-6}$ & $0.18\cdot10^{-6}$  \\ \hline
+0 & 160266.456 & $1\cdot10^{-6}$   & $0.993\cdot10^{-6}$ & 6.9$\cdot10^{-9}$ & 0.69\%          & $53.4$ & $64.1$ & $80.1$ \\ \hline
+1 & 71884.081   & $2.2\cdot10^{-6}$ & $2.214\cdot10^{-6}$ & $1.4\cdot10^{-8}$ & 0.63\%          & $23.9$ & $28.7$ & $35.9$ \\ \hline
+2 & 35942.04  & $4.4\cdot10^{-6}$ & $4.428\cdot10^{-6}$ & $2.8\cdot10^{-8}$ & 0.63\%          & $11.9$ & $14.3$ & $18$  \\ \hline
 \end{tabular}
 \end{adjustwidth}
 \end{table}
@@ -348,7 +348,7 @@
 		\begin{center}
 			\includegraphics[scale=0.8]{media/graph14a}
 		\end{center}
-		\caption{Графік залежності імпедансу $X_c$ від ємності $C$}
+		\caption{Графік залежності імпедансу $X_C$ від ємності $C$}
 		\label{Picture_2}
 	\end{figure}\newpage
    
@@ -356,7 +356,7 @@
 		\begin{center}
 			\includegraphics[scale=0.8]{media/graph15a}
 		\end{center}
-		\caption{Графік залежності частоти від опору}
+		\caption{Графік залежності зсуву фаз від частоти}
 		\label{Picture_е}
 	\end{figure}
 	
@@ -406,7 +406,7 @@
    & $X_C$, Ом& $f$, Гц & $C$, Ф& $R$, Ом& $\tan\varphi$ & $\varphi$, р\\ \hline
 0  & 200   & 180   & 1   & 50  & -4.0          & -1.33     \\ \hline
 1  & 150   & 240   & 1   & 50  & -3.0          & -1.25     \\ \hline
-2  & 100   & 365.0 & 1   & 50  & -2.0          & -1.11     \\ \hline
+2  & 100   & 365   & 1   & 50  & -2.0          & -1.11     \\ \hline
 3  & 75    & 590   & 1   & 50  & -1.5          & -0.98     \\ \hline
 4  & 50    & 750   & 1   & 50  & -1.0          & -0.79     \\ \hline
 5  & 40    & 900   & 1   & 50  & -0.8          & -0.67     \\ \hline
@@ -424,14 +424,125 @@
 		\item $C_{\textrm{апр}}=2.214\cdot10^{-6}$
 		\item $C_{\textrm{апр}}=4.428\cdot10^{-6}$
 	\end{itemize}
-Що майже відповідає номіналу. Таке незначне відхилення $(\langle\varepsilon_C\rangle=0.65\%)$, можливо, зумовлено різними наближеннями числа $\pi$ або неточністю вимірювань. 
+Що майже відповідає номіналу. Таке незначне відхилення $(\langle\varepsilon_C\rangle=0.65\%)$, можливо, зумовлено різними наближеннями числа $\pi$ або неточністю вимірювань.\newpage
+\subsection*{Частина 2} 
+\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.8]{media/graph16}
+		\end{center}
+		\caption{Графік залежності опору від частоти}
+		\label{Picture_1}
+	\end{figure}
+	За допомогою формули (3) розрахуємо $L$ апроксимоване:
+	\begin{equation}
+		L_{\textrm{апр}}=\dfrac{k}{2\pi}
+	\end{equation}
+	де $b$ взято з формули апроксимації $y=k+{b}{x}$.
+	\begin{itemize}
+		\item $L_{\textrm{апр}}=\dfrac{0.0625}{2\pi}=9.947\cdot10^{-3}$
+		\item $L_{\textrm{апр}}=\dfrac{0.00625}{2\pi}=0.994\cdot10^{-3}$
+		\item $L_{\textrm{апр}}=\dfrac{0.0125}{2\pi}=1.989\cdot10^{-3}$
+	\end{itemize}
+	також обрахуємо імпеданс за формулою (4).
+	\begin{equation}
+		X_L=\dfrac{f}{k}
+	\end{equation}
+\begin{table}[htp]
+	\begin{flushright}
+		\caption{Значення експериментальної індуктивності конденсатора та обчислення похибок }
+	\end{flushright}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+  & $k$     & $L_{\textrm{теор}}$, Гн & $L_{\textrm{апр}}$, Гн & $\Delta_L$, Гн     & $\varepsilon_L$ & $X_{L_1}$, Ом & $X_{L_2}$, Ом & $X_{L_3}$, Ом \\ \hline
+0 & 0.0625  & $10\cdot10^{-3}$        & $9.947\cdot10^{-3}$    & $5.2\cdot10^{-5}$  & 0.5\%           & 187.5         & 156.25        & 125.0         \\ \hline
+1 & 0.00625 & $1\cdot10^{-3}$         & $0.994\cdot10^{-3}$    & $5.2\cdot10^{-6}$  & 0.5\%           & 18.75         & 15.625        & 12.5          \\ \hline
+2 & 0.0125  & $2\cdot10^{-3}$         & $1.989\cdot10^{-3}$    & $1.05\cdot10^{-6}$ & 0.5\%           & 37.5          & 31.25         & 25.0          \\ \hline
+\end{tabular}
+\end{table}
+    
+    \begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.8]{media/graph17}
+		\end{center}
+		\caption{Графік залежності імпедансу $X_L$ від індуктивності $L$}
+		\label{Picture_2}
+	\end{figure}\newpage
+   
+\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.8]{media/graph18}
+		\end{center}
+		\caption{Графік залежності зсуву фаз від частоти}
+		\label{Picture_е}
+	\end{figure}
+	
+\begin{table}[htp]
+\begin{flushright}
+		\caption{Залежності зсуву фаз від частот в усіх даних }
+	\end{flushright}
+\centering
 
-    
-    
-    
-    
-    
-    
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+   & $X_L$, Ом & $f$, Гц & $L$, Гн & $R$, Ом & $\tan\varphi$ & $\varphi$, р \\ \hline
+0  & 10        & 160     & 1       & 50      & 0.2           & 0.2          \\ \hline
+1  & 15        & 240     & 1       & 50      & 0.3           & 0.29         \\ \hline
+2  & 20        & 320     & 1       & 50      & 0.4           & 0.38         \\ \hline
+3  & 25        & 400     & 1       & 50      & 0.5           & 0.46         \\ \hline
+4  & 30        & 480     & 1       & 50      & 0.6           & 0.54         \\ \hline
+5  & 40        & 640     & 1       & 50      & 0.8           & 0.67         \\ \hline
+6  & 50        & 800     & 1       & 50      & 1.0           & 0.79         \\ \hline
+7  & 75        & 1200    & 1       & 50      & 1.5           & 0.98         \\ \hline
+8  & 100       & 1600    & 1       & 50      & 2.0           & 1.11         \\ \hline
+9  & 150       & 2400    & 1       & 50      & 3.0           & 1.25         \\ \hline
+10 & 200       & 3200    & 1       & 50      & 4.0           & 1.33         \\ \hline
+\end{tabular}
+\end{table}  
+\begin{table}[htp]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+   & $X_L$, Ом & $f$, Гц & $L$, Гн & $R$, Ом & $\tan\varphi$ & $\varphi$, р \\ \hline
+0  & 10        & 1600    & 1       & 50      & 0.2           & 0.2          \\ \hline
+1  & 15        & 2400    & 1       & 50      & 0.3           & 0.29         \\ \hline
+2  & 20        & 3200    & 1       & 50      & 0.4           & 0.38         \\ \hline
+3  & 25        & 4000    & 1       & 50      & 0.5           & 0.46         \\ \hline
+4  & 30        & 4800    & 1       & 50      & 0.6           & 0.54         \\ \hline
+5  & 40        & 6400    & 1       & 50      & 0.8           & 0.67         \\ \hline
+6  & 50        & 8000    & 1       & 50      & 1.0           & 0.79         \\ \hline
+7  & 75        & 12000   & 1       & 50      & 1.5           & 0.98         \\ \hline
+8  & 100       & 16000   & 1       & 50      & 2.0           & 1.11         \\ \hline
+9  & 150       & 24000   & 1       & 50      & 3.0           & 1.25         \\ \hline
+10 & 200       & 32000   & 1       & 50      & 4.0           & 1.33         \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[htp]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+   & $X_L$, Ом & $f$, Гц & $L$, Гн & $R$, Ом & $\tan\varphi$ & $\varphi$, р \\ \hline
+0  & 10        & 800     & 1       & 50      & 0.2           & 0.2          \\ \hline
+1  & 15        & 1200    & 1       & 50      & 0.3           & 0.29         \\ \hline
+2  & 20        & 1600    & 1       & 50      & 0.4           & 0.38         \\ \hline
+3  & 25        & 2000    & 1       & 50      & 0.5           & 0.46         \\ \hline
+4  & 30        & 2400    & 1       & 50      & 0.6           & 0.54         \\ \hline
+5  & 40        & 3200    & 1       & 50      & 0.8           & 0.67         \\ \hline
+6  & 50        & 4000    & 1       & 50      & 1.0           & 0.79         \\ \hline
+7  & 75        & 6000    & 1       & 50      & 1.5           & 0.98         \\ \hline
+8  & 100       & 8000    & 1       & 50      & 2.0           & 1.11         \\ \hline
+9  & 150       & 12000   & 1       & 50      & 3.0           & 1.25         \\ \hline
+10 & 200       & 16000   & 1       & 50      & 4.0           & 1.33         \\ \hline
+\end{tabular}
+\end{table}
+\newpage
+\subsection*{Висновок 2}
+За результатами обробки дослідних даних отримано залеженість імпедансу від частоти, імпедансу від індуктивності, зсуву фаз від частоти та обраховано апроксимовану індуктивність:
+\begin{itemize}
+		\item $L_{\textrm{апр}}=9.947\cdot10^{-3}$
+		\item $L_{\textrm{апр}}=0.994\cdot10^{-3}$
+		\item $L_{\textrm{апр}}=1.989\cdot10^{-3}$
+	\end{itemize}
+Що майже відповідає номіналу. Таке незначне відхилення $(\langle\varepsilon_L\rangle=0.5\%)$, можливо, зумовлено різними наближеннями числа $\pi$ або неточністю вимірювань.\newpage
     
     
     

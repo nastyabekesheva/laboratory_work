@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  10 NOV 2022 00:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  10 NOV 2022 18:25
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -756,6 +756,15 @@ LaTeX Warning: Label `Picture_1' multiply defined.
 
 LaTeX Warning: Label `Picture_2' multiply defined.
 
+
+LaTeX Warning: Label `Picture_1' multiply defined.
+
+
+LaTeX Warning: Label `Picture_2' multiply defined.
+
+
+LaTeX Warning: Label `Picture_е' multiply defined.
+
 )
 \openout1 = `lab_3.aux'.
 
@@ -914,16 +923,11 @@ Overfull \hbox (9.57343pt too wide) in paragraph at lines 314--315
  [] 
  []
 
-
-Overfull \hbox (4.88972pt too wide) in paragraph at lines 338--345
-[][] 
- []
-
-<media/graph14a.png, id=69, 381.425pt x 286.06876pt>
+<media/graph14a.png, id=69, 401.8212pt x 333.1647pt>
 File: media/graph14a.png Graphic file (type png)
 <use media/graph14a.png>
 Package pdftex.def Info: media/graph14a.png  used on input line 349.
-(pdftex.def)             Requested size: 305.1404pt x 228.85532pt.
+(pdftex.def)             Requested size: 321.45738pt x 266.53212pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -934,9 +938,30 @@ File: media/graph15a.png Graphic file (type png)
 Package pdftex.def Info: media/graph15a.png  used on input line 357.
 (pdftex.def)             Requested size: 318.79143pt x 227.24928pt.
  [9 <./media/graph14a.png> <./media/graph15a.png>] [10] [11]
+<media/graph16.png, id=102, 559.08875pt x 284.06125pt>
+File: media/graph16.png Graphic file (type png)
+<use media/graph16.png>
+Package pdftex.def Info: media/graph16.png  used on input line 431.
+(pdftex.def)             Requested size: 447.27159pt x 227.24928pt.
+<media/graph17.png, id=103, 414.8298pt x 333.1647pt>
+File: media/graph17.png Graphic file (type png)
+<use media/graph17.png>
+Package pdftex.def Info: media/graph17.png  used on input line 465.
+(pdftex.def)             Requested size: 331.86429pt x 266.53212pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./media/graph16.png>]
+<media/graph18.png, id=114, 410.4936pt x 332.442pt>
+File: media/graph18.png Graphic file (type png)
+<use media/graph18.png>
+Package pdftex.def Info: media/graph18.png  used on input line 473.
+(pdftex.def)             Requested size: 328.39532pt x 265.95395pt.
+ [13 <./media/graph17.png> <./media/graph18.png>] [14] [15]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     469.
+(LaTeX3)     580.
 
  (/Users/nastyabekesheva/Desktop/notes/physics/2/.texpadtmp/lab_3.aux)
 
@@ -946,18 +971,18 @@ Package rerunfilecheck Info: File `lab_3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14705 strings out of 478994
- 227065 string characters out of 5858184
- 618843 words of memory out of 5000000
- 31820 multiletter control sequences out of 15000+600000
+ 14742 strings out of 478994
+ 227610 string characters out of 5858184
+ 619865 words of memory out of 5000000
+ 31841 multiletter control sequences out of 15000+600000
  418292 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  111i,14n,116p,440b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on /Users/nastyabekesheva/Desktop/notes/physics/2/.texpadtmp/lab_3.pdf (11 pages, 296626 bytes).
+Output written on /Users/nastyabekesheva/Desktop/notes/physics/2/.texpadtmp/lab_3.pdf (15 pages, 387587 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 202 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
