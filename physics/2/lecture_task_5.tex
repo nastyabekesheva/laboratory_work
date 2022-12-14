@@ -1,0 +1,12 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\dint}{{\displaystyle\int}}
+\begin{document}
+	Бекешева Анастасія ФІ-12\\
+	$x=A_0e^{-\beta t}\cos(\omega t),\tab v=\dint A_0e^{-\beta t}\cos(\omega t)dt=\\=\dfrac1{\omega^2+\beta^2}A_0e^{-\beta t}(\omega\sin(\omega t)-\beta\cos(\omega t)),\\0=\dfrac1{\omega^2+\beta^2}A_0e^{-\beta t}(\omega\sin(\omega t)-\beta\cos(\omega t))=\omega\sin(\omega t)-\beta\cos(\omega t),\\\sin\omega t=\dfrac \beta\omega\cos\omega t,\tab \tan\omega t=\dfrac \beta\omega,\tab t=\dfrac1\omega\arctan\dfrac \beta\omega,\\v=0:S=x(t)=A_0e^{-\beta t}\cos\left(\dfrac1\omega\arctan\dfrac \beta\omega\right)$
+\end{document}
