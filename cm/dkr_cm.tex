@@ -1,0 +1,769 @@
+\documentclass[a4paper,12pt]{article}
+%language
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+%math+style
+\usepackage{amsmath}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+%tikz
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{3d}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+%caption
+\usepackage[figurename=Рис.]{caption}
+% paddings
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+%page enumeration
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\fancyfoot[LE,RO]{\thepage} % Left side on Even pages; Right side on Odd pages
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf[lef,rof]{\thepage}%
+}
+
+\newcommand\tab [1][0.5cm]{\hspace*{#1}}
+\newcommand\dint{\displaystyle\int}
+\renewcommand{\figurename}{Рис}
+
+\begin{document}
+	\begin{justify}
+ 		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ КОНТРОЛЬНА РОБОТА\\З ПРЕДМЕТУ\\''КЛАСИЧНА МЕХАНІКА''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 	\begin{itemize}
+ 		\item [2.] Знайти вирази для швидкості і прискорення частки в сферичній
+системі координат (орти: $\vec{e_r}$, $\vec{e_\theta}$, $\vec{e_\phi}$).\\
+			\begin{figure}[htp]
+			\centering
+			\tdplotsetmaincoords{70}{110}
+			\begin{tikzpicture}[scale=3,tdplot_main_coords]
+				% axes
+  				\coordinate (O) at (0,0,0); 
+  				\draw[thick,->] (0,0,0) -- (1.25,0,0) node[anchor=north east]{$x$}; 
+  				\draw[thick,->] (0,0,0) -- (0,1.25,0) node[anchor=north west]{$y$}; 
+  				\draw[thick,->] (0,0,0) -- (0,0,1.25) node[anchor=south]{$z$};
+  				% vecs
+ 
+  				\draw[thick] (0,0,0) -- (0.51,0.55,0.55) node[midway,above,sloped]{\tiny$(r)$}; 
+  				\draw node[circle,fill,inner sep=1pt] {}; 
+  				\draw (0.51,0.55,0.55) node[circle,fill,inner sep=1pt] {}; 
+  				\draw (0,0,0.5) -- (0.51,0.55,0.55) node[midway,above,sloped]{\tiny $r\sin\theta$};
+  				\draw (0,0,0) -- (0.7,0.7,0.) node[anchor= east]{}; 
+				% arcs
+  				\tdplotsetrotatedthetaplanecoords{45}
+  				\tdplotdrawarc{(0,0,0)}{1}{0}{90}{anchor=north}{}
+  				\tdplotdrawarc[thick]{(0,0,0.5)}{1}{2.5}{78}{anchor=north east}{\tiny$(\phi)$}
+  				\tdplotdrawarc{(0,0,0)}{0.2}{0}{45}{anchor=north}{\tiny$\phi$}
+  				\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,0)}{1}{0}{90}{anchor=north west}{\tiny$(\theta)$}
+  				\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.2}{0}{55}{anchor=south }{\tiny$\theta$}
+  				\tdplotsetrotatedthetaplanecoords{45}
+  				\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{1}{0}{90}{anchor=north}{}
+  				\tdplotsetrotatedthetaplanecoords{270}
+				\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{1}{0}{90}{anchor=north}{}
+			\end{tikzpicture} 
+			\caption{Сферична с-ма координат.}
+			\label{plot_2}
+			\end{figure}
+			Швидкість частинки: 
+			\begin{equation}
+				\vec{v}=\dfrac{d\vec{r}}{d t}=\dfrac{\partial\vec{r}}{\partial r}\dot{r}+\dfrac{\partial\vec{r}}{\partial \theta}\dot{\theta}+\dfrac{\partial\vec{r}}{\partial \phi}\dot{\phi}=v_{r}\vec{e_r}+v_{\theta}\vec{e_\theta}+v_{\phi}\vec{e_\phi}
+				\label{velocity_2}
+			\end{equation}
+			\begin{equation}
+				v_{q_i}=\vec{v}\cdot\vec{e_i}=H_i\dot{i},i\in\{r,\theta,\phi\}
+				\label{velocity_projection_2}
+			\end{equation}
+			Модуль швидхості вирахуємо так: 
+			\begin{equation}
+				v=\sqrt{v_{r}^2+v_{\theta}^2+v_{\phi}^2}=\sqrt{H_r^2\dot{r}^2+H_\theta^2\dot{\theta}^2+H_\phi^2\dot{\phi}^2}
+				\label{speed_2}
+			\end{equation}
+			Щоб знайти розташування частки, потрібно знайти коефіцієнти Ламе: $\\x=r\sin\theta\cos\phi,y=r\sin\theta\sin\phi,z=r\cos\theta;\tab \\ H_r=\sqrt{\left(\dfrac{\partial x}{\partial r}\right)^2+\left(\dfrac{\partial y}{\partial r}\right)^2+\left(\dfrac{\partial z}{\partial r}\right)^2}=\sqrt{\sin^2\theta\cos^2\phi+\sin^2\theta\sin^2\phi+\cos^2\theta}=1;\tab \\H_\theta=\sqrt{\left(\dfrac{\partial x}{\partial r}\right)^2+\left(\dfrac{\partial y}{\partial r}\right)^2+\left(\dfrac{\partial z}{\partial r}\right)^2}=\sqrt{r^2\sin^2\theta\cos^2\phi+r^2\sin^2\theta\sin^2\phi}=r\sin\theta\\H_\phi=\sqrt{\left(\dfrac{\partial x}{\partial r}\right)^2+\left(\dfrac{\partial y}{\partial r}\right)^2+\left(\dfrac{\partial z}{\partial r}\right)^2}=\sqrt{r^2\cos^2\theta\cos^2\phi+r^2\cos^2\theta\sin^2\phi+r^2\sin^2\theta}=r\\$ За виразом \ref{velocity_projection_2} порахуємо компоненти щвидкості у сферичній с-мі координат $v_r=\dot{r},v_\theta=\dot{\theta}r,v_\phi=\dot{\phi}r\sin\phi$. За виразом \ref{speed_2} порахуємо модуль швидкості $\\v=\sqrt{\dot{r}^2+r^2\dot{\phi}^2\sin^\phi+r^2\dot{\theta}^2}.$ Прискорення у сферичних координатах:
+			\begin{equation}
+				\vec{a}=a_r\vec{e_r}+a\theta\vec{e_\theta}+a_\phi\vec{e_\phi}
+				\label{acceleration_2}
+			\end{equation}
+			Компоненти прискорень частки: $a_r=\ddot{r}-r\left(\dot{\phi}^2\sin^2\theta-\dot{\theta}^2\right),\tab  a_\theta=\ddot{\phi}r\sin\theta+2\dot{\phi}\left(\dot{r}\sin\theta\right.+\\+\left.\dot{\theta}r\cos\theta\right),\tab  a_\phi=2\dot{r}\dot{\theta}+r\left(\ddot{\theta}+\dot{\phi}^2\sin\theta\cos\theta\right).\\$
+			За виразами \ref{velocity_2} та \ref{acceleration_2} порахуємо відповідь:
+			$$\vec{v}=\dot{r}\vec{e_r}+\dot{\theta}r\vec{e_\theta}+\dot{\phi}r\sin\phi\vec{e_\phi}$$
+			$$\vec{a}=\left(\ddot{r}-r(\dot{\phi}^2\sin^2\theta-\dot{\theta}^2)\right)\vec{e_r}+\left(\ddot{\phi}r\sin\theta+2\dot{\phi}(\dot{r}\sin\theta+\dot{\theta}r\cos\theta)\right)\vec{e_\theta}+\left(2\dot{r}\dot{\theta}+r(\ddot{\theta}+\dot{\phi}^2\sin\theta\cos\theta)\right)\vec{e_\phi}$$
+		\item [5.] Знайдіть величину швидкості частки та проекції її прискорення на дотичні до координатних ліній наступних криволінійних ортогональних координат:\\
+			Швидкість: 
+					\begin{equation}
+						v^2=\sum\limits_{i=1}^3\left(\dfrac{\partial \phi_i}{\partial q_i}\right)^2q_i^2
+						\label{velocity_5}
+					\end{equation}
+					Прискорення:
+					\begin{equation}
+						a_i=\dfrac{1}{2H_i}\left(\dfrac{d}{d t}\dfrac{\partial v^2}{\partial\dot{q}_i}-\dfrac{\partial v^2}{\partial q}\right)
+						\label{acceleration_projection_5}
+					\end{equation}
+			\begin{enumerate}[label=(\alph*)]
+				\item $\rho,\phi,z:x=\rho\cos\phi,y=\rho\sin\phi,z=z\\$
+					За виразом \ref{velocity_5} вирахуємо швидкість: $v^2=\left(\dfrac{\partial(\rho\cos\phi)}{\partial\phi}\right)^2\dot{\phi}^2+\left(\dfrac{\partial(\rho\sin\phi)}{\partial\phi}\right)^2\dot{\phi}^2+\\+\left(\dfrac{\partial z)}{\partial\phi}\right)^2\dot{\phi}^2+\left(\dfrac{\partial(\rho\cos\phi)}{\partial\rho}\right)^2\dot{\rho}^2+\left(\dfrac{\partial(\rho\sin\phi)}{\partial\rho}\right)^2\dot{\rho}^2+\left(\dfrac{\partial z}{\partial\rho}\right)^2\dot{\rho}^2+\left(\dfrac{\partial z}{\partial z}\right)^2\dot{z}^2=\\=\rho^2\sin^2\phi\dot{\phi}^2+\rho^2\cos^2\phi\dot{\phi}^2+\cos^2\phi\dot{\rho}^2+\sin^2\phi\dot{\rho}^2+\dot{z}^2=\rho^2\dot{\phi}^2+\dot{\rho^2}+\dot{z}^2$. Шукаємо коефіцієнти: $H_\rho=\left|\dfrac{\partial\vec{r}}{\partial\rho}\right|=\sqrt{\cos^2\phi+\sin^2\phi}=1;\tab  H_\phi=\left|\dfrac{\partial\vec{r}}{\partial\phi}\right|=\\=\sqrt{\rho^2(\sin^2\phi+\cos^2\phi)}=\rho;\tab  H_z=\left|\dfrac{\partial\vec{r}}{\partial z}\right|=\sqrt{0+0+1}=1$. За виразом \ref{acceleration_projection_5}: $a_\rho=\dfrac12\left(\dfrac{d}{dt}2\dot{\rho}-2\rho\dot{\phi}\right)=\ddot{\rho}-\rho\dot{\phi}^2;\tab a_\phi=\dfrac{1}{2\rho}\left(\dfrac{d}{dt}2\rho^2\dot{\phi}-0\right)=\dfrac{1}{\rho}\left(\dfrac{d}{dt}\rho^2\dot{\phi}\right);\\ a_z=\dfrac{1}{2}\left(\dfrac{d}{dt}2\ddot{z}-0\right)=\ddot{z}$ 
+				\item $r,\theta,\phi:x=r\sin\theta\cos\phi,y=r\sin\theta\sin\phi,z=r\cos\theta\\$
+					За виразом \ref{velocity_5} вирахуємо швидкість: $v^2=\left(\dfrac{\partial(r\sin\theta\cos\phi)}{\partial r}\right)^2\dot{r}^2+\\+\left(\dfrac{\partial(r\sin\theta\sin\phi)}{\partial r}\right)^2\dot{r}^2+\left(\dfrac{\partial(r\cos\theta)}{\partial r}\right)^2\dot{r}^2+\left(\dfrac{\partial(r\sin\theta\cos\phi)}{\partial\phi}\right)^2\dot{\phi}^2+\\+\left(\dfrac{\partial(r\sin\theta\sin\phi)}{\partial \phi}\right)^2\dot{\phi}^2+\left(\dfrac{\partial(r\cos\theta)}{\partial \phi}\right)^2\dot{\phi}^2+\left(\dfrac{\partial(r\sin\theta\cos\phi)}{\partial r\theta}\right)^2\dot{\theta}^2+\\+\left(\dfrac{\partial(r\sin\theta\sin\phi)}{\partial \theta}\right)^2\dot{\theta}^2+\left(\dfrac{\partial(r\cos\theta)}{\partial \theta}\right)^2\dot{\theta}^2=\dot{r}^2\left(\sin^2\theta\cos^2\phi+\sin^2\theta\sin^2\phi+\cos^2\theta\right)+\\+\dot{\phi}^2\left(-r^2\sin^2\theta\sin^2\phi+r^2\sin^2\theta\cos^2\phi\right)+\dot{\theta}^2\left(r^2\cos^2\theta\cos^2\phi+r^2\cos^2\theta\sin^2\phi+r^2\sin^2\theta\right)\\=\dot{r}^2+r^2\sin^2\theta\dot{\phi}^2+r^2\dot{\theta}^2$. Коефіцієнти візьмемо з Завдання 2: $H_r=1;\\ H_\theta=r\sin\theta;\tab H_\phi=r$. За виразом \ref{acceleration_projection_5}: $a_r=\dfrac{1}{2}\left(\dfrac{d}{dt}2\ddot{r}+r^2\sin^2\theta\dot{\phi}^2+r^2\dot{\theta}^2\right)=\\=\ddot{r}+r^2(\dot{\theta}^2+\dot{\phi}^2\sin^2\theta);\tab a_\theta=\dfrac{1}{2r}\left(\dfrac{d}{dt}2r^2\dot{\theta}-r^2\sin\theta\cos\theta\dot{\phi}^2\right)=\dfrac{1}{r}\left(\dfrac{d}{dt}r^2\dot{\theta}\right.-\\-\left.r^2\sin\theta\cos\theta\dot{\phi}^2\right);\tab a_\phi=\dfrac{1}{r\sin\theta}\dfrac{d}{dt}\left(r^2\sin^2\theta\dot{\phi}\right)$ 
+			\end{enumerate}
+			\begin{align*}
+				\textbf{Відповідь}:&\tab \textrm{(a)}&\>v=\sqrt{\rho^2\dot{\phi}^2+\dot{\rho^2}+\dot{z}^2}\\
+					&&a_\rho=\ddot{\rho}-\rho\dot{\phi}^2\\
+					&&a_\phi=\dfrac{1}{\rho}\left(\dfrac{d}{dt}\rho^2\dot{\phi}\right)\\
+					&&a_z=\ddot{z}\\
+					&\tab \textrm{(b)}&v=\sqrt{\dot{r}^2+r^2\sin^2\theta\dot{\phi}^2+r^2\dot{\theta}^2}\\
+					&&a_r=\ddot{r}+r^2(\dot{\theta}^2+\dot{\phi}\\
+					&&a_\theta=\dfrac{1}{r}\left(\dfrac{d}{dt}r^2\dot{\theta}-r^2\sin\theta\cos\theta\dot{\phi}^2\right)\\
+					&&a_\phi=\dfrac{1}{r\sin\theta}\dfrac{d}{dt}\left(r^2\sin^2\theta\dot{\phi}\right)
+			\end{align*}
+		\item [10.] Знайти прискорення частки, що рухається по еліпсу із сталою відносно фокуса еліпса секторіальною швидкістю $\sigma = const$. Півосі еліпса $a, b$, рівняння еліпса $\rho=\\= p(1 + e \cos \phi)^{-1}$.\\
+			\begin{figure}[htp]
+			\centering
+			\begin{tikzpicture}
+				%ellipse
+				\draw[thick] (0,0) ellipse (2cm and 1cm); 
+				%vec
+				\draw[->] (0,1) -- (1,1.05) node[midway,above,sloped] {$\sigma$}; 
+				%center
+				\draw node[circle,fill,inner sep=1pt] {}; 
+				%a,b
+				\draw[dashed] (0,0) -- (0,1) node[midway,above,sloped]{$a$}; 
+				\draw[dashed] (0,0) -- (2,0) node[midway,above,sloped]{$b$}; 		
+			\end{tikzpicture}
+			\caption{Частка, що рухається по елiпсу.}
+			\label{plot_10}
+			\end{figure}\\
+			$\rho,\phi:x=\rho\cos\phi,y=\rho\sin\phi\\$
+			Знайдемо швидкість: $\sigma=|\sigma_z|=\dfrac12|x\dot{y}-\dot{x}y|=\dfrac12\left|\rho\cos\phi\dfrac{d}{dt}(\rho\sin\phi)-\rho\sin\phi\dfrac{d}{dt}(\rho\cos\phi)\right|=\\=\dfrac12\left|\dot{\rho}\rho\sin\phi\cos\phi+\rho^2\dot{\phi}\cos^2\phi-\dot{\rho}\rho\sin\phi\cos\phi-\rho^2\dot{\phi}\sin^2\phi\right|=\dfrac12\rho^2|\dot{\phi}|.$ Знаємо, що $a_\phi=\\=\dfrac{1}{\rho}\dfrac{d}{dt}(\rho^2\dot{\phi})=0$, отже $\dot{\phi}>0$. Виразимо $\dot{\phi}$:
+			\begin{equation}
+				\dot{\phi}=\dfrac{2\sigma}{\rho^2}
+				\label{dot_phi_10}
+			\end{equation}
+			Формула для прискорення:
+			\begin{equation}
+				\vec{a}=a_\rho \vec{e_\rho}+a_\phi \vec{e_\phi}=(\ddot{\rho}-\rho\dot{\phi}^2)\vec{e_\rho}
+				\label{acceleration_10}
+			\end{equation}
+			Знайдемо $\ddot{\rho}$: $\dot{\rho}=\dfrac{p e\sin\phi\dot{\phi}}{(1+e\cos\phi)^2}=\dfrac{p e\sin\phi}{(1+e\cos\phi)^2}\dfrac{2\sigma}{(1+e\cos\phi)^{-2}p^2}=\dfrac{2\sigma e\sin\phi}{p};\tab \\\ddot{\rho}=\dfrac{2\sigma e\cos\phi\dot{\phi}}{p}=\dfrac{4\sigma^2 e\cos\phi}{\rho^2p}$. Скористуємось рівнянням еліпсу з умови: $e\cos\phi=\dfrac{p}{\rho}-1$. За виразом \ref{dot_phi_10} та \ref{acceleration_10}: 
+			\begin{equation}
+				a_\rho=\dfrac{4\sigma^2 }{\rho^2p}\left(\dfrac{p}{\rho}-1\right)-\rho\dfrac{4\sigma^2}{\rho^2}
+				\label{acceleration_10-1}
+			\end{equation}
+			$$\textbf{Відповідь}:\textrm{ вираз }\ref{acceleration_10-1}$$
+		\item [19.] Частка маси $m$ рухається під дією сили $\vec{F} = F(x)\vec{e}_x$, вздовж осі $x$. Знайти закон руху за умов $х(t_0) = x_0, \dot{x}(t_0) \equiv\dot{x_0}, F(x) \geq 0$.\\
+			У випадку цієї задачі сила $F$ залежить від координати $x$. Отже зробимо такий перехід:
+			\begin{equation}
+				F(x)=m\dfrac{dv}{dt}=m\dfrac{dv}{dx}\cdot\dfrac{dx}{dt}
+				\label{force_19}
+			\end{equation}
+			Розв'яжемо рівняння руху відносно швидкості та застосуємо формулу \ref{force_19}:\\ $F(x)dx=mv\cdot dv;\tab \dfrac{2}{m}\dint\limits_{x_0}^xF(\xi)d\xi=v^2-\dot{x}_0^2$. Врахуємо початкову умову $(F(x) \geq 0)$ та те, що $v=\dfrac{dx}{dt}$: 
+			\begin{equation}
+				\dfrac{dx}{dt}=\left(\dfrac{2}{m}\dint\limits_{x_0}^xF(\xi)d\xi+\dot{x}_0^2\right)^{\frac12}
+				\label{motion_19}
+			\end{equation}
+			Проінтегруємо вираз \ref{motion_19}: $\dint\limits_{t_0}^tdt=\dint\limits_{x_0}^x\left(\dfrac{2}{m}\dint\limits_{x_0}^xF(\xi)d\xi+\dot{x}_0^2\right)^{-\frac12}dx$. 
+			$$\textbf{Відповідь}: t-t_0=\dint\limits_{x_0}^x\left(\dfrac{2}{m}\dint\limits_{x_0}^xF(\xi)d\xi+\dot{x}_0^2\right)^{-\frac12}dx$$
+		\item [22.] Заряд $e$, маса якого $m$, рухається в однорідних сталих полях тя-жіння і магнітному полі: $\vec{g} = (0,0, -g), \vec{B} = (0, B, 0)$. Початкові умови: $\vec{r}(0) = (0, 0, h), \vec{v}(0) = (0, 0, v_0)$. Знайдіть межі області руху по координаті $z$ і закон руху.\\
+			\begin{figure}[htp]
+			\centering
+			\tdplotsetmaincoords{70}{110}
+			\begin{tikzpicture}[scale=3,tdplot_main_coords]
+				% axes
+  				\coordinate (O) at (0,0,0); 
+  				\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+  				\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+  				\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$}; 
+  				% vecs
+  				\draw[->] (0,0.25,0.5) -- (0,0.25,0.75) node[anchor=north east]{$\vec{v_0}$}; 
+  				\draw[->] (0,0.25,0.5) -- (0,0.5,0.5) node[anchor=north west]{$\vec{B}$}; 
+  				\draw[->] (0,0.25,0.5) -- (0,0.25,0.25) node[anchor=north east]{$\vec{g}$}; 
+  				%line
+  				\draw[dashed] (0,0.25,0.5) -- (0,0,0.5) node[anchor=north east]{$h$}; 
+			\end{tikzpicture} 
+			\caption{Рух заряду.}
+			\label{plot_22}
+			\end{figure}\\
+			Запишемо закон руху:
+			\begin{equation}
+				m\dfrac{d\vec{v}}{dt}=\vec{F}_\mu+m\vec{g}=\dfrac{e}{c}\cdot\vec{v}\times\vec{B}+m\vec{g}
+				\label{motion_22}
+			\end{equation} 
+			Знайдемо векторний добуток $\vec{v}\times\vec{B}=
+			\begin{vmatrix}
+				\vec{i}&\vec{j}&\vec{k}\\
+				v_x&v_y&v_z\\
+				0&B&0
+			\end{vmatrix}=\vec{i}(0-v_zB)-\vec{j}(0)+\vec{k}(v_xB)$.\\
+			Підставимо в \ref{motion_22}:
+			$\begin{cases}
+				m\dfrac{v_x}{dt}=-\dfrac{e}{c}v_zB\\
+				m\dfrac{dv_y}{dt}=0\\
+				m\dfrac{dv_z}{dt}=\dfrac{e}{c}v_xB-mg
+			\end{cases};\tab 
+			\dfrac{dv_x}{dt}=-\dfrac{e}{c}\dfrac{B}{m}\dfrac{dz}{dt};\tab \omega=\dfrac{eB}{mc};\\ v_x=\omega(h-z);\tab \dfrac{dv_z}{dt}=\omega^2(h-z)-g=-\omega^2z+(\omega^2h-g)$. Зробимо заміну $\omega^2h-g=A$. Складемо диференціальне рівняння:  
+			\begin{equation}
+				\ddot{z}+\omega^2z=A
+				\label{diffeq_22}
+			\end{equation}
+			Рівняння \ref{diffeq_22} є диференціальним рівнянням другого порядку. Складемо характеристичне рівняння: $\lambda^2+w^2=0;\tab \lambda=\sqrt{-\omega^2}=\pm\omega i$. Загальне рішення: $z_0=C_1\cos\omega t+C_2\sin\omega t$. Часткове рішення знайдемо за допомогою методу невизначених коефіцієнтів: $\ddot{z}_1+\omega^2z_1=A;\tab B\omega^2=A;\tab B=\dfrac{A}{\omega^2};\tab z_1=\dfrac{A}{\omega^2}$. Загальне рішення:
+			\begin{equation}
+				z=z_0+z_1=C_1\cos\omega t+C_2\sin\omega t+\dfrac{A}{\omega^2}
+				\label{general_solution_22a}
+			\end{equation} 
+			Отже, щоб отримати $v_z$ продиференціюємо \ref{general_solution_22a}: $v_z=-C_1\omega\sin\omega t+C_2\omega\cos\omega t$. Щоб знайти коефіцієнти вирішемо \ref{general_solution_22a} за початкових умов $(t=0)$: $h=C_1+\dfrac{A}{\omega^2};\\ C_1=h-\dfrac{A}{\omega^2}=\dfrac{g}{\omega^2};\tab v_0=C_1\omega;\tab C_1=\dfrac{v_0}{\omega}$. Перепишемо загальне рішення:
+			\begin{equation}
+				z=\dfrac{g}{\omega^2}\cdot\cos\omega t+\dfrac{v_0}{\omega}\cdot\sin\omega t+\dfrac{A}{\omega^2}
+				\label{general_solution_22b}
+			\end{equation} 
+			Підставимо \ref{general_solution_22b} у $v_x=\omega(h-z)$: $\dot{x}=\omega h-\dfrac{g}{\omega}\cos\omega t-v_o\sin\omega t+\dfrac{g}{\omega}-\omega h;\\ \dfrac{dx}{dt}=\dfrac{g}{\omega}(1-\cos\omega t)-v_0\sin\omega t$. Проінтегруємо і отримаємо: $x(t)=\dfrac{g}{\omega}-\dfrac{g}{\omega^2}\sin\omega t+\\+\dfrac{v_0}{\omega}\cos\omega t+C;\tab C=-\dfrac{v_0}{\omega}$. За законом збереження енергії: $mgh+\dfrac{mv_0^2}{2}=mgz_0+\dfrac{mv_x^2}{2};\\gh+\dfrac{v_0^2}{2}=gz_0+\dfrac{\omega^2(h^2+2hz_0+z_0^2)}{2};\tab -(2gh+v_0^2)+2gz_0+\omega^2h^2-2\omega^2hz_0+\omega^2z_0^2=0;\\\omega^2z_0^2+2z_0(g-\omega^2h)+(\omega^2h^2-2gh+v_0^2)=0;\tab z_0^2+2z_0\left(\dfrac{g}{\omega^2}-h\right)+(h^2-2h\dfrac{g}{\omega^2}+\dfrac{v_0^2}{\omega^2}=0;\\z_{1,2}=h-\dfrac{g}{\omega^2}\pm\sqrt{\left(\dfrac{g}{\omega^2}-h\right)^2-h^2+2h\dfrac{g}{\omega^2}-\dfrac{v_0^2}{\omega^2}}$
+			$$\textbf{Відповідь}:z_{1,2}=h-\dfrac{g}{\omega^2}\pm\sqrt{\dfrac{g}{\omega^4}-\dfrac{v_0^2}{\omega^2}},\tab\omega=\dfrac{eB}{mc}$$
+		\item [25.] Парашутист маси $m$ стрибає з літака, який летить горизонтально на висоті $H$ із швидкістю $v_0$. По якій траєкторії рухається парашутист під час затягнутого стрибка (до моменту розкриття парашута), якщо сила опору повітря $F = -\beta v$, де $v$- швидкість парашутиста, $\beta= const$. Прискорення вільного падіння $g$ вважати сталим. Із знайденого рівняння шляхом граничного переходу $\beta \to 0$ знайти рівняння траєкторії за відсутності сили опору.\\
+			\begin{figure}[htp]
+			\centering
+			\begin{tikzpicture}
+				% 
+				\draw[thick] (-3, 0) -- (3, 0);
+				% vecs
+				\draw[->] (-1, 3) -- (0.5, 3) node[midway, above] {$\vec{v_0}$};
+				\draw[->] (1, 2) -- (1, 1) node[midway, right] {$\vec{g}$};
+				\draw[->] (-1, 3) -- (-1, 4) node[midway, right] {$\vec{F}$};
+				\draw[->] (-1, 3) -- (0, 2.5) node[midway, below, sloped] {$\vec{v}$};
+				% height
+				\draw[dashed] (-1, 0) -- (-1, 3) node[midway, left] {$H$};
+				% dots
+				\draw (-1, 3) node[circle,fill,inner sep=1.5pt] {};
+				\draw (-1, 3) node[left] {$m$};
+				\draw (-1, 0) node[circle,fill,inner sep=1pt] {};
+			\end{tikzpicture}
+			\caption{Парашутист стрибає з літака}
+			\label{plot_25}
+			\end{figure}\\
+			З рисунка \ref{plot_25} запишемо закон руху:
+			\begin{equation}
+				m\dfrac{d\vec{v}}{dt}=m\vec{g}-\beta \vec{v}
+				\label{motion_25}
+			\end{equation} 
+			Перепишемо \ref{motion_25} з урахуванням проекцій $\vec{v}$ на осі:
+			\begin{numcases}
+				\>m\dfrac{v_x}{dt}=-\beta v_x\label{x_25}\\
+				m\dfrac{dv_y}{dt}=-mg-\beta v_y\label{y_25}	 
+			\end{numcases}
+			Cкладемо диференціальне рівняння з \ref{x_25}:
+			\begin{equation}
+				\ddot{x}+\dfrac{\beta}{m}\dot{x}=0
+				\label{xdiff_25}
+			\end{equation}
+			Характеристичне рівняння для \ref{xdiff_25}: $\lambda^2+\dfrac{\beta}{m}\lambda=0;\tab\lambda_1=0,\lambda_2=-\dfrac{\beta}{m}$. Загальне рішення:
+			\begin{equation}
+				x(t)=C_1+C_2e^{-\frac{\beta t}{m}}
+				\label{xeq_25-1}
+			\end{equation}
+			Cкладемо диференціальне рівняння з \ref{y_25}:
+			\begin{equation}
+				\dot{v_y}+g+\dfrac{\beta}{m}v_y=0
+				\label{vdiff_25}
+			\end{equation}
+			З \ref{vdiff_25} знайдемо $v_y$: $\dfrac{dv_y}{dt}=-\dfrac{\beta}{m}v_y-g;\tab \dint\dfrac{dv_y}{-\frac{\beta}{m}v_y-g}=-\dfrac{m}{\beta}\dint\dfrac{d(-\frac{\beta}{m}v_y-g)}{-\frac{\beta}{m}v_y-g}=\\=-\dfrac{m}{\beta}\ln\left|-\frac{\beta}{m}v_y-g\right|=t+C$. Отже:
+			\begin{equation}
+				v_y=-\dfrac{m}{\beta}\left(e^{-\frac{\beta}{m}t+C}+g\right)
+				\label{velocity_y_25-1}
+			\end{equation}
+			Розглянемо \ref{velocity_y_25-1} коли $t=0$: $v(0)=-\dfrac{\beta}{m}\left(e^{0+C}+g\right);\tab C=\ln g$. Отже:
+			\begin{equation}
+				v_y=-\dfrac{mg}{\beta}\left(e^{-\frac{\beta}{m}t}+1\right)
+				\label{velocity_y_25}
+			\end{equation}
+			З \ref{velocity_y_25-1} знайдемо $y$: $y=\dint vdt=-\dfrac{mg}{\beta}\left(\dint e^{-\frac{\beta}{m}t}+t\right)=-\dfrac{mg}{\beta}\left(-\dfrac{m}{\beta}e^{-\frac{\beta}{m}t}+t\right)+C$. Розглянемо $t=0$: $y(0)=H=-\dfrac{mg}{\beta}\left(-\dfrac{m}{\beta}e^{-\frac{\beta}{m}0}+0\right)+C;\tab C=H-\dfrac{m^2g}{\beta^2}$. Отже:
+			\begin{equation}
+				y(t)=\dfrac{m^2g}{\beta^2}\left(e^{-\frac{\beta}{m}t}+1\right)+H-\dfrac{mgt}{\beta}
+				\label{yeq_25}
+			\end{equation}
+			Виразимо $t$ з \ref{xeq_25-1}: Розглянемо $t=0$: $x(0)=C_1+C_2e^0;\tab C_1=-C_2$. Отже $x(t)=C_2(e^{-\frac{\beta t}{m}}-1)$. Для того щоб знайти $C_2$ розглянемо швидкість: $v_x=\dot{x}=-\dfrac{\beta}{m}C_2e^{-\frac{\beta t}{m}}$. Розглянемо $t=0$:  $v_x(0)=v_0=-\dfrac{\beta}{m}C_2e^0;\tab C_2=-\dfrac{v_0m}{\beta}$. Отже:
+			\begin{equation}
+				x(t)=-\dfrac{v_0m}{\beta}\left(e^{-\frac{\beta t}{m}}-1\right)
+				\label{xeq_25}
+			\end{equation} 
+			Виразимо $t$ з \ref{xeq_25}: $-\dfrac{\beta x}{v_0m}+1=e^{-\frac{\beta t}{m}}$. Отже:
+			\begin{equation}
+				t=-\dfrac{m}{\beta}\ln\left|-\dfrac{\beta x}{v_0m}+1\right|
+				\label{t_25}
+			\end{equation}
+			Підставимо \ref{t_25} у \ref{yeq_25}: $y=\dfrac{m^2g}{\beta^2}\left(e^{-\frac{\beta}{m}\left(-\frac{m}{\beta}\ln\left|-\frac{\beta x}{v_0m}+1\right|\right)}-1\right)+H-\dfrac{mg}{\beta}\left(-\frac{m}{\beta}\ln\left|-\frac{\beta x}{v_0m}+1\right|\right)$
+			\begin{equation}
+				y=\dfrac{mgx}{\beta v_0}+H+\dfrac{m^2g}{\beta^2}\ln\left|-\dfrac{\beta x}{v_0m}+1\right|
+				\label{trajectory_25}
+			\end{equation}
+			Розглянемо \ref{trajectory_25} при $\beta\to0$: Розпишемо $\ln|z+1|$ за $f(z)=f(0)+f'(0)+\dfrac12f''(0)z^2$: $\ln|z+1|=z-\dfrac12z^2$. Отже $y\to H+\dfrac{mgx}{\beta v_0}+\dfrac{m^2g}{\beta^2}\left(-\dfrac{\beta x}{v_0m}+\dfrac12\dfrac{\beta^2 x^2}{v_0^2m^2}\right)=H+\dfrac{mgx}{\beta v_0}-\\-\dfrac{m^2g}{\beta^2}\dfrac{\beta x}{v_0m}-\dfrac12\dfrac{gx^2}{v_0^2}$ 
+			\begin{equation}
+				\beta\to0:y\to H-\dfrac{gx^2}{2v_0^2}
+				\label{trajectory_25-1}
+			\end{equation}
+			$$\textbf{Відповідь}:\textrm{ вирази }\ref{trajectory_25},\ref{trajectory_25-1}$$
+		\item [29.] Електрон рухається в однорідному сталому магнітному полі, індукція якого $\\\vec{B} = (0, B,0)$, і електричному полі квадрупольного конденсатора, потенціал якого $\Phi=\dfrac{U_0(x^2-y^2)}{2a^2},(a,U_0=const)$. Знайдіть закон руху $\vec{r}=\vec{r}(t)$ за умови $B>\dfrac{c}{a}\sqrt{\dfrac{mU_0}{e}}$, де $c$ - швидкість світла.\\	
+			\begin{figure}[htp]
+			\centering
+			\tdplotsetmaincoords{70}{110}
+			\begin{tikzpicture}[scale=3,tdplot_main_coords]
+				% axes
+  				\coordinate (O) at (0,0,0); 
+  				\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$z$};
+  				\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$x$};
+  				\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$y$};
+  				% vecs
+  				\draw[->] (0,0.5,0.5) -- (0,0.5,0.95) node[anchor=west]{$\vec{B}$};
+  				\draw[->] (0,0.5,0.5) -- (0,0.95,0.5) node[anchor=west]{$\vec{E}$};
+			\end{tikzpicture}
+			\caption{}
+			\label{plot_29}
+			\end{figure}
+			\begin{equation}
+				E=-\nabla\Phi
+				\label{electricity_field_29}
+			\end{equation}
+			Запишемо компоненти $\vec{E}$: $E_x=-\dfrac{U_0x}{a^2};\tab E_y=\dfrac{U_0y}{a^2}$. Так як $z=const$: $\dfrac{dx}{E_x}=\dfrac{dy}{E_y}=\dfrac{dz}{0}$. Можна зробити висковок, що $E$ лежить у площині $xy$. Запишемо закон руху:
+			\begin{equation}
+				m\dfrac{d\vec{v}}{dt}=e\vec{E}+e\cdot\vec{v}\times\vec{B},\tab e=-|e|
+				\label{motion_29}
+			\end{equation}
+			Порахуємо векторний добуток і перепишемо \ref{motion_29} як:\\
+			$\vec{v}\times\vec{B}=\begin{vmatrix}
+				\vec{i}&\vec{j}&\vec{k}\\
+				v_x&v_y&v_z\\
+				0&B&0
+			\end{vmatrix}=\vec{i}(0-v_zB)-\vec{j}(0)+\vec{k}(v_xB)$.
+			\begin{numcases}
+				\>m\dfrac{dv_x}{dt}=eE_x-ev_zB=-\dfrac{eU_x}{a^2}-ev_zB\label{x_29}\\
+				m\dfrac{dv_y}{dt}=eE_y=\dfrac{eU_0y}{a^2}\label{y_29}\\
+				m\dfrac{dv_z}{dt}=ev_xB\label{z_29}
+			\end{numcases}
+			Розглянемо \ref{z_29}: $\dfrac{d}{dt}\left(v_z+\dfrac{|e|Bx}{m}\right)=0;\tab v_z+\dfrac{|e|B}{m} x=C;\tab v_z=C-\dfrac{|e|B}{m} x$.\\
+			Складемо диференціальне рівняння з \ref{x_29}: $m\ddot{x}=\dfrac{|e|U_0x}{a^2}+|e|BC-\dfrac{e^2B^2x}{m}$. Зробимо наступні заміни $\omega=\dfrac{|e|B}{m},\tab \omega_2^2=\dfrac{|e|U_0}{ma^2},\tab \omega_1^2=\omega^2-\omega_2^2$. Підставимо і запишемо:
+			\begin{equation}
+				\ddot{x}+x(\omega^2-\omega_2^2)=\omega C
+				\label{diffeq_29}
+			\end{equation} 
+			Характеристичне рівняння \ref{diffeq_29}: $\lambda^2+(\omega^2-\omega_2^2)=0;\tab\lambda=\omega_1i$. Знайдемо часткове рішення \ref{diffeq_29}: $x_1=\dfrac{\omega C}{\omega^2-\omega_2^2}=C\dfrac{\omega}{\omega_1^2}$. Загальне рішення:
+			\begin{equation}
+				x(t)=A_1\cos(\omega_1t+\alpha_1)+C\dfrac{\omega}{\omega_1^2}
+				\label{xmotion_29}
+			\end{equation}
+			Розглянемо \ref{y_29}: $\ddot{y}+\dfrac{|e|U_0y}{ma^2}=0;\tab\ddot{y}+\omega_2^2y=0=0$. Характеристичне рівняння: $\lambda^2+\omega_2^2=0;\tab\lambda=\omega_2i$. Загальне рішення:
+			\begin{equation}
+				y(t)=A_2\cos(\omega_2t+\alpha_2)
+				\label{ymotion_29}
+			\end{equation}
+			Розглянемо \ref{z_29}: $v_z=\dot{z}=C-\omega x=C-\omega\left(A_1\cos(\omega_1t+\alpha_1)+C\dfrac{\omega}{\omega_1^2}\right)$. Проінтегруємо $v_z$ і отримаємо:
+			\begin{equation}
+				z(t)=z_0+\dfrac{Ct\omega^2}{\omega_1^2}-A_1\dfrac{\omega}{\omega_1}\sin(\omega_1t+\alpha_1)+z_0
+				\label{zmotion_29}
+			\end{equation} 
+			$$\textbf{Відповідь}: \textrm{дивітся у виразах }\ref{xmotion_29},\ref{ymotion_29},\ref{zmotion_29}$$
+		\item [31.] 
+		\begin{enumerate}
+			\item Вивести рівняння руху тіла зі змінною масою (рівняння Мещерського) і формулу для потужності внутрішніх сил 
+				$$P=-\dfrac12u^2\dfrac{dm}{dt}$$
+				Тут $u$ - швидкість $\Delta m$ відносно тіла.
+				Розглянемо тіло змінної маси $M$. Нехай за деякий проміжок часу $dt$ до тіла доєднуєтся невелика маса $dm_1$, що мала швидкість $\vec{v_1}$ та віокремлюєтся $dm_2$, що матиме швидкість $\vec{v_2}$. За законом зьереження імпульсу запишемо:
+				\begin{equation}
+					M\vec{v}+dm_1\vec{v_1}=M\vec{v}+d(M\vec{v})+dm_2\vec{v}_2
+					\label{conservation_of_momentum_31}
+				\end{equation}
+				Знаємо, що $d(M\vec{v})=dM\vec{v}+Md\vec{v}$. Підставимо це у \ref{conservation_of_momentum_31}: $dm_1\vec{v_1}=dM\vec{v}+Md\vec{v}+dm_2\vec{v_2}$. Так як $dM=dm_1-dm_2$: $dm_1(\vec{v}_1-\vec{v})=Md\vec{v}+dm_2(\vec{v_2}-\vec{v})$. Зробимо заміну $\vec{u_1}=(\vec{v}_1-\vec{v}),\vec{u_2}=(\vec{v}_2-\vec{v})$ і отримаємо рівняння Мещерського:
+				\begin{equation}
+					M\dfrac{dv}{dt}=\vec{u_1}\dfrac{dm_1}{dt}-\vec{u_2}\dfrac{dm_2}{dt}+F,\tab\textrm{де } F \textrm{ - результуюча зовнішних сил.}
+				\end{equation}
+				Розглянемо $\dfrac{d\vec{P}}{du}=\vec{F},F=\mu u$: $P=\dint Fdu;\tab P=\mu\dfrac{u^2}{m}$. Отримаємо:
+				\begin{equation}
+					P=-\dfrac12u^2\dfrac{dm}{dt}
+					\label{power_31}
+				\end{equation}
+			\item Знайти, як змінюються з часом маса ракети при вертикальному підйомі в однорідному полі тяжіння у випадках:\\
+				\begin{figure}[htp]
+				\centering
+				\tdplotsetmaincoords{70}{110}
+				\begin{tikzpicture}[scale=3,tdplot_main_coords]
+					% axes
+  					\coordinate (O) at (0,0,0); 
+  					\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$x$};
+  					\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$y$};
+  					\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$z$};
+  					% vecs
+  					\draw (0.5,0.5,0.5) node[circle,fill,inner sep=1pt] {};
+  					\draw[->] node[anchor=south west]{$M$} (0.5,0.5,0.5) -- (0.5,0.5,1)	node[anchor=south]{$\vec{v}$};
+  					\draw[->] node[anchor=south west]{$M$} (0.5,0.5,0.5) -- (0.5,0.5,0.25) 	node[anchor=west]{$\vec{g}$};
+  					\draw[->] node[anchor=south west]{$M$} (0.5,0.5,0.5) -- (0.5,0.5,0) 	node[anchor=west]{$\vec{F}$};
+  					
+  				\end{tikzpicture}	
+				\caption{Ракета при вертикальному підйомі.}
+				\label{plot_31}
+				\end{figure}
+				З рисунку \ref{plot_31} запишемо:
+				\begin{equation}
+							M\dfrac{dv}{dt}=-mg-u\dfrac{dm}{dt}
+							\label{motion_31}
+						\end{equation}
+				\begin{enumerate}
+					\item стала швидкість підйому; швидкість витікання газів стала;\\
+						Враховуючи початкову умову запишемо \ref{motion_31} як: $mg=-u\dfrac{dm}{dt};\\ -\dfrac{g}{u}\dint dt=\dint\limits_{m_0}^m\dfrac{dm}{m};\tab-\dfrac{g}{u}\ln|\dfrac{m}{m_0}|.$ Отже маса змінюється за:
+						\begin{equation}
+							m(t)=m_0e^{-\frac{g}{u}t}
+							\label{mass_31a}
+						\end{equation}
+					\item стале прискорення підйому; швидкість витікання газів стала;\\
+						Враховуючи початкову умову запишемо \ref{motion_31} як: $ma+mg=-u\dfrac{dm}{dt};\\ m(g+a)=-u\dfrac{dm}{dt};\tab -\dfrac{g+a}{u}\dint dt=\dint\limits_{m_0}^m\dfrac{dm}{m};\tab -\dfrac{g+a}{u}t=\ln|\dfrac{m}{m_0}|$. Маса:
+						\begin{equation}
+							m(t)=m_0e^{-\frac{g+a}{u}t}
+							\label{mass_31b}
+						\end{equation}
+					\item стала потужність в струмені газів.\\
+						Скористуємось виразом \ref{power_31} і запишемо: $u=\sqrt{-2P\dfrac{dt}{dm}}$. Врахуємо умови і запишемо \ref{motion_31} як: $m(\ddot{z}+g)=-\sqrt{-2P\dfrac{dt}{dm}}\dfrac{dm}{dt};\tab m^2(\ddot{z}+g)^2=2P\dfrac{dm}{dt};\\\dfrac{1}{2P}\dint\limits_0^t(\ddot{z}+g)^2dt=\dint\limits_{m_0}^m\dfrac{dm}{m^2};\tab \dfrac{1}{m_0}-\dfrac{1}{m}=-\dfrac{1}{2P}\dint\limits_0^t(\ddot{z}+g)^2dt$. Маса:
+						\begin{equation}
+							m(t)=m_0\left(1-\dfrac{m_0}{2P}\dint\limits_0^t(\ddot{z}+g)^2dt\right)^{-1}
+							\label{mass_31c}
+						\end{equation}
+				\end{enumerate}
+				$$\textbf{Відповідь}: (a):\ref{mass_31a},(b):\ref{mass_31b},(c):\ref{mass_31c}.$$
+			\end{enumerate}
+		\item [39.] Частка маси $m$ рухається B потенціальному полі $U(x)=-U_0e^{\frac{x}{\alpha}},\alpha,U_0$ - сталі. Знайти $x(t)$. Початкові умови  $x(0)=0,\dot{x}=v_0\geq\sqrt{\dfrac{2U_0}{m}}$.
+			\begin{figure}[htp]
+			\centering
+			\begin{tikzpicture}
+				% plot
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
+					\addplot[thick,smooth,samples=100] {-exp(x)};
+				\end{axis}
+				% U_0
+				\draw (3.43,1.7) node[circle,fill,inner sep=1pt] {};
+				\draw (3.43,1.7) node[anchor=west] {$-U_0$};
+				% E
+				\draw (0,5) -- (6.5, 5) node[anchor=west] {$E$};
+			\end{tikzpicture}				
+			\caption{$U(x)=-U_0e^{\frac{x}{\alpha}}$}
+			\label{plot_39}
+			\end{figure}
+			\begin{equation}
+				E=\dfrac{m\dot{x}^2}{2}+U(x)
+				\label{cons_energy_39}
+			\end{equation}
+			\begin{enumerate}[label=(\alph*)]
+				\item $E>0$\\
+					Рух інфінітний. Перепишемо \ref{cons_energy_39} як: $\dfrac{dx}{dt}=\pm\sqrt{\dfrac{2}{m}(E-U(x))}$. Розглянемо точку $x(0)$: $E=\dfrac{mv_0^2}{2}-U_0e^{\frac{0}{\alpha}}\geq0;\tab v_0^2\geq\dfrac{2}{m}U_0$. Отже $\dfrac{dx}{dt}=\sqrt{\dfrac{2}{m}(E-U(x))}$. Проінтегруємо:
+					\begin{equation}
+						\sqrt{\dfrac{m}{2}}\dint\limits_0^x\dfrac{dx}{\sqrt{E-U_0e^{\frac{x}{\alpha}}}}=\dint\limits_0^tdt
+						\label{int_39a}
+					\end{equation} 
+					Розглянемо інтеграл $\dint\dfrac{dx}{\sqrt{E-U_0e^{\frac{x}{\alpha}}}}$: Зробимо наступну заміну: $z=\sqrt{\dfrac{E}{U_0}+e^{\frac{x}{\alpha}}},\\ x=\alpha\ln|z^2-\dfrac{E}{U_0}|,\tab dx=\dfrac{\alpha}{e^{\frac{x}{\alpha}}}zdz$. Підставимо: $\dfrac{2\alpha}{\sqrt{U_0}}\dint\dfrac{zdz}{z\left(z^2-\dfrac{E}{U_0}\right)}=\\=\dfrac{2\alpha}{\sqrt{U_0}}\dfrac{1}{2\sqrt{\frac{E}{U_0}}}\ln\left|\dfrac{z-\sqrt{\frac{E}{U_0}}}{z+\sqrt{\frac{E}{U_0}}}\right|+C$. Отже, \ref{int_39a} представимо як: 
+					\begin{equation}
+						t=\left.\alpha\sqrt{\dfrac{m}{2E}}\ln\left|\dfrac{\sqrt{\frac{E}{U_0}+e^{\frac{x}{\alpha}}}-\sqrt{\frac{E}{U_0}}}{\sqrt{\frac{E}{U_0}+e^{\frac{x}{\alpha}}}+\sqrt{\frac{E}{U_0}}}\right|\right|_0^x=\alpha\sqrt{\dfrac{m}{2E}}\ln\left|\dfrac{\sqrt{E+U_0e^{\frac{x}{\alpha}}}-\sqrt{E}}{\sqrt{E+U_0e^{\frac{x}{\alpha}}}+\sqrt{E}}\right|+t_0
+						\label{t_39}
+					\end{equation}
+					Знову розглянемо точку $x(0)$ та знайдемо $t_0$: 
+					\begin{equation}
+						t_0=\alpha\sqrt{\dfrac{m}{2E}}\ln\left|\dfrac{\sqrt{E+U_0}-\sqrt{E}}{\sqrt{E+U_0}+\sqrt{E}}\right|
+						\label{t0const_39a}
+					\end{equation}
+					Нехай $u=e^{\frac{x}{\alpha}}; v=e^{\left(\dfrac{1}{\alpha}\sqrt{\dfrac{2E}{m}}(t-t_0)\right)}=\left|\dfrac{\sqrt{E+U_0u}-\sqrt{E}}{\sqrt{E+U_0u}+\sqrt{E}}\right|=\\=\dfrac{U_0u}{2E+U_0u+2\sqrt{E^2+EU_0u}}$. Порахуємо: $\dfrac{U_0u}{v}=2E+U_0u+2\sqrt{E^2+EU_0u};\\ U_0u\left(\dfrac{1}{v}-1\right)-2E=2\sqrt{E^2+EU_0u};\tab U_0^2u^2\left(\dfrac{1}{v}-1\right)^2-2U_0u\left(\dfrac{1}{v}-1\right)\cdot2E-4E^2=\\=4(E^2+EU_0u)$. $E^2$ взаємознищуються, ділимо на $u$ та виражаємо $u$:
+					\begin{equation}
+						u=\dfrac{4E}{U_0\dfrac{1}{v}\left(\dfrac{1}{v}-1\right)^2}
+						\label{u_39a}
+					\end{equation}
+					З \ref{u_39a} та раніше зробленої заміни отримаємо: $x=\alpha\ln\left(\dfrac{4E}{U_0\frac{1}{v}\left(\frac{1}{v}-1\right)^2}\right)=\\=\alpha\ln\left(\dfrac{4E}{U_0\left(\dfrac{1}{\sqrt{v}}-\sqrt{v}\right)^2}\right)$. Розпишемо $\dfrac{1}{\sqrt{v}}-\sqrt{v}=\dfrac{1}{\sqrt{e^{\left(\dfrac{1}{\alpha}\sqrt{\dfrac{2E}{m}}(t-t_0)\right)}}}-\\-\sqrt{e^{\left(\dfrac{1}{\alpha}\sqrt{\dfrac{2E}{m}}(t-t_0)\right)}}=2\sh\left(\dfrac{1}{\alpha}\sqrt{\dfrac{E}{2m}}(t-t_0)\right)$. Отже:
+					\begin{equation}
+						x(t)=\alpha\ln\left(\dfrac{E}{U_0\sh\left(\dfrac{1}{\alpha}\sqrt{\dfrac{E}{2m}}(t-t_0)\right)}\right)
+						\label{x_39a}
+					\end{equation}  
+				\item $E=0\\$
+					Рух інфінітний. Перепишемо \ref{cons_energy_39} як: $\dfrac{dx}{dt}=\pm\sqrt{\dfrac{2}{m}U_0e^{\frac{x}{\alpha}}}$. Проінтегруємо :
+					\begin{equation}
+						\sqrt{\dfrac{m}{2U_0}}\dint\limits_0^xe^{-\frac{x}{2\alpha}}dx=\dint\limits_0^tdt
+						\label{int_39b}
+					\end{equation} 
+					$t=-\alpha\sqrt{\dfrac{m}{2U_0}}\dint\limits_0^xe^{-\frac{x}{2\alpha}}d\left(-\dfrac{x}{2\alpha}\right)=\left.-\alpha\sqrt{\dfrac{m}{2U_0}}\cdot e^{-\frac{x}{2\alpha}}\right|_0^x=-a\sqrt{\dfrac{m}{2U_0}}\left(e^{-\frac{x}{2\alpha}}-1\right)$. З \ref{cons_energy_39} $U_0=\dfrac{mv_0^2}{2}$. Отже $t=-2\dfrac{\alpha}{v_0}\left(e^{-\frac{x}{2\alpha}}-1\right)$.
+					\begin{equation}
+						x(t)=-2\alpha\ln\left|1-t\dfrac{v_0}{2\alpha}\right|
+						\label{x_39b}
+					\end{equation}
+			\end{enumerate}
+			$$\textbf{Відповідь}: (a):\ref{x_39a},(b):\ref{x_39b}$$
+		\item [40.] Частка маси $m$ рухається B потенціальному полі $U(x)=-U_0\ch^{-2}kx$, початкові умови $x(0)=-l,v(0)=v_0,kl=const\gg1$. Повна енергія частки дорівнює $E_0$. Знайти час руху частки від точки $x=-l$ до точки $x=l$.
+			\begin{figure}[htp]
+			\centering
+			\begin{tikzpicture}
+				% plot
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-4,ymax=1]
+					\addplot[thick,smooth,samples=100] {-3*cosh(0.7*x)^(-2)};
+				\end{axis}
+				% U_0
+				\draw (3.43,1.15) node[circle,fill,inner sep=1pt] {};
+				\draw (3.43,1.15) node[anchor=north west] {$-U_0$};
+				% -l/l
+				\draw[dashed] (5,2.65) -- (5, 4.55) node[anchor=north west] {$l$};
+				\draw[dashed] (1.85,2.65) -- (1.85, 4.55) node[anchor=north east] {$-l$};
+				% E
+				\draw (0,5) -- (6.5, 5) node[anchor=west] {$E$};
+			\end{tikzpicture}				
+			\caption{$U(x)=-U_0\ch^{-2}kx$}
+			\label{plot_40}
+			\end{figure}
+			\begin{equation}
+				E=\dfrac{m\dot{x}^2}{2}+U(x)
+				\label{cons_energy_40}
+			\end{equation}
+			\begin{enumerate}[label=(\alph*)]
+				\item $E_0>0$\\
+					Рух інфінітний. Перепишемо \ref{cons_energy_40} як $\dfrac{dx}{dt}=\sqrt{\dfrac{2}{m}(E_0+U_0\ch^{-2}kx)}$. Проiнтегруємо: 
+					\begin{equation}
+						\sqrt{\dfrac{m}{2}}\dint\limits_{-l}^l\dfrac{dx}{\sqrt{E_0+U_0\ch^{-2}kx}}=\dint\limits_0^tdt
+						\label{int_40a}
+					\end{equation}
+					Розглянемо iнтеграл $\dint\limits_{-l}^l\dfrac{dx}{\sqrt{E_0+U_0\ch^{-2}kx}}=\dfrac{1}{\sqrt{E_0}}\dint\limits_{-l}^l\dfrac{\ch kxdx}{\sqrt{\ch^2kx+\dfrac{U_0}{E_0}}}$. Зробимо заміну $z^2=\dfrac{E_0}{E_0+U_0}(\ch^2kx-1)$: $\dfrac{1}{k}\dint\limits_{-z_0}^{z_0}\dfrac{dz}{\sqrt{z^2+1}}$. Отже \ref{int_40a} представимо як: 
+					\begin{equation}
+						t=\left.\dfrac{1}{k}\sqrt{\dfrac{m}{2E_0}}\ln\left|\dfrac{\sqrt{1+z^2}+z}{\sqrt{1+z^2}-z}\right|\right|_{-z_0}^{z_0}
+						\label{t_40a}
+					\end{equation}
+					Розглянемо $\ln\left|\dfrac{\sqrt{1+z_0^2}+z_0}{\sqrt{1+z_0^2}-z_0}\right|=\ln\left|4\dfrac{E_0}{E_0+U_0}\sh^2kl\right|=\ln\left|\dfrac{E_0}{E_0+U_0}e^{2kl}\right|$. \\Підставимо у \ref{t_40a}:
+					\begin{equation}
+						\tau=\dfrac{1}{k}\sqrt{\dfrac{m}{2E_0}}\left(2kl+\ln\dfrac{E_0}{E_0+U_0}\right)
+						\label{time_40a}
+					\end{equation}
+				\item $E_0<0$\\
+					Рух фінітний. Перепишемо \ref{cons_energy_40} як $\dfrac{dx}{dt}=\sqrt{\dfrac{2}{m}(-E_0+U_0\ch^{-2}kx)}$.
+					Проiнтегруємо: 
+					\begin{equation}
+						\sqrt{\dfrac{m}{2}}\dint\limits_{-l}^l\dfrac{dx}{\sqrt{-E_0+U_0\ch^{-2}kx}}=\dint\limits_0^tdt
+						\label{int_40b}
+					\end{equation}
+					Розглянемо iнтеграл $\dint\dfrac{dx}{\sqrt{-E_0+U_0\ch^{-2}kx}}=\dfrac{1}{\sqrt{E_0}}\dint\limits_{-l}^l\dfrac{\ch kxdx}{\sqrt{-E_0\ch^2kx+U_0}}=\\=\dfrac{1}{k}\dint\dfrac{d(\sh kx)}{U_0-E_0(1+\sh^2kx)}$. Зробимо заміну $z^2=\dfrac{E_0}{-E_0+U_0}(\ch^2kx-1)$: $\\\dfrac{1}{k\sqrt{E_0}}\dint\dfrac{dz}{\sqrt{1-z^2}}=\dfrac{1}{k\sqrt{E_0}}\arcsin z$. Отже \ref{int_40b} представимо як:
+					\begin{equation}
+						t=\dfrac{1}{k}\sqrt{\dfrac{m}{E_0}}\arcsin z
+					\end{equation}
+					Виразимо $z$: $z=\sin\omega t=\sh kx\sqrt{\dfrac{E_0}{-E_0+U_0}},\tab\omega=\dfrac{k}{2}\sqrt{\dfrac{2E}{m}}$. Знаємо, що $\tau=\dfrac{2\pi}{\omega}$:
+					\begin{equation}
+						\tau=\dfrac{\pi}{k}\sqrt{\dfrac{m}{2E_0}}
+						\label{time_40b}
+					\end{equation}
+			\end{enumerate}
+			$$\textbf{Відповідь}: (a):\ref{time_40a},(b):\ref{time_40b}$$
+		\item [41.] Частка маси $m$ рухається  в потенціальному поолі $U(x)=-E\cos\dfrac{x}{l},$ де $l$ - стала, $E$ - повна енергія. Початкові умови $x(0)=0,\dot{x}(0)=v_0=\dfrac{2E}{m}$. Знайти $x(t)$.
+			\begin{figure}[htp]
+			\centering
+			\begin{tikzpicture}
+				% plot
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
+					\addplot[thick,smooth,samples=100] {-2*cos(2*deg(x)};
+				\end{axis}
+				% E
+				\draw (3.43,0.57) node[circle,fill,inner sep=1pt] {};
+				\draw (3.43,0.57) node[anchor=north west] {$E$};
+				% x_1/x_2
+				\draw[dashed] (5.57,5.14) -- (5.57, 2.85) node[anchor=north] {$x_2$};
+				\draw[dashed] (1.25,5.14) -- (1.25, 2.85) node[anchor=north] {$x_1$};
+				% E
+				\draw (0,5.15) -- (6.5, 5.14) node[anchor=west] {$E$};
+			\end{tikzpicture}				
+			\caption{$U(x)=-E\cos\dfrac{x}{l}$}
+			\label{plot_40}
+			\end{figure}
+			\begin{equation}
+				E=\dfrac{m\dot{x}^2}{2}+U(x)
+				\label{cons_energy_41}
+			\end{equation}
+			Рух інфінітний. Перепишемо \ref{cons_energy_41} як: $\dfrac{dx}{dt}=\sqrt{\dfrac{2}{m}(E+E\cos\dfrac{x}{l}}$. Проiнтегруємо:
+			\begin{equation}
+				\sqrt{\dfrac{m}{2E}}\dint\limits_0^x\dfrac{dx}{\sqrt{1+\cos\frac{x}{l}}}=\dint\limits_0^tdt
+				\label{int_41}
+			\end{equation}
+			Розглянемо iнтеграл $\dint\limits_0^x\dfrac{dx}{\sqrt{1+\cos\frac{x}{l}}}=\dfrac{1}{\sqrt2}\dint\limits_0^x\dfrac{dx}{\cos\frac{x}{2l}}=\dfrac{l}{\sqrt2}\ln\left|\dfrac{1+\sin\frac{x}{2l}}{1-\sin\frac{x}{2l}}\right|$. Отже \ref{int_41} представимо як:
+			\begin{equation}
+				t=\dfrac{l}{\sqrt2}\sqrt{\dfrac{m}{2E}}\ln\left|\dfrac{1+\sin\frac{x}{2l}}{1-\sin\frac{x}{2l}}\right|=\dfrac{l}{v_0}\ln\left|\dfrac{1+\sin\frac{x}{2l}}{1-\sin\frac{x}{2l}}\right|
+				\label{t_41}
+			\end{equation}
+			Перепишемо \ref{t_41}: $e^{\dfrac{v_0t}{l}}=\dfrac{1+\sin\frac{x}{2l}}{1-\sin\frac{x}{2l}};\tab e^{\dfrac{v_0t}{l}}-e^{\dfrac{v_0t}{l}}\sin\frac{x}{2l}=1+\sin\frac{x}{2l};\tab \sin\frac{x}{2l}=\dfrac{e^{\dfrac{v_0t}{l}}-1}{e^{\dfrac{v_0t}{l}}+1}=\\=\tanh\dfrac{v_0t}{2l}$. Отже:
+			\begin{equation}
+				x(t)=2l\arcsin\left(\tanh\dfrac{v_0t}{2l}\right)
+			\end{equation}
+		\item [47.] Покажіть, що при русі частки в полі $U(r) = -\dfrac{\alpha}{r} (\alpha > 0)$, існує інтеграл руху $\vec{\Lambda} = \vec{v}\times\vec{M}- \alpha\dfrac{\vec{r}}{r} = const$, де $\alpha= const$, $M$ - момент імпульсу. Інтеграл руху $\Lambda$ інколи називають вектором Лапласа, а інколи - вектором Рунге-Ленца.\\
+			Задача зводится до доведення $\dfrac{d\vec{\Lambda}}{dt}=0$. Тоді рівняння буде інтегралом руху. Знаємо, що $\vec{M}=\vec{r}\times\vec{v_m}=const$, також $ma=m\ddot{r}=-\nabla U$. Продиференціюємо вектор Лапласа:
+			\begin{equation}
+				\dfrac{d\vec{\Lambda}}{dt}=\dfrac{d}{dt}\left(\vec{\dot{r}}\times\vec{M}\right)-\dfrac{d}{dt}\left(\alpha\dfrac{\vec{r}}{r}\right)=\dfrac{d\vec{v}}{dt}\times\vec{M}-\dfrac{d\vec{M}}{dt}\times\vec{v}-\dfrac{d}{dt}\left(\alpha\dfrac{\vec{r}}{r}\right)
+				\label{laplace_vec_47-1}
+			\end{equation} 
+			Розглянемо \ref{laplace_vec_47-1} детальніше: $\dfrac{d\vec{M}}{dt}=0$ - рух у полі центральних сил, $\dfrac{d}{dt}\left(\alpha\dfrac{\vec{r}}{r}\right)=0$ - не залежить від $t$. Підставимо і отримаємо:
+			\begin{equation}
+				\dfrac{d\vec{\Lambda}}{dt}=m\vec{r}\cdot\left(\dfrac{d\vec{v}}{dt}\cdot\vec{v}\right)-m\vec{v}\cdot\left(\dfrac{d\vec{v}}{dt}\cdot\vec{r}\right)=0
+				\label{laplace_vec_47-2}
+			\end{equation}
+			що дорівняє нулю, адже скалярний добуток асоціативний.\\
+			Таким чином ми довели, що існує $\vec{\Lambda} = \vec{v}\times\vec{M}- \alpha\dfrac{\vec{r}}{r} = const$ при русі частки в полі $U(r) = -\dfrac{\alpha}{r} (\alpha > 0)$.
+		\item [49.] 
+			\begin{enumerate}[label=(\alph*)]
+				\item Покажіть, що величина вектора Лапласа $\vec{\Lambda}$  може дорівнювати $|\vec{\Lambda}| = \alpha е$, де ексцентриситет еліпса $e= \sqrt{1+\dfrac{2EM^2}{m\alpha^2}}$, $E$ - енергія та $m$ - маса частки.\\
+					Пам'ятаємо:
+					\begin{equation}
+						\vec{\Lambda} = \vec{v}\times\vec{M}- \alpha\dfrac{\vec{r}}{r}
+						\label{laplace_vec_49a-1}
+					\end{equation}
+					Отже: $\Lambda^2=\left(\vec{v}\times\vec{M}\right)^2-\left(\alpha\dfrac{\vec{r}}{r}\right)^2-2\left(\vec{v}\times\vec{M}\right)\left(\alpha\dfrac{\vec{r}}{r}\right)=v^2M^2+\alpha^2-\dfrac{2\alpha}{rm}\vec{M}\left(m\vec{r}\times\vec{v}\right)=\\=v^2M^2+\alpha^2-\dfrac{2\alpha}{rm}\vec{M}=v^2m^2-\dfrac{2\alpha M^2}{mr}+\alpha^2=\alpha^2+2M^2\left(\dfrac{mv^2}{2}-\dfrac{\alpha}{r}\right)=\\=\alpha^2\left(1+\dfrac{2M^2E}{\alpha^2m}\right)$. Врахуємо початкові умови і отримаємо:
+					\begin{equation}
+						|\vec{\Lambda}|=\alpha\sqrt{1+\dfrac{2M^2E}{\alpha^2m}}=\alpha e
+						\label{laplace_vec_49a-2}
+					\end{equation} 
+				\item Покажіть, що в полярних координатах вектор Лапласа має вигляд:
+					\begin{equation}
+						\vec{\Lambda}=(r\dot{\phi}M-\alpha)\vec{e_r}-\dot{r}M\vec{e_\phi}
+						\label{polar_laplace_vec_49b-1}
+					\end{equation}
+					Розглянемо момент імпульсу: $\vec{M}=m\vec{r}\times\vec{v}=m(r\vec{e_r})\times(\dot{r}\vec{e_r}+r\dot{\phi}\vec{e_\phi})=mr\dot{r}\vec{e_r}\times\vec{e_\phi}+\\+mr^2\dot{\phi}\vec{e_r}\times\vec{e_\phi}=mr^2\dot{\phi}\vec{e_r}\times\vec{e_\phi}$. Зробимо заміну $\vec{e}_z=\vec{e_r}\times\vec{e_\phi}$ Далі знайдемо векторний добуток $\vec{v}\times\vec{M}=(\dot{r}\vec{e_r}+r\dot{\phi}\vec{e_\phi})\times(mr^2\vec{e}_z)=\dot{r}\vec{e_r}mr^2\dot{\phi}\vec{e_r}\times\vec{e_z}+mr^3\dot{\phi}^2\vec{e_z}\times\vec{e_\phi}=-\dot{r}mr^2\dot{\phi}\vec{e_\phi}+mr^3\dot{\phi}^2\vec{e_\phi}=Mr\dot{\phi}\vec{e_r}-M\dot{r}\vec{e_\phi}$. Отже отримаємо:
+					\begin{equation}
+						\vec{\Lambda}=Mr\dot{\phi}\vec{e_r}-M\dot{r}\vec{e_\phi}-\alpha\dfrac{\vec{r}}{r}=(r\dot{\phi}M-\alpha)\vec{e_r}-\dot{r}M\vec{e_\phi}
+						\label{polar_laplace_vec_49b-2}
+					\end{equation}
+			\end{enumerate}
+		\item [127.] Бусинка маси $m$ рухається без тертя по дротяному колу радіуса $R$, площина якого перпендикулярна до поверхні Землі. Дріт обертається зі сталою кутовою швидкістю $\vec{\omega}$ навколо діаметра, напрямок якого збігається з напрямком сили тяжіння тд. Знайти функцію Лагранжа для миттєвого положення $A(t)$ бусинки на колі (початок координат в центрі кола), узагальнену енергію і записати рівняння Лагранжа.
+			\begin{figure}[htp]
+			\centering
+			\tdplotsetmaincoords{70}{110}
+			\begin{tikzpicture}[scale=3,tdplot_main_coords]
+				% axes
+  				\coordinate (O) at (0,0,0); 
+  				\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+  				\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+  				\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+  				% vecs
+  				\draw[dashed] (0,0,0) -- (0.35,0.35,0) node[anchor=west]{};
+  				\draw[thick,->] (0,0,0) -- (0.29,0.29,0.29) node[anchor=south west]{\tiny$r$}; 
+  				%\draw[->] (0,0.5,0.5) -- (0,0.95,0.5) node[anchor=west]{$\vec{E}$};
+  				%arcs
+  				\tdplotsetrotatedthetaplanecoords{45}
+  				\tdplotdrawarc{(0,0,0)}{0.2}{0}{45}{anchor=north}{\tiny$\phi=\omega t$}
+  				\tdplotdrawarc[->]{(0,0,0.8)}{0.2}{0}{270}{anchor=south west}{\tiny$\omega$}
+  				\tdplotdrawarc[tdplot_rotated_coords,thick]{(0,0,0)}{0.5}{0}{360}{anchor=north west}{}
+  				\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.2}{0}{55}{anchor=south}{\tiny$\theta$}
+
+			\end{tikzpicture}
+			\caption{Бусинка}
+			\label{plot_127}
+			\end{figure}\\
+			Запишемо функцію Лагранжа:
+			\begin{equation}
+				L=\dfrac{m}{2}\left((R\dot{\theta})^2+(R\omega\sin(\theta))^2\right)-mgR\cos\theta
+				\label{lagrange_func_127}
+			\end{equation}
+			За домомогою \ref{lagrange_func_127} запишемо узагальнену енергію:
+			\begin{equation}
+				E=\dfrac{m}{2}\left((R\dot{\theta})^2-(R\omega\sin(\theta))^2\right)-mgR\cos\theta
+				\label{energy_127}
+			\end{equation}
+			Так як $r=const,\phi=\omega t$ складемо рівняння Лагранжа для $\theta$: $\dfrac{d}{dt}\left(\dfrac{m}{2}(2R^2\dot{\theta}\right)-\\-\dfrac{m}{2}\left(2\cos\theta\sin\theta R^2\omega^2\right)-mg \sin\theta=0$. Порахуємо і перепишемо:
+			\begin{equation}
+				R^2\ddot{\theta}-\sin\theta\left(\cos\theta R^2\omega^2+gR\right)
+				\label{lagrange_eq_127}
+			\end{equation}
+			$$\textbf{Відповідь}:\textrm{ вирази }\ref{lagrange_func_127},\ref{energy_127},\ref{lagrange_eq_127}$$
+		\item [130.] Точка підвісу математичного маятника маси $m$ та довжини $l$ рухається у вертикальному напрямку (поле тяжіння $\vec{g}= const$) за відомим законом $S = S(t)$. Знайдіть функцію Лагранжа та рівняння руху частки.
+			\begin{figure}[htp]
+			\centering
+			\begin{tikzpicture}
+				% axes
+				\draw[thick] (-3,0) -- (3,0); 
+				\draw[thick] (0,-0.5) -- (0,3.5); 
+				% dots 
+				\draw (0,0) node[circle,fill,inner sep=1pt] {};
+				\draw (0.7,1.27) node[circle,fill,inner sep=1pt] {};
+				\draw (0,1) node[circle,fill,inner sep=1pt] {};
+				\draw (0,3) node[circle,fill,inner sep=1pt] {};
+				%\draw (0,0) node[anchor=north west] {$-U_0$};
+				
+				% arc
+				\draw[dashed] (0,1) arc [start angle=-90,end angle=-45,x radius=1,y radius=1];
+				\draw (0,2.25) arc [start angle=-90,end angle=-45,x radius=0.35,y radius=0.35] node[midway,below,sloped] {\tiny$\phi$};
+				% vecs
+				\draw (0,3) -- (0.7,1.27) node[midway,above,sloped] {$l$};
+				\draw[->] (-2,2) -- (-2,1) node[midway,left] {$\vec{g}$};
+				% other
+				\draw [decorate,decoration={brace,amplitude=5pt}, xshift=-0.1cm,yshift=0pt] (0,0) -- ((0,1) node [black,midway,xshift=-0.7cm] {\small$S(t)$};
+			\end{tikzpicture}
+			\caption{Мат. маятник}
+			\label{plot_130}
+			\end{figure}\\
+			Запишемо координати для математичного маятника:
+			\begin{equation}
+				\begin{cases}
+					x=l\sin\phi\\y=l\cos\phi+S(t)
+				\end{cases}
+				\label{cord_130}
+			\end{equation}
+			З \ref{cord_130} потенціальна енергія дорівнюватиме $mgy$.
+			Запишемо функцію Лагранжа: \\$L=\dfrac{m}{2}(\dot{x}^2+\dot{y}^2)+mg(l\cos\phi+S(t))$, що можно представити як:
+			\begin{equation}
+				L=\dfrac{m}{2}\left((l\dot{\phi}\cos\phi)^2+(-l\dot{\phi}\sin\phi+\dot{S}(t))^2\right)+mgl\cos\phi
+				\label{lagrange_func_130-1}
+			\end{equation}
+			Розглянемо швидкість детальніше: $v=(\dot{x}^2+\dot{y}^2)=(l\dot{\phi}\cos\phi)^2+(-l\dot{\phi}\sin\phi+\dot{S}(t))^2=\\=l^2\dot{\phi}^2\cos^\phi+l^2\dot{\phi}^2\sin^2\phi-2l\dot{\phi}\sin\phi\dot{S}(t)+\ddot{S}=l^2\dot{\phi}^2(\cos^2\phi+\sin^2\phi)-2l\ddot{S}\cos\phi$. \\Перепишемо \ref{lagrange_func_130-1}: 
+			\begin{equation}
+				L=\dfrac{m}{2}\left(l^2\dot{\phi}^2+2l\ddot{S}\cos\phi\right)+mgl\cos\phi=\dfrac{m}{2}l^2\dot{\phi}^2+m(g+\ddot{S})l\cos\phi
+				\label{lagrange_func_130-2}
+			\end{equation}
+			Cкладемо рівняння Лагранжа: $\dfrac{m}{2}\dfrac{d}{dt}(2l^2\dot{\phi}^2)+m(g+\ddot{S})l\sin\phi=ml^2\ddot{\phi}+m(g+\\+\ddot{S})l\sin\phi=0$. Перепишемо
+			\begin{equation}
+				\ddot{\phi}+\dfrac{g+\ddot{S}}{l}\sin\phi=0
+				\label{lagrange_eq_130}
+			\end{equation}
+			$$\textbf{Відповідь}:\textrm{ вирази }\ref{lagrange_func_130-2},\ref{lagrange_eq_130}$$
+ 	\end{itemize}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	\end{justify}
+\end{document}
