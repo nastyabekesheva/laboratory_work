@@ -1,0 +1,284 @@
+\chapter{Комплексні числа та функції комплексної змінної}
+\section{Основні поняття}
+$$\underset{\text{натуральні}}{\Nn}\subset\underset{\text{цілі}}{\Zn}\subset\underset{\text{раціональні}}{\Qn}\subset\underset{\text{дійсні}}{\Rn}\subset\underset{\text{комплексні}}{\Cn}$$
+$(x,y):x,y\in\Rn$ - пара дійсних чисел.
+\begin{figure*}[htp]
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[ticks=none,axis lines=middle, xmin=-1, xmax=2,ymin=-1,ymax=1.5]
+		\end{axis}	
+		\draw[-Stealth] (2.29,2.28) -- (5,4) node[midway,above,sloped] {$\rho$};
+		\draw (5,4) node[circle,fill,inner sep=0.5pt] {};
+		\draw[-Stealth] (2.29,2.28) -- (5,0.56) node[right] {};
+		\draw (5,0.56) node[circle,fill,inner sep=0.5pt] {};
+		\draw (5,0.56) node[right] {$\bar{z}$};
+		\draw (5,4) node[right] {$z$};
+		\draw[dashed] (5,4) -- (5,0.56) node[midway, anchor=south west ] {$x$};
+		\draw[dashed] (5,4) -- (2.29,4) node[left] {$y$};
+		\draw (2.29,2.9) node[circle,fill,inner sep=0.5pt] {};
+		\draw (2.29,2.9) node[left] {$i$};
+		\draw (3,2.28) arc (0:23:1);
+		\draw (3,2.28) node[anchor=south west] {{\tiny$\varphi$}};
+		\draw (3,2.28) arc (0:-23:1);
+		\draw (3,2.28) node[anchor=north west] {{\tiny$-\varphi$}};
+		\draw (2.29,5.4) node[left] {$\Im$};
+		\draw (6.5,2.3) node[above] {$\Re$};
+		\draw (7,4) node[above] {$z\in\Cn$};
+	\end{tikzpicture}
+\end{center}
+\end{figure*}
+$$z=x+iy\textrm{ - алгебраїчна форма }z$$
+Якщо $y=0$, то $z=x\in\Rn$. $\Re z=x$ - дійсна частина $z$. Якщо $x=0$, то $z=iy$ - чисто уявне число. $\Im z=y$ - уявна частина $z$. Значення $x,y\in\Rn$ - дійсні. Для $z=i:x=0,y=1,i$ - уявна одиниця. Якщо $z=x+iy$, то $\bar{z}=x-iy$ - спряжене до $z$.
+Нехай $\rho,\varphi$ - полярні координати. Тоді модуль $z:|z|=\rho=\sqrt{x^2+y^2}$. $|z|\geq0,\forall z\in\Cn$. Якщо $|z|=0\Leftrightarrow z=0$. $\varphi$ - аргумент $z$ (кут, утворений радіус-вектором, проведеним в точку $z$ у додатньому напрямку з осі $Ox$).\\
+$\Arg z$ - множина значень аргумента $z$. $\Arg z=\arg z+2\pi k,k\in\Zn,\arg z$ - головне значення аргумента. $\arg z=\varphi\in(-\pi,\pi]$ 
+$$\arg z=\begin{cases}
+	\arctan\dfrac xy,x>0\tab(I,IV\textrm{ чв.})\\\dfrac yx+\pi,x<0,y>0\tab(II\textrm{ чв.})\\\dfrac yx-\pi,x<0,y<0\tab(III\textrm{ чв.})
+\end{cases},\tab\arg z\textrm{ визначений для }z\neq0!$$
+$z=\begin{vmatrix}
+	x=|z|\cos\varphi\\y=|z|\sin\varphi
+\end{vmatrix}=|z|(\cos\varphi+i\sin\varphi)$ - тригонометрична форма числа $z$.
+
+\begin{thm}[Формула Ойлера]
+	$$e^{iy}=\cos\varphi+i\sin\varphi\tab(\varphi\in\Rn)$$
+\end{thm}
+\begin{cons}
+	$\\z=|z|e^{i\varphi}$ - показникова форма $z$. $\bar{z}=|z|(\cos(-\varphi+i\sin(-\varphi))=\underset{\textrm{не тригонометрична форма}}{|z|(\cos\varphi-i\sin\varphi)}$. $$\bar{z}=|z|e^{-i\varphi}$$
+\end{cons}
+\section{Операції над комплексними числами}
+\begin{enumerate}
+	\item \underline{Порівняння}\\ В комплексній області відношення $">"$ чи $<$ не визначено. Числа порівнюють тільки за допомогою відношення $"="$ або $"\neq"$.
+		\begin{align*}
+			z_1=z_2\textrm{ у алгебраїчній формі }&\Longleftrightarrow\begin{cases}
+				x_1=x_2\\y_1=y_2
+			\end{cases}\\
+			z_1=z_2\textrm{ у тригонометричній формі }&\Longleftrightarrow\begin{cases}
+				|z_1|=|z_2|\\\varphi=\varphi+2\pi k,k\in\Zn
+			\end{cases}
+		\end{align*}
+	\item \underline{Додавання/Віднімання}
+		\begin{figure*}[htp]
+		\begin{center}
+			\begin{tikzpicture}[scale=0.7]
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.5,ymin=-0.1,ymax=1]
+				\end{axis}	
+				\draw (3.5,6) node[below] {\scriptsize 1: Додавання};
+				\draw[-Stealth] (1.15,0.52) -- (4.6,3.65) node[right] {$z_1+z_2$};
+				\draw[-Stealth] (1.15,0.52) -- (2.3,2.6) node[left] {$z_2$};
+				\draw[dashed] (2.3,2.6) -- (4.6,3.65) node[left] {};
+				\draw[-Stealth] (1.15,0.52) -- (3.44,1.55) node[below] {$z_1$};
+				\draw[dashed] (3.44,1.55) -- (4.6,3.65) node[left] {};
+			\end{tikzpicture}
+			\begin{tikzpicture}[scale=0.7]
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-0.2, xmax=0.5,ymin=-0.1,ymax=1]
+				\end{axis}	
+				\draw (4,6) node[below] {\scriptsize 2: Віднімання};
+				\draw[-Stealth] (1.95,0.52) -- (3,2.6) node[left] {$z_2$};
+				\draw[-Stealth] (1.95,0.52) -- (4.9,1.55) node[right] {$z_1$};
+				\draw[-Stealth] (4.9,1.55) -- (3,2.6) node[above,midway,sloped] {$|z_1-z_2|$};
+				\draw[-Stealth] (1.95,0.52) -- (0,1.55) node[above,midway,sloped] {$z_2-z_1$};
+			\end{tikzpicture}
+			\begin{tikzpicture}[scale=0.7]
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.5,ymin=-0.1,ymax=1]
+				\end{axis}	
+				\draw (3.5,6) node[below] {\scriptsize 3:};
+				\draw (5,3) arc (0:360:1.5);
+				\draw (3.5,3) node[circle,fill,inner sep=0.5pt] {};
+				\draw (3.5,3) node[below] {$z_0$};
+				\draw (3.5,3) -- (4.6,4) node[sloped,midway,above] {$R$};
+				\draw (4.6,4) node[right] {$z_0$};
+			\end{tikzpicture}
+		\end{center}
+		\end{figure*}
+		$$1:z_1+z_2=(x_1+x_2)+i(y_1+y_2)$$
+		$$2:z_1-z_2=(x_1-x_2)+i(y_1-y_2)$$
+		$$2:|z_1-z_2|=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}\textrm{ - відстань між }z_1,z_2$$
+		$$3:|z-z_0|=R$$
+	\item \underline{Множення/ділення і підносення до степеню}\\\\
+		$\deff z_1\cdot z_2=\underbrace{x_1x_2-y_1y_2}_{\Re z}+i\underbrace{(z_1y_2+x_2y_1)}_{\Im z}$
+		\begin{cons}
+			для $z_1=z_2=i:i^2=-1\tab (x_1=x_2=0,y_1=y_2=1)$
+		\end{cons}
+		\begin{cons}
+			$z_1\cdot z_2=x_1x_2+i^2y_1y_2+ix_1y_2+ix_2y_1=x_1(x_2+iy_2)+iy_1(x_2+iy_2)=\\=(x_1+iy_1)(x_2+iy_2)$
+		\end{cons}
+		Таким чином, комплексні числа перемножаються як звичайні і при цьому \\зберігаються усі формули скороченого множення.\\\\
+		$\deff \dfrac{z_1}{z_2}=\dfrac{x_1+iy_1}{x_2+iy_2}\cdot\dfrac{x_2-iy_2}{x_2-iy_2}=\dfrac{A+iB}{x_2^2+y_2^2}=X+iY$\\
+		$\deff z^n=(x+iy)^n=\sum\limits_{k=0}^nC_n^kx^k(iy)^{n-k},\tab C_n^k=\dfrac{n!}{k!(n-k)!}\\\left[\begin{array}{l}
+			i=i\\i^2=-1\\i^3=-i\\i^4=i\\i^5=1
+		\end{array}\right.\dots\left[\begin{array}{l}
+			i^{4k}=1\\i^{4k+1}=i\\i^{4k+2}=-1\\i^{4k+3}=-i
+		\end{array}\right.$
+	\item \underline{Множення/ділення і підносення до степеню (в тригонометричнії і показниковій формі)}\\
+		$z_1=|z_1|(\cos\varphi_1+i\sin\varphi_1),z_2=|z_2|(\cos\varphi_2+i\sin\varphi_2).$ Тоді у тригономтричній формі: $z_1\cdot z_2=|z_1|(\cos\varphi_1+i\sin\varphi_1)\cdot |z_2|(\cos\varphi_2+i\sin\varphi_2)=|z_1|\cdot|z_2|\cdot(\cos\varphi_1\cos\varphi_2+\\+i\cos\varphi_1\sin\varphi_2+i\sin\varphi_1\cos\varphi_2+i^2\sin\varphi_1\sin\varphi_2)=|z_1|\cdot|z_2|\cdot((\cos\varphi_1\cos\varphi_2-\sin\varphi_1\sin\varphi_2)++i(\sin\varphi_1\cos\varphi_2+\cos\varphi_1\sin\varphi_2)=|z_1|\cdot|z_2|\cdot(\cos(\varphi_1+\varphi_2)+i\sin(\varphi_1+\varphi_2)\\\\$
+		$\deff z_1\cdot z_2=|z_1|\cdot|z_2|\cdot(\cos(\varphi_1+\varphi_2)+i\sin(\varphi_1+\varphi_2)\\\tab\tab\tab\tab\tab\tab|z_1\cdot z_2|=|z_1|\cdot|z_2|,\varphi=\varphi_1+\varphi_2$
+		\begin{cons}
+			$z_1=z,z_2=\bar{z}\Rightarrow z\cdot\bar{z}=|z|^2(\cos0+i\sin0)=|z|^2$
+		\end{cons}
+		У показниковій формі(множення):
+		$z_1=|z_1|\cdot e^{i\varphi_1},z_2=|z_2|\cdot e^{i\varphi_2}\\\\$
+		$\deff z_1\cdot z_2=|z_1|\cdot|z_2|\cdot e^{i(\varphi_!+\varphi_2)}\\$
+		У тригонометричній формі(ділення): $\dfrac{z_1}{z_2}=\dfrac{|z_1|}{|z_2|}\cdot\dfrac{\cos\varphi_1+i\sin\varphi_1}{\cos\varphi_2-i\sin\varphi_2}=\dfrac{|z_1|}{|z_2|}\cdot\\\dfrac{(\cos\varphi_1+i\sin\varphi_1)(\cos\varphi_2+i\sin\varphi_2)}{\cos^2\varphi_2+\sin^2\varphi_2}=\dfrac{|z_1|}{|z_2|}\cdot(\cos\varphi_1+i\sin\varphi_1)\cdot(\cos(-\varphi_2)+i\sin(-\varphi_2))\\\\$
+		$\deff \dfrac{z_1}{z_2}=\dfrac{|z_1|}{|z_2|}(\cos(\varphi_1-\varphi_2)+i\sin(\varphi_1-\varphi_2))),\tab\left|\dfrac{z_1}{z_2}\right|=\dfrac{|z_1|}{|z_2|},\varphi=\varphi_1-\varphi_2\\\\$
+		У показниковій формі(ділення):\\\\
+		$\deff \dfrac{z_1}{z_2}=\dfrac{|z_1|}{|z_2|}\cdot e^{i(\varphi_1-\varphi_2)}\\\\$
+		$\deff z^n=\underbrace{z\cdot z\cdot z\cdot\dots\cdot z }_{n\textrm{ разів}}=|z|^n(\cos n\varphi+i\sin n\varphi)=|z|^n\cdot e^{in\varphi},\forall n\in\Zn$
+	\item \underline{Винесення з під кореня $\sqrt[n]{z}$}\\\\
+		$\deff W=\sqrt[n]{z},$ якщо $W^n=z$.\\\\
+		Нехай обидва записані у тригонометричній формі: $z=|z|(\cos\varphi+i\sin\varphi),\\W=|W|(\cos\psi+i\sin\psi),W^n=|W|^n(\cos n\psi+i\sin n\psi)$. Умова "=" в тригоно-\\-метричній формі: $W^n=z\Rightarrow\left\{\begin{array}{l}
+			|W|^n=|z|\\n\psi=\varphi+2\pi k,k\in\Zn
+		\end{array}\right.\Rightarrow\left\{\begin{array}{l}
+			|W|=\sqrt[n]{|z|}\\\psi=\dfrac{\varphi+2\pi k}{n},k\in\Zn
+		\end{array}\right.$
+	\begin{figure*}[htp!]
+		\begin{wrapfigure}[11]{l}{0.4\textwidth} 
+    		\centering
+    		\begin{tikzpicture}[scale=0.8]
+    			\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5]
+				\end{axis}	
+				\draw (4.5,3.6) node[below] {\tiny$\dfrac{2\pi}{n}$};
+				\draw (4,4.1) node[below] {\tiny$\dfrac{2\pi}{n}$};
+				\draw (4.9,2.9) arc (0:360:1.5);
+				\draw (3.9,2.85) arc (0:108:0.5);
+				\draw (3.43,2.85) node[circle,fill,inner sep=0.5pt] {};
+				\draw (4.64, 3.74) node[circle,fill,inner sep=0.5pt] {};
+				\draw (3.88, 4.32) node[circle,fill,inner sep=0.5pt] {};
+				\draw (2.88, 4.31) node[circle,fill,inner sep=0.5pt] {};
+				\draw (3.43,2.85) -- (4.65, 3.75) node[above, right] {\scriptsize$\dfrac{\varphi}{n}(k=0)$};
+				\draw (3.43,2.85) -- (3.88, 4.33) node[above] {\scriptsize$k=1$};
+				\draw (3.43,2.85) -- (2.88, 4.31) node[above] {\scriptsize$k=2$};
+    		\end{tikzpicture}
+		\end{wrapfigure}$\\\\\sqrt[n]{z}=W=\sqrt[n]{|z|}\left(\cos\dfrac{\varphi+2\pi k}{n}+i\sin\dfrac{\varphi+2\pi k}{n}\right)\\k=0,1,\dots,n-1\\\psi_k=\dfrac{\varphi}{n}+2\pi\dfrac{k}{n},\tab\Delta\psi=\dfrac{2\pi}{n}\\$
+	\end{figure*}
+	\begin{example}
+		\begin{wrapfigure}{l}{0.5\textwidth} 
+			\centering
+    		\begin{tikzpicture}[scale=0.4]
+    			\begin{axis}[ticks=none,axis lines=middle,thick, xmin=-1, xmax=1,ymin=-1,ymax=1]
+				\end{axis}	
+				\draw (3.43,2.85) node[circle,fill,inner sep=0.5pt] {};
+				\draw (3.43,1.4) node[circle,fill,inner sep=0.5pt] {};
+				\draw (3.43,4.4) node[circle,fill,inner sep=0.5pt] {};
+				\draw (1.9,2.85) node[circle,fill,inner sep=0.5pt] {};
+				\draw (4.9,2.85) node[below] {\scriptsize1};
+				\draw (4.9,2.85) node[circle,fill,inner sep=0.5pt] {};
+    		\end{tikzpicture}
+		\end{wrapfigure}
+		$\\\\\\\sqrt[4]{1}=\Delta\varphi=\dfrac{2\pi}{4}=\dfrac{\pi}{2}\\$
+	\end{example}
+\end{enumerate}
+\section{Послідовності комплексних чисел}
+Послідовність комплексних чисел --- це комплекснозначна функція натурального аргумента. $\{z_n\}$ - послідовність.\\\\
+$\deff n\in\Nn\rightarrow f(n)=z_n\in\Cn$
+\begin{enumerate}
+	\item \tab\begin{figure*}[htp!]
+		\begin{wrapfigure}{l}{0.4\textwidth} 
+			\begin{tikzpicture}[scale=0.8]
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.5,ymin=-0.1,ymax=0.5,xshift=-4cm]
+				\end{axis}	
+				\draw (1,3.5) arc (0:360:1);
+				\draw (0,3.5) node[circle,fill,inner sep=0.5pt] {};
+				\draw (0,3.5) -- (0.7,4.2) node[midway,sloped,above] {$\varepsilon$};
+				\draw[->] (2.3, 2) -- (0.7,3.2);
+				\draw (3, 1.6) node[below,left] {\scriptsize$\forall n\geq N(\varepsilon)$};
+				\pgfmathsetseed{24122015}
+    			\foreach \p in {1,...,200}
+    			{ \pgfmathsetmacro{\x}{2*rand}
+        			%\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3.5}
+        			\pgfmathsetmacro{\y}{-rand*sqrt(4-pow(\x,2))+3.5}
+        			\fill[black]    (\x,\y) circle (0.02);
+    			}
+			\end{tikzpicture}
+		\end{wrapfigure}
+		$\\\\\lim\limits_{n\to\infty}z_n=z_0,z_0\in\Cn\\\\\tab\tab\Updownarrow\\\\\forall\varepsilon\>\exists N=N(\varepsilon)\in\Nn:\forall n\geq N(\varepsilon)\>|z_n-z_0|<\varepsilon$
+	\end{figure*}\newpage
+	\item \tab\begin{figure*}[htp]
+		\begin{wrapfigure}{l}{0.4\textwidth} 
+			\begin{tikzpicture}[scale=0.8]
+			\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5,xshift=-3.4cm]
+			\end{axis}
+			\pgfmathsetseed{24122015}
+    		\foreach \p in {1,...,200}
+   			{ \pgfmathsetmacro{\x}{2*rand}
+       			%\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3.5}
+       			\pgfmathsetmacro{\y}{-rand*sqrt(4-pow(\x,2))+2.8}
+       			\fill[black]    (\x,\y) circle (0.02);
+   			}
+   			\draw (0,2.8) circle (1);
+   			\draw (0.9,3.1) node[right] {\scriptsize$M$};
+   			\draw (1,2.85) node[circle,fill,inner sep=1pt] {};
+		\end{tikzpicture}
+		\end{wrapfigure}
+		$\\\\\\{z_n}$ - обмежена, якщо $\\\\\exists M>0\>\forall n\in\Nn\>|z_n|<M$
+	\end{figure*}\\
+\end{enumerate}$\\$
+\begin{thm}
+	\begin{align*}
+		\textrm{Нехай}\tab& z_n=x_n+iy_n,&\\
+		&z_0=x_0+iy_0,&(x_n,y_n,x_0,y_0\in\Rn)\\
+		\textrm{Тоді:}\tab& \lim\limits_{n\to\infty}z_n=z_0\tab\Longleftrightarrow\tab 
+		\begin{cases}
+			\lim\limits_{n\to\infty}x_n=x_0\\\lim\limits_{n\to\infty}y_n=y_0
+		\end{cases}
+	\end{align*}
+\end{thm}
+\begin{figure*}[htp]
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.5,ymin=-0.1,ymax=1]
+				\end{axis}	
+				\draw (4,5) node[below] {$|z_1+z_2|\leq|z_1|+|z_2|$};
+				\draw[-Stealth] (1.15,0.52) -- (4.6,3.65) node[above,midway,sloped] {\tiny$|z_1+z_2|$} node[right] {$z_1+z_2$};
+				\draw[-Stealth] (1.15,0.52) -- (2.3,2.6) node[above,midway,sloped] {\tiny$|z_2|$} node[left] {$z_2$};
+				\draw[dashed] (2.3,2.6) -- (4.6,3.65) node[left] {};
+				\draw[-Stealth] (1.15,0.52) -- (3.44,1.55) node[above,midway,sloped] {\tiny$|z_1|$} node[below] {$z_1$};
+				\draw[dashed] (3.44,1.55) -- (4.6,3.65) node[left] {};
+			\end{tikzpicture}
+	\end{center}
+\end{figure*}
+\begin{prooff}$ $
+	\begin{enumerate}[label=\alph*)]
+		\item необхідність:\\
+			нехай $\lim\limits_{n\to\infty}z_n=z_0$, тобто $\forall\varepsilon>0\>\exists N(\varepsilon)\in\Nn\>\forall n\geq N(\varepsilon)\>|z_n-z_0|<\varepsilon\\|z_n-z_0|=|(x_n+iy_n)-(x_0+iy_0)|=|(x_n-x_0)+i(y_n-y_0)|\Longrightarrow\\\Longrightarrow\sqrt{(x_n-x_0)^2+i(y_n-y_0)^2}<\varepsilon ,\tab (x_n-x_0)^2+i(y_n-y_0)^2<\varepsilon^2\Longrightarrow\\\Longrightarrow\begin{cases}
+				(x_n-x_0)^2<\varepsilon^2\\(y_n-y_0)^2<\varepsilon^2
+			\end{cases}\Longrightarrow\begin{cases}
+				|x_n-x_0|<\varepsilon\\|y_n-y_0|<\varepsilon
+			\end{cases},\forall n\geq N(\varepsilon)\tab\Longleftrightarrow$
+			\begin{center}
+				$\Longleftrightarrow\tab \begin{cases}
+			\lim\limits_{n\to\infty}x_n=x_0\\\lim\limits_{n\to\infty}y_n=y_0
+			\end{cases}$
+			\end{center}
+		\item достатність: 
+	\end{enumerate}
+\end{prooff}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt, centered]{bookest}
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+\usepackage{amsfonts}
+\usepackage{wrapfig}
+\usepackage{xparse}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{xpatch}
+\usepackage[many]{tcolorbox}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{booktabs,caption}          
+\usepackage[flushleft]{threeparttable}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary {arrows.meta} 
+
+\xpatchcmd{\prooff}{\itshape}{\bfseries\itshape}{}{}
+
+\tcolorboxenvironment{prooff}{
+  blanker,
+  before skip=\topsep,
+  after skip=\topsep,
+  borderline west={0.4pt}{0.4pt}{black},
+  breakable,
+  left=12pt,
+  right=12pt, % I'd avoid this
+}
+
+\makeatletter
+\renewcommand{\@chapapp}{Частина}
+\makeatother
+
+\addto\captionsenglish{
+  \renewcommand{\contentsname}
+    {Зміст}
+}
+\newmdenv[   linecolor=black,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{leftrule}
+
+\definecolor{black}{cmyk}{.30,0,0,.67} 
+\NewDocumentEnvironment{example}{O{\textbf{Приклад:$ $}}} {\begin{leftrule}\noindent\textcolor{black}{#1}\par}
+{\end{leftrule}}
+\catcode`@=11
+
+\def\caseswithdelim#1#2{\left#1\,\vcenter{\normalbaselines\m@th
+  \ialign{\strut$##\hfil$&\quad##\hfil\crcr#2\crcr}}\right.}\catcode`@=12
+
+\newcommand\tab [1][0.5cm]{\hspace*{#1}}
+\newcommand{\Nn}[0]{\mathbb{N}}
+\newcommand{\Zn}[0]{\mathbb{Z}}
+\newcommand{\Qn}[0]{\mathbb{Q}}
+\newcommand{\Rn}[0]{\mathbb{R}}
+\newcommand{\Cn}[0]{\mathbb{C}}
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+\newcommand{\Arg}[0]{\textrm{Arg }}
+\newcommand{\deff}[0]{\tab\tab\textbf{def}\tab}
+
+
+\newtheorem{thm}{Теорема}[chapter]
+\newtheorem*{prooff}{Доведення}
+\newtheorem{cons}{Наслідок}[chapter]
+\newtheorem*{cons*}{Наслідок}
+
+
+\title{{Теорія функції комплексної змінної}\thispagestyle{empty}}
+
+\begin{document}
+\begin{justify}
+	\maketitle
+	\let\cleardoublepage\clearpage
+	\tableofcontents
+	\newpage
+	\include{chapter_1}
+\end{justify}
+\end{document}
