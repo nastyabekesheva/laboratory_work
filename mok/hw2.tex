@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №2\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item $$\varphi(14553)$$
+ 			$\varphi(14553) = \varphi(3\cdot3\cdot3\cdot7\cdot7\cdot11)=14553\times\left(1-\dfrac13\right)\times\left(1-\dfrac17\right)\times\left(1-\dfrac1{11}\right)=7560$
+ 			\item $$5^82\mod 24$$
+ 				Перевіримо чи є 5 та 24 взаємнопростими (знайдемо $\gcd(5, 24)$):
+ 				$\\24=5\cdot4+4,\tab 5=4\cdot1,\tab 4=1\cdot4+0,\tab\gcd(5, 24)=1$
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+{$q_i$} & {} & {4} & {1} &    \\ \hline
+$u_i$          & 0         & 1          & -4         & 5  \\ \hline
+$v_i$          & 1         & 0          & 1          & -1 \\ \hline
+\end{tabular}
+\end{table}
+				\\Тепер порахуємо: $\varphi(24)=\varphi(2\cdot2\cdot2\cdot3)=24\times\left(1-\dfrac12\right)\times\left(1-\dfrac13\right)=8.$
+				\\Отже $5^{82}=5^{80}\cdot25\mod 24=1\mod4$
+ 			\item $$\begin{cases}
+ 				x=2\mod5\\x=8\mod13\\x=2\mod9\\x=5\mod7
+ 			\end{cases}$$
+ 			Перевіримо чи усі $n_i$ попарно взаємнопрості:\\
+ 			$\gcd(5,13)=1,\gcd(5,9)=1,\gcd(5,7)=1,\gcd(13,9)=1,\gcd(13,7)=1,\gcd(9,7)=1\\$
+ 			Знайдемо $M$: $M=5\cdot13\cdot9\cdot7=4095$. Отже $M_1=819,M_2=315,M_3=455,M_4=585$
+\begin{table}[htp]\centering
+\begin{tabular}{ccccc}
+\multicolumn{5}{c}{$\gcd(5, 819) = 1$}                                                                                                 \\ \hline
+\multicolumn{1}{|c|}{$q_i$} & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{163} & \multicolumn{1}{c|}{1}    & \multicolumn{1}{c|}{}    \\ \hline
+\multicolumn{1}{|c|}{$u_i$} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1}   & \multicolumn{1}{c|}{-163} & \multicolumn{1}{c|}{164} \\ \hline
+\multicolumn{1}{|c|}{$v_i$} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0}   & \multicolumn{1}{c|}{1}    & \multicolumn{1}{c|}{-1}  \\ \hline
+\end{tabular}\tab\tab
+\begin{tabular}{ccccc}
+\multicolumn{5}{c}{$\gcd(13, 315) = 1$}                                                                                                                                                                                                  \\ \hline
+\multicolumn{1}{|c|}{{$q_i$}} & \multicolumn{1}{c|}{{}} & \multicolumn{1}{c|}{{24}} & \multicolumn{1}{c|}{{4}} & \multicolumn{1}{c|}{}   \\ \hline
+\multicolumn{1}{|c|}{$u_i$}                           & \multicolumn{1}{c|}{0}                          & \multicolumn{1}{c|}{1}                            & \multicolumn{1}{c|}{-24}                         & \multicolumn{1}{c|}{97} \\ \hline
+\multicolumn{1}{|c|}{$v_i$}                           & \multicolumn{1}{c|}{1}                          & \multicolumn{1}{c|}{0}                            & \multicolumn{1}{c|}{1}                           & \multicolumn{1}{c|}{-4} \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[htp]\centering
+\begin{tabular}{cccccc}
+\multicolumn{6}{c}{$\gcd(9, 455) = 1$}                                                                                                                                                                                                                               \\ \hline
+\multicolumn{1}{|c|}{{$q_i$}} & \multicolumn{1}{c|}{{}} & \multicolumn{1}{c|}{{50}} & \multicolumn{1}{c|}{{1}} & \multicolumn{1}{c|}{1}  & \multicolumn{1}{c|}{}     \\ \hline
+\multicolumn{1}{|c|}{$u_i$}                           & \multicolumn{1}{c|}{0}                          & \multicolumn{1}{c|}{1}                            & \multicolumn{1}{c|}{-50}                         & \multicolumn{1}{c|}{51} & \multicolumn{1}{c|}{-101} \\ \hline
+\multicolumn{1}{|c|}{$v_i$}                           & \multicolumn{1}{c|}{1}                          & \multicolumn{1}{c|}{0}                            & \multicolumn{1}{c|}{1}                           & \multicolumn{1}{c|}{-1} & \multicolumn{1}{c|}{2}    \\ \hline
+\end{tabular}\tab\tab 
+\begin{tabular}{cccccc}
+\multicolumn{6}{c}{$\gcd(7, 585)=1$}                                                                                                                                                                                                                                   \\ \hline
+\multicolumn{1}{|c|}{{$q_i$}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{{83}} & \multicolumn{1}{c|}{{1}} & \multicolumn{1}{c|}{1}  & \multicolumn{1}{c|}{}     \\ \hline
+\multicolumn{1}{|c|}{$u_i$}                           & \multicolumn{1}{c|}{0}                          & \multicolumn{1}{c|}{1}                            & \multicolumn{1}{c|}{-83}                         & \multicolumn{1}{c|}{84} & \multicolumn{1}{c|}{-167} \\ \hline
+\multicolumn{1}{|c|}{$v_i$}                           & \multicolumn{1}{c|}{1}                          & \multicolumn{1}{c|}{0}                            & \multicolumn{1}{c|}{1}                           & \multicolumn{1}{c|}{-1} & \multicolumn{1}{c|}{2}    \\ \hline
+\end{tabular}
+\end{table}\\
+			Порахуємо $N_i$: $N_1=819^{-1}\mod 5=-1,N_2=315^{-1}\mod13=-4,\\N_3=455^{-1}\mod9=2,N_4=585^{-1}\mod 7=2$. Знайдемо $x$ за формулою $\\x=a_1N_1m_1+\cdots+a_nN_nM_n:$ $x=-4048 \mod 4095  = 47$\newpage
+			\item $$a=x^2\mod13$$
+			$\dfrac{p-1}{2}=\dfrac{13-1}{2}=6$. Тобто 13 має 6 квадратичних лишків.
+\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x$          & 1 & 2 & 3 & 4 & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 \\ \hline
+$x^2\mod 13$ & 1 & 4 & 9 & 3 & 12 & 10 & 10 & 12 & 3 & 9  & 4  & 1  \\ \hline
+\end{tabular}
+\end{table}\\
+			З таблиці легко бачити, що 1,3,4,9,10,12 є квадратичними лишками 13.
+			\item $$\left(\dfrac{18}{53}\right)=?$$
+				$\left(\dfrac{18}{53}\right)=\left(\dfrac{2}{53}\right)\times\left(\dfrac{3}{53}\right)\times\left(\dfrac{3}{53}\right)=-\left(\dfrac{9}{53}\right)=-1\\\\$
+				Отже 18 не є квадратичним лишком 53.
+			\item $$\left(\dfrac{2}{8k+5}\right)=-1$$
+				$\left(\dfrac{2}{8k+5}\right)=(-1)^{\left(\dfrac{(8k+5)^2-1}{8}\right)}=(-1)^{8k^2+10x+3}$. Розглянемо $8k^2+10x+3$: $8k^2$ та $10k$ завжди будуть парними, адже добуток парного числа з будь-яким іншим числом є парне число. Тобто $(8k^2+10x+3)\mod 2=8k^2\mod 2+10k\mod 2+3\mod 2=1$. 
+				Отже $(-1)^{8k^2+10x+3}=-1$. Іншими словами 2 є квадратичним нелишком за модулем $p$, де $p=8k+5$.
+ 			
+ 	
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 		\end{enumerate}
+	\end{justify}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
