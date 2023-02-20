@@ -94,7 +94,7 @@ $z=\begin{vmatrix}
 		$$2:|z_1-z_2|=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}\textrm{ - відстань між }z_1,z_2$$
 		$$3:|z-z_0|=R$$
 	\item \underline{Множення/ділення і підносення до степеню}\\\\
-		$\deff z_1\cdot z_2=\underbrace{x_1x_2-y_1y_2}_{\Re z}+i\underbrace{(z_1y_2+x_2y_1)}_{\Im z}$
+		$\deff z_1\cdot z_2=\underbrace{x_1x_2-y_1y_2}_{\Re z}+i\underbrace{(x_1y_2+x_2y_1)}_{\Im z}$
 		\begin{cons}
 			для $z_1=z_2=i:i^2=-1\tab (x_1=x_2=0,y_1=y_2=1)$
 		\end{cons}
@@ -110,7 +110,7 @@ $z=\begin{vmatrix}
 		\end{array}\right.$
 	\item \underline{Множення/ділення і підносення до степеню (в тригонометричнії і показниковій формі)}\\
 		$z_1=|z_1|(\cos\varphi_1+i\sin\varphi_1),z_2=|z_2|(\cos\varphi_2+i\sin\varphi_2).$ Тоді у тригономтричній формі: $z_1\cdot z_2=|z_1|(\cos\varphi_1+i\sin\varphi_1)\cdot |z_2|(\cos\varphi_2+i\sin\varphi_2)=|z_1|\cdot|z_2|\cdot(\cos\varphi_1\cos\varphi_2+\\+i\cos\varphi_1\sin\varphi_2+i\sin\varphi_1\cos\varphi_2+i^2\sin\varphi_1\sin\varphi_2)=|z_1|\cdot|z_2|\cdot((\cos\varphi_1\cos\varphi_2-\sin\varphi_1\sin\varphi_2)++i(\sin\varphi_1\cos\varphi_2+\cos\varphi_1\sin\varphi_2)=|z_1|\cdot|z_2|\cdot(\cos(\varphi_1+\varphi_2)+i\sin(\varphi_1+\varphi_2)\\\\$
-		$\deff z_1\cdot z_2=|z_1|\cdot|z_2|\cdot(\cos(\varphi_1+\varphi_2)+i\sin(\varphi_1+\varphi_2)\\\tab\tab\tab\tab\tab\tab|z_1\cdot z_2|=|z_1|\cdot|z_2|,\varphi=\varphi_1+\varphi_2$
+		$\deff z_1\cdot z_2=|z_1|\cdot|z_2|\cdot(\cos(\varphi_1+\varphi_2)+i\sin(\varphi_1+\varphi_2))\\\tab\tab\tab\tab\tab\tab|z_1\cdot z_2|=|z_1|\cdot|z_2|,\varphi=\varphi_1+\varphi_2$
 		\begin{cons}
 			$z_1=z,z_2=\bar{z}\Rightarrow z\cdot\bar{z}=|z|^2(\cos0+i\sin0)=|z|^2$
 		\end{cons}
@@ -183,7 +183,6 @@ $\deff n\in\Nn\rightarrow f(n)=z_n\in\Cn$
 				\pgfmathsetseed{24122015}
     			\foreach \p in {1,...,200}
     			{ \pgfmathsetmacro{\x}{2*rand}
-        			%\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3.5}
         			\pgfmathsetmacro{\y}{-rand*sqrt(4-pow(\x,2))+3.5}
         			\fill[black]    (\x,\y) circle (0.02);
     			}
@@ -199,7 +198,6 @@ $\deff n\in\Nn\rightarrow f(n)=z_n\in\Cn$
 			\pgfmathsetseed{24122015}
     		\foreach \p in {1,...,200}
    			{ \pgfmathsetmacro{\x}{2*rand}
-       			%\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3.5}
        			\pgfmathsetmacro{\y}{-rand*sqrt(4-pow(\x,2))+2.8}
        			\fill[black]    (\x,\y) circle (0.02);
    			}
