@@ -32,7 +32,7 @@ $$z=x+iy\textrm{ - алгебраїчна форма }z$$
 Нехай $\rho,\varphi$ - полярні координати. Тоді модуль $z:|z|=\rho=\sqrt{x^2+y^2}$. $|z|\geq0,\forall z\in\Cn$. Якщо $|z|=0\Leftrightarrow z=0$. $\varphi$ - аргумент $z$ (кут, утворений радіус-вектором, проведеним в точку $z$ у додатньому напрямку з осі $Ox$).\\
 $\Arg z$ - множина значень аргумента $z$. $\Arg z=\arg z+2\pi k,k\in\Zn,\arg z$ - головне значення аргумента. $\arg z=\varphi\in(-\pi,\pi]$ 
 $$\arg z=\begin{cases}
-	\arctan\dfrac xy,x>0\tab(I,IV\textrm{ чв.})\\\dfrac yx+\pi,x<0,y>0\tab(II\textrm{ чв.})\\\dfrac yx-\pi,x<0,y<0\tab(III\textrm{ чв.})
+	\arctan\frac xy,x>0\tab(I,IV\textrm{ чв.})\\\arctan\frac yx+\pi,x<0,y>0\tab(II\textrm{ чв.})\\\arctan\frac yx-\pi,x<0,y<0\tab(III\textrm{ чв.})
 \end{cases},\tab\arg z\textrm{ визначений для }z\neq0!$$
 $z=\begin{vmatrix}
 	x=|z|\cos\varphi\\y=|z|\sin\varphi
@@ -188,7 +188,7 @@ $\deff n\in\Nn\rightarrow f(n)=z_n\in\Cn$
     			}
 			\end{tikzpicture}
 		\end{wrapfigure}
-		$\\\\\lim\limits_{n\to\infty}z_n=z_0,z_0\in\Cn\\\\\tab\tab\Updownarrow\\\\\forall\varepsilon\>\exists N=N(\varepsilon)\in\Nn:\forall n\geq N(\varepsilon)\>|z_n-z_0|<\varepsilon$
+		$\\\\\limntoinf z_n=z_0,z_0\in\Cn\\\\\tab\tab\Updownarrow\\\\\forall\varepsilon\tab\exists N=N(\varepsilon)\in\Nn:\forall n\geq N(\varepsilon)\tab|z_n-z_0|<\varepsilon$
 	\end{figure*}\newpage
 	\item \tab\begin{figure*}[htp]
 		\begin{wrapfigure}{l}{0.4\textwidth} 
@@ -206,16 +206,16 @@ $\deff n\in\Nn\rightarrow f(n)=z_n\in\Cn$
    			\draw (1,2.85) node[circle,fill,inner sep=1pt] {};
 		\end{tikzpicture}
 		\end{wrapfigure}
-		$\\\\\\{z_n}$ - обмежена, якщо $\\\\\exists M>0\>\forall n\in\Nn\>|z_n|<M$
+		$\\\\\\{z_n}$ - обмежена, якщо $\\\\\exists M>0\tab\forall n\in\Nn\tab|z_n|<M$
 	\end{figure*}\\
 \end{enumerate}$\\$
-\begin{thm}
+\begin{thm}\label{thm:zn+z0}
 	\begin{align*}
 		\textrm{Нехай}\tab& z_n=x_n+iy_n,&\\
 		&z_0=x_0+iy_0,&(x_n,y_n,x_0,y_0\in\Rn)\\
-		\textrm{Тоді:}\tab& \lim\limits_{n\to\infty}z_n=z_0\tab\Longleftrightarrow\tab 
+		\textrm{Тоді:}\tab& \limntoinf z_n=z_0\tab\Longleftrightarrow\tab 
 		\begin{cases}
-			\lim\limits_{n\to\infty}x_n=x_0\\\lim\limits_{n\to\infty}y_n=y_0
+			\limntoinf x_n=x_0\\\limntoinf y_n=y_0
 		\end{cases}
 	\end{align*}
 \end{thm}
@@ -231,25 +231,140 @@ $\deff n\in\Nn\rightarrow f(n)=z_n\in\Cn$
 				\draw[-Stealth] (1.15,0.52) -- (3.44,1.55) node[above,midway,sloped] {\tiny$|z_1|$} node[below] {$z_1$};
 				\draw[dashed] (3.44,1.55) -- (4.6,3.65) node[left] {};
 			\end{tikzpicture}
+			\caption*{До доведення \cref{thm:zn+z0}}
 	\end{center}
 \end{figure*}
 \begin{prooff}$ $
 	\begin{enumerate}[label=\alph*)]
 		\item необхідність:\\
-			нехай $\lim\limits_{n\to\infty}z_n=z_0$, тобто $\forall\varepsilon>0\>\exists N(\varepsilon)\in\Nn\>\forall n\geq N(\varepsilon)\>|z_n-z_0|<\varepsilon\\|z_n-z_0|=|(x_n+iy_n)-(x_0+iy_0)|=|(x_n-x_0)+i(y_n-y_0)|\Longrightarrow\\\Longrightarrow\sqrt{(x_n-x_0)^2+i(y_n-y_0)^2}<\varepsilon ,\tab (x_n-x_0)^2+i(y_n-y_0)^2<\varepsilon^2\Longrightarrow\\\Longrightarrow\begin{cases}
+			Нехай $\limntoinf z_n=z_0$, тобто $\forall\varepsilon>0\tab\exists N(\varepsilon)\in\Nn\tab\forall n\geq N(\varepsilon)\tab|z_n-z_0|<\varepsilon\\|z_n-z_0|=|(x_n+iy_n)-(x_0+iy_0)|=|(x_n-x_0)+i(y_n-y_0)|\Longrightarrow\\\Longrightarrow\sqrt{(x_n-x_0)^2+i(y_n-y_0)^2}<\varepsilon ,\tab (x_n-x_0)^2+i(y_n-y_0)^2<\varepsilon^2\Longrightarrow\\\Longrightarrow\begin{cases}
 				(x_n-x_0)^2<\varepsilon^2\\(y_n-y_0)^2<\varepsilon^2
 			\end{cases}\Longrightarrow\begin{cases}
 				|x_n-x_0|<\varepsilon\\|y_n-y_0|<\varepsilon
 			\end{cases},\forall n\geq N(\varepsilon)\tab\Longleftrightarrow$
 			\begin{center}
 				$\Longleftrightarrow\tab \begin{cases}
-			\lim\limits_{n\to\infty}x_n=x_0\\\lim\limits_{n\to\infty}y_n=y_0
+			\limntoinf x_n=x_0\\\limntoinf y_n=y_0
 			\end{cases}$
 			\end{center}
-		\item достатність: 
+		\item достатність:\\Нехай $\begin{cases}
+			\limntoinf x_n=x_0\\\limntoinf y_n=y_0
+			\end{cases}\tab\begin{array}{ll}
+				\forall\varepsilon>0:&\exists N_1(\varepsilon)\in\Nn:\forall n\geq N_1(\varepsilon)\tab |x_n-x_0|<\frac{\varepsilon}{2} \\
+				&\exists N_2(\varepsilon)\in\Nn:\forall n\geq N_2(\varepsilon)\tab |y_n-y_0|<\frac{\varepsilon}{2}
+			\end{array}\\|z_n-z_0|=|(x_n+iy_n)-(x_0+iy_0)|=|(x_n-x_0)+i(y_n-y_0)|\leq\\\leq|x_n-x_0|+|i|\cdot|y_n-y_0|=|x_n-x_0|+|y_n-y_0|<\dfrac{\varepsilon}{2}+\dfrac{\varepsilon}{2}=\varepsilon$. \\при $\forall n\geq\max(N_1,N_2)\Longrightarrow\limntoinf z_n=z_0$
 	\end{enumerate}
 \end{prooff}
+\begin{statement}
+	$$\limntoinf z_n=z_0\Longleftrightarrow\limntoinf|z_n-z_0|=0$$
+\end{statement}
+\begin{prooff}
+	$\\\forall\varepsilon>0\tab\exists N(\varepsilon)\in\Nn:\forall n\geq N(\varepsilon)\tab|z_n-z_0|<\varepsilon$. Тоді: $||z_n-z_0|-0|=|z_n-z_0|<\varepsilon$
+\end{prooff}
+\begin{thm}\label{thm:zn-z0}
+	$$\textrm{Якщо }\limntoinf z_n=z_0,\textrm{ то }\limntoinf|z_n|=|z_0|$$
+\end{thm}
+\begin{figure*}[htp]
+	\begin{center}
+		\begin{tikzpicture}
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-0.2, xmax=0.5,ymin=-0.1,ymax=1]
+				\end{axis}	
+				\draw[-Stealth] (1.95,0.52) -- (3,2.6) node[above,midway,sloped] {\tiny$|z_n|$} node[left] {$z_n$};
+				\draw[-Stealth] (1.95,0.52) -- (4.9,1.55) node[below,midway,sloped] {\tiny$|z_0|$} node[right] {$z_0$};
+				\draw[-Stealth]  (4.9,1.55) -- (3,2.6) node[above,midway,sloped] {$|z_n-z_0|$};
+			\end{tikzpicture}
+			\caption*{До доведення \cref{thm:zn-z0}}
+	\end{center}
+\end{figure*}
+\begin{prooff}$\\$
+	Покажемо, що $\limntoinf||z_n|-|z_0||=0$ (у зворотний бік невірно).\\
+	$\left.\begin{array}{ll}
+		\textrm{Нерівність }\triangle \textrm{ для }|z_n|:&|z_n|\leq|z_0|+|z_n-z_0|\\&|z_n|-|z_0|\leq|z_n-z_0|\\\textrm{Нерівність }\triangle \textrm{ для }|z_-0|:&|z_0|\leq|z_n|+|z_n-z_0|\\&|z_0|-|z_n|\leq|z_n-z_0|
+	\end{array}\right\}\Longrightarrow||z_n|-|z_0||\leq|z_n-z_0|$\\
+	Окрім того, $0\leq||z_n|-|z_0||\leq|z_n-z_0|\Longrightarrow(\limntoinf0=0,\limntoinf|z_n-z_0|=0$ - за умовою) $\Longrightarrow\limntoinf||z_n|-|z_0||=0\Longleftrightarrow\limntoinf|z_n|=|z_0|$
+\end{prooff}
+\begin{thm}
+	$$\begin{cases}
+		\limntoinf|z_n|=|z_0|\\\limntoinf\varphi_n=\varphi_0
+	\end{cases}\xRightarrow[\begin{array}{l}
+		{\scriptscriptstyle z_n=|z_n|\cdot e^{i\varphi_n}}\\{\scriptscriptstyle z_0=|z_0|\cdot e^{i\varphi_0}}
+	\end{array}]{}\limntoinf z_n=z_0$$
+\end{thm}
+\begin{prooff}
+	З арифметичних властивостей $\lim z_n$
+\end{prooff}
+\section{Розширена множина $\Cn$. Нескінченно віддалена точка.}
+\begin{figure*}[htp!]
+		\begin{wrapfigure}{l}{0.45\textwidth} 
+			\begin{tikzpicture}
+				\begin{axis}[ticks=none,axis lines=middle, xmin=-1, xmax=1,ymin=-1,ymax=1,xshift=-3.4cm]
+				\end{axis}	
+				\draw (0,2.9) circle (30pt);
+				\draw[->] (3, 5) -- (2,4);
+				\draw (3, 5) node[right,above] {\scriptsize$\forall n\geq N(\varepsilon)$};
+				\pgfmathsetseed{24122015}
+    			\foreach \p in {1,...,200}
+    			{ \pgfmathsetmacro{\x}{2*rand}
+        			\pgfmathsetmacro{\y}{-rand*sqrt(4-pow(\x,2))+2.9}
+        			\fill[black]    (\x,\y) circle (0.02);
+    			}
+			\end{tikzpicture}
+		\end{wrapfigure}
+		$\\\\\limntoinf z_n=\infty\Leftrightarrow\forall E>0\tab\exists N(E)\in\Nn\\\forall n\geq N(E)\tab |z_n|>\varepsilon.$ Невласне комплексне число $\infty$: поняття дійсної та уявної частини, а також, аргумента - невизначені. $|\infty|=\infty.\tab \limntoinf z_n=\infty\Rightarrow\limntoinf|z_n|=+\infty.\tab\limntoinf\dfrac1{z_n}=0\\\\\\$
+\end{figure*}
+\begin{figure*}[htp]
+	\begin{wrapfigure}{l}{0.65\textwidth} 
+		\underline{Операції} над $"\infty"$ і $a\in\Cn:\\\\$
+	$\deff "\infty\pm a"=\infty\\\deff"\infty\cdot a=\infty,\tab a\neq0"\\\deff"\dfrac\infty a"=\infty\\\deff"\dfrac a\infty"=0\\\deff"\infty\cdot\infty"=\infty\\\\$
+	\end{wrapfigure}
+	$\\$\underline{Невизначеності}: $0\cdot\infty,\tab\dfrac\infty\infty,\tab\dfrac00,\tab \infty+\infty,\tab\infty-\infty.\\\\\\\\$
+\end{figure*}
 
+\begin{figure*}[htp]\centering
+	\begin{tikzpicture}
+		\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.9,ymin=-0.5,ymax=0.5]
+				\end{axis}
+				\draw (3.5,0) -- (3.5,5.5);
+				\draw[->] (0.69,2.85) -- (3.5,5);
+				\draw[->] (0.69,2.85) -- (3.5,4.5);
+				\draw[->] (0.69,2.85) -- (3.5,4);
+				\draw[->] (0.69,2.85) -- (3.5,0.7);
+				\draw[->] (0.69,2.85) -- (3.5,1.2);
+				\draw[->] (0.69,2.85) -- (3.5,1.7);
+				\draw (4.5,2.85) node[circle,fill,inner sep=1pt] {};
+				\draw (5,2.85) node[circle,fill,inner sep=1pt] {};
+				\draw (5.5,2.85) node[circle,fill,inner sep=1pt] {};
+				\draw (5,4) node {\scriptsize результат};
+				\draw (5,3.5) node {\scriptsize (постійна)};
+	\end{tikzpicture}\tab
+	\begin{tikzpicture}
+		\coordinate (P) at ({1/sqrt(3)},{1/sqrt(3)},{1/sqrt(3)});
+ 
+% Draw circle
+		\draw (0,1,0) circle (1cm);
+% draw arcs 		
+		\tdplotsetrotatedcoords{0}{0}{0};
+		\draw[dashed, tdplot_rotated_coords, gray] (0,0,1) circle (1);
+% Axes in 3 d coordinate system
+		\draw[-stealth] (0,0,0) -- (4,0,0) node[below left] {$x$}; 
+		\draw[-stealth] (0,0,0) -- (0,3,0) node[below right] {$y$};
+		\draw[-stealth] (0,0,0) -- (0,0,5) node[above] {$z$};
+% nodes		
+		\draw (0,1,0) node[circle,fill,inner sep=1pt] {};
+		\draw (0,2,0) node[circle,fill,inner sep=1pt] {};
+		\draw (1.2,0.97,1) node[circle,fill,inner sep=1pt] {};
+		\draw (3,0,3) node[circle,fill,inner sep=1pt] {};
+		\draw (3,3,0) node {$z\leftrightarrow z'$};
+		\draw (3,2,0) node {$\infty\leftrightarrow N$};
+		\draw (3,-2,0) node {\scriptsize$N$ образ нескінченно відадаленої точки};
+% lines		
+		\draw[dashed]  (0,2,0) node[anchor=south west] {$N$} -- (1.2,0.97,1);
+		\draw (1.2,0.97,1) -- (3,0,3) node[below] {$z$};
+		\draw[->] (1.2,0.97,1) -- (2,0.5,-0.5) node[right] {$z'$};
+
+	\end{tikzpicture}
+\end{figure*}\newpage
+\section{}
 
 
 

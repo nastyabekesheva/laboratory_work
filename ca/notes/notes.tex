@@ -1,29 +1,49 @@
 \documentclass[a4paper,12pt, centered]{bookest}
 \usepackage[ukrainian,english]{babel}
+
+% Input Type and AMS-Packages 
 \usepackage{ucs}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
-\usepackage{amsmath}
-\usepackage{amsthm}
+\usepackage{amsmath, amsthm, amsfonts}
+
+% Math
+\usepackage{cases}
+\usepackage{mathtools}
+
+% Typography
+\usepackage{enumitem}
+
+% Aligment
 \usepackage[document]{ragged2e}
 \usepackage{graphicx}
 \usepackage{wrapfig}
-\usepackage{enumitem}
-\usepackage{cases}
-\usepackage{amsfonts}
-\usepackage{wrapfig}
+\usepackage{booktabs}          
+\usepackage[flushleft]{threeparttable}
+
+% Coluors and other things
 \usepackage{xparse}
 \usepackage{mdframed}
 \usepackage{xcolor}
 \usepackage{xpatch}
 \usepackage[many]{tcolorbox}
-\usepackage{amsfonts}
-\usepackage{enumitem}
-\usepackage{booktabs,caption}          
-\usepackage[flushleft]{threeparttable}
-\usepackage{tikz,pgfplots}
-\usetikzlibrary {arrows.meta} 
 
+% Refs
+\usepackage{nameref,hyperref}
+\usepackage[capitalize]{cleveref}
+
+% Plots
+\usepackage[figurename=Рис.]{caption}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta} 
+\usepackage{tikz-3dplot}
+
+\tdplotsetmaincoords{60}{115}
+\pgfplotsset{compat=newest}
+
+% ------------Custom Enviroments------------
+
+% ****Proof****
 \xpatchcmd{\prooff}{\itshape}{\bfseries\itshape}{}{}
 
 \tcolorboxenvironment{prooff}{
@@ -33,17 +53,10 @@
   borderline west={0.4pt}{0.4pt}{black},
   breakable,
   left=12pt,
-  right=12pt, % I'd avoid this
+  right=12pt, 
 }
 
-\makeatletter
-\renewcommand{\@chapapp}{Частина}
-\makeatother
-
-\addto\captionsenglish{
-  \renewcommand{\contentsname}
-    {Зміст}
-}
+% ****Example****
 \newmdenv[   linecolor=black,
   topline=false,
   bottomline=false,
@@ -59,6 +72,21 @@
 
 \def\caseswithdelim#1#2{\left#1\,\vcenter{\normalbaselines\m@th
   \ialign{\strut$##\hfil$&\quad##\hfil\crcr#2\crcr}}\right.}\catcode`@=12
+  
+% ------------Enviroments adjusment------------
+
+% ****Chapter****
+\makeatletter
+\renewcommand{\@chapapp}{Частина}
+\makeatother
+
+% ****Table of contents****
+\addto\captionsenglish{
+  \renewcommand{\contentsname}
+    {Зміст}
+}
+  
+% ------------Custom commands------------
 
 \newcommand\tab [1][0.5cm]{\hspace*{#1}}
 \newcommand{\Nn}[0]{\mathbb{N}}
@@ -70,12 +98,16 @@
 \renewcommand{\Re}[0]{\mathfrak{Re}}
 \newcommand{\Arg}[0]{\textrm{Arg }}
 \newcommand{\deff}[0]{\tab\tab\textbf{def}\tab}
+\newcommand{\limntoinf}[0]{\lim\limits_{n\to\infty}}
 
+% ------------Enviroments------------
 
 \newtheorem{thm}{Теорема}[chapter]
 \newtheorem*{prooff}{Доведення}
 \newtheorem{cons}{Наслідок}[chapter]
 \newtheorem*{cons*}{Наслідок}
+\newtheorem{statement}{Твердження}[chapter]
+\newtheorem*{statement*}{Твердження}
 
 
 \title{{Теорія функції комплексної змінної}\thispagestyle{empty}}
