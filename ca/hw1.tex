@@ -51,27 +51,27 @@
 					\begin{tikzpicture}[]
 						\begin{axis}[xtick={-2,-1,...,2},yticklabels = {-2i,-i,,i,2i},ytick={-2,-1,...,2},axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
 						\end{axis}
-						\draw[->] (3.427,2.845) -- (2.05,1) node[midway,sloped,above] {\tiny$z=-1-i\sqrt{3}$};
+						\draw[->,thick] (3.427,2.845) -- (2.05,1) node[midway,sloped,above] {\tiny$z=-1-i\sqrt{3}$};
 					\end{tikzpicture}\tab\tab 
 					\begin{tikzpicture}
 						\begin{axis}[xtick={-2,-1,...,2},yticklabels = {-2i,-i,,i,2i},ytick={-2,-1,...,2},axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
 						\end{axis}
-						\draw[->] (3.427,2.845) -- (1.2,4) node[midway,sloped,above] {\tiny$z=-\sqrt{3}+i$};
+						\draw[->,thick] (3.427,2.845) -- (1.2,4) node[midway,sloped,above] {\tiny$z=-\sqrt{3}+i$};
 					\end{tikzpicture}
 					\begin{tikzpicture}[]
 						\begin{axis}[xtick={-2,-1,...,2},yticklabels = {-2i,-i,,i,2i},ytick={-2,-1,...,2},axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
 						\end{axis}
-						\draw[->] (3.427,2.845) -- (5.8,1.7) node[midway,sloped,below] {\tiny$z=-\sqrt{3}-i$};
+						\draw[->,thick] (3.427,2.845) -- (5.8,1.7) node[midway,sloped,below] {\tiny$z=-\sqrt{3}-i$};
 					\end{tikzpicture}\tab\tab 
 					\begin{tikzpicture}
 						\begin{axis}[xtick={-2,-1,...,2},yticklabels = {-2i,-i,,i,2i},ytick={-2,-1,...,2},axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
 						\end{axis}
-						\draw[->] (3.427,2.845) -- (3.427,1.7) node[midway,sloped,above] {\tiny$z=-i$};
+						\draw[->,thick] (3.427,2.845) -- (3.427,1.7) node[midway,sloped,above] {\tiny$z=-i$};
 					\end{tikzpicture}
 					\begin{tikzpicture}
 						\begin{axis}[xtick={-5,-4,...,5},yticklabels = {-5i,-4i,-3i,-2i,-i,,i,2i,3i,4i,5i},ytick={-5,-4,...,5},axis lines=middle, xmin=-5.5, xmax=5.5,ymin=-5.5,ymax=5.5]
 						\end{axis}
-						\draw[->] (3.427,2.845) -- (5.9,2.845) node[midway,sloped,above] {\tiny$z=4$};
+						\draw[->,thick] (3.427,2.845) -- (5.9,2.845) node[midway,sloped,above] {\tiny$z=4$};
 					\end{tikzpicture}
 				\end{figure*}
 				\begin{enumerate}
@@ -86,13 +86,13 @@
 					\item $z=2\pm5i,\tab |z|=\sqrt{29},\tab\arg z=\arctan\pm\dfrac52$
 					\item $z=-2\pm5i,\tab |z|=\sqrt{29},\tab\arg z=\arctan \mp\dfrac52\pm\pi$
 					\item $z=ib,b\in\mathbb{R},b\neq0,\tab |z|=|b|,\tab \arg z=\arctan\dfrac b0=\pm\dfrac\pi2$
-					\item $z=e^{-5i},\tab |z|=1,\tab \arg z=5$
+					\item $z=e^{-5i},\tab |z|=1,\tab \arg z=-5+2\pi$
 				\end{enumerate}
 			\item $z=\dfrac{5+i}{1+2i}=\dfrac{7-9i}{5}=\dfrac75-\dfrac95i,\tab\Re z=\dfrac75,\tab\Im z=-\dfrac95$
-			\item $x(1-2i)+y(2i-3)=4-8i,\tab x-2ix+2iy-3y=4-8i,\tab (x-3y)+i(2x-2y)=4-8i,\\\begin{cases}
-				-4=x-y\\4=x-3y
+			\item $x(1-2i)+y(2i-3)=4-8i,\tab x-2ix+2iy-3y=4-8i,\tab (x-3y)+i(-2x+2y)=4-8i,\\\begin{cases}
+				x-3y=4\\-8=-2x+2y
 			\end{cases},\tab\begin{cases}
-				y=-4\\x=-8
+				y=0\\x=4
 			\end{cases}$
 			\item $z_1=1-2i,z_2=-2+i$\begin{align*}
 				z_1+z_2&=(1-2)+i(-2+1)=-1-i\\
@@ -100,7 +100,7 @@
 				z_1\cdot z_2&=-2+2+i(1+4)=5i\\
 				\dfrac {z_1}{z_2}&=\dfrac{1-2i}{-2+i}\cdot\dfrac{-2-i}{-2-i}=\dfrac{-4+3i}{5}=-\dfrac45+\dfrac35i
 			\end{align*}
-			\item $z_i=3+3i,\tab z_2=-\dfrac12-i\dfrac{\sqrt3}2,\tab z_3=2\sqrt3-2i,\\z_1=3\sqrt2\left(\cos\dfrac\pi4+i\sin\dfrac\pi4 \right),\tab z_2=\cos-\dfrac{2\pi}{3}+i\sin-\dfrac{2\pi}{3},\tab z_3=4\left(\cos-\dfrac{\pi}{6}+i\sin-\dfrac{\pi}{6}\right)\\z_1\cdot z_2=3\sqrt2\left(\cos-\dfrac{5\pi}{12}+i\sin -\dfrac{5\pi}{12}\right)=\dfrac{3\sqrt3-3}{2}-i\dfrac{3\sqrt3+3}{2},\\\dfrac{z_1\cdot z_2}{z_3}=\dfrac{3\sqrt2}{4}\left(\cos-\dfrac{7\pi}{12}+i\sin-\dfrac{7\pi}{12}\right)=\dfrac{3\sqrt3-3}{8}-i\dfrac{3\sqrt3+3}{8}$
+			\item $z_1=3+3i,\tab z_2=-\dfrac12-i\dfrac{\sqrt3}2,\tab z_3=2\sqrt3-2i,\\|z_1|=\sqrt{3^2+3^2}=3\sqrt2,|z_2|=\sqrt{\dfrac14+\dfrac34}=1,|z_3|=\sqrt{4\cdot3+4}=4,\\\arg z_1=\arctan\dfrac33=\dfrac\pi4,\arg z_2=\arctan\dfrac{\sqrt{3}}2\cdot 2-\pi=-\dfrac{2\pi}{3},\arg z_3=-\dfrac{2}{2\sqrt3}=-\dfrac{\pi}{6}\\z_1=3\sqrt2\left(\cos\dfrac\pi4+i\sin\dfrac\pi4 \right),\tab z_2=\cos-\dfrac{2\pi}{3}+i\sin-\dfrac{2\pi}{3},\tab z_3=4\left(\cos-\dfrac{\pi}{6}+i\sin-\dfrac{\pi}{6}\right)\\z_1\cdot z_2=3\sqrt2\left(\cos-\dfrac{5\pi}{12}+i\sin -\dfrac{5\pi}{12}\right),\dfrac{z_1\cdot z_2}{z_3}=\dfrac{3\sqrt2}{4}\left(\cos-\dfrac{\pi}{4}+i\sin-\dfrac{\pi}{4}\right)=\dfrac{3\sqrt2}{4}\cdot\dfrac{\sqrt{2}}{2}-\\-\dfrac{3\sqrt2}{4}\cdot\dfrac{\sqrt{2}}{2}i=\dfrac34-\dfrac34i$\newpage
 			\item $z=iy,y<0$ \begin{figure*}[htp]\centering
 				\begin{tikzpicture}[]
 						\begin{axis}[xtick={-2,-1,...,2},yticklabels = {-2i,-i,,i,2i},ytick={-2,-1,...,2},axis lines=middle, xmin=-2.5, xmax=2.5,ymin=-2.5,ymax=2.5]
@@ -134,7 +134,7 @@
 						\draw[->,thick] (3.427,2.845) -- (3.427,0.96) node[midway,sloped,above] {\tiny$z$};
 						\draw[->,thick] (3.427,2.845) -- (2.29,2.845) node[midway,sloped,above] {\tiny$w=\dfrac{z}{2i}$};
 					\end{tikzpicture}
-			\end{figure*}\\\\\\
+			\end{figure*}
 		\end{enumerate}
 	\end{justify}
 	
