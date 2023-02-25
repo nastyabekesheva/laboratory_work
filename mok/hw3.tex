@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №3\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item $$x^2=12\mod89$$
+ 				$89=8\cdot11+1$. $(12, 89)=1$. Знайдемо символ Лежандра $\left(\dfrac{12}{89}\right)=(-1)^{990}\left(\dfrac{6}{89}\right)=\\=(-1)^{990}\left(\dfrac{3}{89}\right)=(-1)^{44}\left(\dfrac{2}{3}\right)=-1\Longrightarrow$ Так як 12 є квадратичним нелишком 89, не існує $x$, що задовольнятиме цю конгруецнію.
+ 			\item $$x^2=70\mod73$$
+ 				$73=8\cdot9+1$. $(70,73)=1$.  Знайдемо символ Лежандра $\left(\dfrac{70}{73}\right)=(-1)^{666}\left(\dfrac{35}{73}\right)=\\=\left(\dfrac{5}{73}\right)\left(\dfrac{7}{73}\right)=1$. $70^{18}=-1\mod73$ Шукаємо квадратичні нелишки за $\mod73:\left(\dfrac{2}{73}\right)=(-1)^{666}=1,\left(\dfrac{3}{73}\right)=(-1)^36\left(\dfrac{1}{3}\right)=1,\left(\dfrac{4}{73}\right)=\left(\dfrac{2}{73}\right)\cdot\left(\dfrac{2}{73}\right)=1,\left(\dfrac{5}{73}\right)=-1$. $5^{36}=-1\mod73$. Отже $70^{18}\cdot5^{36}=1\mod73$. Обчислюємо $70^{9}\cdot5^{18}=-1\mod73.$ $70^9\cdot5^{18}\cdot5^{36}=1\mod 73.\>70^{10}\cdot5^{54}=(70^{5}\cdot5^{27})^2=70\mod73\Longrightarrow x=\pm70^{5}\cdot5^{27}\mod73=\pm17\mod73$.
+ 			\item $$x^2=32\mod 119$$
+ 				$119=7\cdot17$. Знайдемо символ Лежандра $\left(\dfrac{32}{7}\right)=\left(\dfrac{2^5}{7}\right)=(-1)^{6}=1,\tab \left(\dfrac{32}{17}\right)=\left(\dfrac{2^5}{17}\right)=(-1)^{36}=1$. Отже $x^2=32\mod7,x^2=32\mod17$. $7=4\cdot1+3$.\\ $x=\pm32^{1+1}\mod7=\pm2\mod 7$. $17=8\cdot2+1$. $32^{2^3\cdot1}=1\mod17.\>32^4=-1\mod17$. Шукаємо квадратичні нелишки за $\mod17:\left(\dfrac{2}{17}\right)=(-1)^{36}=1,\left(\dfrac{3}{17}\right)=-1$. Отже $3^{8}=-1\mod17$. $32^4\cdot3^8=1\mod17$. Обчислюємо $32^2\cdot3^4=1\mod17,\\32^1\cdot3^2=-1\mod17$. Отже $32^2\cdot3^8\cdot3^2=(32\cdot3^5)^2=8\mod17\Longrightarrow x=\pm32\cdot3^5\mod17=\pm7\mod17.\\\begin{cases}
+ 					x=2\mod7\\x=7\mod17
+ 				\end{cases},\tab x=2\cdot17(17^{-1}\mod7)+7\cdot7(7^{-1}\mod17),\tab x=58\mod119\\\begin{cases}
+ 					x=2\mod7\\x=-7\mod17
+ 				\end{cases},\tab x=2\cdot17(17^{-1}\mod7)-7\cdot7(7^{-1}\mod17),\tab x=44\mod119$
+ 				$$x=\pm58\mod119,\tab x=\pm44\mod119$$
+ 		\end{enumerate}
+	\end{justify}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
