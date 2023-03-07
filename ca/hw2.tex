@@ -1,0 +1,105 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary {arrows.meta} 
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №2\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item \begin{enumerate} 
+ 				\item $(1+i\sqrt3)^3=(i\sqrt3)^3+9i^2+3\sqrt3i+1=-3\sqrt3i+3-3+3\sqrt3i+1=1+i\sqrt3i-\\-9-3\sqrt3i=-8$
+ 				\item $(\sqrt3-i)^5=(\sqrt3-i)^2(\sqrt3-i)^3=(3\sqrt3-9i+3\sqrt3i^2-i^3)(3-2\sqrt3i+i^2)=\\=(3\sqrt3-9i-3\sqrt3+i)(2-2\sqrt3i)=-8i(2-2\sqrt3i)=-16i-16\sqrt3$
+ 				\item $\left(\dfrac{\sqrt3+i}{\sqrt2}\right)^{12}=\left(\dfrac{\sqrt6}{2}+\dfrac{\sqrt2}{2}i\right)^{12},\tab\arg z=\arctan\sqrt3=\dfrac\pi6,\tab \\\left(\sqrt2\left(\cos\dfrac\pi6+i\sin\dfrac\pi6\right)\right)^{12}=2^6\left(\cos2\pi+i\sin2\pi\right)=64\left(\cos2\pi+i\sin2\pi\right)=64$
+ 			\end{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $\sqrt[3]i,\tab\sqrt[3]{|i|}=1,\tab\arg z=\dfrac\pi2,\\\sqrt[3]i=\sqrt[3]{|i|}\left(\cos\dfrac{\frac\pi2+2\pi k}{3}+i\sin\dfrac{\frac\pi2+2\pi k}{3}\right)=\left(\cos\dfrac{\frac\pi2+2\pi k}{3}+i\sin\dfrac{\frac\pi2+2\pi k}{3}\right)\\\sqrt[3]i=\cos\dfrac\pi6+i\sin\dfrac\pi6=\dfrac{\sqrt3}{2}+\dfrac12i,\tab \sqrt[3]i=\cos\dfrac{5\pi}{6}+i\sin\dfrac{5\pi}{6}=-\dfrac{\sqrt3}{2}+\dfrac12i\\\sqrt[3]i=\cos\dfrac{3\pi}{2}+i\sin\dfrac{3\pi}{2}=0-i$
+ 				\item $\sqrt[4]{-1},\tab \sqrt[4]{|-1|}=1,\tab\arg z=\pi,\\\sqrt[4]{-1}=\sqrt[4]{|-1|}\left(\cos\dfrac{\pi+2\pi k}{4}+i\sin\dfrac{\pi+2\pi k}{4}\right)=\left(\cos\dfrac{\pi+2\pi k}{4}+i\sin\dfrac{\pi+2\pi k}{4}\right)\\\sqrt[4]{-1}=\cos\dfrac{\pi}{4}+i\sin\dfrac{\pi}{4}=\dfrac{\sqrt2}{2}+\dfrac{\sqrt2}{2}i,\tab \sqrt[4]{-1}=\cos\dfrac{3\pi}{4}+i\sin\dfrac{3\pi}{4}=-\dfrac{\sqrt2}{2}+\dfrac{\sqrt2}{2}i\\\sqrt[4]{-1}=\cos\dfrac{5\pi}{4}+i\sin\dfrac{5\pi}{4}=-\dfrac{\sqrt2}{2}-\dfrac{\sqrt2}{2}i,\tab \sqrt[4]{-1}=\cos\dfrac{7\pi}{4}+i\sin\dfrac{7\pi}{4}=\dfrac{\sqrt2}{2}-\dfrac{\sqrt2}{2}i$
+ 				\item $\sqrt{2-i2\sqrt3},\tab |2-i2\sqrt3|=4,\tab\arg z=-\dfrac\pi3,\\\sqrt{2-i2\sqrt3}=2\left(\cos\dfrac{-\frac\pi3+2\pi k}{2}+i\sin\dfrac{-\frac\pi3+2\pi k}{2}\right)\\\sqrt{2-i2\sqrt3}=2\left(\cos-\dfrac\pi6+i\sin-\dfrac\pi6\right)=\sqrt3-i,\\ \sqrt{2-i2\sqrt3}=2\left(\cos\dfrac{5\pi}6+i\sin\dfrac{5\pi}6\right)=-\sqrt3+i$
+ 			\end{enumerate}
+ 			\item $z_1=\ln(1+x\cos y)+i\cdot4^x,\tab z_2=\sin y+i(2^{x+1}-3)\\\begin{cases}
+ 				z_1=\bar{z_2}\\z_2=\bar{z_1}
+ 			\end{cases}\begin{cases}
+ 				\ln(1+x\cos y)+i\cdot4^x=\sin y-i(2^{x+1}-3)\\\sin y+i(2^{x+1}-3)=\ln(1+x\cos y)-i\cdot4^x
+ 			\end{cases}\begin{array}{l}
+ 				2i\cdot4^x=-2i(2^{x+1}-3)\\(2^x)^2=-(2^x\cdot2-3)
+ 			\end{array}\\t^2=-(2t-3),\tab t=-3,t=1,\tab 2^x=-3,2^x=1\Longrightarrow x=0,\tab \ln(1)+i=\sin y-i(2-3),\\0=\sin y\Longrightarrow y=\pi k,k\in z$
+ 			\item Нехай $z_1=a+ib,\tab z_2=c+id$ \begin{enumerate} 
+ 				\item $\overline{z_1-z_2}=\bar{z_1}-\bar{z_2},\tab \overline{(a+ib)-(c+id)}=\overline{(a+ib)}-\overline{(c+id)},\tab \overline{(a-c)+i(b-d)}=\\=(a-ib)-(c-id),\tab (a-c)-i(b-d)=(a-c)-i(b-d)$
+ 				\item $\overline{\dfrac{z_1}{z_2}}=\dfrac{\bar{z_1}}{\bar{z_2}},\tab \overline{\dfrac{a+ib}{c+id}}=\dfrac{a-ib}{c-id},\tab \overline{\dfrac{(ac+bd)-i(-ad+bc)}{c^2+d^2}}=\dfrac{(ac+bd)+i(-ad+bc)}{c^2+d^2},\\\dfrac{(ac+bd)+i(-ad+bc)}{c^2+d^2}=\dfrac{(ac+bd)+i(-ad+bc)}{c^2+d^2}$
+ 			\end{enumerate}
+ 			\item  \begin{enumerate}
+ 				\item $\dfrac{z-1}{z+1}=\hat{z},\tab\overline{\hat{z}}=\overline{\dfrac{z-1}{z+1}}=\dfrac{\bar{z}-1}{\bar{z}+1}\\\Re\hat{z}=\dfrac{\hat{z}+\overline{\hat{z}}}{2}=\dfrac12\cdot\left(\dfrac{z-1}{z+1}+\dfrac{\bar{z}-1}{\bar{z}+1}\right)=\dfrac12\cdot\left(\dfrac{z\bar{z}+z-\bar{z}-1+\bar{z}z+\bar{z}-z-1}{z\bar{z}+z+\bar{z}+1}\right)=\\=\dfrac12\cdot\left(\dfrac{2z\bar{z}-2}{z\bar{z}+z+\bar{z}+1}\right)=\dfrac{z\bar{z}-1}{z\bar{z}+z+\bar{z}+1},\tab \dfrac{z\bar{z}-1}{z\bar{z}+z+\bar{z}+1}=0,\tab \\\left[\begin{array}{l}
+ 					z\bar{z}-1=0\\z\bar{z}+z+\bar{z}+1\neq0
+ 				\end{array}\right.,\tab\left[\begin{array}{l}
+ 					z\bar{z}=1\\z\bar{z}+z+\bar{z}+1\neq0
+ 				\end{array}\right.,\tab |z|=|\bar{z}|,\tab z\bar{z}=1\Leftrightarrow|z|=1$
+ 				\item $\dfrac{z-1}{z+1}=\hat{z},\tab\overline{\hat{z}}=\overline{\dfrac{z-1}{z+1}}=\dfrac{\bar{z}-1}{\bar{z}+1}\\\Im\hat{z}=\dfrac{\hat{z}-\overline{\hat{z}}}{2i}=\dfrac1{2i}\cdot\left(\dfrac{z-1}{z+1}+\dfrac{\bar{z}-1}{\bar{z}+1}\right)=\dfrac1{2i}\cdot\left(\dfrac{z\bar{z}+z-\bar{z}-1-\bar{z}z-\bar{z}+z+1}{z\bar{z}+z+\bar{z}+1}\right)=\\=\dfrac1{2i}\cdot\left(\dfrac{-2\bar{z}+2z}{z\bar{z}+z+\bar{z}+1}\right)=\dfrac1{i}\cdot\left(\dfrac{z-\bar{z}}{z\bar{z}+z+\bar{z}+1}\right),\tab \dfrac1{i}\cdot\left(\dfrac{z-\bar{z}}{z\bar{z}+z+\bar{z}+1}\right)=0\\\left[\begin{array}{l}
+ 					z-\bar{z}=0\\i(z\bar{z}+z+\bar{z}+1)\neq0
+ 				\end{array}\right.,\tab \left[\begin{array}{l}
+ 					z=\bar{z}\\z\bar{z}+z+\bar{z}+1\neq0
+ 				\end{array}\right.,\tab z=\bar{z}\Leftrightarrow \Im z=0$
+ 			\end{enumerate}
+ 			\item $z_1\Im(\bar{z_2}z_3)+z_2\Im(\bar{z_3}z_1)+z_3\Im(\bar{z_1}z_2)=z_1\dfrac{\bar{z_2}z_3-z_2\bar{z_3}}{2i}+z_2\dfrac{\bar{z_3}z_1-z_3\bar{z_1}}{2i}+z_3\dfrac{\bar{z_1}z_2-z_1\bar{z_2}}{2i}=\\=\dfrac{1}{2i}\cdot\left(\underline{z_1\bar{z_2}z_3}-z_1z_2\bar{z_3}+z_2\bar{z_3}z_1-z_2z_3\bar{z_1}+z_3\bar{z_1}z_2-\underline{z_3z_1\bar{z_2}}\right)=\dfrac{1}{2i}\cdot\left(\underline{-z_1z_2\bar{z_3}}+\underline{z_2\bar{z_3}z_1}-\right.\\\left.-z_2z_3\bar{z_1}+z_3\bar{z_1}z_2\right)=\dfrac{1}{2i}\cdot\left(-z_2z_3\bar{z_1}+z_3\bar{z_1}z_2\right)=0$
+ 			\item \begin{enumerate} 
+ 				\item $\bar{z}=z^2,\tab z=x+iy,\tab x-iy=(x^2-y^2)+2xyi,\\\begin{cases}
+ 				x=x^2-y^2\\-iy=2xyi
+ 			\end{cases}\begin{array}{l}
+ 				2x=-1,\tab x=-\dfrac12,-\dfrac12=\dfrac14-y^2,\tab y^2=\dfrac34,\tab y=\pm\dfrac{\sqrt3}{2}
+ 			\end{array}\\y=0:\tab x=x^2\tab\Longrightarrow\tab  x=1,\tab x=0\\z=-\dfrac12\pm\dfrac{\sqrt3}{2}i,\tab z=0,\tab z=1$ 
+ 				\item $z=|z|,\tab z=x+iy,\tab |z|=\sqrt{x^2+y^2},\tab x+iy=\sqrt{x^2+y^2},\tab x^2+y^2=(x+iy)^2,\\2y^2-2xyi=0,\tab y(y-xi)=0,\tab y=0,y=ix,\tab z=x,z=x-x=0,x>0,x\in R$
+ 			\end{enumerate}
+ 		\end{enumerate}
+	\end{justify}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
