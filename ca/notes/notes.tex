@@ -10,6 +10,7 @@
 % Math
 \usepackage{cases}
 \usepackage{mathtools}
+\usepackage[makeroom]{cancel}
 
 % Typography
 \usepackage{enumitem}
@@ -96,9 +97,14 @@
 \newcommand{\Cn}[0]{\mathbb{C}}
 \renewcommand{\Im}[0]{\mathfrak{Im}}
 \renewcommand{\Re}[0]{\mathfrak{Re}}
-\newcommand{\Arg}[0]{\textrm{Arg }}
+\renewcommand{\th}[0]{\textrm{\hspace*{0.15cm}th\hspace*{0.1cm}}}
+\renewcommand{\cth}[0]{\textrm{\hspace*{0.15cm}cth\hspace*{0.1cm}}}
+\newcommand{\Arg}[0]{\hspace*{0.15cm}\textrm{Arg}\hspace*{0.1cm}}
+\newcommand{\Ln}[0]{\hspace*{0.15cm}\textrm{Ln}\hspace*{0.1cm}}
 \newcommand{\deff}[0]{\tab\tab\textbf{def}\tab}
 \newcommand{\limntoinf}[0]{\lim\limits_{n\to\infty}}
+\newcommand{\eqdef}[1]{\underset{\mathrm{def\>#1}}{=\joinrel=}}
+\newcommand{\equset}[1]{\underset{\mathrm{#1}}{=\joinrel=}}
 
 % ------------Enviroments------------
 
@@ -106,6 +112,8 @@
 \newtheorem*{prooff}{Доведення}
 \newtheorem{cons}{Наслідок}[chapter]
 \newtheorem*{cons*}{Наслідок}
+\newtheorem{remark}{Зауваження}[chapter]
+\newtheorem*{remark*}{Зауваження}
 \newtheorem{statement}{Твердження}[chapter]
 \newtheorem*{statement*}{Твердження}
 
@@ -119,5 +127,6 @@
 	\tableofcontents
 	\newpage
 	\include{chapter_1}
+	\include{chapter_1_1}
 \end{justify}
 \end{document}
