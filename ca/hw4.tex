@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary {arrows.meta} 
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand{\Arcsin}[0]{\textrm{Arcsin\hspace*{0.1cm}}}
+\newcommand{\Ln}[0]{\textrm{\hspace*{0.15cm}Ln\hspace*{0.1cm}}}
+\newcommand{\Arccos}[0]{\textrm{Arccos\hspace*{0.1cm}}}
+\newcommand{\Arctan}[0]{\textrm{Arctan\hspace*{0.1cm}}}
+\newcommand{\Arth}[0]{\textrm{Arth\hspace*{0.1cm}}}
+\newcommand{\Arch}[0]{\textrm{Arch\hspace*{0.1cm}}}
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №4\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $\sin\left(\dfrac\pi6-3i\right)=\dfrac1{2i}\left(e^{i\cdot\left(\frac\pi6-3i\right)}-e^{-i\cdot\left(\frac\pi6-3i\right)}\right)=\dfrac1{2i}\left(e^{\left(i\frac\pi6+3\right)}-e^{\left(-i\frac\pi6-3\right)}\right)$
+ 				\item $\cos\left(\dfrac\pi3+3i\right)\dfrac1{2}\left(e^{i\cdot\left(\frac\pi3+3i\right)}-e^{-i\cdot\left(\frac\pi3+3i\right)}\right)=\dfrac1{2}\left(e^{\left(i\frac\pi3-3\right)}-e^{\left(-i\frac\pi3+3\right)}\right)$
+ 				\item $\Arcsin i=-i\Ln(i\cdot i\pm\sqrt{1-i^2})=-i\Ln(-1\pm\sqrt{2})=-i\Ln(-1+\sqrt{2})=\\=-i\left(\ln(-1+\sqrt2)+2i\pi k\right)$
+ 				\item $\Arccos 2=-i\Ln(2\pm\sqrt{4-1})=-i\Ln(2\pm\sqrt3)=-i\left(\ln(2\pm\sqrt3)+2i\pi k\right)$
+ 				\item $\Arctan(1+2i)=-\dfrac i2\Ln\dfrac{1+i(1+2i)}{1-i(1+2i)}=-\dfrac i2\Ln\dfrac{i-1}{3-i}=-\dfrac i2\left(\ln\dfrac1{\sqrt5}+\right.\\\left.+i\left(\arctan-\dfrac12+2\pi k\right)\right)$
+ 				\item $\Arth(1-i)=\dfrac12\Ln\dfrac{1+(1-i)}{1-(1-i)}=\dfrac12\Ln\dfrac{2-i}{i}=\dfrac12\left(\ln\sqrt5+i\left(\arctan2-\pi+2\pi k\right)\right)$
+ 				\item $\Arch 2i=\Ln(2i\pm\sqrt{-4-1})=\Ln(2i\pm(\pm\sqrt5 i))=\Ln(2i+\sqrt5i)=\ln(9+4\sqrt5)+\\+i\left(\dfrac\pi2+2\pi k\right)$
+ 				\item $\Ln (-i)=\ln 1+i\left(-\dfrac\pi2+2\pi k\right)=i\left(-\dfrac\pi2+2\pi k\right)$
+ 			\end{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $i^{1+i}=\exp((1+i)\Ln i)=\exp\left((1+i)\cdot\left(\ln 1+i\dfrac\pi2+2\pi k\right)\right)=\exp\left(2\pi k-\dfrac\pi2+\right.\\\left.+i\left(\dfrac\pi2+2\pi k\right)\right)=e^{2\pi k-\frac\pi2}\left(\cos\left(\dfrac\pi2+2\pi k\right)+i\sin\left(\dfrac\pi2+2\pi k\right)\right)$
+ 				\item $(1+i)^i=\exp(i\Ln(1+i))=\exp\left(i\ln\sqrt2+i\cdot i\left(\arctan1+2\pi k\right)\right)=\exp(-\arctan1-\\-2\pi k+i\ln\sqrt2)=e^{-\arctan1-2\pi k}(\cos\ln\sqrt2+i\sin \ln\sqrt2)$
+ 				\item $3^i=\exp(i\Ln3)=\exp(i(\ln3+2\pi ki))=\exp(-2\pi k+i\ln3)=e^{-2\pi k}(\cos\ln3+\\+i\sin\ln3)$
+ 				\item $2^{1+i}=\exp((1+i)\Ln2)=\exp((1+i)\cdot(\ln2+2\pi ki))=\exp(\ln2-2\pi k+i(2\pi k+\ln2))=\\=e^{\ln2-2\pi k}(\cos(2\pi k+\ln2)+i\sin(2\pi k+\ln2))$
+ 				\item $(-1)^{\sqrt3}=\exp(\sqrt3\Ln(-1))=\exp(\sqrt3(\ln1+i(2\pi k+2\pi)))=\exp(\sqrt3\cdot i(2\pi k+2\pi))=\\=e^0(\cos\sqrt3\cdot(2\pi k+2\pi)+i\sin\sqrt3\cdot(2\pi k+2\pi))$
+ 			\end{enumerate}
+ 		\end{enumerate}
+	\end{justify}
+\end{document}
