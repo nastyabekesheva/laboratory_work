@@ -1,0 +1,99 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary {arrows.meta} 
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №5\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 		\item \begin{enumerate} 
+ 			\item $f(z)=\bar{z}^2=(x-iy)^2=x^2-y^2-2xyi,\tab u(x,y)=x^2-y^2,\tab v(x,y)=-2xy,\\\dfrac{\partial u}{\partial x}=2x,\tab\dfrac{\partial v}{\partial y}=-2x,\tab \dfrac{\partial u}{\partial y}=-2y,\tab\dfrac{\partial v}{\partial x}=-2y,\\\begin{cases}
+ 				2x=-2x\\2y=-2y
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				x=0\\y=0
+ 			\end{cases}\Longrightarrow\\$ функція диференційовнa при $z=0$ та не аналітична.
+ 			\item $f(z)=\Im z^2=\Im(x^2-y^2+2xyi)=x^2-y^2,\tab u(x,y)=x^2-y^2,\tab v(x,y)=0\\\dfrac{\partial u}{\partial x}=2x,\tab\dfrac{\partial v}{\partial y}=0,\tab \dfrac{\partial u}{\partial y}=-2y,\tab\dfrac{\partial v}{\partial x}=0,\\\begin{cases}
+ 				2x=0\\2y=0
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				x=0\\y=0
+ 			\end{cases}\Longrightarrow\\$ функція диференційовнa при $z=0$, функція не аналітична.
+ 		\end{enumerate}
+ 		\item \begin{enumerate}
+ 			\item $f(z)=y+i\lambda x,\tab u(x,y)=y,\tab v(x,y)=\lambda x\\\dfrac{\partial u}{\partial x}=0,\tab\dfrac{\partial v}{\partial y}=0,\tab \dfrac{\partial u}{\partial y}=1,\tab\dfrac{\partial v}{\partial x}=\lambda,\\\begin{cases}
+ 				0=0\\-1=\lambda
+ 			\end{cases}\Longrightarrow\lambda=-1\Longrightarrow$ функція диференційовна при $\lambda=-1.$
+ 		\end{enumerate}
+ 		\item \begin{enumerate}
+ 			\item $f=z\Re z=(x+iy)\cdot x=x^2+xyi,\tab u(x,y)=x^2,\tab v(x,y)=xyi,\\\dfrac{\partial u}{\partial x}=2x,\tab\dfrac{\partial v}{\partial y}=xi,\tab \dfrac{\partial u}{\partial y}=0,\tab\dfrac{\partial v}{\partial x}=yi,\\\begin{cases}
+ 				2x=xi\\0=yi
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				x=0\\y=0
+ 			\end{cases}\\$ функція диференційовнa при $z=0$ та не аналітична.
+ 			\item $f=\dfrac{1}{z^2}=\rho^{-2}e^{-2i\varphi}=\rho^{-2}(\cos2\varphi-i\sin2\varphi),\\ u(\rho,\varphi)=\rho^{-2}\cos 2\varphi,\tab v(\rho,\varphi)=-\rho^{-2}\sin2\varphi\\\dfrac{\partial u}{\partial \rho}=-2\rho^{-3}\cos 2\varphi,\tab\dfrac{\partial v}{\partial \varphi}=-2\rho^{-2}\cos 2\varphi,\tab \dfrac{\partial u}{\partial \varphi}=-2\rho^{-2}\sin 2\varphi,\tab\dfrac{\partial v}{\partial \rho}=2\rho^{-3}\sin 2\varphi,\\\begin{cases}
+ 				-2\rho^{-3}\cos 2\varphi=-2\rho^{-3}\cos 2\varphi\\2\rho^{-3}\cos 2\varphi=2\rho^{-3}\cos 2\varphi
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				\rho\in\mathbb{R}\\\varphi\in\mathbb{R} 
+ 			\end{cases},\tab \rho\neq 0\\$ функція є диференційовною і аналітичною при $z\in\mathbb{C}\smallsetminus\{0\}$.
+ 		\end{enumerate}
+ 		\item \begin{enumerate}
+ 			\item $f(z)=\cos z,\tab u(x,y)=\cos x\ch y,\tab v(x,y)=-\sin x\sh y\\\dfrac{\partial u}{\partial x}=-\sin x\ch y,\tab\dfrac{\partial v}{\partial y}=-\sin x\ch y,\tab \dfrac{\partial u}{\partial y}=\cos x\sh y,\tab\dfrac{\partial v}{\partial x}=-\cos x\sh y,\\\begin{cases}
+ 				-\sin x\ch x=-\sin x\ch x\\\cos x\sh y=\cos x\sh y
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				x\in\mathbb{R}\\y\in\mathbb{R}
+ 			\end{cases}\\$ функція є диференційовною і аналітичною при $z\in\mathbb{C}.\\f'(z)=-\sin x\ch y-i\cos x \sh y=-\sin x \cos iy-\cos x\sin iy=-(\sin x\cos iy+\\+\cos x\sin iy)=-\sin(x+iy)=-\sin z$
+ 			\item $f(z)=\sh z,\tab u(x,y)=\sh x\cos y,\tab v(x,y)=\sin y\ch x\\\dfrac{\partial u}{\partial x}=\ch x\cos y,\tab\dfrac{\partial v}{\partial y}=\ch x\cos y,\tab \dfrac{\partial u}{\partial y}=-\sh x\sin y,\tab\dfrac{\partial v}{\partial x}=\sh x\sin y,\\\begin{cases}
+ 				\ch x\cos y=\ch x\cos y\\\sh x\sin y=\sh x\sin y
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				x\in\mathbb{R}\\y\in\mathbb{R}
+ 			\end{cases}\\$ функція є диференційовною і аналітичною при $z\in\mathbb{C}.\\f'(z)=\ch x\cos y+i\sh x\sin y=\cos ix\cos y+\sin ix\sin y=\cos(ix-y)=\\=\cos(i(x+iy))=\ch (x+iy)=\ch z$
+ 			\item $f(z)=z^n=\rho^ne^{in\varphi}=\rho^n(\cos n\varphi+i\sin n\varphi),\\ u(\rho,\varphi)=\rho^n \cos n\varphi,\tab v(\rho,\varphi)=\rho^n \sin n\varphi,\\\dfrac{\partial u}{\partial \rho}=n\rho^{n-1}\cos n\varphi,\tab\dfrac{\partial v}{\partial \varphi}=n\rho^n\cos n\varphi,\tab \dfrac{\partial u}{\partial \varphi}=-n\rho^n\sin n\varphi,\tab\dfrac{\partial v}{\partial \rho}=n\rho^{n-1}\sin n\varphi,\\\begin{cases}
+ 				n\rho^{n-1}\cos n\varphi=n\rho^{n-1}\cos n\varphi\\-n\rho^{n-1}\sin n\varphi=-n\rho^{n-1}\sin n\varphi
+ 			\end{cases}\Longrightarrow\begin{cases}
+ 				\rho\in\mathbb{R}\\\varphi\in\mathbb{R} 
+ 			\end{cases}\\$ функція є диференційовною і аналітичною при $z\in\mathbb{C}.\\f'(z)=-\dfrac \rho z\left(n\rho^{n-1}\cos n\varphi+in\rho^{n-1}\sin n\varphi\right)=-\dfrac{n}{z}(\rho^{n}\cos n\varphi+i\rho^{n}\sin n\varphi)=nz^{n-1}$
+ 		\end{enumerate}
+ 		\item \begin{enumerate} 
+ 			\item $f(z)=\dfrac{z^3+1}{z^2(z^2-3z+2)},\\z^2(z^2-3z+2)=0,\tab z^2(z-2)(z-1)=0\Longrightarrow z=0,z=1,z=2.\\$ функція аналітична на $z\in\mathbb{C}\smallsetminus\{0,1,2\}.$
+ 			\item $f(z)=\ctg\left(\dfrac z2\right),\\\ctg\left(\dfrac z2\right)=\dfrac{\cos\left(\frac z2\right)}{\sin\left(\frac z2\right)},\tab \sin\left(\dfrac z2\right)=0,\tab\dfrac z2=\pi k,k\in\mathbb{Z},\tab z=2\pi k,k\in\mathbb{Z}\\$ функція аналітична на $z\in\mathbb{C}\smallsetminus\{2\pi k\},k\in\mathbb{Z}.$
+ 		\end{enumerate}
+ 		\item \begin{enumerate} 
+ 			\item $u(x,y)=x^3-3xy^2,\\u_x'=3(x^2-y^2),\tab u_y'=-6xy,\tab u_x'=v_y',v_x'=-u_y'\Longrightarrow v=3\displaystyle\int (x^2-y^2)\>dy=\\=3\left(x^2y-\dfrac13 y^3\right)+C(x)=3x^2y-y^3+C(x)\Longrightarrow v_x'=6xy+C'(x),\tab v_x'=-u_y'\Longrightarrow 6xy+C'(x)=-(-6xy)\Longrightarrow C'(x)=0,\tab C(x)=C,\tab v=3x^2y-y^3+C,\\f(z)=x^3-3xy^2+i(3x^2y-y^3+C)=x^3-3xy^2+3x^2yi-iy^3+Ci=(x+iy)^3+Ci=\\=z^3+Ci$ 
+ 			\item $v(x,y)=2xy+3x,\\v_x'=2y+3,\tab v_y'=2x,\tab u_x'=v_y',v_x'=-u_y'\Longrightarrow u=\displaystyle\int 2x\>dx=x^2+C(y)\Longrightarrow\\ u_y'=C'(y),\tab -C'(y)=2y+3,\tab C(y)=-y^2-3y+C,\\f(z)=x^2-y^2-3y+C+i(2xy+3x)=x^2-y^2-3y+C+2xyi+3xi=(x+iy)^2+\\+3i(x+iy)+C=z^2+3iz+C$
+ 			\item $v(x,y)=x+y\\v_x'=1,\tab v_y'=1,\tab u_x'=v_y',v_x'=-u_y'\Longrightarrow u=\displaystyle\int1\>dx=x+C(y)\Longrightarrow u_y'=C'(y),\\-C'(y)=1,\tab C(y)=-y+C,\\f(z)=x-y+C+i(x+y)=x-y+C+xi+yi=(x+iy)+i(x+iy)+C=z+iz+C$
+ 		\end{enumerate}
+ 	\end{enumerate}
+ 	\end{justify}
+\end{document}
