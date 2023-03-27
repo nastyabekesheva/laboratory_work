@@ -1,5 +1,5 @@
-\section{Основні елементарні функції комплексної змінної}
-\subsection{Показникова функція $\exp z$}
+\section{Основні елементарні функції комплексної змінної.}
+\subsection{Показникова функція $\exp z$.}
 $z\in\Cn,\tab z=xiy\\\\$
 $\deff\exp z=e^x(\cos y+isiny)\\\\$
 \textbf{Основні властивості}:
@@ -30,7 +30,7 @@ $\deff\exp z=e^x(\cos y+isiny)\\\\$
 			\end{enumerate}
 		\end{prooff}
 \end{enumerate}
-\subsection{Логарифмічна функція $\Ln z$}
+\subsection{Логарифмічна функція $\Ln z$.}
 $z\in\Cn,\tab(z=x+iy)\\\\$
 $\deff W=\Ln z,$ якщо $\exp W=z$
 \textbf{Основні властивості}:
@@ -48,7 +48,7 @@ $\deff W=\Ln z,$ якщо $\exp W=z$
 		\end{prooff}
 	\item 
 \end{enumerate}
-\subsection{Тригонометричні функції}
+\subsection{Тригонометричні функції.}
 $z\in\Cn,\tab(z=x+iy)\\\\$
 $\deff \sin z=\dfrac1{2i}(\exp(iz)-\exp(-iz))\\\\\tab\tab\tab\tab\>\cos z=\dfrac12(\exp(iz)-\exp(-iz))\\\\\tab\tab\tab\tab\>\tan z=\dfrac{\sin z}{\cos z},\tab \cot z=\dfrac{\cos z}{\sin z}\\\\$
 \textbf{Основні властивості}:
@@ -94,7 +94,7 @@ $\deff \sin z=\dfrac1{2i}(\exp(iz)-\exp(-iz))\\\\\tab\tab\tab\tab\>\cos z=\dfrac
 	\item $\sin z,\>\cos z$ не обмежені.\\
 		Наприклад для $z=\dfrac\pi2+iy,\tab y\in\Rn:\tab \sin z=\sin\left(\dfrac\pi2+iy\right)=\dfrac1{2i}\left(\exp\left(i\left(\dfrac\pi2+iy\right)\right)\right.-\\-\left.\exp\left(-i\left(\dfrac\pi2+iy\right)\right)\right)=\dfrac1{2i}\left(\exp\left(i\dfrac\pi2-y\right)-\exp\left(y-i\dfrac\pi2\right)\right)=\dfrac1{2i}\left(e^{-y}\left(\cos\dfrac\pi2+i\sin\dfrac\pi2\right)\right.-\\-\left.e^{-y}\left(\cos\dfrac\pi2-i\sin\dfrac\pi2\right)\right)=\dfrac12\left(e^{-y}+e^{y}\right).$
 \end{enumerate}
-\subsection{Гіперболічні функції}
+\subsection{Гіперболічні функції.}
 $z=x+iy,\tab x,y\in\Rn\\\\$
 $\deff\sh z=\dfrac12(\exp z-\exp(-z))\\\tab\tab\tab\tab\>\ch z=\dfrac12(\exp z+\exp(-z)\\\tab\tab\tab\tab\>\th z=\dfrac{\sh z}{\ch z}\\\tab\tab\tab\tab\>\cth z=\dfrac{\ch z}{\sh z}\\\\$
 \textbf{Основні властивості}:
@@ -127,8 +127,92 @@ $\alpha^z=\exp(z\Ln \alpha)=\langle z=x+iy,\tab x,y\in\Rn,\tab\alpha=|z|e^{i\psi
 	\item[-]  $e^z=e^{x\ln e-y\cdot2\pi k}\cdot(\cos(y\ln e+x\cdot2\pi k)+i\sin(y\ln e+x\cdot2\pi k))$
 	\item[-] При $k=0:\tab e^z|_{k=0}=e^{x}\cdot(\cos y+i\sin y)=\exp z$
 \end{itemize}
-
-
+\section{Границя функції. Неперервність.}
+Нехай $z=x+iy,\tab z_0=x_0+iy_0,\tab A\in\Cn\\\\\deff\lim\limits_{z\to z_0}f(z)=A,$ якщо $\forall\varepsilon>0\>\>\>\>\exists\delta(\varepsilon)>0\>\>\>\>(0<|z-z_0|<\delta(\varepsilon))\Rightarrow|f(z)-A|<\varepsilon)$
+\begin{figure*}[htp]\centering
+	\begin{tikzpicture}
+		\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.9,ymin=-0.1,ymax=0.9,xshift=-3.4cm]	
+		\end{axis}
+		\draw (0,0) node {\small$z=x+iy$};
+		\draw (-2.5,5.5) node {$y$};
+		\draw (3,1) node {$x$};
+		\draw (0,3) node[circle,fill,inner sep=1pt] {};
+		\draw (0,3) node[below] {\scriptsize$z_0$};
+		\draw (0,3) -- (1.06,4.06) node[sloped,midway,above] {\scriptsize$z$};
+		\draw (1.06,4.06) node[right] {\scriptsize$\delta(\varepsilon)$};
+		\draw[->] (3,3.5) -- (4,3.5) node[midway,above] {$f$};
+		\draw (0,3) circle (1.5);
+ 	    \clip (0,3) circle (1.5);
+ 		\pgfmathsetseed{24122015}
+    	\foreach \p in {1,...,300}
+    	{ \pgfmathsetmacro{\x}{2*rand}
+        	\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3}
+        	\fill[black]    (\x,\y) circle (0.02);
+    	}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.9,ymin=-0.1,ymax=0.9,xshift=-3.4cm]	
+		\end{axis}
+		\draw (0,0) node {\small$f(z)=u+iv$};
+		\draw (-2.5,5.5) node {$v$};
+		\draw (3,1) node {$u$};
+		\draw (0,3) node[circle,fill,inner sep=1pt] {};
+		\draw (0,3) node[above] {\scriptsize$A$};
+		\draw (0,3) -- (1.06,1.95) node[sloped,midway,above] {\scriptsize$\varepsilon$};
+		\draw (1.06,1.95) node[right] {\scriptsize$f(z)$};
+		\draw (0,3) circle (1.5);
+ 	    \clip (0,3) circle (1.5);
+ 		\pgfmathsetseed{24122015}
+    	\foreach \p in {1,...,300}
+    	{ \pgfmathsetmacro{\x}{2*rand}
+        	\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3}
+        	\fill[black]    (\x,\y) circle (0.02);
+    	}
+	\end{tikzpicture}
+\end{figure*}
+$\\\lim\limits_{z\to z_0}f(z)=\left\langle\begin{array}{c}
+	f(z)=u(x,y)+iv(x,y)\\z=x+iy
+\end{array} \right\rangle=\lim\limits_{\scriptsize\begin{array}{c}
+	x\to x_0\\y\to y_0
+\end{array}}(u+iv).\\ f\to A,g\to B$ при $z\to z_0.\tab $ Тоді 
+\begin{align*}
+	\tab\lim\limits_{z\to z_0}(f+g)=&\lim\limits_{z\to z_0}f+\lim\limits_{z\to z_0}g\\\lim\limits_{z\to z_0}(f\cdot g)=&\lim\limits_{z\to z_0}f\cdot\lim\limits_{z\to z_0}g\\\lim\limits_{z\to z_0}\left(\dfrac fg\right)=&\dfrac{\lim\limits_{z\to z_0}f}{\lim\limits_{z\to z_0}g},\tab \lim\limits_{z\to z_0}g\neq0
+\end{align*}
+$\\\deff\lim\limits_{z\to z_0} f(z)=\infty,$ якщо $\forall\varepsilon>0\tab\exists\delta(\varepsilon)>0\tab(0<|z-z_0|<\delta(\varepsilon)\Rightarrow|f(z)|>\varepsilon)\\$
+\begin{figure*}[htp]\centering
+	\begin{tikzpicture}
+		\begin{axis}[ticks=none,axis lines=middle, xmin=-0.1, xmax=0.9,ymin=-0.1,ymax=0.9,xshift=-3.4cm]	
+		\end{axis}
+		\draw (-2.5,5.5) node {$y$};
+		\draw (3,1) node {$x$};
+		\draw (0,3) node[circle,fill,inner sep=1pt] {};
+		\draw (0,3) node[below] {\scriptsize$z_0$};
+		\draw (0,3) -- (1.06,4.06) node[sloped,midway,above] {\scriptsize$z$};
+		\draw[->] (3,3.5) -- (4,3.5) node[midway,above] {$f$};
+		\draw (0,3) circle (1.5);
+ 	    \clip (0,3) circle (1.5);
+ 		\pgfmathsetseed{24122015}
+    	\foreach \p in {1,...,300}
+    	{ \pgfmathsetmacro{\x}{2*rand}
+        	\pgfmathsetmacro{\y}{rand*sqrt(4-pow(\x,2))+3}
+        	\fill[black]    (\x,\y) circle (0.02);
+    	}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\pgfmathsetseed{24122015}
+    	\foreach \p in {1,...,300}
+    	{ \pgfmathsetmacro{\x}{3*rand}
+        	\pgfmathsetmacro{\y}{rand*sqrt(9-pow(\x,2))+2.7}
+        	\fill[black]    (\x,\y) circle (0.02);
+    	}
+    	\draw[fill=white] (0.03,2.85) circle (1.5);
+		\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5,xshift=-3.4cm]	
+		\end{axis}
+		\draw (1,4) node[circle,fill,inner sep=1pt] {};
+		\draw (0.03,2.85) -- (1,4) node[right,above] {$\varepsilon$};
+		\draw (2.3,3.5) node {$f(z)$};
+	\end{tikzpicture}
+\end{figure*}
 
 
 
