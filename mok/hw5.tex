@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+
+\newcommand{\ord}[0]{\textrm{\hspace*{0.15cm}ord\hspace*{0.1cm}}}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №5\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item Спочатку покажемо що $(A, \cdot)$ - група. 
+ 				\begin{enumerate} 
+ 					\item асоціативність. Множення матриць асоціативне за означенням.
+ 					\item нейтральний елемент. У множині $A$ є нейтральний елемент: $e=\begin{pmatrix}
+ 						1&0\\0&1
+ 					\end{pmatrix}$.
+ 					\item обернений елмент. $a_1\cdot a_1=e,\tab a_2\cdot a_2=e,\tab a_3\cdot a_4=e,\tab a_4\cdot a_3=e,\tab a_5\cdot a_5=e.$
+ 				\end{enumerate}
+ 				Отже $(A,\cdot)$ є групою. 
+ 				Побудуємо таблицю Келі для $A$. Також візьмемо $\mod 2$ від кожного множення, шоб у відповіді отримати елементи з множини $A$. Тобто $a_1\cdot a_3$ рахуватиметься так: $\begin{pmatrix}
+ 				1&0\\1&1
+ 			\end{pmatrix}\cdot\begin{pmatrix}
+ 				0&1\\1&1
+ 			\end{pmatrix}=\begin{pmatrix}
+ 				0&1\\1&2
+ 			\end{pmatrix}=\begin{pmatrix}
+ 				0&1\\1&2
+ 			\end{pmatrix}\mod 2=\begin{pmatrix}
+ 				0&1\\1&0
+ 			\end{pmatrix}=a_2$. Отже таблиця Келі:
+ 			\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$\cdot$ & $e$   & $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ \\ \hline
+$e$     & $e$   & $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ \\ \hline
+$a_1$   & $a_1$ & $e$   & $a_3$ & $a_2$ & $a_5$ & $a_4$ \\ \hline
+$a_2$   & $a_2$ & $a_4$ & $e$   & $a_5$ & $a_1$ & $a_3$ \\ \hline
+$a_3$   & $a_3$ & $a_5$ & $a_1$ & $a_4$ & $e$   & $a_2$ \\ \hline
+$a_4$   & $a_4$ & $a_2$ & $a_5$ & $e$   & $a_3$ & $a_1$ \\ \hline
+$a_5$   & $a_5$ & $a_3$ & $a_4$ & $a_1$ & $a_2$ & $e$   \\ \hline
+\end{tabular}
+\end{table}
+				\\Згадаємо таблицю Келі для $\sigma_3:$
+				\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$\cdot$ & $e$     & $\pi_1$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ \\ \hline
+$e$     & $e$     & $\pi_1$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ \\ \hline
+$\pi_1$ & $\pi_1$ & $e$     & $\pi_3$ & $\pi_2$ & $\pi_5$ & $\pi_4$ \\ \hline
+$\pi_2$ & $\pi_2$ & $\pi_4$ & $e$     & $\pi_5$ & $\pi_1$ & $\pi_3$ \\ \hline
+$\pi_3$ & $\pi_3$ & $\pi_5$ & $\pi_1$ & $\pi_4$ & $e$     & $\pi_2$ \\ \hline
+$\pi_4$ & $\pi_4$ & $\pi_2$ & $\pi_5$ & $e$     & $\pi_3$ & $\pi_1$ \\ \hline
+$\pi_5$ & $\pi_5$ & $\pi_3$ & $\pi_4$ & $\pi_1$ & $\pi_2$ & $e$     \\ \hline
+\end{tabular}
+\end{table}	
+				\\З даних таблиць Келі легко бачити, що $A\cong\sigma_3$
+			\item \begin{enumerate}
+				\item Доведемо що $f(e_H)=e_G$. Cкористаємося тим, що $e_H\cdot e_H=e_H:$ $$f(e_H)=f(e_H\cdot e_H)=f(e_H)\times f(e_H)$$ Тепер домножимо на оберенене до $f(e_H):$ $$f(e_H)\times f^{-1}(e_H)=(f(e_H)\times f(e_H))\times f^{-1}(e_H)$$ Так як $\times$ - асоціативна, можемо сказати, що $$f(e_H)=e_G$$
+				\item Доведемо що $f(a^{-1})=f(a)^{-1}$. Вже знаємо, що $e_G=f(e_h)$. Отже $$e_G=f(e_h)=f(a\cdot a^{-1})$$ За означенням гомомрфізму $$e_G=f(e_h)=f(a\cdot a^{-1})=f(a)\times f(a^{-1})$$ Перепишемо і отримаємо: $$f(a)^{-1}=f(a)^{-1}\times e_H=f(a)^{-1}\times f(a)\times f(a^{-1})=e_H\times f(a^{-1})=f(a^{-1})$$
+			\end{enumerate}
+			\item Порахуємо порядки елементів $\langle a\rangle:\ord(a^1)=\ord(a^5)=\ord(a^7)=\ord(a^{11})=12,\ord(a^2)=\ord(a^{10})=6,\ord(a^3)=\ord(a^9)=4,\ord(a^4)=\ord(a^8)=3,\ord(a^6)=2,\ord(a^{12}=e)=1.\\$ Запишемо підгрупи: порядок 1: $H_1=\{e\}$, порядок 12: $H_{12}=\langle a\rangle$, порядок 6: $H_6=\{e,a^2,a^4,a^6,a^8,a^{10}\}$, порядок 4: $H_4=\{e,a^3,a^6,a^9\}$, порядок 3: $H_3=\{e,a^4,a^8\}$, порядок 2: $H_2=\{e,a^6\}$. 
+				\begin{itemize}
+					\item [($H_1$.)] $aH_1=\{a\},\tab a^2H_1=\{a^2\},\tab\cdots,\tab a^{11}H_1=\{a^{11}\}\\\langle a\rangle=H_1\cup aH_1\cup\dots\cup a^{11}H_1,\tab \langle a\rangle/H_1\cong(Z_{12},\oplus)$
+					\item [($H_2$.)] $aH_2=\{a^1,a^7\},\tab a^2H_2=\{a^2,a^8\},\tab a^3H_2=\{a^3,a^9\},\tab a^4H_2=\{a^4,a^{10}\},\tab  a^5H_2=\{a^5,a^{11}\},\tab \langle a\rangle=H_2\cup aH_2\cup a^2H_2\cup a^3H_2\cup a^4H_2\cup a^5H_2,\tab \langle a\rangle/H_2\cong(\mathbb{Z}_6,\oplus)$
+					\item [($H_3$.)] $aH_3=\{a,a^5,a^9\},\tab a^2H_3=\{a^2,a^6,a^{10}\},\tab a^3H_3=\{a^3,a^7,a^{11}\},\\\langle a\rangle=H_4\cup aH_3\cup a^2H_3\cup a^3H_3,\tab \langle a\rangle/H_3\cong(\mathbb{Z}_4,\oplus)$
+					\item [($H_4$.)] $aH_4=\{a,a^4,a^7,a^{10}\},\tab a^2H_4=\{a^2,a^5,a^8,a^{11}\},\\\langle a\rangle=H_4\cup aH_4\cup a^2H_4,\tab \langle a\rangle/H_4\cong(\mathbb{Z}_3,\oplus)$
+					\item [($H_6$.)] $aH_6=\{a,a^3,a^5,a^7,a^9,a^{11}\}\\\langle a\rangle=H_6\cup aH_6,\tab \langle a\rangle/H_6\cong(\mathbb{Z}_2,\oplus)$
+					\item [($H_{12}$.)] $\langle a\rangle=H_{12},\tab \langle a\rangle/H_{12}\cong(\mathbb{Z}_0,\oplus)$
+				\end{itemize} 
+ 		\end{enumerate}
+ 		
+	\end{justify}
+\end{document}
