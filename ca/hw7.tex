@@ -1,0 +1,149 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{subfigure}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary {arrows.meta} 
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand\dx[1]{\hspace*{0.2cm}\textrm{d}{#1}\hspace*{0.1cm}}
+\newcommand\dint[0]{\displaystyle\int}
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №7\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item \begin{enumerate} 
+ 				\item $\dint\limits_{-2}^{-2+i}(z+2)^2\dx{z}=\dint\limits_{-2}^{-2+i}(z+2)^2\dx{(z+2)}=\dfrac{(z+2)^3}3\bigg|_{-2}^{-2+i}=\dfrac{(-2+i+2)^3}{3}-\dfrac{(-2+2)^3}{3}=\\=\dfrac13i^3-\dfrac130^3=\dfrac{i^3}3=\dfrac{-i}3$
+ 				\item $\dint\limits_0^{\pi+2i}\cos \dfrac z2\dx{z}=2\dint\limits_0^{\pi+2i}\cos\dfrac z2\dx{\dfrac z2}=2\sin\dfrac z2\bigg|_0^{\pi+2i}=2\sin\left(\dfrac\pi2+i\right)+2\sin 0=2\cos i=\\=2\ch 1$
+ 				\item $\dint\limits_{-i}^i(1+4iz^3)\dx{z}=(z+iz^4)\big|_{-i}^i=(i+i\cdot i^4)-(-i+i\cdot i^4)=i+i-0=2i$
+ 				\item $\dint\limits_{2e^{-\frac\pi3 i}}^{2e^{\frac\pi3 i}}(2-3z+z^2)\dx{z}=\dfrac13 z^3-\dfrac32z^2+2z\bigg|_{2e^{-\frac\pi3 i}}^{2e^{\frac\pi3 i}}=\left(\dfrac13 \left(2e^{\frac\pi3 i}\right)^3-\dfrac32\left(2e^{\frac\pi3 i}\right)^2+2\left(2e^{\frac\pi3 i}\right)\right)-\left(\dfrac13 \left(2e^{-\frac\pi3 i}\right)^3-\dfrac32\left(2e^{-\frac\pi3 i}\right)^2+2\left(2e^{-\frac\pi3 i}\right)\right)=\dfrac23 e^{-\pi i}\left(e^{-\frac\pi3 i}-1\right)(3e^{\frac\pi3 i}+3e^{2\frac\pi3 i}+4e^{\pi i}+4)=\\=\dfrac23(\cos\pi -i\sin\pi)\left(\cos\dfrac\pi3-i\sin\dfrac\pi3-1\right)\left(3\cos\dfrac\pi3+3i\sin\dfrac\pi3+3\cos\dfrac{2\pi}3+3i\sin\dfrac{2\pi}3+\right.\\+\left.4\cos\pi+4i\sin\pi\right)=\dfrac23(-1-i\cdot0)\left(\dfrac12-i\cdot\dfrac{\sqrt3}{2}-1\right)\left(\dfrac32+3i\dfrac{\sqrt3}{2}-\dfrac32+3i\dfrac{\sqrt3}{2}-4+0\right)=\\=$
+ 			\end{enumerate}
+ 			\item \begin{enumerate} 
+ 				\item $\dint\limits_{|z+i|=3}\dfrac{\sin z}{z+i}\dx{z}=\langle z\neq -i\rangle =2\pi i\sin z\big|_{z=-i}=2\pi i\sin -i=2\pi\sh 1$
+ 				\item $C:x^2+y^2+6y=0,\tab y=\pm\sqrt{9-x^2}-3,\tab x=\pm3:y=-3,\tab x=0:y=0,-6,\\\dint\limits_C\dfrac{\sin z\dx{z}}{z^2+4}=\dint\limits_C\dfrac{(z-2i)^{-1}\sin z\dx{z}}{(z+2i)}=\langle z\neq \pm2i \rangle=\dfrac{2\pi i}{(z-2i)}\sin z\bigg|_{z=-2i}=-\dfrac{\pi}{2}\cdot\\\cdot\sin(-2i)=\dfrac\pi2i\sh2$
+ 				\begin{figure*}[htp]\centering
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.75,ymax=0.35 ]	
+						\end{axis}
+						\draw (3.43,2.85) node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,2.85) node[right] {$-i$} circle (2);
+						\draw (3.43, -0.5) node {(a)};
+ 					\end{tikzpicture}
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.9,ymax=0.155 ]	
+						\end{axis}
+						\draw (3.43,3.6) node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,3.6) node[right] {$-2i$};
+						\draw (3.43,2.85) node[circle,fill,inner sep=1pt] {};
+						\draw (3.43,2.85) node[right] {$-3i$} circle (2);
+						\draw (3.43, -0.5) node {(b)};
+ 					\end{tikzpicture}
+ 				\end{figure*}
+ 			\end{enumerate}
+ 			\item $\dint\limits_{|z|=4}\dfrac{\dx{z}}{(z^2+9)(z+9)}=\langle z\neq\pm 3i,-9  \rangle=\dint\limits_{z\neq3i}\dfrac{(z+9)^{-1}\dx{z}}{(z^2+9)}=\dint\limits_{|z|=4}\dfrac{\dx{z}}{(z^2+9)(z+9)}+\\+\dint\limits_{z\neq-3i}\dfrac{\dx{z}}{(z^2+9)(z+9)}=(z+9)^{-1}(z+3i)^{-1}\bigg|_{z=3i}+(z+9)^{-1}(z-3i)^{-1}\bigg|_{z=-3i}=\\=\dfrac{2\pi i}{(3i+9)6i}-\dfrac{2\pi i}{(-3i+9)6i}=\dfrac{2\pi i}{6i}\cdot\dfrac{-i+3-i-3}{3(i+3)(-i+3)}=\dfrac{2\pi i}{6i}\dfrac{-2i}{(9-i^2)}=\dfrac{2\pi i}{9(9-(-1))}=-\dfrac{2\pi i}{90}$
+ 				\begin{figure*}[htp]\centering
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5 ]	
+						\end{axis}
+						\draw (3.43,4.35) node[right] {$3i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,1.35) node[right] {$-3i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,2.85)  circle (2);
+ 					\end{tikzpicture}
+ 				\end{figure*}
+ 			\item \begin{enumerate} 
+ 				\item $C:|z-2i|=2,\tab \dint\limits_C\dfrac{\dx{z}}{z^2+9}=\langle z\neq\pm 3i\rangle=\dint\limits_C\dfrac{(z+3i)^{-1}\dx{z}}{z-3i}=\dfrac{2\pi i}{z+3i}\bigg|_{z=3i}=\\=\dfrac{2\pi i}{3i+3i}=\dfrac{\pi}{3}$
+ 				\item $C:|z+2i|=2,\tab \dint\limits_C\dfrac{\dx{z}}{z^2+9}=\langle z\neq\pm 3i\rangle=\dint\limits_C\dfrac{(z-3i)^{-1}\dx{z}}{z+3i}=\dfrac{2\pi i}{z-3i}\bigg|_{z=-3i}=\\=\dfrac{2\pi i}{-3i-3i}=-\dfrac{\pi}{3}$
+ 				\begin{figure*}[htp]\centering
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5 ]	
+						\end{axis}
+						\draw (3.43,4.35) node[right] {$3i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,1.35) node[right] {$-3i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,3.95)   circle (1.1);
+						\draw (3.43, -0.5) node {(a)};
+ 					\end{tikzpicture}
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5 ]	
+						\end{axis}
+						\draw (3.43,4.35) node[right] {$3i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,1.35) node[right] {$-3i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,1.75)   circle (1.1);
+						\draw (3.43, -0.5) node {(b)};
+ 					\end{tikzpicture}
+ 				\end{figure*}
+ 			\end{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $L:|z-1|=\dfrac13,\tab\dint\limits_L\dfrac{\sh z\pi\dx{z}}{(z-1)(z^2+4)^2}=\langle z\neq 1,\pm 2i \rangle=\dint\limits_L\dfrac{(z^2+4)^{-2}\sh z\pi\dx{z}}{z-1}=\\=2\pi i(z^2+4)^{-2}\sh z\pi\big|_{z=1}=2\pi \dfrac{\sh z \pi}{25}$
+ 				\item $L:|z+2i|=\dfrac13,\tab\dint\limits_L\dfrac{\sh z\pi\dx{z}}{(z-1)(z^2+4)^2}=\langle z\neq 1,\pm 2i \rangle=\dint\limits_L\dfrac{\sh z\pi(z+2i)^{-2}}{(z-1)(z-2i)^2}=\\=2\pi i\dfrac{\dx{}}{\dx{z}}\left(\sh z\pi(z-1)^{-1}(z-2i)^{-2}\right)\bigg|_{z=-2i}=\\=2\pi i\left(\dfrac{\pi\ch(\pi z)(z-1)(z-2i)^2-\sh(\pi z)(2(z-1)(z-2i)+(z-2i)^2)}{(z-1)^2(z-2i)^4}\right)=\\=2\pi i\dfrac{\pi\ch(-2\pi i)(-16)(-2i-1)+\sh(2\pi i)(-8(-2i-1)-16)}{(-16)^2(-3+4i)}=\dfrac{2\pi^2i(16+32i)+0(16i-8)}{(16+32i)^2}=\\=\dfrac{\pi^2 i}{8+16i}=\dfrac{\pi^2i\cdot 8-\pi^2i\cdot16i}{320}=\dfrac{\pi^2(i+2)}{40}$
+ 				\skipitems{1}
+ 				\item $L:|z+2|=1,\tab\dint\limits_L\dfrac{\sh z\dx{z}}{(z-1)(z^2+4)^2}=\langle z\neq 1,\pm 2i \rangle=0(z\notin D)$
+ 				\begin{figure*}[htp]\centering
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5 ]	
+						\end{axis}
+						\draw (3.43,5.25) node[right] {$2i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,0.45) node[right] {$-2i$} 
+						node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (5.13,2.85) node[above] {$1$} node[circle,fill,inner sep=1pt, color=red] {};
+						\draw (5.13,2.85) circle (1.1);
+						\draw (3.43, -0.5) node {(a)};
+ 					\end{tikzpicture}
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.8,ymax=0.2 ]	
+						\end{axis}
+						\draw (3.43,1.85) node[right] {$-2i$} 
+						node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (5.13,4.55) node[above] {$1$} node[circle,fill,inner sep=1pt, color=red] {};
+						\draw (3.43,1.85) circle (1.1);
+						\draw (3.43, -0.5) node {(b)};
+ 					\end{tikzpicture}
+ 					\begin{tikzpicture}
+ 						\begin{axis}[ticks=none,axis lines=middle, xmin=-0.5, xmax=0.5,ymin=-0.5,ymax=0.5 ]	
+						\end{axis}
+						\draw (3.43,5.25) node[right] {$2i$} node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (3.43,0.45) node[right] {$-2i$} 
+						node[circle,fill,inner sep=1pt,color=red] {};
+						\draw (5.13,2.85) node[above] {$1$} node[circle,fill,inner sep=1pt, color=red] {};
+						\draw (1.13,2.85) circle (1);
+						\draw (3.43, -0.5) node {(a)};
+ 					\end{tikzpicture}
+ 				\end{figure*}
+ 			\end{enumerate}
+ 		\end{enumerate}
+ 	\end{justify}
+\end{document}
