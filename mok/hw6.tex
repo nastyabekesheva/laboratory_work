@@ -1,0 +1,70 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+ \usepackage{multirow}
+ 
+\newcommand{\charr}[0]{\textrm{\hspace*{0.15cm}char\hspace*{0.1cm}}}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №6\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item $\\$\begin{itemize}
+ 				\item [\textbf{одиниця}] Множина складається з оборотних елементів, а отже $1\cdot1^{-1}=1$ та $1^{-1}\cdot1=1$. Тобто 1 належить множині.
+ 				\item [\textbf{замкнен.}] $\forall a,b\in \mathbb{R}^*,\tab c=a\cdot b,\tab c\cdot(a\cdot b)^{1}=1\Longrightarrow a\cdot b\in\mathbb{R}^*$ 
+ 				\item [\textbf{нейт. ел.}] $\langle\mathbb{R}^*,\cdot\rangle$ - кільце з одницею $\Longrightarrow$ моноїд $\Longrightarrow$ має нейтральний елемент.
+ 				\item [\textbf{обер. ел.}] Так як множина складається з оборотних елментів, то $\exists a^{-1}\forall a$.
+ 				\item [\textbf{асоціат.}] $\langle\mathbb{R}^*,\cdot\rangle$ - кільце з одницею $\Longrightarrow$ моноїд $\Longrightarrow\mathbb{R}^*$ - асоціативна.
+ 				\item [\textbf{комутат.}] $\langle\mathbb{R}^*,\cdot\rangle$ - кільце з одницею $\Longrightarrow$ моноїд $\Longrightarrow\mathbb{R}^*$ - комутативна.
+ 			\end{itemize}
+ 			\item \begin{enumerate}
+ 				\item $\charr \mathbb{Z}_5=5$
+ 				\item $\charr \mathbb{Z}_{10}=10$
+ 				\item $\charr \mathbb{Z}=0$
+ 				\item $\charr \mathbb{Q}=0$
+ 				\item $\charr \mathbb{M}_n=2$
+ 			\end{enumerate}
+ 			\item 
+ 		\end{enumerate}
+ 		\begin{table}[htp]\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{}                                 & кільце & комутативне & кільце з & цілісне & поле \\
+                                                  &        & кільце      & одиницею & кільце  &      \\ \hline
+$(\mathbb{N},+,\cdot)$                            & -      & -           & -        & -       & -    \\ \hline
+$\mathbb{N}\cup\{0\},+,\times$                    & -      & -           & -        & -       & -    \\ \hline
+$\mathbb{Z}_7,+\mod7,\times\mod7$                 & +      & +           & +        & +       & +    \\ \hline
+$(\mathbb{Z}_8,+\mod8,\times\mod8)$               & +      & +           & +        & -       & -    \\ \hline
+$(\mathbb{Z}_8\setminus\{0\},+\mod8,\times\mod8)$ & -      & -           & -        & -       & -    \\ \hline
+$(6\mathbb{Z},+,\times)$                          & +      & +           & -        & -       & -    \\ \hline
+$(3\mathbb{Z}+2,+,\times)$                        & -      & -           & -        & -       & -    \\ \hline
+$(\mathbb{R},+,\times)$                           & +      & +           & +        & +       & +    \\ \hline
+$(\mathbb{Q}\setminus\{0\},+,\times)$             & -      & -           & -        & -       & -    \\ \hline
+$(\mathbb{M}_n,+,\times)$                         & +      & -           & +        & -       & -    \\ \hline
+\end{tabular}
+\end{table}
+	\end{justify}
+\end{document}
