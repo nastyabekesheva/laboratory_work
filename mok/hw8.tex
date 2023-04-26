@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+ \usepackage{multirow}
+ 
+\newcommand{\charr}[0]{\textrm{\hspace*{0.15cm}char\hspace*{0.1cm}}}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №7\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item У кільці поліномів над полем кожен ненульовий елемент є оберненим, тобто кожен елемент можна ділити на будь-який ненульовий елемент з лишком. У кільці поліномів над кільцем (навіть цілісним) це не виконується. Наявність обернених елементів у кільці є необхідною, але не достатньою умовою для того, щоб будь-який елемент можна було поділити з лишком на будь-який ненульовий елемент.
+ 			\item $R_1,R_2,\dots,R_n$ - кільця. $a_i\in R_i,b_i\in R_i,c_i\in R_i,1\leq i\leq n$ 
+ 			\begin{itemize}
+ 				\item \textbf{Асоціативність +}\\$(a_1, a_2, \dots , a_n) + ((b_1, b_2, \dots , b_n) + (c_1, c_2, \dots , c_n)) = (a_1, a_2, \dots , a_n) + (b_1 + c_1, b_2 + c_2, \dots , b_n + c_n) = (a_1 + b_1 + c_1, a_2 + b_2 + c_2, \dots , a_n + b_n + c_n) = ((a_1 + b_1, a_2 + b_2, \dots , a_n + b_n) + (c_1, c_2, \dots , c_n)) = ((a_1, a_2, \dots , a_n) + (b_1, b_2, \dots , b_n)) + (c_1, c_2, \dots , c_n).$
+ 				\item \textbf{Комутативність +}\\$(a_1, a_2, \dots , a_n) + (b_1, b_2, \dots , b_n) = (a_1 + b_1, a_2 + b_2, \dots , a_n + b_n) = (b_1 + a_1, b_2 + a_2, \dots , b_n + a_n) = (b_1, b_2, \dots , b_n) + (a_1, a_2, \dots , a_n).$
+ 				\item \textbf{Наявність нуля}\\ для будь-якого елементу $(a_1, a_2, \dots , a_n)$ множини $R1 \times R2 \times \dots  \times Rn$ справедливо, що $(a_1, a_2, \dots , a_n) + (0, 0, \dots , 0) = (a_1, a_2, \dots , a_n)$, де 0 - нульовий елемент $R1 \times R2 \times \dots  \times Rn$.
+ 				\item \textbf{Наявність одиничного елемента}\\ Очевидно, що таким елементом є $(1,1,\dots ,1)$, де 1 - одиничний елемент кожного з кілець R1, R2, \dots , Rn.
+ 				\item \textbf{Наявність протилежного елемента}\\ для будь-якого елементу $(a_1, a_2, \dots , a_n)$ множини $R1 \times R2 \times \dots  \times Rn$ існує протилежний елемент $(-a_1, -a_2, \dots , -a_n)$ такий, що $(a_1, a_2, \dots , a_n) + (-a_1, -a_2, \dots , -a_n) = (0, 0, \dots , 0)$.
+ 				\item \textbf{Асоціативність $\cdot$}\\  $((a_1, a_2, \dots , a_n) \cdot (b_1, b_2, \dots , b_n)) \cdot (c_1, c_2, \dots , c_n)=(a_1b_1, a_2b_2, \dots , a_nb_n) \cdot (c_1, c_2, \dots , c_n) = (a_1b_1c_1, a_2b_2c_2, \dots , a_nb_nc_n)= (a_1, a_2, \dots , a_n) \cdot (b_1c_1, b_2c_2, \dots , b_nc_n)=(a_1, a_2, \dots , a_n) \cdot ((b_1, b_2, \dots , b_n) \cdot (c_1, c_2, \dots , c_n)).$
+ 				%\item \textbf{Комутативність $\cdot$}\\ $(a_1, a_2, \dots , a_n) \cdot (b_1, b_2, \dots , b_n) = (a_1  b_1, a_2  b_2, \dots , a_n  b_n) = (b_1  a_1, b_2  a_2, \dots , b_n  a_n) = (b_1, b_2, \dots , b_n) \cdot (a_1, a_2, \dots , a_n).$
+ 				\item \textbf{Дистрибутивність} $(a_1, a_2, \dots , a_n) \cdot ((b_1, b_2, \dots , b_n) + (c_1, c_2, \dots , c_n)) = (a_1 \cdot (b_1 + c_1), a_2 \cdot (b_2 + c_2), \dots , a_n \cdot (b_n + c_n))=(a_1b_1, a_2b_2, \dots , a_nb_n) + (a_1c_1, a_2c_2, \dots , a_nc_n)=(a_1, a_2, \dots , a_n) \cdot (b_1, b_2, \dots , b_n) + (a_1, a_2, \dots , a_n) \cdot (c_1, c_2, \dots , c_n)$
+ 				\item \textbf{Замкненість} \\$(a_1, a_2, \dots , a_n)\cdot (b_1, b_2, \dots , b_n)=(a_1b_1, a_2b_2, \dots , a_nb_n)\in R1 \times R2 \times \dots  \times Rn$ 				
+ 			\end{itemize}
+ 			\item Для того, щоб довести, що добуток полів $F_1\times F_2\times\dots F_n$ з операціями покомпонентного додавання та множення не є полем, достатньо знайти контрприклад. Наприклад, якщо взяти поля $F_1 = \{0, 1\}, F_2 = \{0, 1\}$, то їх добуток $F_1\times F_2 = \{(0, 0), (0, 1), (1, 0), (1, 1)\}$ з операціями покомпонентного додавання та множення не є полем, оскільки $((1,0)(0,1)=(0,0)$ і $(0,1)(1,0))$, тому не існує оберненого елемента для елементу (1,0) та (0,1)).
+ 			\item $f(x)=(2x^2+2x+2)\cdot g(x)+(2x^5+x^3+x^2+2x),\\g(x)=(x+2)(2x^5+x^3+x^2+2x)+(2x^4+2x^3+2x+2),\\(2x^5+x^3+x^2+2x)=(x+2)(2x^4+2x^3+2x+2)+2\\(2x^4+2x^3+2x+2)=(x^4+x^3+x+1)\cdot2+0\\\gcd(f(x),g(x))=2$
+ 		\end{enumerate}
+ 	\end{justify}
+\end{document}
