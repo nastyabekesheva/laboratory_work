@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{subfigure}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary {arrows.meta} 
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand\dx[1]{\hspace*{0.2cm}\textrm{d}{#1}\hspace*{0.1cm}}
+\newcommand\Ln[1]{\hspace*{0.2cm}\textrm{Ln}{#1}\hspace*{0.1cm}}
+\newcommand\dint[0]{\displaystyle\int}
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №10\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $f(z)=z^4-4z^3+3z^2=z^2(z^2-4z+3)=z^2(z-1)(z-3)\\z=0:\tab f(z)=z^2g(z),\tab g(z)=(z-1)(z-3),\tab g(0)\neq0,\tab g(z)$ - аналітична в $z=0\Longrightarrow z=0$ нуль II порядку.
+ 					$\\z=1:\tab f(z)=(z-1)g(z),\tab g(z)=z^2(z-3),\tab g(1)\neq0,\tab g(z)$ - аналітична в $z=1\Longrightarrow z=1$ нуль I порядку.
+ 					$\\z=3:\tab f(z)=(z-3)g(z),\tab g(z)=z^2(z-1),\tab g(3)\neq0,\tab g(z)$ - аналітична в $z=3\Longrightarrow z=3$ нуль I порядку.
+ 				\item  $f(z)=e^{2z}-1\\e^z-1=0,\tab e^z=1,\tab z=\Ln(1)=\ln1+i(\arg1+2\pi k)=2\pi ik,k\in\mathbb{Z}\\(f(z))'\big|_{z_k}=e^{z_k}=e^{2\pi ik}=\cos2\pi k+i\sin2\pi k=1+0=1\\$ точки $z_k$ нулі I порядку.
+ 				\item $f(z)=z\sin\pi z\\\left[\begin{array}{l}
+ 					z=0\\z_k= k
+ 				\end{array} \right.,k\in\mathbb{Z},\tab\left[\begin{array}{l}
+ 					\left\{\begin{array}{l}
+ 						m_1=1\\m_2=1
+ 					\end{array} \right.\textrm{ - нуль II порядку}\\
+ 					\left\{\begin{array}{l}
+ 						m_1=0\\m_2=1
+ 					\end{array} \right.\textrm{ - нуль I порядку}
+ 				\end{array}\right.$
+ 				\item $f(z)=z^3\sh3\pi z\\\left[\begin{array}{l}
+ 					z=0\\z=\dfrac13ik
+ 				\end{array}\right.,k\in\mathbb{Z}\tab\left[\begin{array}{l}
+ 					\left\{\begin{array}{l}
+ 						m_1=1\\m_2=3
+ 					\end{array} \right.\textrm{ - нуль IV порядку}\\
+ 					\left\{\begin{array}{l}
+ 						m_1=0\\m_2=1
+ 					\end{array} \right.\textrm{ - нуль I порядку}
+ 				\end{array}\right.$
+ 			\end{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $f(z)=\dfrac{\sin z^4-z^4}{\sh z-z-\dfrac{z^3}{6}}=\dfrac{z^4-\dfrac{z^{12}}{6}+\dots-z^4}{z+\dfrac{z^{3}}{6}+\dfrac{z^5}{24}+\dots-z-\dfrac{z^{3}}{6}}=\dfrac{\dfrac{z^{12}}{6}+\dots}{\dfrac{z^{5}}{24}+\dots}=\dfrac{z^{12}\left(\dfrac16+\dots\right)}{z^{5}\left(\dfrac1{24}+\dots\right)}=\\=\dfrac{z^{12}g_1(z)}{z^5g_2(z)},\tab m_1=12,m_2=5\Longrightarrow m_1>m_2$ - усувна особлива точка.
+ 				\item $f(z)=\dfrac{\cos5z-1}{\ch z-1-\dfrac{z^2}{2}}=\dfrac{1-\dfrac{z^2}2+\dots-1}{1+\dfrac{z^2}2+\dfrac{z^4}{24}+\dots-1-\dfrac{z^2}2}=\dfrac{-\dfrac{z^2}2+\dots}{\dfrac{z^4}{24}+\dots}=\dfrac{z^2\left(-\dfrac12+\dots\right)}{z^4\left(\dfrac1{24}+\dots\right)}=\\=\dfrac{z^{2}g_1(z)}{z^4g_2(z)},\tab m_1=2,m_2=4\Longrightarrow m_1<m_2$ - полюс функції $f(z)$ порядку 2.
+ 				\item $f(z)=ze^{\left(\dfrac4{z^3}\right)}=z\left(1+\dfrac4{z^3}+\dfrac{4^2}{2z^6}+\dots\right)=z+\dfrac4{z^2}+\dfrac{4^2}{2z^5}+\dots,\tab z_0=0$\\ нескінченна кількість доданків в головній частині $\Longrightarrow z_0$ - істотно осболива.
+ 				\end{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $f(z)=\dfrac{\cos\pi z}{(4z^2-1)(z^2+1)}=\dfrac{\cos\pi z}{(2z-1)(2z+1)(z-i)(z+i)}\\
+ 					z=\dfrac12:\tab m_1=1,m_2=1:\tab $ - усувна.
+ 					$\\z=-\dfrac12:\tab m_1=1,m_2=1:\tab $ - усувна.
+ 					$\\z=i:\tab m_1=0,m_2=1:\tab$ полюс I порядку.
+ 					$\\z=-i:\tab m_1=0,m_2=1:\tab$ полюс I порядку.
+ 				\item $f(z)=\dfrac{1}{\cos z-1}\\\cos z-1=0,\tab \cos z=1,\tab z_k=2\pi k,k\in\mathbb{Z}$ - нулі знаменика.\\$(\cos z-1)'\big|_{z_k}=-\sin(z_k)=-\sin(2\pi k)=0$
+ 				\item $f(z)=z^2\sin\dfrac1z=z^2\left(\dfrac1z+\dfrac{1}{3!z^3}+\dfrac{1}{5!z^5}+\dots\right)=z+\dfrac{1}{3!z}+\dfrac{1}{5!z^3}+\dots$\\ нескінченна кількість доданків в головній частині $\Longrightarrow z=0$ - істотно осболива.
+ 				\item $f(z)=\tg^22z=\dfrac{\sin^22z}{\cos^22z}\\\cos2z=0,\tab z_k=\dfrac\pi4+\dfrac\pi2k,k\in\mathbb{Z},\tab \sin\left(\dfrac\pi2+\pi k\right)=\pm1\neq0,\tab m_1=1,m_2=0,\\ m_1=0,m_2=1\cdot2=2,\tab m_1<m_2$ полюс II порядку.
+ 			\end{enumerate}
+ 		\end{enumerate}
+ 		
+ 	\end{justify}
+\end{document}
