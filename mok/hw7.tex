@@ -1,0 +1,54 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+ \usepackage{multirow}
+ 
+\newcommand{\charr}[0]{\textrm{\hspace*{0.15cm}char\hspace*{0.1cm}}}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №7\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item $R$ - комутативне кільце з одиницею.
+ 			\begin{itemize}
+ 				\item [\textbf{реф.}]  Оскільки R є комутативним кільцем з одиницею, нехай $a,b\in R$. Тоді $a=b$ та $b=a$. Отже, для деякої одиниці $\varepsilon\in R$. $b=a\varepsilon$, а отже і $a=b\varepsilon$ 	
+ 				\item [\textbf{сим.}] Якщо $b=a\varepsilon$ для деякої одиниці $\varepsilon\in R$, то $a=b\varepsilon^{-1}$ та $\varepsilon^{-1}$ - одиниця.
+ 				\item [\textbf{транз.}] Якщо $b=a\varepsilon_1$ та $c=b\varepsilon_2$ для деяких одиниць $\varepsilon_1,\varepsilon_2\in R$, то $c=b\varepsilon_2=a\varepsilon_1\varepsilon_2=aw$, де $w=\varepsilon_1\varepsilon_2$ - одиниця.  
+ 			\end{itemize}
+ 			\item \begin{itemize}
+ 				\item $[0]=\{0\}$
+ 				\item $[1]=\{1,5,7,11\}$
+ 				\item $[2]=\{2,10\}$
+ 				\item $[3]=\{3,9\}$
+ 				\item $[4]=\{4,8\}$
+ 				\item $[6]=\{6\}$
+ 			\end{itemize}
+ 			\item Нехай $\varphi:G\to H$ - гомоморфізм, $K=\ker\varphi$ - ядро гомоморфізму. $\forall g\in G,\>\>\forall h\in\ker\varphi,\\ \varphi(ghg^{-1})=\varphi(g)\varphi(h)(\varphi(g))^{-1}=\varphi(g)e_K(\varphi(g))^{-1}=\varphi(g)(\varphi (g))^{-1}=e_K$. Отже $\ker\varphi$ - нормальна підгрупа $G$. 
+ 			\item $(3)=\{0,-3,3,-6,6,\dots\}$. В підкільця $(3)$ нема ідеалів, окрім самого ж $(3)$, а отже він головний. $(6)=\{0,-6,6,-12,12,\dots\}$. В підкільця $(6)$ є елементи кратні 2 і 3, тобто воно не є головним. Отже $(6)$ - не максимальний в $\mathbb{Z}$. А от в $(3)$ максимальним ідеалом буде $(6)$, так як більше $(6)$ є лише $(3)$ а воно і є самим кільцем.
+ 			\item Якщо $n$ буде простим ($n=p$) необоротним буде елмент 0, а він утворює ідеал $\{0\}$. Якщо $n$ буде складеним ($n=kp^\alpha$), необоротними будуть елементи, які не взаємно прості з $n$ і вони не будуть обовєязково утворювати ідеал. Якщо $n$ буде степінню просто числа ($n=p^\alpha$) необоротними будуть 0 та усі $p^{\alpha-i},\>i=\overline{0,\alpha-1}$, і вони будуть утворювати ідеал. Отже $n=p^\alpha,\alpha>0$.
+ 		\end{enumerate}
+ 	\end{justify}
+\end{document}
