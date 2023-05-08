@@ -1,0 +1,55 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{changepage}
+\usepackage{cases}
+\usepackage{multirow}
+\usepackage{tikz}
+ 
+\newcommand{\ord}[0]{\textrm{\hspace*{0.15cm}ord\hspace*{0.1cm}}}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №11\\З ПРЕДМЕТУ\\''МАТЕМАТИЧНІ ОСНОВИ КРИПТОЛОГІЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item Нормований поліном $f(x)=x^3+\alpha_2x^2+\alpha_1x+\alpha_0,\alpha_i\in\mathbb{Z}_3,\tab \alpha_0\neq 0$. Всього $1\cdot3\cdot3\cdot2=18$ комбінацій, отже переберемо поліноми
+ 				\begin{itemize}
+ 					\item $x^3+2$ - звідний
+ 					\item $x^3+1$ - звідний
+ 					\item $x^3+2x^2+1$ - незвідний
+ 				\end{itemize}
+ 				Нормований поліном $f(x)=x^5+\alpha_4x^4+\alpha_3x^3+\alpha_2x^2+\alpha_1x+\alpha_0,\alpha_i\in\mathbb{Z}_3,\tab \alpha_0\neq 0\Leftrightarrow \alpha_0=1$. Переберемо
+ 				\begin{itemize}
+ 					\item $x^5+1$ - звідний
+ 					\item $x^5+x+1$ - звідний
+ 					\item $x^5+x^2+1$ - незвідний
+ 				\end{itemize}
+ 			\item Кількість примітивних елементів у $F_{625}:\varphi(624)=\varphi(2^4\cdot3\cdot13)=(2^4-2^3)\cdot2\cdot12=192$
+ 			\item  Кількість примітивних елементів у $F_{37}:\varphi(36)=\varphi(2^2\cdot3^2)=2\cdot6=12$. Перевіримо, чи є 2 примітивним елементом поля: $h=36=2^2\cdot3^2,\>\>2^{18}\mod36\neq1,\>\>2^{12}\mod36\neq1,\tab \ord(2)=36.$ 2 - примітивний елемент. Знайдемо інші примітивні елементи, вони матимуть вигляд: $2^\alpha,\>\>0\leq\alpha\leq36,\>\>\gcd(36,\alpha)=1$. Отже примітивні елементи $2^\alpha,\tab\alpha\in\{1,5,7,11,13,17,19,23,25,29,31,35\}$.
+ 			\item Коренів буде 5, вони будуть знаходитись у полі $F_{3^5}$. Якщо $\alpha$ - корінь, усі інші коріні - $\alpha^3,\alpha^{3^2},\alpha^{3^3},\alpha^{3^4}$.
+ 			\item Квадратичний лишок $a=x^2\mod p$, за теоремою Ойлера, критерієм Ойлера та властивостями функції Ойлера $a^{\frac{p-1}2}=a^{\frac{\varphi(p)}2}=x^{\varphi(p)}=1\mod p$, а отже порядок $a$ не може дорівнювати $\varphi(p)$. 
+  		\end{enumerate}
+ 	\end{justify}
+\end{document}
