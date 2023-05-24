@@ -1,0 +1,71 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{subfigure}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta} 
+\usetikzlibrary{shapes}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand\dx[1]{\hspace*{0.2cm}\textrm{d}{#1}\hspace*{0.1cm}}
+\newcommand\Res[0]{\hspace*{0.2cm}\textrm{Res}\hspace*{0.1cm}}
+\newcommand\dint[0]{\displaystyle\int}
+\newcommand\doint[0]{\displaystyle\oint}
+\newcommand{\Int}[0]{\mathfrak{I}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+ 
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №14\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item $c_n=\dfrac1{2\pi}\dint\limits_{-\pi}^{\pi}f(x)e^{-i nx}\dx{x}=\dfrac1{2\pi}\left(\dint\limits_{-\pi}^{0}e^{-i nx}\dx{x}+3\dint\limits_{0}^{\pi}e^{-i nx}\dx{x}\right)=\dfrac1{2\pi}\left(\left.\dfrac{i}{n}e^{-i nx}\right|_{-\pi}^0+\right.\\+\left.\left.\dfrac{i}{n}e^{-3i\dfrac{nx}2}\right|_0^\pi\right)=\dfrac1{2\pi}\left(\dfrac{i}{n}e^{0}-\dfrac{i}{n}e^{i\pi n}+\dfrac{3i}{n}e^{-i\pi n}-\dfrac{3i}{n}e^{0}\right)=\dfrac{i}{2\pi n}\left(-2-e^{i\pi n}+3e^{-i\pi n}\right)=\\=\dfrac{i}{\pi n}\left(-2-\cos\left(\pi n\right)-i\sin\left(\pi n\right)+3\cos\left(\pi n\right)+3i\sin\left(\pi n\right)\right)=\dfrac{i}{\pi n}\left(-2-(-1)^n+3\cdot(-1)^n\right)\\f(x)=\sum\limits_{n=-\infty}^\infty\dfrac{2i}{\pi n}(-1+(-1)^n)e^{i\pi n x}$
+ 			\item $a_0=\dfrac2l\dint\limits_0^lf(x)\dx{x}=\dfrac2l\dint\limits_0^l|x|\dx{x}=\dfrac2l\dint\limits_0^lx\dx{x}=\dfrac1l\left(l^2-0\right)=l\\a_n=\dfrac2l\dint\limits_0^lf(x)\cos\left(\dfrac{\pi n x}{l}\right)=\dfrac2l\dint\limits_0^lx\cos\left(\dfrac{\pi n x}{l}\right)=\left\langle\begin{array}{cc}
+ 				u=x,\tab& \dx{v}=\cos\left(\dfrac{\pi n x}{l}\right)\\\dx{u}=\dx{x},\tab&v=\dfrac{l}{\pi n}\sin\left(\dfrac{\pi n x}{l}\right)
+ 			\end{array} \right\rangle=\\=\dfrac2l\left(\left.\dfrac{xl}{\pi n}\sin\left(\dfrac{\pi n x}{l}\right)\right|_0^l-\dfrac{l}{\pi n}\dint\limits_0^l\sin\left(\dfrac{\pi n x}{l}\right)\dx{x}\right)=\left.\dfrac2l\left(\dfrac{xl}{\pi n}\sin\left(\dfrac{\pi n x}{l}\right)+\dfrac{l^2}{\pi^2n^2}\cos\left(\dfrac{\pi n x}{l}\right)\right)\right|_0^l=\\=\dfrac2l\left(\dfrac{l^2}{\pi n}\sin(\pi n)+\dfrac{l^2}{\pi^2n^2}\cos(\pi n)-1\right)=\dfrac{2l}{\pi^2n^2}(-1)^n-\dfrac2l\\f(x)=\dfrac l2+\sum\limits_{n=1}^\infty\left(\dfrac{2l}{\pi^2n^2}(-1)^n-\dfrac2l\right)\cos\left(\dfrac{\pi n x}{l}\right)$
+ 			\item $a_0=\dfrac22\dint\limits_0^2 f(x)\dx{x}=\dint\limits_0^1 \dx{x}+\dint\limits_1^2 0\dx{x}=x\big|_0^1=1\\a_n=\dfrac22\dint\limits_0^2 f(x)\cos\left(\dfrac{\pi nx}{2}\right)\dx{x}=\dint\limits_0^1\cos\left(\dfrac{\pi nx}{2}\right) \dx{x}+\dint\limits_1^2 0\cdot\cos\left(\dfrac{\pi nx}{2}\right)\dx{x}=\left.\dfrac{2}{\pi n}\sin\left(\dfrac{\pi nx}{2}\right)\right|_0^1=\\=\dfrac{2}{\pi n}\sin\left(\dfrac{\pi n}{2}\right)-\dfrac{2}{\pi n}\sin\left(\dfrac{\pi n\cdot 0}{2}\right)=\dfrac{2}{\pi n}\sin\left(\dfrac{\pi n}{2}\right)\\f(x)=\dfrac12+\sum\limits_{n=1}^\infty\dfrac2{\pi n}\sin\left(\dfrac{\pi n}2\right)\cos\left(\dfrac{\pi nx}2\right)$
+ 			\item $b_n=\dfrac2\pi\dint\limits_0^\pi f(x)\sin\left(nx\right)\dx{x}=\dfrac2\pi\dint\limits_0^\pi\ch x\sin(nx)\dx{x}=\left\langle\begin{array}{cc}
+ 				u=\sin(nx)&\dx{v}=\ch x\dx{x}\\\dx{u}=n\cos x\dx{x} &v=\sh x
+ 			\end{array} \right\rangle=\\=\dfrac2\pi\left(\sh x\sin(nx)-n\dint\limits_0^\pi\sh x\cos x\dx{x}\right)=\left\langle\begin{array}{cc}
+ 				u=\cos(nx),\tab&\dx{v}=\sh x\dx{x}\\\dx{u}=-n\sin x\dx{x},\tab &v=\ch x
+ 			\end{array} \right\rangle=\\=\dfrac2\pi\left(\sh x\sin(nx)-n\ch x\cos(nx)-n^2\dint\limits_0^\pi\ch x\sin(nx)\right)\circled{=}\\\tab \dint\limits_0^\pi\ch x\sin(nx)\dx{x}+n^2\dint\limits_0^\pi\ch x\sin(nx)=\sh x\sin(nx)-n\ch x\cos(nx)\\\circled{=}\tab \dfrac{2}{\pi}\left.\dfrac{\sh x\sin(nx)-n\ch x\cos(nx)}{n^2+1}\right|_0^\pi=\dfrac2{\pi(n^2+1)}(\sh\pi\sin(\pi n)-n\ch\pi\cos(\pi n)-\sh0\sin0+\\+0\cdot\ch0\cos0)=\dfrac2{\pi(n^2+1)}(-n\ch\pi(-1)^n)\\f(x)=\sum\limits_{n=1}^\infty\left(\dfrac2{\pi(n^2+1)}(-n\ch\pi(-1)^n)\sin(nx)\right)$
+ 		\end{enumerate}
+ 	\end{justify}
+\end{document}
