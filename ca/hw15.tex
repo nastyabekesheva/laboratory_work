@@ -1,0 +1,71 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{subfigure}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta} 
+\usetikzlibrary{shapes}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand\dx[1]{\hspace*{0.2cm}\textrm{d}{#1}\hspace*{0.1cm}}
+\newcommand\Res[0]{\hspace*{0.2cm}\textrm{Res}\hspace*{0.1cm}}
+\newcommand\sgn[0]{\hspace*{0.2cm}\textrm{sgn}\hspace*{0.1cm}}
+\newcommand\dint[0]{\displaystyle\int}
+\newcommand\doint[0]{\displaystyle\oint}
+\newcommand{\Int}[0]{\mathfrak{I}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+ 
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №15\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item $f(x)$ - непарна. $\\b(\omega)=\dint\limits_0^{+\infty}e^{-\alpha|x|}\sin(\beta x)\sin(\omega x)\dx{x}=-\dfrac14\dint\limits_0^{+\infty}e^{-\alpha|x|}(e^{-i\beta x}-e^{i\beta x})(e^{-i\omega x}-e^{i\omega x}))=\\=-\dfrac14\left(\dint\limits_0^{+\infty}e^{x(-\alpha-i\beta-i\omega)}\dx{x}-\dint\limits_0^{+\infty}e^{x(-\alpha-i\beta+i\omega)}\dx{x}-\dint\limits_0^{+\infty}e^{x(-\alpha+i\beta-i\omega)}\dx{x}+\dint\limits_0^{+\infty}e^{x(-\alpha+i\beta+i\omega)}\dx{x}\right)=\\=-\dfrac14\left.\left(\dfrac{e^{x(-\alpha-i\beta-i\omega)}}{-\alpha-i\beta-i\omega}-\dfrac{e^{x(-\alpha-i\beta+i\omega)}}{-\alpha-i\beta+i\omega}-\dfrac{e^{x(-\alpha+i\beta-i\omega)}}{-\alpha+i\beta-i\omega}+\dfrac{e^{x(-\alpha+i\beta+i\omega)}}{-\alpha+i\beta+i\omega}\right)\right|_0^{+\infty}=\\=\langle x\to+\infty:\>e^x\to0,\tab x\to0:\>e^x\to 1\rangle=-\dfrac14\left(\dfrac1{\alpha+i\beta+i\omega}+\dfrac1{-\alpha-i\beta+i\omega}\right.+\\+\left.\dfrac1{-\alpha+i\beta-i\omega}+\dfrac1{\alpha-i\beta-i\omega}\right)=\dfrac{2\alpha\beta\omega}{(\alpha^2+\beta^2)+2\omega^2(\alpha^2-\beta^2)+\omega^4}$
+ 			\item $f(x)$ - непарна. $\\b(\omega)=\dint\limits_0^{+\infty}f(x)\sin(\omega x)\dx{x}=\dint\limits_0^{1}\sin(\omega x)\dx{x}+\dint\limits_1^{+\infty}0\dx{x}=\left.-\dfrac1\omega\cos(\omega x)\right|_0^1=\dfrac{1-\cos(\omega)}{\omega}\\f(x)=\dfrac2\pi\dint\limits_0^{+\infty}\dfrac{1-\cos(\omega x)}{\omega}\sin(\omega x)\dx{\omega}$
+ 			\item $F(\omega)=\dint\limits_{-\infty}^{+\infty}f(x)e^{-i\omega x}\dx{x}=\dint\limits_0^1xe^{-i\omega x}\dx{x}=\left\langle\begin{array}{cc}
+ 				u=x\tab&\dx{v}=e^{-i\omega x}\dx{x}\\\dx{u}=\dx{x}\tab&v=\dfrac1{i\omega}e^{-i\omega x}
+ 			\end{array} \right\rangle=\\=\left.\dfrac{x}{i\omega}e^{-i\omega x}\right|_0^1+\dfrac{1}{i\omega}\dint\limits_0^1e^{-i\omega x}\dx{x}=\dfrac{1}{i\omega}(e^{-i\omega }-0)+\left.\dfrac1{\omega^2}e^{-i\omega x}\right|_0^1=\dfrac{1}{i\omega}e^{-i\omega }+\dfrac1{\omega^2}(e^{-i\omega}-1)=\\=\dfrac{(i\omega+1)e^{-i\omega}-1}{\omega^2}\\f(x)=\dfrac1{2\pi}\dint\limits_{-\infty}^{\infty}\dfrac{(i\omega+1)e^{-i\omega}-1}{\omega^2}e^{i\omega x}\dx{\omega}$
+ 			\item $a(\omega)=\dint\limits_{0}^{+\infty}f(x)\cos(\omega x)\dx{x}=\dint\limits_0^1\cos(\omega x)\dx{x}+0=\left.\dfrac1\omega\sin(\omega x)\right|_0^1=\dfrac{\sin\omega}{\omega}$
+ 			\item $b(\omega)=\dint\limits_0^{+\infty}f(x)\sin(\omega x)\dx{x}=\dint\limits_0^{+\infty}(x+1)\sin(\omega x)\dx{x}=\left\langle\begin{array}{cc}
+ 				u=x&\dx{x}=\sin(\omega x)\dx{x}\\\dx{u}=\dx{x}&-\dfrac1\omega\cos(\omega x)
+ 			\end{array} \right\rangle=-\left.\dfrac{x}{\omega}\cos(\omega x)\right|_0^1+\dfrac1{\omega^2}\dint\limits_0^1\cos(\omega x)\dx{(\omega x)}+\dint\limits_0^1\sin(\omega x)\dx{x}=\left.\left(-\dfrac{x}\omega \cos(\omega x)+\dfrac1{\omega^2}\sin(\omega x)\right.\right.\\-\left.\left.\dfrac1\omega\cos(\omega x)\right)\right|_0^1=\dfrac1{\omega^2}(-\omega\cos(\omega)+\sin(\omega)-\omega\cos(\omega)+0-\sin0+\omega\cos0)=\dfrac{\sin\omega+\omega-2\omega\cos\omega}{\omega^2}$
+ 		\end{enumerate}
+ 	\end{justify}
+\end{document}
