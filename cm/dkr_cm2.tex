@@ -1,0 +1,415 @@
+
+%TODO 168, 169, 178, 190, 255, 256, 262, 268, 273, 301
+
+\documentclass[a4paper,12pt]{article}
+%language
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+%math+style
+\usepackage{amsmath}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{cases}
+\usepackage{framed}
+\usepackage{float}
+%tikz
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{3d}
+\usepackage{tkz-euclide}
+%\usetkzobj{all}
+
+%caption
+\usepackage[figurename=Рис.]{caption}
+\usepackage{cleveref}
+% paddings
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+%page enumeration
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\fancyfoot[LE,RO]{\thepage} % Left side on Even pages; Right side on Odd pages
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf[lef,rof]{\thepage}%
+}
+
+%env for tasks
+\newenvironment{task}[1]{\begin{figure*}[htp]\begin{framed}\begin{center}\textbf{-- {#1} --}\end{center}}{\end{framed}\end{figure*}}
+\newenvironment{ans}[0]{\begin{figure*}[htp]\begin{center}\begin{tabular}{lc}\textbf{Відповідь:}\tab&}{\end{tabular}\end{center}\end{figure*}}
+
+%change ref for equations
+\crefname{equation}{вираз.}{equations}
+
+%commands
+\newcommand\dx[1]{\hspace*{0.2cm}\textrm{d}{#1}\hspace*{0.1cm}}
+\newcommand\partiald[2]{\dfrac{\partial{#1}}{\partial{#2}}}
+\newcommand\tab [1][0.5cm]{\hspace*{#1}}
+\newcommand\dint{\displaystyle\int}
+\renewcommand{\figurename}{Рис}
+
+\begin{document}
+	\begin{justify}
+ 		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ КОНТРОЛЬНА РОБОТА\\З ПРЕДМЕТУ\\''КЛАСИЧНА МЕХАНІКА 2''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		
+ 		\begin{task}{168}
+			Знайти закон вимушених коливань частки маси $m$ під дією сили $F(t)$, якщо в почат-ковий момент $t = 0$ частка знаходилась в положенні рівноваги $(x(0) = 0,\dot{x}(0) = 0)$, для випадків
+			\begin{enumerate}[label=\alph*)]
+				\item $F=F_0=const$
+				\item $F=at,\>a=const$
+				\item $F=F_0\exp(-\alpha t),\>\alpha,F_0=const$
+			\end{enumerate}
+		\end{task}
+ 		 Запишемо рівняння руху для части, що коливається під дією сили:
+ 		 \begin{equation}
+ 		 	\ddot{x}+\omega^2x=\dfrac{F}{m}
+ 		 	\label{motion_eq_168}
+ 		 \end{equation}
+ 		 \begin{enumerate}[label=\alph*)]
+				\item Врахуємо початкову умову, що $F=F_0=const$ та розв'яжемо  \cref{motion_eq_168}: $\\x_0=C_1\cos\omega t+C_2\sin\omega t,\tab x_1=a=\dfrac{F_0}{m\omega^2},\tab x=x_0+x_1$. Отже для $x$ отримаємо:
+					\begin{equation}
+						x=C_1\cos\omega t+C_2\sin\omega t+\dfrac{F_0}{m\omega^2}
+						\label{x_168a}
+					\end{equation} 
+					Знайдемо значення довільних сталих: $x(0)=C_1+\dfrac{F_0}{m\omega^2}=0\Longrightarrow C_1=-\dfrac{F_0}{m\omega^2},\\\dot{x}(0)=\omega C_2=0\Longrightarrow C_2=0$.	 Тобто маємо:
+					\begin{equation}
+						x=(1-\cos\omega t)\dfrac{F_0}{m\omega^2}
+						\label{x_ans_168_a}
+					\end{equation}	
+				\item Врахуємо початкову умову, що $F=at,\>a=const$ та розв'яжемо  \cref{motion_eq_168}: $\\x_0=C_1\cos\omega t+C_2\sin\omega t,\tab x_1=bt+c,\tab \omega^2(bt+c)=\dfrac{at}{m}\Longrightarrow c=0,b=\dfrac{a}{m\omega}$. Отже для $x$ отримаємо:
+					\begin{equation}
+						x=C_1\cos\omega t+C_2\sin\omega t+\dfrac{at}{m\omega^2}
+						\label{x_168b}
+					\end{equation}
+					Знайдемо значення довільних сталих: $x(0)=C_1=0,\tab \dot{x}(0)=\omega C_2+\dfrac{a}{m\omega^2}=0\Longrightarrow C_2=-\dfrac{a}{m\omega^3}$.	Тобто маємо:
+					\begin{equation}
+						x=(\omega t-\sin\omega t)\dfrac{a}{m\omega^3}
+						\label{x_ans_168_b}
+					\end{equation}
+				\item  Врахуємо початкову умову, що $F=F_0\exp(-\alpha t),\>\alpha,F_0=const$ та розв'яжемо  \cref{motion_eq_168}: $x_0=C_1\cos\omega t+C_2\sin\omega t,\tab x_1=a\exp(-\alpha t),\tab a\alpha^2\exp(-\alpha t)+a\omega^2\exp(-\alpha t)=\\=\dfrac{F_0\exp(-\alpha t)}m,\tab a=\dfrac{F_0}{m(\omega^2+\alpha^2)}$. Отже для $x$ отримаємо:
+					\begin{equation}
+						x=C_1\cos\omega t+C_2\sin\omega t+\dfrac{F_0\exp(-\alpha t)}{m(\omega^2+\alpha^2)}
+					\end{equation}
+					Знайдемо значення довільних сталих: $x(0)=C_1+\dfrac{F_0}{m(\omega^2+\alpha^2)}=0\Longrightarrow C_1=\dfrac{-F_0}{m(\omega^2+\alpha^2)},\\\dot{x}(0)=\omega C_2-\dfrac{\alpha F_0}{m(\omega^2+\alpha^2)}\Longrightarrow C_2=\dfrac{\alpha F_0}{m\omega(\omega^2+\alpha^2)}$.	Тобто маємо:
+					\begin{equation}
+						x=\left(\exp(-\alpha t)+\dfrac{\alpha}{\omega}\sin\omega t-\cos\omega t\right)\dfrac{F_0}{m(\omega^2+\alpha^2)}
+						\label{x_ans_168_c}
+					\end{equation}
+		\end{enumerate}
+ 		 	\begin{ans}
+				(a): \cref{x_ans_168_a}, (b): \cref{x_ans_168_b}, (c): \cref{x_ans_168_c}
+			\end{ans}
+		\begin{task}{169}
+			Визначити кінцеву амплітуду коливань частки маси $m$ під дією сили
+			$$F(t)=\left\{\begin{array}{cc}
+				0&t<0\\\dfrac{F_0t}{\tau}&0<t<\tau\\F_0&t>\tau 
+			\end{array}\right.$$
+			Власна частота коливань частки $\omega$. До момента $t = 0$ система знаходилась в стані рівноваги.
+		\end{task}
+		\begin{figure*}[h!]\centering
+			\begin{tikzpicture}
+				\begin{axis}[axis lines=middle, xmin=-0.2, xmax=2,ymin=-0.2,ymax=2, xtick = {1},
+        				xticklabels = {$\tau$},ytick=\empty]	
+        					\addplot[thick,domain=0:1] {x} node[above,sloped,midway] {$\dfrac{F_0 t}{\tau}$}; %0<tau<t
+        					\addplot[thick,domain=1:2] {1} node[above,sloped,midway] {$F_0$}; %t>tau
+        					\addplot +[mark=none,dashed] coordinates {(1, 0) (1, 1)};
+						\end{axis}
+			\end{tikzpicture}
+		\end{figure*}
+		Скористаємось \cref{x_ans_168_b} і запишемо закон руху для $0<t<\tau$:
+		\begin{equation}
+			x=(\omega t-\sin\omega t)\dfrac{F_0}{\tau m\omega^3}
+			\label{motion_eq1_169}
+		\end{equation}
+		Знайдемо \cref{motion_eq1_169} у $\tau$ та похідну у тій самій точці:
+		\begin{equation}
+			\left\{\begin{array}{l}
+				x(\tau)=(\omega\tau-\sin\omega\tau)\dfrac{F_0}{\tau m\omega^3}\\\dot{x}(\tau)=(1-\cos\omega\tau)\dfrac{F_0}{\tau m\omega^2}
+			\end{array}\right.
+		\end{equation}
+		Скористаємось \cref{x_ans_168_a} для рівняння руху при $t>\tau$. З граничних умов \cref{motion_eq1_169} знайдемо константи. $x(\tau)=C_1\cos\omega\tau+C_2\sin\omega\tau+\dfrac{F_0}{m\omega^2}=\dfrac{F_0}{m\omega^2}-\dfrac{F_0}{\tau m\omega^3}\sin\omega\tau,\tab \dot{x}(\tau)=\\=-C_1\omega\sin\omega\tau+C_2\omega\cos\omega\tau=(1-\cos\omega\tau)\dfrac{F_0}{\tau m\omega^2}$. Маємо:
+		\begin{equation}
+			\left\{\begin{array}{l}
+				C_1\cos\omega\tau+C_2\sin\omega\tau=-\dfrac{F_0}{\tau m\omega^3}\sin\omega\tau\\-C_1\omega\sin\omega\tau+C_2\omega\cos\omega\tau=(1-\cos\omega\tau)\dfrac{F_0}{\tau m\omega^2}
+			\end{array}\right.
+			\label{sys_eq_169}
+		\end{equation}
+		Щоб знайти константи розв'яжемо \cref{sys_eq_169} за допомогою метода Крамера: 
+		\begin{align*}
+			\Delta=&\begin{vmatrix}
+				\cos\omega\tau&\sin\omega\tau\\-\omega\sin\omega\tau&\omega\cos\omega\tau
+			\end{vmatrix}=\omega&\\
+			\Delta_1=&\begin{vmatrix}
+				-\dfrac{F_0}{\tau m\omega^3}\sin\omega\tau&\sin\omega\tau\\-\omega\sin\omega\tau&(1-\cos\omega\tau)\dfrac{F_0}{\tau m\omega^2}
+			\end{vmatrix}=-\dfrac{F_0}{\tau m\omega^2}\sin\omega\tau\\
+			\Delta_2=&\begin{vmatrix}
+				\cos\omega\tau&-\dfrac{F_0}{\tau m\omega^3}\sin\omega\tau\\-\omega\sin\omega\tau&(1-\cos\omega\tau)\dfrac{F_0}{\tau m\omega^2}
+			\end{vmatrix}=(\cos\omega\tau-1)\dfrac{F_0}{\tau m\omega^2}
+		\end{align*}
+		Тобто константи:
+		\begin{equation}
+			\left\{\begin{array}{l}
+				C_1=-\dfrac{F_0}{\tau m\omega^3}\sin\omega\tau\\C_2=(\cos\omega\tau-1)\dfrac{F_0}{\tau m\omega^3}
+			\end{array}\right.
+			\label{constants_169}
+		\end{equation}
+		Підставимо \cref{constants_169} у закон руху: $x=\dfrac{F_0}{\tau m\omega^3}(-\sin\omega\tau\cos\omega t+\cos\omega\tau\sin\omega t-\sin\omega t)+\\+\dfrac{F_0}{m\omega^1}=\dfrac{F_0}{\tau m\omega^3}\left(\sin(\omega t-\omega\tau)-\sin\omega t\right)+\dfrac{F_0}{m\omega^3}=-\dfrac{2F_0}{\tau m\omega^3}\sin\omega\tau\cdot\cos\left(\omega t-\dfrac{\omega\tau}{2}\right)+\dfrac{F_0}{m\omega^2}$. Таким чином кінцева амплітуда:
+		\begin{equation}
+			A=\dfrac{2F_0}{\tau m\omega^3}\sin\omega\tau
+			\label{amplitude_169}
+		\end{equation}
+		\begin{ans}
+			\cref{amplitude_169}
+		\end{ans}
+		\begin{task}{178}
+			Частка рухається в полі з потенціалом
+			$$U(x,y)=\dfrac12(x^2+y^2)+x^2y-\dfrac13y
+			^3$$
+			Знайдіть стаціонарні точки (точки рівноваги). Які з них є стійкими?
+		\end{task}\\
+		Почнемо з знаходження критичних точек.\\
+		$\left\{\begin{array}{l}
+			\dfrac{\partial U}{\partial x}=0\\\\\dfrac{\partial U}{\partial y}=0
+		\end{array}\right.\Longrightarrow\left\{\begin{array}{l}
+			x+2xy=0\\y+x^2-y^2=0
+		\end{array} \right.\Longrightarrow x(1+2y)=0\Longrightarrow\left[\begin{array}{l}
+			x=0\\y=-\dfrac12
+		\end{array} \right.\\$
+		Знайдемо значення $y$ при $x=0$: $y-y^2=y(1-y)=0$, отже $y=0,\> y=1$. Знайдемо значення $x$ при $y=-\dfrac12$: $-\dfrac12+x^2-\dfrac14=0$, отже $x=\pm\dfrac{\sqrt{3}}{2}$. Таким чином маємо наступні критичні точки:
+		\begin{equation}
+			(0,0),\tab(0,1),\tab\left(\dfrac{\sqrt{3}}{2},-\dfrac12\right),\tab\left(-\dfrac{\sqrt{3}}{2},-\dfrac12\right)
+			\label{critical_points_178}
+		\end{equation}
+		Порахуємо другі похідні щоб знайти характер точок з \cref{critical_points_178}. $$\dfrac{\partial^2 U}{\partial x^2}=1+2y,\tab \dfrac{\partial^2 U}{\partial y^2}=1-2y,\tab \dfrac{\partial^2 U}{\partial x\partial y}=2x$$
+		$\Delta=
+		\begin{vmatrix}
+			1+2y&2x\\2x&1-2y
+		\end{vmatrix}=1-4y^2-4x^2$ - підставимо сюди \cref{critical_points_178} і  точку стійкої рівноваги.
+		\begin{itemize}
+			\item $(0,0)$: $\Delta(0,0)=1-4\cdot0-4\cdot0=1>0,\tab 1+2\cdot0=1>0$ - локальний мінімум.
+			\item $(0,1)$: $\Delta(0,1)=1-4\cdot0-4\cdot1=-3<0$ - не екстремум.
+			\item $\left(\pm\dfrac{\sqrt{3}}{2},-\dfrac12\right)$: $\Delta=1-4\cdot\dfrac34-4\cdot\dfrac14=-3<0$ - не екстремум.
+		\end{itemize}
+		\begin{task}{190}
+			Обчислити тензори інерції для наступних тіл маси $m$ з однорідним розподілом маси в системі координат, початок якої розташовано в геометричному центрі тіла (розміри тіла відомі): а) кулі; б) куба; в) прямокутного паралелепіпеда; г) прямого круглого циліндра.
+		\end{task}
+		Запишемо загальну формулу для інерції:
+		\begin{equation}
+			I_{ij}=\dint(r^2\delta_{ij}-x_ix_j)\dx{m},\tab ij\in\{x,y,z\}
+			\label{general_inertia_190}
+		\end{equation}
+		\begin{enumerate}[label=\alph*)]
+			\item Маємо кулю радіуса $R$. Враховуючи симетрію: $I=I_{xx}=I_{yy}=I_{zz}=\dfrac13(I_{xx}+I_{yy}+\\+I_{zz})=\dfrac13\dint(3r^2-r^2)\dx{m}=\dfrac23\dint r^2\dx{m}=\dfrac23\cdot\dfrac{3m}{4\pi R^3}\dint\limits_0^{2\pi}\dint\limits_0^{\pi}\dint\limits_0^{R}r^4\rho\sin\theta\dx{r}\dx{\theta}\dx{\varphi}=\\=\dfrac{m}{2\pi R^3}\cdot\left.\dfrac{R^5}{5}\right|_0^R\left.(-\cos\theta)\right|_0^\pi\left.\varphi\right|_0^{2\pi}=\dfrac{m}{2\pi R^3}\cdot\dfrac{R^5}{5}\cdot 2\cdot2\pi$. Отже отримаємо:
+				\begin{equation}
+					I=\dfrac25 mR^2
+					\label{inertia_190a}
+				\end{equation}
+			\item Маємо куб ребра $a$. Враховуючи симетрію: $I=\dfrac23\dint r^2\dx{m}=\dfrac{2m}{3 a^3}\dint\limits_{-\frac a2}^{\frac a2}\dint\limits_{-\frac a2}^{\frac a2}\dint\limits_{-\frac a2}^{\frac a2}(x^2+y^2+\\+z^2)\dx{x}\dx{y}\dx{z}=\dfrac{2m}{3 a^3}\cdot 2^3\left.x^3\right|_{0}^{\frac a2}\left.y\right|_{0}^{\frac a2}\left.z\right|_{0}^{\frac a2}=\dfrac{2m}{3 a^3}\cdot 2^3\cdot\dfrac{a^3}8\cdot\dfrac a2\cdot\dfrac a2.$. Отже отримаємо:
+				\begin{equation}
+					I=\dfrac{m a^2}{6}
+					\label{inertia_190b}
+				\end{equation}
+			\item Маємо прямокутний паралелепіпед з ребрами $a,b,c$. Розглянемо дві ситуації. В ситуації коли $i\neq j$: $I_{ij}=\dint -xy\dx{m}=-\dfrac{m}{abc}\dint\limits_{-\frac c2}^{\frac c2}\dint\limits_{-\frac b2}^{\frac b2}\dint\limits_{-\frac a2}^{\frac a2}xy\dx{x}\dx{y}\dx{z}$. Скориста-вшись властивостями непарної функції легко побачити, що:
+				$$
+					I_{ij}=0,\tab i\neq j
+				$$ 
+				Далі розглянемо при $i=j$: $I_{xx}=\dfrac{m}{abc}\dint\limits_{-\frac c2}^{\frac c2}\dint\limits_{-\frac b2}^{\frac b2}\dint\limits_{-\frac a2}^{\frac a2}(y^2+z^2)\dx{x}\dx{y}\dx{z}=\dfrac{m}{abc}\cdot 2^3\cdot\\\cdot\dfrac a2\dint\limits_{0}^{\frac c2}\dint\limits_{0}^{\frac b2}(y^2+z^2)\dx{y}\dx{z}=\dfrac{m}{bc}\cdot 2^2\cdot\dfrac b2\dint\limits_{0}^{\frac c2}\left(\dfrac{b^2}{3\cdot 2^2}+cz^2\right)\dx{z}=\dfrac{m}{c}\cdot 2\cdot\dfrac c2\left(\dfrac{b^2}{3\cdot 2^2}\cdot+\dfrac{c^2}{3\cdot 2^2}\right)=\\=\dfrac{m}{12}(b^2+c^2)$. Враховуючи симетрію запишемо:
+				\begin{equation}
+					I_{xx}=b^2+c^2,\tab I_{yy}=a^2+c^2,\tab I_{zz}=a^2+b^2
+					\label{inertia_190c}
+				\end{equation}
+			\item Маємо циліндр висоти $H$ та з радіусом основи $R$. $x=\rho\cos\varphi,\>y=\rho\sin\varphi,\>z=z$. \\При $i\neq j$: 
+				\begin{align*}
+					I_{xy}&=I_{yx}=-\dfrac{m}{\pi R^2 h}\dint xy\dx{x}\dx{y}\dx{z}=-\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^{2\pi}\dint\limits_0^R\rho^3\cos\varphi\sin\varphi\dx{\rho}\dx{\varphi}\dx{z}=&\\&=-\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^{2\pi}\dint\limits_0^R\rho^3\underbrace{\sin2\varphi}_{0,\>\varphi\to \pi_n}\dx{\rho}\dx{\varphi}\dx{z}=0
+				\end{align*}
+				\begin{align*}
+					I_{yz}&=I_{zy}=-\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^{2\pi}\dint\limits_0^R\rho^2z\sin\varphi\dx{\rho}\dx{\varphi}\dx{z}=0\hspace*{5.5cm}&\\
+					I_{xz}&=I_{zx}=-\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^{2\pi}\dint\limits_0^R\rho^2z\cos\varphi\dx{\rho}\dx{\varphi}\dx{z}=0
+				\end{align*}
+				При $i=j$:
+				\begin{align*}
+					I_{xx}&=\dint(\rho^2+z^2-\rho^2\cos^2\varphi)\dx{m}=\dfrac{m}{\pi R^2 h}\dint\limits_0^{2\pi}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^R\left(\dfrac{\rho^3}{2}(1-\cos2\varphi)+z^2\right)\dx{\rho}\dx{\varphi}\dx{z}=&\\&=\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^R\left(\dfrac{R^4}{8}(1-\cos2\varphi)\right)\dx{\varphi}\dx{z}=\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\left(\dfrac{\pi R^4}{4}+\pi R^2z^2\right)\dx{x}=\\&=\dfrac{m}{\pi R^2 h}\cdot2\pi R^2\left(\dfrac{R^2h}{2^3}+\dfrac{h^3}{2^3\cdot3}\right)=\dfrac{m}{12}(3R^2+h^2)\\
+				\end{align*}
+				\begin{align*}
+					I_{yy}&=\dint(\rho^2+z^2-\rho^2\sin^2\varphi)\dx{m}=\dfrac{m}{\pi R^2 h}\dint\limits_0^{2\pi}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^R\left(\dfrac{\rho^3}{2}(1+\cos2\varphi)+z^2\right)\dx{\rho}\dx{\varphi}\dx{z}=&\\&=\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^R\left(\dfrac{R^4}{8}(1+\cos2\varphi)\right)\dx{\varphi}\dx{z}=\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\left(\dfrac{\pi R^4}{4}+\pi R^2z^2\right)\dx{x}=\\&=\dfrac{m}{\pi R^2 h}\cdot2\pi R^2\left(\dfrac{R^2h}{2^3}+\dfrac{h^3}{2^3\cdot3}\right)=\dfrac{m}{12}(3R^2+h^2)&\\
+					I_{zz}&=\dint(\rho^2+z^2-z^2)\dx{m}=\dfrac{m}{\pi R^2 h}\dint\limits_{-\frac h2}^{\frac h2}\dint\limits_0^{2\pi}\dint\limits_0^R\rho^3\dx{\rho}\dx{\varphi}\dx{z}=\\&=\dfrac{m}{\pi R^2 h}\cdot2\pi\cdot h\cdot\dfrac{R^4}{4}=\dfrac{m}2R^2
+				\end{align*}
+				Отже отримаємо:
+				\begin{equation}
+					I_{xx}=\dfrac{m}{12}(3R^2+h^2),\tab I_{yy}=\dfrac{m}{12}(3R^2+h^2),\tab I_{zz}=\dfrac{m}2R^2
+					\label{inertia_190d}
+				\end{equation}
+		\end{enumerate}
+		\begin{ans}
+			(a): \cref{inertia_190a},\tab (b): \cref{inertia_190b},\tab (c): \cref{inertia_190c},\tab (d): \cref{inertia_190d}
+		\end{ans}
+		\begin{task}{255}
+			Знайти твірну функцію $\psi_2(q, P)$ для перетворення з твірною функцією $$\psi_1(q,P)=\dfrac12m\omega q^2\cot Q$$
+		\end{task}
+		Функції $\psi_1(q,Q)$ та $\psi(q,Q)$ пов'язані наступним чином:
+		\begin{equation}
+			\psi_2(q, P)=\psi_1(q, P)+QP
+			\label{psi2_255}
+		\end{equation}
+		Знайдемо $Q$: $P=-\dfrac{\partial\psi_1}{\partial Q}=\dfrac12\cdot\dfrac{m\omega q^2}{\sin^2Q},\tab \sin Q=\sqrt{\dfrac{m\omega q^2}{2P}}$. Таким чином: 
+		$$
+			Q=\arcsin\sqrt{\dfrac{m\omega q^2}{2P}}
+		$$
+		За допомогою тригонометричних перетворень виразимо $\cot Q$: $1+\cot^2Q=\dfrac1{\sin^2Q}$.
+		$$\cot Q=\sqrt{\dfrac1{\sin^2Q}-1}=\sqrt{\dfrac{2P}{m\omega q^2}-1}$$
+		Підставимо $Q$ у \cref{psi2_255} і отримаємо:
+		\begin{equation}
+			\psi_2(q, P)=\dfrac12m\omega q^2\sqrt{\dfrac{2P}{m\omega q^2}-1}+P\arcsin\sqrt{\dfrac{m\omega q^2}{2P}}
+			\label{psi_ans_255}
+		\end{equation}\newpage
+		\begin{ans}
+			\cref{psi_ans_255}
+		\end{ans}
+		\begin{task}{256}
+			Знайти розв'язок канонічних рівнянь для осцилятора $$\mathcal{H}=\dfrac{p^2}{2m}+\dfrac{m\omega^2q^2}2$$ методом канонічних перетворень з твірною функцією \cref{psi_ans_255}
+		\end{task}
+		Знайдемо $Q$ з \cref{psi_ans_255}: $Q=\dfrac{\partial \psi_2}{\partial P}=\dfrac12m\omega  q\dfrac{\partial}{\partial P}\left(\sqrt{\dfrac{2P}{m\omega }-q^2}\right)+P\arcsin\dfrac{q}{\sqrt{\dfrac{2P}{m\omega }}}-\\-\dfrac{Pq}{\sqrt{1-\dfrac{q^2}{\dfrac{2P}{m\omega }}}}\cdot\dfrac1{\dfrac{2P}{m\omega }}\cdot\dfrac{\partial}{\partial P}\left(\sqrt{\dfrac{2P}{m\omega }}\right)=\dfrac12 q\sqrt{\dfrac{m\omega }{2P}}+P\arcsin\sqrt{\dfrac{m\omega q^2}{2P}}-\\-\dfrac{q}{\sqrt{1-\dfrac{q^2}{2P}}}\cdot\dfrac{1}{2}\cdot\dfrac1{\sqrt{\dfrac{2P}{m\omega}-q^2}}=\arcsin\dfrac{q}{\sqrt{\dfrac{2P}{m\omega}}}$. 
+		Далі знайдемо $q=\dfrac{2P}{m\omega}\sin Q$.
+		\\Отже $p=\dfrac{\partial\psi_2}{\partial q}=\dfrac{2P}{\sqrt{\dfrac{2P}{m\omega}}}\cos Q=\sqrt{2Pm\omega}\cos Q$. Тобто $Q, q, p:$
+		\begin{equation}
+			Q=\arcsin\dfrac{q}{\sqrt{\dfrac{2P}{m\omega}}},\tab q=\dfrac{2P}{m\omega}\sin Q,\tab p=\sqrt{2Pm\omega}\cos Q
+			\label{Qqp_256}
+		\end{equation}
+		Підставимо значення з \cref{Qqp_256} у функцію Гамільтона:
+		\begin{equation}
+			\mathcal{H}=\dfrac{2Pm\omega}{2m}\cos^2Q+\dfrac12m\omega^2\cdot\dfrac{2P}{m\omega^2}\sin^2Q=\omega P
+			\label{hamilton_func_256}
+		\end{equation}
+		Запишемо рівняння Гамільтона:
+		\begin{equation}
+			\left\{\begin{array}{l}
+				\dot{Q}=\omega\\\dot{P}=0
+			\end{array}\right.\Longrightarrow\left\{\begin{array}{l}
+				Q=\omega t+\varphi_0\\P=const=\dfrac{E}{\omega}
+			\end{array}\right.
+			\label{hamilton_eq_256}
+		\end{equation}
+		\begin{ans}
+			\cref{hamilton_eq_256}
+		\end{ans}
+		\begin{task}{262}
+			Обчисліть дужки Пуассона для функцій:
+			\begin{enumerate}[label=\alph*)]
+				\item $\varphi=q^2+p^2,\tab\psi=\arctan\dfrac pq$
+				\item $\varphi=q\cos\omega t+\dfrac p\omega\sin\omega t,\tab \psi=p\cos\omega t-q\omega\sin\omega t,\tab\omega=const$
+				\item $\varphi=\cos\sum\limits_{i=1}^n(p_i^2+q_i^2),\tab\psi=\sin\sum\limits_{i=1}^n(p_i^2+q_i^2)$
+			\end{enumerate}
+		\end{task}\\
+		Запишемо формулу для обчислення дужок Пуассона в загальному випадку:
+		\begin{equation}
+			[\varphi,\psi]=\sum\limits_{i=1}^N\left(\partiald{\varphi}{p_i}\partiald{\psi}{q_i}+\partiald{\varphi}{q_i}\partiald{\psi}{p_i}\right)
+			\label{general_poisson_262}
+		\end{equation}
+		\begin{enumerate}[label=\alph*)]
+			\item Порахуємо часткові похідні:
+				\begin{equation}
+					\partiald{\varphi}{p}=2p,\tab \partiald{\varphi}{q}=2q,\tab \partiald{\psi}{p}=\dfrac1q\cdot\dfrac{1}{\frac{p^2}{q^2}+1}=\dfrac{q}{p^2+q^2},\tab \partiald{\psi}{q}=-\dfrac pq\cdot\dfrac{1}{\frac{p^2}{q^2}+1}=-\dfrac{p}{p^2+q^2}
+					\label{d_262a}
+				\end{equation}
+				Підставимо \cref{d_262a} в \cref{general_poisson_262}:
+				\begin{equation}
+					[\varphi,\psi]=-2p\cdot \dfrac{p}{p^2+q^2}-2q\dfrac{q}{p^2+q^2}=-2
+					\label{poisson_262a}
+				\end{equation}
+			\item Порахуємо часткові похідні:
+				\begin{equation}
+					\partiald{\varphi}{p}=\dfrac{\sin\omega t}{\omega},\tab \partiald{\varphi}{q}=\cos\omega t,\tab \partiald{\psi}{p}=\cos\omega t,\tab \partiald{\psi}{q}=-\omega\sin\omega t
+					\label{d_262b}
+				\end{equation}
+				Підставимо \cref{d_262b} в \cref{general_poisson_262}:
+				\begin{equation}
+					[\varphi,\psi]=-\dfrac{\sin\omega t}{\omega}\cdot\omega\sin\omega t-\cos^2\omega t=1
+					\label{poisson_262b}
+				\end{equation}
+			\item Порахуємо часткові похідні:
+				\begin{equation}
+					\begin{array}{c}
+						\partiald{\varphi}{p_i}=-2p_i\sin\sum\limits_{i=1}^{n}(p_i^2+q_i^2),\tab\partiald{\varphi}{q_i}=-2q_i\sin\sum\limits_{i=1}^{n}(p_i^2+q_i^2)\\
+						\partiald{\psi}{p_i}=2p_i\cos\sum\limits_{i=1}^{n}(p_i^2+q_i^2),\tab\partiald{\psi}{q_i}=2q_i\cos\sum\limits_{i=1}^{n}(p_i^2+q_i^2)
+					\end{array}
+					\label{d_262c}
+				\end{equation}
+				Підставимо \cref{d_262c} в \cref{general_poisson_262}:
+				\begin{equation}
+					[\varphi,\psi]=-4p_iq_i\sin\sum\limits_{i=1}^{n}(p_i^2+q_i^2)\cos\sum\limits_{i=1}^{n}(p_i^2+q_i^2)+4p_iq_i\sin\sum\limits_{i=1}^{n}(p_i^2+q_i^2)\cos\sum\limits_{i=1}^{n}(p_i^2+q_i^2)=0
+					\label{poisson_262c}
+				\end{equation}
+		\end{enumerate}
+		\begin{ans}
+			(a): \cref{poisson_262a},\tab (b): \cref{poisson_262b},\tab (c): \cref{poisson_262c}
+		\end{ans}
+		\begin{task}{268}
+			Скласти рівняння Гамільтона-Якобі, знайти його повний інтеграл і знайти закон руху частки маси т у полі тяжіння $g= const$: 	
+			\begin{enumerate}[label=\alph*)]
+				\item в декартових координатах
+				\item в циліндричних координатах
+			\end{enumerate}
+		\end{task}
+		\begin{enumerate}[label=\alph*)]
+			\item 
+		\end{enumerate}
+		\begin{task}{273}
+			Зайдіть повний інтеграл рівняння Гамільтона-Якобі для заряду $e$ масою $m$, який рухається в однорідному сталому електричному полі $Е$. Знайдіть закон руху заряду. Початкові дані: $\vec{r_0}\vec{p_0}$. Розгляньте два випадки:
+			\begin{enumerate}[label=\alph*)]
+				\item $\varphi\neq0,\tab\vec{A}=0$
+				\item $\varphi=0,\tab\vec{A}\neq0$
+			\end{enumerate}
+			 де $\varphi$ і $A$ - електричний і векторний магнітний потенціали.
+		\end{task}
+		Запишемо напруженість електричного поля:
+		\begin{equation}
+			\vec{E}=-\vec{\nabla}\varphi-\dfrac1c\partiald{\vec{A}}{t}
+			\label{f_273}
+		\end{equation}
+		Запишемо функцію Гамільтона:
+		\begin{equation}
+			\mathcal{H}=\dfrac1{2m}\left(\vec{p}-\dfrac ec\partiald{\vec{A}}{t}\right)^2+e\varphi
+			\label{hamilton_273}
+		\end{equation}
+		\begin{enumerate}[label=\alph*)]
+			\item Враховуючи початкови умови, \cref{f_273} і \cref{hamilton_273}:
+				$$\vec{E}=-\vec{\nabla}\varphi,\tab\varphi=-\vec{E}\vec{r},\tab \mathcal{H}=\dfrac{\vec{p}^2}{2m}-e\vec{E}\vec{r}$$
+				Запишемо рівняння Гамільтона-Якобі:
+				\begin{equation}
+					\partiald{S}{t}+\mathcal{H}=\partiald{S}{t}+\dfrac{1}{2m}\left(\vec{\nabla}S\right)^2-e\vec{E}\vec{r}=0
+				\end{equation}
+		\end{enumerate}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+ 	\end{justify}
+\end{document}
