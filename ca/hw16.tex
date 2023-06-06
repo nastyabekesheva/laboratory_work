@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ukrainian,english]{babel}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{subfigure}
+
+\usepackage{color,soul}
+\setul{0.5ex}{0.3ex}
+
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta} 
+\usetikzlibrary{shapes}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand\dx[1]{\hspace*{0.2cm}\textrm{d}{#1}\hspace*{0.1cm}}
+\newcommand\Res[0]{\hspace*{0.2cm}\textrm{Res}\hspace*{0.1cm}}
+\newcommand\dint[0]{\displaystyle\int}
+\newcommand\doint[0]{\displaystyle\oint}
+\newcommand{\Int}[0]{\mathfrak{I}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+ 
+
+\renewcommand{\Im}[0]{\mathfrak{Im}}
+\renewcommand{\Re}[0]{\mathfrak{Re}}
+
+\begin{document}
+	\begin{justify}
+		\thispagestyle{empty}\setlength{\parindent}{0pt}
+  		\topskip0pt
+ 		\vspace*{\fill}
+  		\begin{center}
+  			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+   			\LARGE{\bigbreak ДОМАШНЯ РОБОТА №16\\З ПРЕДМЕТУ\\''ТЕОРІЯ ФУНКЦІЇ КОМПЛЕКСНОЇ ЗМІННОЇ''\\\bigbreak} 
+   			ФІ-12 Бекешева Анастасія 
+   			\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+  		\end{center}
+ 		\vspace*{\fill}\newpage
+ 		\begin{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $f(t)=3t^2-2-5\sin t+2e^{2t}\longleftrightarrow 3\cdot\dfrac{2}{p^3}-\dfrac2p-5\cdot\dfrac{1}{p^2-1}+2\cdot\dfrac1{p-2}$ 
+ 				\item $f(t)=te^t+t^2\sin3t\longleftrightarrow\dfrac{1}{(p-1)^2}+\dfrac{\dx{}^2}{\dx{p}^2}\left(\dfrac{3}{p^2+9}\right)=\dfrac{1}{(p-1)^2}+18\cdot\dfrac{p^2-3}{(p^2+9)^3}$
+ 				\item $f(t)=(t+2)\cos t\longleftrightarrow\dfrac{p^2-1}{(p^2+1)^2}+2\cdot\dfrac{p}{p^2+1}$
+ 				\item $f(t)=e^{2t}\ch t-sh2t=\dfrac12\left(e^{3t}+e^t\right)-\sh2t \longleftrightarrow\dfrac12\left(\dfrac1{p-3}+\dfrac1{p-1}\right)-\dfrac{2}{p^2-4}$
+ 			\end{enumerate}
+ 			\item \begin{enumerate}
+ 				\item $F(p)=\dfrac{6}{p^3-8}=\dfrac{6}{(p-2)(p^2+2p+4)}=\dfrac12\left(-\dfrac{p+1+3}{(p+1)^2+3}+\dfrac1{p-2}\right)\longleftrightarrow\\\longleftrightarrow \dfrac12\left(-e^{-t}\cos\sqrt3t-\sqrt3e^{-t}\sin\sqrt3t+e^2t\right)$
+ 				\item $F(p)=\dfrac{p}{(p+1)(p^2+p+1)}=\dfrac{p+1}{p^2+p+1}-\dfrac{1}{p+1}=\dfrac{p+\frac12+\frac12}{\left(p+\frac12\right)^2+\dfrac34}-\dfrac{1}{p+1}\longleftrightarrow\\\longleftrightarrow-e^t+e^{-\frac t2}\left(\cos\dfrac{\sqrt3}2t+\dfrac{\sqrt3}3\sin\dfrac{\sqrt3}2t\right)$
+ 				\item $F(p)=\dfrac{3p+2}{(p+1)(p^2+4p+5)}=\dfrac12\left(\dfrac{p+2+7}{(p+2)^2+1}-\dfrac1{p+1}\right)\longleftrightarrow\dfrac12\left(e^{-2t}\cos t+\right.\\\left.+7e^{-2t}\sin t-e^{-t}\right)$
+ 			\end{enumerate}
+ 			\item $y''+y'=t^2+2t,\tab y(0)=0,\tab y'(0)=-2\\y'\longleftrightarrow pY(p)-y(0)=pY(p),\tab y''\longleftrightarrow p^2Y(p)-py(0)-p'(0)=p^2Y(p)+2,\\t^2+2t\longleftrightarrow\dfrac{2}{p^3}+\dfrac{2}{p^2},\tab p^2Y(p)+2+pY(p)=\dfrac{2}{p^3}+\dfrac{2}{p^2},\tab Y(p)=\left(\dfrac{2}{p^3}+\dfrac{2}{p^2}-2\right)\cdot\dfrac1{p^2+p}\\Y(p)=-2\left(\dfrac1{p^2}-\dfrac1{p^3}-\dfrac1{p+1}+\dfrac1{p}-\dfrac1{p^2}+\dfrac1{p^3}-\dfrac1{p^4}\right)=2\left(\dfrac1{p^4}+\dfrac1{p+1}-\dfrac1{p} \right)\longleftrightarrow y(t)=\\=2\left(e^{-t}-1+\dfrac{t^3}{6}\right)$
+ 			\item $\left\{\begin{array}{l}
+ 				\dot{x}+y=0\\\dot{y}+x=0
+ 			\end{array} \right.,\tab x(0)=1,\tab y(0)=-1\\\begin{array}{lll}
+ 				x(t)\leftrightarrow X(p)\tab&\dot{x}(t)\leftrightarrow pX(p)-x(0)=pX(p)-1\tab&Y(p)=1-pX(p)\\
+ 				y(t)\leftrightarrow Y(p)&\dot{y}(t)\leftrightarrow pY(p)-y(0)=pY(p)+1&X(p)=-1-pY(p)
+ 			\end{array}\\Y(p)=1-pX(p),\tab p-p^2X(p)+X(p)+1=0,\tab X(p)(1-p^2)=-p-1,\\X(p)=\dfrac{p+1}{p^2-1}=\dfrac1{p-1}\longleftrightarrow e^t,\tab Y(p)=-\dfrac{1}{p-1}\longleftrightarrow-e^t$
+ 			\item $y(x)=x-\dint\limits_0^xe^{x-t}y(t)\dx{t}\\f(x-t)=e^{x-t},\tab f(x)=e^x,\tab y(x)\leftrightarrow Y(p)=\dfrac1{p^2}-\dfrac{Y(p)}{p-1},\tab Y(p)\left(1-\dfrac1{p+1}\right)=\dfrac1{p^2},\\Y(p)=\dfrac{p-1}{p^3}=\dfrac1{p^2}-\dfrac1{p^3}\longleftrightarrow x-\dfrac12x^2$
+ 		\end{enumerate}
+  	\end{justify}
+\end{document}
